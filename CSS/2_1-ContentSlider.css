@@ -1,0 +1,538 @@
+.SliderZone{
+
+    display: flex;
+
+}
+
+
+.slider-content {
+
+    /* background-color: aqua; */
+    
+    min-height: 470px;
+    max-height: 470px;
+
+    width: 100%;
+
+    min-width: 500px;
+
+    position: relative;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    overflow: hidden;
+
+}
+
+
+
+
+.overflow-slider{
+
+    width: 100%;
+
+    position: relative;
+    
+    /* transform-origin: center; */
+
+    display: flex;
+
+    align-items: center;
+
+    flex-direction: row; 
+
+    transition: transform 0.5s ease;
+
+    margin: 0;
+    padding: 0;
+    
+}
+
+
+.slider-item {
+
+    /* background-color: var(--main_color); */
+
+    flex: 0 0 100%;/* Cada item ocupa el 100% del ancho del contenedor */
+
+    width: 100%;
+
+    height: 400px;
+
+    padding: 5px 50px;
+
+
+}
+
+
+
+.slider-item:nth-child(1),
+.slider-item:nth-child(4)  {
+
+    display: flex;
+    justify-content: space-between;
+
+    gap: 15px;
+}
+
+
+.contenido-slider-item {
+
+    background-color: var(--five-color);
+    width: 100%;
+    height: 100%;
+
+    border-radius: 20px;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.contenido-slider-item:hover {
+
+    scale: 1.02;
+    transition: 0.3s;
+    z-index: 1;
+}
+
+.slider-item:nth-child(1) .contenido-slider-item, 
+.slider-item:nth-child(4) .contenido-slider-item {
+
+    background-color: var(--second_color);
+    width: calc(80% - 25px);
+
+}
+
+
+.SUB-contenido-slider-item{
+
+    background-color: var(--five-color);
+    width: calc(30% - 10px);
+    height: 100%;
+
+    border-radius: 20px;
+
+    position: relative;
+    overflow: hidden;
+
+    transition: 0.3s;
+
+
+}
+
+.SUB-contenido-slider-item:hover {
+
+    scale: 1.02;
+    z-index: 1;
+}
+
+
+
+
+/* --------------------------------------------------------- */
+
+
+.sliderInfo {
+
+    
+    width: 100%;
+    max-width: 300px;
+
+    height: 100%;
+
+   
+    padding: 20px 20px;
+
+    margin-bottom: 50px;
+
+    /* background-color: blueviolet; */
+
+    overflow: hidden;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.818) 30%, rgba(0, 0, 0, 0) 100%)
+
+
+}
+
+
+.logo--manga {
+
+    width:100%;
+
+    z-index: 100;
+
+}
+
+.logo--manga img {
+    width: 100%;
+    height: auto;
+}
+
+.contenido-slider-item:hover .logo--manga img {
+
+    scale: 1.1;
+    transition: 0.5s;
+}
+
+.demografia-manga{
+    margin: 0 auto;
+
+}
+
+.demografia{
+
+
+    padding: 3px 10px;
+    border-radius: 50px;
+    font-weight: bold;
+    display: inline-block;
+
+}
+
+.demografia:hover {
+
+    scale: 1.12;
+    transition: 0.3s;
+}
+
+.shonen {
+
+    background-color: rgb(255, 59, 59);
+}
+
+.shojo {
+
+    background-color: rgb(255, 123, 167);
+}
+
+
+
+
+/* -------------------------------------SLIDERS------------------------------------------ */
+
+.slider-item:nth-child(1) .contenido-slider-item {
+
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+    url(../assets/img/carrousel-items/sailorMoon/itemSailor.png);
+
+    background-size: cover;
+    background-position: center;
+
+}
+
+.background-png {
+
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 0;
+}
+
+.background-png img {
+
+    height: 100%;
+}
+
+.contenido-slider-item:hover .background-png img {
+
+    scale: 1.07;
+    transition: 0.3s;
+}
+
+.slider-item:nth-child(1) .SUB-contenido-slider-item {
+
+    background-image: url(../assets/img/carrousel-items/chainsaw/chainsawmanItem.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.slider-item:nth-child(4) .SUB-contenido-slider-item {
+
+    background-image: url(../assets/img/carrousel-items/slamDunk/itemSlamdunk.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.SUB-slider-manga-info {
+
+    width: 100%;
+
+    height: 50%;
+
+    position: absolute;
+    bottom: 0;
+
+    background-image: linear-gradient(360deg, rgba(0,0,0,0.8083566190147934) 47%, rgba(0,0,0,0.029645134420955843) 95%);
+
+    display: flex;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 10px;
+
+}
+
+.SUB-slider-logo img{
+
+    width: 100%;
+    height: auto;
+
+}
+
+.SUB-contenido-slider-item:hover .SUB-slider-logo{
+
+    scale: 1.07;
+    transition: 0.3s;
+}
+
+
+
+.slider-item:nth-child(2) .contenido-slider-item {
+
+    background-image: url(../assets/img/carrousel-items/dragonBall/itemDragonball.png);
+
+    background-size: cover;
+    background-position: center;
+}
+
+
+.slider-item:nth-child(3) .contenido-slider-item {
+
+    background-image: url(../assets/img/carrousel-items/stoneOcean/itemStoneOcean.png);
+
+    background-size: cover;
+    background-position: center;
+}
+
+
+
+.slider-item:nth-child(4) .contenido-slider-item {
+
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+    url(../assets/img/carrousel-items/onePiece/itemOnePiece.png);
+
+    background-size: cover;
+
+}
+
+
+
+.slider-item:nth-child(5) .contenido-slider-item {
+
+    background-image: url(../assets/img/carrousel-items/bokuNoHero/item-bnh.png);
+
+    background-size: cover;
+
+}
+
+
+
+
+
+/* FLECHAS-------------------------------- */
+
+.slider-arrow {
+    position: absolute;
+    top: 10%;
+    transform: translateY(-50%);
+    font-size: 30px;
+    color: var(--five-color);
+    cursor: pointer;
+    z-index: 10;
+    position: absolute;
+    top: 50%;
+}
+
+.slider-arrow:hover {
+
+    scale: 1.1;
+    transition: 0.2s;
+}
+
+.slider-arrow.prev {
+    left: 10px;
+    height: 35px;
+}
+
+.slider-arrow.next {
+    right: 10px;
+    height: 35px;
+}
+
+.slider-arrow.prev img,
+.slider-arrow.next img {
+
+    height: 100%;
+}
+
+/* PUNTOS-------------------------------- */
+
+.slider-indicators {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px; /* Espacio entre dots */
+    margin-top: 20px;
+    position: absolute;
+    bottom: 0;
+    z-index: 3; /* Para que estén sobre el degradado */
+    padding: 5px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--fourth_color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    opacity: 0.5;
+}
+
+/* Dot activo */
+.dot.active {
+    opacity: 1;
+    background-color: var(--second_color);
+    border: var(--fourth_color) solid 2px;
+    transform: scale(1.2);
+}
+
+.dot:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+
+
+
+/* SIDE-------------------------------- */
+
+.side-content {
+
+    height: auto;
+    width:30%;
+    padding: 20px 55px 20px 0;
+    position: relative;
+}
+
+.newContent{
+
+    background-color: var(--five-color);
+
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    
+    background-image: url("../assets/img/carrousel-items/DandaDan/dandadan.png");
+    background-size: cover;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.newContent:hover {
+
+    scale: 1.04;
+    transition: 0.5s;
+
+    box-shadow: 5px 5px var(--second_color);
+}
+
+.newContent .newMark {
+
+    font-size: 1.2rem;
+
+}
+
+.newContent .newTittle{
+
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 10px;
+
+    background-color: var(--second_color);
+}
+
+.newContent:hover .newTittle {
+
+    scale: 1.1;
+    transition: 0.5s;
+}
+
+.newInfo {
+
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 5px;
+    padding-bottom: 10px;
+    
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.818) 60%, rgba(0, 0, 0, 0) 75%)
+}
+
+.newInfo img{
+
+    width: 80%;
+    padding: 5px;
+}
+
+.newInfo p{
+
+    padding: 0;
+    text-align: center;
+}
+
+.newContent:hover .newInfo img {
+
+    scale: 1.1;
+    transition: 0.5s;
+}
+
+.capiLeyendo a {
+    position: absolute;
+    height: 150px;
+    z-index: 100;
+
+    bottom: -20px;
+    right: -30px;
+
+    filter: drop-shadow(3px 3px var(--second_color));
+}
+
+.capiLeyendo img{
+
+    display: inline-block;
+    height: 100%;
+}
+
+.capiLeyendo img:hover {
+
+    scale: 1.1;
+    transition: 0.3s;
+}

@@ -1,0 +1,7 @@
+.sidebar {
+
+    grid-area: sidebar;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    background-color: var(--second_color);
+}

@@ -1,0 +1,347 @@
+.header {
+
+    grid-area: header;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    background-color: var(--fourth_color);
+    position: relative;
+}
+
+
+.headerContent{
+
+    /* background: var(--gradiente_1); */
+
+        /*FLEXBOX*/
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 20px;
+    padding: 5px 30px;
+}
+
+
+.Headeco {
+    width: 100%;
+    height: 5px;
+    background-color: var(--second_color);
+    position: absolute;
+    bottom: 0;
+}
+
+/* ---------------------------------------- LOGO ---------------------------------------- */
+
+.img-logo{
+
+    display: inline-block;
+    position: relative;
+    padding-left: 20px;
+    height: 120px;
+    cursor: pointer;
+}
+
+.img-logo:hover{
+
+    scale: 1.15;
+    transition: 0.5s;
+}
+
+
+
+/* ---------------------------------------- MENU ---------------------------------------- */
+
+
+.menu-content {
+
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 90px;
+    
+}
+
+.menu-link {
+
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 12px;
+    color: var(--five_color);
+    transition: 0.3s;
+}
+
+.menu-link:hover {
+
+    scale: 1.1;
+    color: var(--second_color);
+
+}
+
+.icon-link {
+
+    font-size: 20px;
+    margin-right: 4px;
+    font-weight: lighter;
+}
+
+
+
+
+/* ---------------------------------------- USER ---------------------------------------- */
+
+.user-content {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+
+}
+
+.user-perfil i {
+    font-weight: lighter;
+}
+
+.userSection {
+
+    display: flex;
+    position: relative;
+}
+
+.login-button {
+
+    cursor: pointer;
+}
+
+.user-perfil{
+
+    height: 40px;
+    width: 40px;
+    background-color: var(--second_color);
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 5px;
+}
+
+.user-perfil:hover{
+
+    scale: 1.1;
+    padding-bottom: 3px;
+    transition: 0.3s;
+}
+
+.menu-login {
+
+    display: none;
+}
+
+
+.login-link {
+
+    color: var(--five_color);
+    font-weight: bold;
+    margin: 5px;
+}
+
+.login-text a:hover {
+
+    color: var(--second_color);
+    scale: 1.1;
+    transition: 0.3s;
+}
+
+
+.menu-login {
+    display: none;
+    position: absolute;
+    right: 100%;
+    top: 0;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 5px 10px;
+    margin-right: 10px;
+    width: 120px;
+}
+
+.menu-login.menu-visible {
+    display: block;
+}
+
+
+/* ---------------------------------------- CONFIG ---------------------------------------- */
+
+
+    .config-icon-container {
+        height: 40px;
+        width: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    .config-icon {
+        color: #333;
+        font-size: 30px;
+        transition: transform 1s; 
+    }
+
+    .config-icon:hover {
+        transform: rotate(360deg); 
+    }
+
+/* ---------------------------------------- SEARCH ---------------------------------------- */
+
+.buscador-content{
+
+    padding: 0 10px;
+
+    gap: 15px;
+    /* o margin left */
+
+    flex: 0 1 300px;
+
+}
+
+
+.buscador-content form {
+
+
+    position: relative;
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    padding-bottom: 10px;
+}
+
+.buscador-content form::after {
+
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: var(--second_color);
+    border-radius: 50px;
+
+}
+
+
+.barra-busqueda input[type=text]{
+
+    height: 30px;
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+
+    background-color: transparent;
+    /* background-image: url(../assets/img/page-elements/silueta.png);
+    background-size: 50px 50px;
+    background-repeat: no-repeat; */
+    
+    color: var(--five_color);
+
+    border: none;
+    outline: none;
+    font-size: 1rem;
+
+    margin-left: 10px;
+
+}
+
+
+.barra-busqueda .search{ 
+    /* boton */
+
+    min-width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+    background-color: var(--second_color);
+    border-radius: 50%;
+    outline: none;
+    border: none;
+
+    cursor: pointer;
+
+    margin-right: 3px;
+
+    margin-right: 10px;
+
+}
+
+
+.barra-busqueda .search i{
+
+    color: var(--five_color);
+    font-size: auto;
+    font-size: 15px;
+}
+
+.barra-busqueda .search:hover {
+    
+    scale: 1.1;
+    transition: 0.3s;
+}
+
+
+
+
+/* ---------------------------------------- MENU ICON ---------------------------------------- */
+
+.icon-open-close {
+
+    width: 30px;
+    height: 30px;
+
+    background-image: url(../assets/icons/menu.svg);
+
+
+
+}
+
+.menu-icon {
+
+    display: none;
+
+}
+
+
+
+
+/* ---------------------------------------- MEDIA QUERIES ---------------------------------------- */
+
+@media (max-width:1300px) {
+
+
+
+    .menu{
+
+        display: none;
+     
+    }
+
+    .menu-icon {
+
+        display: inline-block;
+        
+    }
+
+    .buscador-content{
+
+
+        display: none;
+    
+    }
+}
