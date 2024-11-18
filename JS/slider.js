@@ -5,15 +5,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const dots = document.querySelectorAll('.dot');
     dots[0].classList.add('active');
 
-    document.querySelector('.prev').addEventListener('click', () => {
-        navigate(-1);
-        resetSlide();
-    });
+    // document.querySelector('.prev').addEventListener('click', () => {
+    //     navigate(-1);
+    //     resetSlide();
+    // });
 
-    document.querySelector('.next').addEventListener('click', () => {
-        navigate(1);
-        resetSlide();
-    });
+    // document.querySelector('.next').addEventListener('click', () => {
+    //     navigate(1);
+    //     resetSlide();
+    // });
 
     document.querySelector
 
@@ -60,12 +60,12 @@ indicadores();
 function startSlideInterval() {
     slideInterval = setInterval(() => {
         navigate(1);
-    }, 9000);
+    }, 7000);
 }
 
 function resetSlide() {
     clearInterval(slideInterval);
     slideInterval = setInterval(() => {
         navigate(1);
-    }, 9000);
+    }, 7000);
 };

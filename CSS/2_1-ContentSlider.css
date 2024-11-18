@@ -1,157 +1,103 @@
-.SliderZone{
-
-    display: flex;
-
-}
-
 
 .slider-content {
 
-    /* background-color: aqua; */
-    
-    min-height: 470px;
-    max-height: 470px;
-
     width: 100%;
 
-    min-width: 500px;
-
-    position: relative;
-
     display: flex;
-
-    justify-content: center;
-
-    align-items: center;
+    
+    flex-direction: column;
 
     overflow: hidden;
 
 }
 
 
-
-
 .overflow-slider{
 
-    width: 100%;
+    height: 400px;
 
-    position: relative;
-    
-    /* transform-origin: center; */
+    width: 100%;
 
     display: flex;
 
     align-items: center;
 
     flex-direction: row; 
-
+    
     transition: transform 0.5s ease;
-
-    margin: 0;
-    padding: 0;
     
 }
 
 
 .slider-item {
 
-    /* background-color: var(--main_color); */
+    flex: 0 0 100%; /* Cada item ocupa el 100% del ancho del contenedor */
 
-    flex: 0 0 100%;/* Cada item ocupa el 100% del ancho del contenedor */
+    height: 100%;
 
-    width: 100%;
+    text-align: center;
 
-    height: 400px;
+    overflow: hidden;
+    
 
-    padding: 5px 50px;
-
-
-}
-
-
-
-.slider-item:nth-child(1),
-.slider-item:nth-child(4)  {
-
-    display: flex;
-    justify-content: space-between;
-
-    gap: 15px;
 }
 
 
 .contenido-slider-item {
-
-    background-color: var(--five-color);
+    
     width: 100%;
+
     height: 100%;
 
-    border-radius: 20px;
-
     position: relative;
-    overflow: hidden;
+
+    max-width: 1000px;
+
+
 }
 
 .contenido-slider-item:hover {
 
-    scale: 1.02;
     transition: 0.3s;
     z-index: 1;
 }
 
-.slider-item:nth-child(1) .contenido-slider-item, 
-.slider-item:nth-child(4) .contenido-slider-item {
 
-    background-color: var(--second_color);
-    width: calc(80% - 25px);
+/* ELEMENTOS GENERALES DE SLIDERS-------------------------- */
 
+
+.background-png {
+
+    height: 370px;
+
+    position: absolute;
+
+    right: 0;
+
+    bottom: 0;
+
+    z-index: 100;
 }
 
+.background-png img {
 
-.SUB-contenido-slider-item{
-
-    background-color: var(--five-color);
-    width: calc(30% - 10px);
     height: 100%;
+}
 
-    border-radius: 20px;
+.contenido-slider-item:hover .background-png img {
 
-    position: relative;
-    overflow: hidden;
-
+    scale: 1.07;
     transition: 0.3s;
-
-
 }
-
-.SUB-contenido-slider-item:hover {
-
-    scale: 1.02;
-    z-index: 1;
-}
-
-
-
-
-/* --------------------------------------------------------- */
-
 
 .sliderInfo {
 
     
     width: 100%;
-    max-width: 300px;
+
+    max-width: 400px;
 
     height: 100%;
-
-   
-    padding: 20px 20px;
-
-    margin-bottom: 50px;
-
-    /* background-color: blueviolet; */
-
-    overflow: hidden;
 
     display: flex;
 
@@ -161,11 +107,9 @@
 
     gap: 10px;
 
-    background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.818) 30%, rgba(0, 0, 0, 0) 100%)
-
+    /* background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.818) 30%, rgba(0, 0, 0, 0) 100%); */
 
 }
-
 
 .logo--manga {
 
@@ -188,6 +132,7 @@
 
 .demografia-manga{
     margin: 0 auto;
+    z-index: 100;
 
 }
 
@@ -205,6 +150,7 @@
 
     scale: 1.12;
     transition: 0.3s;
+    
 }
 
 .shonen {
@@ -219,166 +165,114 @@
 
 
 
+/* SLIDERS------------------------------------------ */
 
-/* -------------------------------------SLIDERS------------------------------------------ */
+/* #1 SAILOR MOON */
 
-.slider-item:nth-child(1) .contenido-slider-item {
+.slider-item:nth-child(1) {
 
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-    url(../assets/img/carrousel-items/sailorMoon/itemSailor.png);
-
+    background-image: url("../assets/img/carrousel-items/sailorMoon/tokio.png");
     background-size: cover;
-    background-position: center;
-
 }
 
-.background-png {
+.slider-item:nth-child(1) .Luna_back{
 
-    height: 100%;
+    border-radius: 50%;
+    width: 460px;
+    height: 460px;
     position: absolute;
-    bottom: 0;
     right: 0;
-    z-index: 0;
-}
+    top: 20px;
+    background: white;
 
-.background-png img {
-
-    height: 100%;
-}
-
-.contenido-slider-item:hover .background-png img {
-
-    scale: 1.07;
-    transition: 0.3s;
-}
-
-.slider-item:nth-child(1) .SUB-contenido-slider-item {
-
-    background-image: url(../assets/img/carrousel-items/chainsaw/chainsawmanItem.png);
-    background-size: cover;
+    background-image: url("../assets/img/carrousel-items/sailorMoon/luna.png");
+    background-size: 90%;
     background-position: center;
+    background-repeat: no-repeat;
+
+    z-index: 2;
+
 }
 
-.slider-item:nth-child(4) .SUB-contenido-slider-item {
+/* #2 DRAGON BALL */
 
-    background-image: url(../assets/img/carrousel-items/slamDunk/itemSlamdunk.png);
+.slider-item:nth-child(2) {
+
+    background-image: url("../assets/img/carrousel-items/dragonBall/fondo.png");
     background-size: cover;
-    background-position: center;
 }
 
-.SUB-slider-manga-info {
+.slider-item:nth-child(2) .background-png {
 
-    width: 100%;
-
-    height: 50%;
-
-    position: absolute;
-    bottom: 0;
-
-    background-image: linear-gradient(360deg, rgba(0,0,0,0.8083566190147934) 47%, rgba(0,0,0,0.029645134420955843) 95%);
-
-    display: flex;
-
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    padding: 10px;
-
+    height: 420px;
+    right: 100px;
 }
 
-.SUB-slider-logo img{
+.slider-item:nth-child(2) .contenido-slider-item:hover .background-png {
 
-    width: 100%;
-    height: auto;
-
-}
-
-.SUB-contenido-slider-item:hover .SUB-slider-logo{
-
-    scale: 1.07;
-    transition: 0.3s;
+    scale: 1.1;
+    transition: 0.5s;
 }
 
 
+/* #3 JOJO STONE OCEAN */
 
-.slider-item:nth-child(2) .contenido-slider-item {
-
-    background-image: url(../assets/img/carrousel-items/dragonBall/itemDragonball.png);
-
-    background-size: cover;
-    background-position: center;
+.slider-item:nth-child(3) {
+    
+    background: linear-gradient(90deg, rgba(0,130,197,1) 50%, rgba(1,142,213,1) 51%);
 }
-
 
 .slider-item:nth-child(3) .contenido-slider-item {
 
     background-image: url(../assets/img/carrousel-items/stoneOcean/itemStoneOcean.png);
-
-    background-size: cover;
+    background-size: 70%;
+    background-repeat: no-repeat;
     background-position: center;
 }
 
 
+/* #4 ONE PIECE */
 
-.slider-item:nth-child(4) .contenido-slider-item {
+.slider-item:nth-child(4) {
 
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-    url(../assets/img/carrousel-items/onePiece/itemOnePiece.png);
-
+    background-image: url("../assets/img/carrousel-items/onePiece/fondo.jpg");
     background-size: cover;
-
 }
 
+.slider-item:nth-child(4) .background-png {
 
-
-.slider-item:nth-child(5) .contenido-slider-item {
-
-    background-image: url(../assets/img/carrousel-items/bokuNoHero/item-bnh.png);
-
-    background-size: cover;
-
+    height: 420px;
+    right: 100px;
 }
 
-
-
-
-
-/* FLECHAS-------------------------------- */
-
-.slider-arrow {
-    position: absolute;
-    top: 10%;
-    transform: translateY(-50%);
-    font-size: 30px;
-    color: var(--five-color);
-    cursor: pointer;
-    z-index: 10;
-    position: absolute;
-    top: 50%;
-}
-
-.slider-arrow:hover {
+.slider-item:nth-child(4) .contenido-slider-item:hover .background-png {
 
     scale: 1.1;
-    transition: 0.2s;
+    transition: 0.5s;
 }
 
-.slider-arrow.prev {
-    left: 10px;
-    height: 35px;
+/* #5 BOKU NO HERO */
+
+.slider-item:nth-child(5) {
+
+    background-image: url("../assets/img/carrousel-items/bokuNoHero/fondo.png");
+    background-size: cover;
 }
 
-.slider-arrow.next {
-    right: 10px;
-    height: 35px;
+.slider-item:nth-child(5) .background-png {
+
+    height: 400px;
+    right: 150px;
 }
 
-.slider-arrow.prev img,
-.slider-arrow.next img {
+/* --------------------------------------------------------------------------------------------- */
 
-    height: 100%;
-}
+
+
+
+
+
+
 
 /* PUNTOS-------------------------------- */
 
@@ -387,18 +281,19 @@
     justify-content: center;
     align-items: center;
     gap: 12px; /* Espacio entre dots */
-    margin-top: 20px;
-    position: absolute;
-    bottom: 0;
-    z-index: 3; /* Para que estén sobre el degradado */
-    padding: 5px;
+    z-index: 200; /* Para que estén sobre el degradado */
+    padding: 10px;
+
+    width: 100%;
+
+    background-color: var(--main_color);
 }
 
 .dot {
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background-color: var(--fourth_color);
+    background-color: black;
     cursor: pointer;
     transition: all 0.3s ease;
     position: relative;
@@ -419,101 +314,7 @@
 }
 
 
-
-
-/* SIDE-------------------------------- */
-
-.side-content {
-
-    height: auto;
-    width:30%;
-    padding: 20px 55px 20px 0;
-    position: relative;
-}
-
-.newContent{
-
-    background-color: var(--five-color);
-
-    height: 100%;
-    width: 100%;
-    border-radius: 10px;
-    
-    background-image: url("../assets/img/carrousel-items/DandaDan/dandadan.png");
-    background-size: cover;
-
-    position: relative;
-    overflow: hidden;
-}
-
-.newContent:hover {
-
-    scale: 1.04;
-    transition: 0.5s;
-
-    box-shadow: 5px 5px var(--second_color);
-}
-
-.newContent .newMark {
-
-    font-size: 1.2rem;
-
-}
-
-.newContent .newTittle{
-
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    margin: 10px;
-
-    background-color: var(--second_color);
-}
-
-.newContent:hover .newTittle {
-
-    scale: 1.1;
-    transition: 0.5s;
-}
-
-.newInfo {
-
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 80%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 5px;
-    padding-bottom: 10px;
-    
-    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.818) 60%, rgba(0, 0, 0, 0) 75%)
-}
-
-.newInfo img{
-
-    width: 80%;
-    padding: 5px;
-}
-
-.newInfo p{
-
-    padding: 0;
-    text-align: center;
-}
-
-.newContent:hover .newInfo img {
-
-    scale: 1.1;
-    transition: 0.5s;
-}
-
+/*----------------------------------------------*/
 .capiLeyendo a {
     position: absolute;
     height: 150px;

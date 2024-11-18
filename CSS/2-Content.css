@@ -3,6 +3,7 @@
 @import url(2_1-ContentMangas.css);
 
 .content{
+
     grid-area: content;
     overflow-x: hidden;
 }
