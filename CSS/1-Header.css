@@ -43,7 +43,7 @@
 .img-logo:hover{
 
     scale: 1.15;
-    transition: 0.5s;
+    transition: 0.3s;
 }
 
 
@@ -89,15 +89,12 @@
 
 /* ---------------------------------------- USER ---------------------------------------- */
 
+
 .user-content {
+
     display: flex;
     gap: 20px;
     align-items: center;
-
-}
-
-.user-perfil i {
-    font-weight: lighter;
 }
 
 .userSection {
@@ -106,12 +103,34 @@
     position: relative;
 }
 
-.login-button {
 
-    cursor: pointer;
+/* Ocultar el checkbox pero mantenerlo funcional */
+.login-checkbox {
+    display: none;
+}
+
+.close-icon {
+    display: none;
+}
+
+.user-icon {
+    display: block;
+}
+
+/* Cuando el checkbox está marcado, mostrar la X y ocultar el usuario */
+/* Mostrar el menú cuando el checkbox está marcado */
+.userSection:has(.login-checkbox:checked) .close-icon,
+.userSection:has(.login-checkbox:checked) .menu-login {
+    display: block;
+}
+
+.userSection:has(.login-checkbox:checked) .user-icon {
+    display: none;
 }
 
 .user-perfil{
+
+    cursor: pointer;
 
     height: 40px;
     width: 40px;
@@ -123,7 +142,6 @@
     align-items: center;
     justify-content: center;
 
-    margin-bottom: 5px;
 }
 
 .user-perfil:hover{
@@ -133,12 +151,6 @@
     transition: 0.3s;
 }
 
-.menu-login {
-
-    display: none;
-}
-
-
 .login-link {
 
     color: var(--five_color);
@@ -146,15 +158,15 @@
     margin: 5px;
 }
 
-.login-text a:hover {
+.login-link:hover {
 
     color: var(--second_color);
     scale: 1.1;
     transition: 0.3s;
 }
 
-
 .menu-login {
+
     display: none;
     position: absolute;
     right: 100%;
@@ -167,32 +179,31 @@
     width: 120px;
 }
 
-.menu-login.menu-visible {
+/* .menu-login.menu-visible {
     display: block;
-}
-
+} */
 
 /* ---------------------------------------- CONFIG ---------------------------------------- */
 
 
-    .config-icon-container {
-        height: 40px;
-        width: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-    }
+.config-icon-container {
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
 
-    .config-icon {
-        color: #333;
-        font-size: 30px;
-        transition: transform 1s; 
-    }
+.config-icon {
+    color: #333;
+    font-size: 30px;
+    transition: transform 1s; 
+}
 
-    .config-icon:hover {
-        transform: rotate(360deg); 
-    }
+.config-icon:hover {
+    transform: rotate(360deg); 
+}
 
 /* ---------------------------------------- SEARCH ---------------------------------------- */
 
