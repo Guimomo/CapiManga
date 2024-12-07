@@ -3,7 +3,7 @@
     display: grid;
     padding: 30px 20px;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-auto-rows: 400px;
+    grid-template-rows: auto 1fr;
     gap: 10px;
     overflow-x: hidden;
     overflow-y: hidden;
@@ -11,5 +11,93 @@
 
 .GallItem {
 
-    background: var(--fourth_color);
+    /* background: var(--fourth_color); */
+    overflow: hidden;
+}
+
+.GallLink {
+
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.MangaCover {
+
+    background-color: var(--second_color);
+    width: 230px;
+    min-height: 300px;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.manga-logo {
+    width: 200px;
+    margin-bottom: 5px;
+    filter: drop-shadow(0 0 10px var(--five_color));
+}
+
+.MangaInfo {
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.MangaInfo hr{
+    border: 1px solid var(--second_color);
+    margin: 12px 0;
+}
+
+.MangaTittle {
+    margin-left: 0;
+    text-transform:none;
+    /* white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px; */
+}
+
+
+
+/* Manga Covers ---------------------------- */
+
+.GallItem:nth-child(1) .MangaCover {
+
+    background-image: url("../assets/img/manga-covers/DandaDan/DandaDan.png");
+    background-size: cover;
+}
+
+.GallItem:nth-child(2) .MangaCover {
+
+    background-image: url("../assets/img/manga-covers/SailorMoon/sailorMoon.jpg");
+    background-size: cover;
+}
+
+.GallItem:nth-child(3) .MangaCover {
+
+    background-image: url("../assets/img/manga-covers/BNH/BNH.png");
+    background-size: cover;
+}
+
+.GallItem:nth-child(4) .MangaCover {
+
+    background-image: url("../assets/img/manga-covers/StoneOcean/StoneOcean.png");
+    background-size: cover;
+}
+
+.GallItem:nth-child(5) .MangaCover {
+
+    background-image: url("../assets/img/manga-covers/slamDunk/itemSlamdunk.png");
+    background-size: cover;
 }
