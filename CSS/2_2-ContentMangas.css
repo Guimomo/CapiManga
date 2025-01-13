@@ -1,42 +1,57 @@
-/* .Biblio {
-    margin: auto 20px;
-} */
+.Biblio {
+    margin: 0 auto;
+
+}
 
 .GallContent {
 
     display: grid;
-    padding: 30px 20px;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-template-rows: auto 1fr;
     gap: 5px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-rows: auto 1fr;
     overflow-x: hidden;
     overflow-y: hidden;
+
+    padding: 10px 20px;
 }
 
 .GallItem {
 
     /* background: var(--fourth_color); */
     overflow: hidden;
+    width: 100%;
 }
 
 .GallLink {
 
     width: 100%;
     height: 100%;
-    padding: 15px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    padding: 10px;
+    border-radius: 15px;
+    transition: ease 0.3s;
+}
+
+.MangaContent{
+
+    width: 100%;
+    max-width: 215px;
+    display: flex;
+    flex-direction: column;
     gap: 10px;
 }
 
+.GallLink:hover {
+    background-image: linear-gradient(0deg, rgba(255, 64, 0, 0.219) 30%, rgba(0, 0, 0, 0) 90%);
+}
 
 .MangaCover {
 
     background-color: var(--second_color);
     width: 100%;
-    min-height: 350px;
-    max-width: 250px;
+    height: 320px;
     border-radius: 10px;
     position: relative;
     overflow: hidden;
@@ -61,18 +76,30 @@
     z-index: 1; /* Debajo del contenido principal */
 }
 
-.MangaCover:hover::before {
+.GallItem:hover .MangaCover::before {
     background-color: rgba(0, 0, 0, 0.5); /* Oscurecer solo el fondo */
 }
 
 .manga-logo {
-    width: 200px;
-    margin-bottom: 5px;
-    filter: drop-shadow(0 0 10px var(--five_color));
+    width: 100%;
+    position: absolute;  /* Cambiado a absolute para control total del posicionamiento */
+    bottom: -4px;          /* Asegurar que está pegado al fondo */
+    left: 0;           /* Alinear con el borde izquierdo */
+    right: 0;          /* Alinear con el borde derecho */
+    padding: 20px 10px;    /* Solo padding vertical */
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.612) 50%, rgba(0, 0, 0, 0) 100%);
     transition: ease 0.5s;
+    z-index: 2;  /* Asegurar que está por encima del fondo */
 }
 
-.MangaCover:hover .manga-logo{
+.manga-logo img {
+
+    width: 200px;  /* Mantener el tamaño original del logo */
+    display: block;
+    margin: 0 auto;
+}
+
+.GallItem:hover .manga-logo{
     scale: 1.05;
 }
 
@@ -90,8 +117,7 @@
     max-width: 250px;
     margin: 12px 0;
 }
-
-.manga-logo, 
+ 
 .MangaCover img,
 .MangaCover p,
 .manga-logo {
@@ -133,7 +159,7 @@
     opacity: 0;
 }
 
-.MangaCover:hover .pngCover {
+.GallItem:hover .pngCover {
 
     right: 0;
     opacity: 1;
@@ -190,6 +216,20 @@
 .GallItem:nth-child(8) .MangaCover {
 
     background-image: url("../assets/img/manga-covers/osamaRanking/OsamaCover.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.GallItem:nth-child(9) .MangaCover {
+
+    background-image: url("../assets/img/manga-covers/chainsaw/chainsawmanItem.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.GallItem:nth-child(10) .MangaCover {
+
+    background-image: url("../assets/img/manga-covers/vinland/vinlandSagaCover.png");
     background-size: cover;
     background-position: center;
 }

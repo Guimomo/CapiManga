@@ -12,6 +12,8 @@
 
 html {
     scroll-behavior: smooth;
+    /* min-zoom: 0.7;
+    zoom: 1; */
 }
 
 :root{
@@ -72,6 +74,12 @@ body{
 
 h1{
     font-size: 0.9rem;
+}
+
+h3{
+
+    font-size: 1rem;
+    text-transform: uppercase;
 }
 
 h4{

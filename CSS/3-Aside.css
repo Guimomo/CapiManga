@@ -3,5 +3,5 @@
     grid-area: sidebar;
     overflow-x: hidden;
     overflow-y: hidden;
-    background-color: var(--second_color);
+    border-right: var(--second_color) solid 2px;
 }
