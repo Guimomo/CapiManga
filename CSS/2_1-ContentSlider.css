@@ -1,7 +1,7 @@
 
 .slider-content {
 
-    width: 95%;
+    width: 100%;
 
     display: flex;
     
@@ -9,10 +9,12 @@
 
     overflow: hidden;
 
-    border-radius: 20px;
+    border-radius: 20px 0 0 20px;
 
-    margin: 15px auto;
-    
+    margin: 15px 0 15px 0;
+
+    margin-left: 30px;
+
     position: relative;
 
 }

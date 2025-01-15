@@ -8,3 +8,8 @@
     grid-area: content;
     overflow-x: hidden;
 }
+
+.Biblio {
+    margin: 0 auto;
+    position: relative;
+}

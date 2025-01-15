@@ -1,8 +1,3 @@
-.Biblio {
-    margin: 0 auto;
-
-}
-
 .GallContent {
 
     display: grid;
@@ -44,7 +39,12 @@
 }
 
 .GallLink:hover {
-    background-image: linear-gradient(0deg, rgba(255, 64, 0, 0.219) 30%, rgba(0, 0, 0, 0) 90%);
+    background-image: linear-gradient(0deg, rgba(255, 64, 0, 0.219) 30%, rgba(0, 0, 0, 0) 90%), 
+    url('../assets/img/page-elements/TituloDeHistorias/zoom-comicc.png'), 
+    url('../assets/img/page-elements/silueta.png');
+    background-position: center, right bottom, right bottom;
+    background-repeat: no-repeat;
+    background-size: cover, cover, 80px;
 }
 
 .MangaCover {
@@ -208,7 +208,7 @@
 
 .GallItem:nth-child(7) .MangaCover {
 
-    background-image: url("../assets/img/manga-covers/whitchHatAtelier/WHACover.png");
+    background-image: url("../assets/img/manga-covers/whitchHatAtelier/WHCover.png");
     background-size: cover;
     background-position: center;
 }
