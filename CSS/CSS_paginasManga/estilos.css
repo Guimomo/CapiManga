@@ -1,0 +1,7 @@
+.mangaBackground {
+
+    height: 100vh;
+    background-image: url("../../assets/img/manga-covers/SailorMoon/backgroundpage.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}

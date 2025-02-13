@@ -5,7 +5,8 @@
     overflow-y: hidden;
     background-color: var(--fourth_color);
     position: relative;
-    background-image: url('../assets/img/page-elements/TituloDeHistorias/zoom-comicc.png'), url('../assets/img/page-elements/TituloDeHistorias/zoom-comiccc.png');
+    background-image: url('../assets/img/page-elements/TituloDeHistorias/zoom-comicc.png'),
+    url('../assets/img/page-elements/TituloDeHistorias/zoom-comiccc.png');
     background-repeat: no-repeat;
     background-size: 100px;
     background-position: right center, left center;
