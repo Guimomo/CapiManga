@@ -43,7 +43,7 @@
     height: 350px;
     /* border: white 2px solid; */
     display: flex;
-    gap: 10px;
+    gap: 5px;
     justify-content: space-evenly;
     align-items: center;
     overflow: hidden;
@@ -137,8 +137,6 @@
     .mangaInfo {
     
         width: 100%;
-
-        border-top: var(--five_color) 5px solid;
         border-radius: 0; 
     }
 
