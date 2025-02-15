@@ -56,7 +56,10 @@ body{
 
 @media (max-width:1300px) {
 
-
+    body{
+        grid-template-columns: 1fr;
+        grid-template-rows: 140px 1fr 300px;
+    }
 }
 
 
