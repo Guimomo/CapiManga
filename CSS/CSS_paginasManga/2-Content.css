@@ -38,16 +38,43 @@
     /* background-image: linear-gradient(0deg, rgba(255, 123, 167,1) 60%, var(--five_color) 100%); */
 }
 
+.shojoAutor {
+
+    background-color: rgb(255, 123, 167);
+
+}
+
+.autor {
+
+    padding: 5px 10px;
+    border-radius: 100px;
+    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-autor-demografia {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: auto;
+
+}
+
 .mangaTittle {
     width: 70%;
     height: 350px;
     /* border: white 2px solid; */
     display: flex;
     gap: 5px;
-    justify-content: space-evenly;
     align-items: center;
     overflow: hidden;
     position: relative;
+    z-index: 1;
 }
 
 .mangaInfo {
@@ -119,7 +146,6 @@
 
     .logoManga {
 
-        position: absolute;
         width: 200px;
         bottom: 5px;
     }
@@ -128,11 +154,6 @@
 
         filter: drop-shadow(0 0 5px var(--fourth_color));
     }
-    
-    .pngManga img {
-        height: 100%;
-        position: absolute center;
-    }
 
     .mangaInfo {
     
@@ -140,4 +161,13 @@
         border-radius: 0; 
     }
 
+    .autor a {
+
+        font-size: 0.7rem;
+    }
+
+    .autor {
+
+        padding: 5px;
+    }
 }

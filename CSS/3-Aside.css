@@ -185,9 +185,15 @@
     }
     
     .popuItem {
-        min-width: 280px;
-        width: 280px;
+        min-width: 250px;
+        width: 250px;
         height: 150px;
+
+        background-image: linear-gradient(40deg, rgba(0, 0, 0, 0.293) 0%, rgba(0, 0, 0, 0) 70%),
+        url('../assets/img/page-elements/TituloDeHistorias/zoom-comiccc.png'); /* Imagen y degradado */
+        background-position: center, left;
+        background-repeat: no-repeat;
+        background-size: cover, 150px;
     }
 
     .popuItem:hover {
@@ -220,13 +226,13 @@
     }
     
     .popuList::-webkit-scrollbar-thumb {
-        background-color: var(--second_color);
-        border-radius: 20px;
+        background-color: var(--five_color);
+        border-radius: 100px;
     }
 
     .popuName {
 
-        color: var(--five_color);
+        color: var(--second_color);
     }
 
     .pupuAutor {
@@ -238,4 +244,5 @@
 
         font-size: none;
     }
+
 }
