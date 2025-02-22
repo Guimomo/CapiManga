@@ -75,6 +75,8 @@
 
     max-width: 1000px;
 
+    min-width: 200px;
+
 }
 
 
@@ -85,6 +87,8 @@
 
     height: 370px;
 
+    width: auto;
+
     position: absolute;
 
     right: 0;
@@ -92,12 +96,15 @@
     bottom: 0;
 
     z-index: 100;
+
+    
 }
 
 .background-png img {
 
     height: 100%;
     transition: ease 0.3s;
+
 }
 
 .contenido-slider-item:hover .background-png img {
@@ -268,15 +275,10 @@
 .slider-item:nth-child(4) .background-png {
 
     height: 500px;
-    right: 50px;
+    /* right: 50px; */
     top: 0;
 
     transition: ease 0.5s;
-}
-
-.slider-item:nth-child(4) .contenido-slider-item:hover .background-png {
-
-    scale: 1.1;
 }
 
 /* #5 BOKU NO HERO */
@@ -285,6 +287,7 @@
 
     background-image: url("../assets/img/carrousel-items/bokuNoHero/fondo.png");
     background-size: cover;
+    background-position: center;
 }
 
 .slider-item:nth-child(5) .background-png {
@@ -356,6 +359,227 @@
 .dot:hover {
     transform: scale(1.1);
     opacity: 0.8;
+}
+
+@media (max-width:1000px) {
+
+    .sliderInfo {
+
+        width: 40%;
+    }
+
+    .slider-indicators {
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+    
+        /* width: 100%; */
+    
+        position: absolute;
+        top: 10px;
+        left: 10px;
+    
+        background-color: rgba(255, 255, 255, 0.618);
+        border-radius: 100px;
+    
+        /* background-color: var(--main_color); */
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .background-png{
+
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    .slider-content {
+    
+        display: flex;
+        
+        flex-direction: column;
+    
+        border-radius: 0;
+    
+        margin-left: 0;
+
+        margin: 0 0 15px 0;
+    
+    }
+
+    .slider-indicators {
+    
+        /* width: 100%; */
+    
+        position: absolute;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+    
+        background-color: rgba(255, 255, 255, 0.618);
+        border-radius: 100px;
+    
+        /* background-color: var(--main_color); */
+    }
+
+    .sliderInfo {
+
+    
+        width: 200px;
+    
+        height: auto;
+    
+        justify-content: center;
+    
+        gap: 10px;
+    
+        margin-left: 0;
+
+        position: absolute;
+
+        bottom: 10px;
+
+        left: 50%;
+        transform: translateX(-50%);
+
+        z-index: 100;
+    
+        /* background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.818) 30%, rgba(0, 0, 0, 0) 100%); */
+    
+    }
+
+    /* #1 SAILOR MOON */
+
+.slider-item:nth-child(1) {
+
+    background-image: url("../assets/img/carrousel-items/sailorMoon/tokio.png");
+    background-size: cover;
+}
+
+.slider-item:nth-child(1) .Luna_back{
+
+    bottom: 0; /* Pegado al borde inferior */
+    left: 50%; /* Centrado horizontalmente con respecto al contenedor */
+    transform: translateX(-50%);
+    height: 350px;
+    width: 350px;
+    background: white;
+
+    background-image: url("../assets/img/carrousel-items/sailorMoon/luna.png");
+    background-size: 90%;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    z-index: 2;
+
+}
+
+/* #2 DRAGON BALL */
+
+.slider-item:nth-child(2) {
+
+    background-image: url("../assets/img/carrousel-items/dragonBall/fondo.png");
+    background-size: cover;
+}
+
+.slider-item:nth-child(2) .background-png {
+
+    height: 420px;
+    top: 22px;
+    transition: ease 0.5s;
+}
+
+.slider-item:nth-child(2) .contenido-slider-item:hover .background-png {
+
+    scale: 1.1;
+}
+
+.slider-item:nth-child(2) .background-png-2 {
+
+    height: 400px;
+    position: absolute;
+    right: 220px;
+    top: 150px;
+    
+    transition: ease 0.3s;
+}
+
+.slider-item:nth-child(2) .contenido-slider-item:hover .background-png-2 {
+
+    scale: 1.05;
+}
+
+.slider-item:nth-child(2) .background-png-2 img {
+
+    height: 100%;
+
+}
+
+/* #3 JOJO STONE OCEAN */
+
+.slider-item:nth-child(3) {
+    
+    background: linear-gradient(90deg, rgba(0,130,197,1) 50%, rgba(1,142,213,1) 51%);
+}
+
+.slider-item:nth-child(3) .contenido-slider-item {
+
+    background-image: url(../assets/img/carrousel-items/stoneOcean/itemStoneOcean.png);
+    background-size: cover;
+    background-position: bottom;
+}
+
+
+/* #4 ONE PIECE */
+
+.slider-item:nth-child(4) {
+
+    background-image: url("../assets/img/carrousel-items/onePiece/fondo.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.slider-item:nth-child(4) .background-png {
+
+    height: 500px;
+    /* right: 50px; */
+    top: 0;
+
+    transition: ease 0.5s;
+}
+
+/* #5 BOKU NO HERO */
+
+.slider-item:nth-child(5) {
+
+    background-image: url("../assets/img/carrousel-items/bokuNoHero/fondo.png");
+    background-size: cover;
+}
+
+.slider-item:nth-child(5) .background-png {
+
+    height: 400px;
+}
+
+.slider-item:nth-child(5) .logo--manga {
+
+    padding: 20px;
+}
+
+/* #6 WITCH HAT ATELIER */
+
+.slider-item:nth-child(6) {
+
+    background-image: url("../assets/img/carrousel-items/WhitchHat/witch-hat-atelier-slider.png");
+    background-size: cover;
+    background-position: center;
+}
 }
 
 
