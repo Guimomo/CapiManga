@@ -328,7 +328,8 @@
     /* width: 100%; */
 
     position: absolute;
-    top: 30%;
+    transform: translateY(-50%);
+    top: 50%;
     left: 10px;
 
     background-color: rgba(255, 255, 255, 0.618);
@@ -361,10 +362,6 @@
     opacity: 0.8;
 }
 
-@media (max-width:1000px) {
-
-    
-}
 
 @media (max-width:1000px) {
 
@@ -382,11 +379,12 @@
         padding: 10px;
     
         /* width: 100%; */
-    
-        position: absolute;
-        top: 10px;
-        left: 10px;
-    
+
+        left: 50%;
+        transform: translateX(-50%);
+        top: auto;  /* Esto es clave para evitar conflictos con `top: 50%` del estado normal */
+        bottom: 10px;
+        
         background-color: rgba(255, 255, 255, 0.618);
         border-radius: 100px;
     
@@ -404,6 +402,11 @@
         bottom: 0;
     }
 
+    .logo--manga img {
+        
+        filter: drop-shadow(0 0 10px var(--fourth_color));
+    }
+
     .slider-content {
     
         display: flex;
@@ -414,7 +417,7 @@
     
         margin-left: 0;
 
-        margin: 0 0 15px 0;
+        margin: 0;
     
     }
 
@@ -422,11 +425,13 @@
     
         /* width: 100%; */
     
-        position: absolute;
-        top: 10px;
-        left: 50%;
-        transform: translateX(-50%);
-    
+        flex-direction: column;
+
+        transform: translateX(0);
+        transform: translateY(50%);
+        bottom: 50%;
+        left: 10px;
+        
         background-color: rgba(255, 255, 255, 0.618);
         border-radius: 100px;
     
@@ -461,132 +466,108 @@
 
     /* #1 SAILOR MOON */
 
-.slider-item:nth-child(1) {
+    .slider-item:nth-child(1) {
 
-    background-image: url("../assets/img/carrousel-items/sailorMoon/tokio.png");
-    background-size: cover;
-}
+        background-image: url("../assets/img/carrousel-items/sailorMoon/tokio.png");
+        background-size: cover;
+    }
 
-.slider-item:nth-child(1) .Luna_back{
+    .slider-item:nth-child(1) .Luna_back{
 
-    top: 50px; /* Pegado al borde inferior */
-    left: 50%; /* Centrado horizontalmente con respecto al contenedor */
-    transform: translateX(-50%);
-    height: 350px;
-    width: 350px;
-    background: white;
+        top: 50px; /* Pegado al borde inferior */
+        left: 50%; /* Centrado horizontalmente con respecto al contenedor */
+        transform: translateX(-50%);
+        height: 350px;
+        width: 350px;
+        background: white;
 
-    background-image: url("../assets/img/carrousel-items/sailorMoon/luna.png");
-    background-size: 90%;
-    background-position: center;
-    background-repeat: no-repeat;
+        background-image: url("../assets/img/carrousel-items/sailorMoon/luna.png");
+        background-size: 90%;
+        background-position: center;
+        background-repeat: no-repeat;
 
-    z-index: 2;
+        z-index: 2;
 
-}
+    }
 
-/* #2 DRAGON BALL */
+    /* #2 DRAGON BALL */
 
-.slider-item:nth-child(2) {
+    .slider-item:nth-child(2) {
 
-    background-image: url("../assets/img/carrousel-items/dragonBall/fondo.png");
-    background-size: cover;
-}
+        background-image: url("../assets/img/carrousel-items/dragonBall/fondo.png");
+        background-size: cover;
+    }
 
-.slider-item:nth-child(2) .background-png {
+    .slider-item:nth-child(2) .background-png {
 
-    height: 420px;
-    top: 0;
-    transition: ease 0.5s;
-}
+        height: 420px;
+        top: 0;
+        transition: ease 0.5s;
+    }
 
-.slider-item:nth-child(2) .contenido-slider-item:hover .background-png {
+    .slider-item:nth-child(2) .contenido-slider-item:hover .background-png {    
 
-    scale: 1.1;
-}
+        scale: 1.1;
+    }
 
-.slider-item:nth-child(2) .background-png-2 {
+    .slider-item:nth-child(2) .background-png-2 {    
 
-    display: none;
-}
+        display: none;
+    }
 
-/* #3 JOJO STONE OCEAN */
+    /* #3 JOJO STONE OCEAN */
 
-.slider-item:nth-child(3) {
+    .slider-item:nth-child(3) {    
     
-    background: linear-gradient(90deg, rgba(0,130,197,1) 50%, rgba(1,142,213,1) 51%);
+        background: linear-gradient(90deg, rgba(0,130,197,1) 50%, rgba(1,142,213,1) 51%);
+    }
+
+    .slider-item:nth-child(3) .contenido-slider-item {
+
+        background-image: url(../assets/img/carrousel-items/stoneOcean/itemStoneOceanResponsive.png);
+        background-size: cover;
+        background-position: top;
+    }
+
+
+    /* #4 ONE PIECE */
+
+    .slider-item:nth-child(4) {
+
+        background-image: url("../assets/img/carrousel-items/onePiece/fondo.jpg");
+        background-size: cover;
+        background-position: center;
+    }
+
+    .slider-item:nth-child(4) .background-png {
+
+        height: 500px;
+        /* right: 50px; */
+        top: 0;
+
+        transition: ease 0.5s;
+    }
+
+    /* #5 BOKU NO HERO */
+
+    .slider-item:nth-child(5) .background-png {
+
+        height: 400px;
+        right: 0;
+    }
+
+    .slider-item:nth-child(5) .logo--manga {
+
+        padding: 20px;
+    }
+
+    /* #6 WITCH HAT ATELIER */
+
+    .slider-item:nth-child(6) {    
+
+        background-image: url("../assets/img/carrousel-items/WhitchHat/whcover.jpg");
+        background-size: cover;
+        background-position: center top;
+    }
 }
 
-.slider-item:nth-child(3) .contenido-slider-item {
-
-    background-image: url(../assets/img/carrousel-items/stoneOcean/itemStoneOceanResponsive.png);
-    background-size: cover;
-    background-position: top;
-}
-
-
-/* #4 ONE PIECE */
-
-.slider-item:nth-child(4) {
-
-    background-image: url("../assets/img/carrousel-items/onePiece/fondo.jpg");
-    background-size: cover;
-    background-position: center;
-}
-
-.slider-item:nth-child(4) .background-png {
-
-    height: 500px;
-    /* right: 50px; */
-    top: 0;
-
-    transition: ease 0.5s;
-}
-
-/* #5 BOKU NO HERO */
-
-.slider-item:nth-child(5) .background-png {
-
-    height: 400px;
-    right: 0;
-}
-
-.slider-item:nth-child(5) .logo--manga {
-
-    padding: 20px;
-}
-
-/* #6 WITCH HAT ATELIER */
-
-.slider-item:nth-child(6) {
-
-    background-image: url("../assets/img/carrousel-items/WhitchHat/whcover.jpg");
-    background-size: cover;
-    background-position: center top;
-}
-}
-
-
-/*----------------------------------------------*/
-/* .capiLeyendo a {
-    position: absolute;
-    height: 150px;
-    z-index: 100;
-
-    bottom: -20px;
-    right: -30px;
-
-    filter: drop-shadow(3px 3px var(--second_color));
-}
-
-.capiLeyendo img{
-
-    display: inline-block;
-    height: 100%;
-}
-
-.capiLeyendo img:hover {
-
-    scale: 1.1;
-    transition: 0.3s;
-} */
