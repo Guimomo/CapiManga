@@ -305,9 +305,9 @@
 
 .slider-item:nth-child(6) {
 
-    background-image: url("../assets/img/carrousel-items/WhitchHat/witch-hat-atelier-slider.png");
+    background-image: url("../assets/img/carrousel-items/WhitchHat/whcoverResponsive.png");
     background-size: cover;
-    background-position: center;
+    background-position: right;
 }
 
 /* --------------------------------------------------------------------------------------------- */
@@ -363,6 +363,11 @@
 
 @media (max-width:1000px) {
 
+    
+}
+
+@media (max-width:1000px) {
+
     .sliderInfo {
 
         width: 40%;
@@ -390,7 +395,7 @@
 
 }
 
-@media (max-width: 600px) {
+@media (max-width: 722px) {
 
     .background-png{
 
@@ -464,7 +469,7 @@
 
 .slider-item:nth-child(1) .Luna_back{
 
-    bottom: 0; /* Pegado al borde inferior */
+    top: 50px; /* Pegado al borde inferior */
     left: 50%; /* Centrado horizontalmente con respecto al contenedor */
     transform: translateX(-50%);
     height: 350px;
@@ -491,7 +496,7 @@
 .slider-item:nth-child(2) .background-png {
 
     height: 420px;
-    top: 22px;
+    top: 0;
     transition: ease 0.5s;
 }
 
@@ -502,23 +507,7 @@
 
 .slider-item:nth-child(2) .background-png-2 {
 
-    height: 400px;
-    position: absolute;
-    right: 220px;
-    top: 150px;
-    
-    transition: ease 0.3s;
-}
-
-.slider-item:nth-child(2) .contenido-slider-item:hover .background-png-2 {
-
-    scale: 1.05;
-}
-
-.slider-item:nth-child(2) .background-png-2 img {
-
-    height: 100%;
-
+    display: none;
 }
 
 /* #3 JOJO STONE OCEAN */
@@ -530,9 +519,9 @@
 
 .slider-item:nth-child(3) .contenido-slider-item {
 
-    background-image: url(../assets/img/carrousel-items/stoneOcean/itemStoneOcean.png);
+    background-image: url(../assets/img/carrousel-items/stoneOcean/itemStoneOceanResponsive.png);
     background-size: cover;
-    background-position: bottom;
+    background-position: top;
 }
 
 
@@ -556,15 +545,10 @@
 
 /* #5 BOKU NO HERO */
 
-.slider-item:nth-child(5) {
-
-    background-image: url("../assets/img/carrousel-items/bokuNoHero/fondo.png");
-    background-size: cover;
-}
-
 .slider-item:nth-child(5) .background-png {
 
     height: 400px;
+    right: 0;
 }
 
 .slider-item:nth-child(5) .logo--manga {
@@ -576,9 +560,9 @@
 
 .slider-item:nth-child(6) {
 
-    background-image: url("../assets/img/carrousel-items/WhitchHat/witch-hat-atelier-slider.png");
+    background-image: url("../assets/img/carrousel-items/WhitchHat/whcover.jpg");
     background-size: cover;
-    background-position: center;
+    background-position: center top;
 }
 }
 

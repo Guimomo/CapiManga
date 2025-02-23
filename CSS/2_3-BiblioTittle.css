@@ -10,6 +10,10 @@
     align-items: center;
 
     position: relative;
+
+    background-image: url("/assets/img/page-elements/TituloDeHistorias/zoom-comiccc.png"), url("/assets/img/page-elements/TituloDeHistorias/zoom-comicc.png");
+    background-repeat: no-repeat;
+    background-position: top left, bottom right;
 }
 
 .BiblioMas {
@@ -27,6 +31,7 @@
     justify-content: center; /* Centra verticalmente el contenido */
     margin-left: 90px; /* Añade un margen izquierdo para el texto */
     padding: 20px 140px;
+    z-index: 2;
 }
 
 .BiblioTitle h3{
@@ -49,6 +54,18 @@
     transition: ease 0.3s;
 }
 
+.BiblioTitle p{
+
+    display: none;
+
+}
+
+.link_general_biblio{
+
+    display: none;
+
+}
+
 .BiblioMas button:hover {
     
     scale: 1.1;
@@ -60,20 +77,14 @@
     top: -80%;
 }
 
-.zoomIzqImg{
-
-    position: absolute;
-    left: 0;
-}
-
 .capiLeyendo img{
 
     position: absolute;
     height: 180px;
     top: 0;
     left: 20px;
-    z-index: 1;
 
+    z-index: 2;
 }
 
 .mangaCharacters {
@@ -81,6 +92,7 @@
     width: 100%;
     height: 100%;
     position: relative;
+    z-index: 2;
 }
 
 .mangaCharacters img{
@@ -88,58 +100,53 @@
     position: absolute;
 }
 
-.mangaCharacters img:nth-child(7){
+.mangaCharacters img:nth-child(6){
 
     height: 125px;
     top: -15px;
     right: 380px;
 }
 
-.mangaCharacters img:nth-child(8){
+.mangaCharacters img:nth-child(7){
 
     height: 300px;
     top: -15px;
     right: 240px;
 }
 
-.mangaCharacters img:nth-child(6){
+.mangaCharacters img:nth-child(5){
 
     height: 250px;
     top: 0;
     right: 450px;
 }
 
-.mangaCharacters img:nth-child(5){
+.mangaCharacters img:nth-child(4){
 
     height: 300px;
     top: 0;
     right: 540px;
 }
 
-.mangaCharacters img:nth-child(4){
+.mangaCharacters img:nth-child(3){
 
     height: 600px;
     top: -15px;
     right: 10px;
 }
 
-.mangaCharacters img:nth-child(3){
+.mangaCharacters img:nth-child(2){
 
     height: 200px;
     top: -5px;
     right: 150px;
 }
 
-.mangaCharacters img:nth-child(2){
+.mangaCharacters img:nth-child(1){
 
     height: 270px;
     top: -10px;
     right: 230px;
-}
-
-.mangaCharacters img:nth-child(1){
-
-    right: 0;
 }
 
 .chiGoku {
@@ -167,4 +174,200 @@
 .chiGoku img {
 
     height: 100%;
+}
+
+@media (max-width:500px) {
+
+    .BiblioTitle h3{
+
+        font-size: 16px;
+        width: 150px;
+    }
+
+}
+
+@media (max-width:722px) {
+
+    .BiblioTitle {
+
+        margin: 0 0 5px 0;
+        border-radius: 0;
+    }
+
+    .chiGoku {
+
+        display: none;
+    }
+    
+}
+
+@media (max-width:450px) {
+
+    .BiblioMas {
+
+        padding: 20px 110px;
+        position: relative;
+    }
+
+    .BiblioTitle h3{
+
+        display: none;
+    }
+
+    .BiblioMas button {
+
+        display: none;
+    }
+
+    .BiblioTitle p{
+
+        display: block;
+
+        color: var(--second_color);
+        font-size: 16px;
+        font-weight: bold;
+        
+        width: 300px;
+        height: 100px;
+
+        padding: 40px;
+
+        transition: ease 0.5s;
+    }
+
+    .link_general_biblio{
+
+        display: block;
+        
+        height: 100px;
+        width: 500px;
+
+        position: absolute;
+
+        z-index: 3;
+    
+    }
+
+}
+
+@media (max-width:1580px) {
+    
+    .mangaCharacters img:nth-child(4){
+    
+        display: none;
+    }
+
+}
+
+@media (max-width:1530px) {
+
+    .mangaCharacters img:nth-child(5){
+
+        display: none;
+    }
+}
+
+@media (max-width:1450px) {
+
+    .mangaCharacters img:nth-child(6){
+
+        display: none;
+    }
+}
+
+@media (max-width:1400px) {
+
+    .mangaCharacters img:nth-child(7){
+
+        display: none;
+    }
+}
+
+@media (max-width:1300px) {
+
+    .mangaCharacters img:nth-child(7){
+
+        display: inline-block;
+    }
+
+    .mangaCharacters img:nth-child(6){
+
+        display: inline-block;
+    }
+
+    .mangaCharacters img:nth-child(5){
+
+        display: inline-block;
+    }
+
+    .mangaCharacters img:nth-child(4){
+    
+        display: inline-block;
+    }
+}
+
+@media (max-width:1170px) {
+    
+    .mangaCharacters img:nth-child(4){
+    
+        display: none;
+    }
+
+}
+
+@media (max-width:1130px) {
+
+    .mangaCharacters img:nth-child(5){
+
+        display: none;
+    }
+}
+
+@media (max-width:1050px) {
+
+    .mangaCharacters img:nth-child(6){
+
+        display: none;
+    }
+}
+
+@media (max-width:1000px) {
+
+    .mangaCharacters img:nth-child(7){
+
+        display: none;
+    }
+
+    .BiblioMas {
+
+        margin-left: 20px; /* Añade un margen izquierdo para el texto */
+    }
+
+}
+
+@media (max-width:800px) {
+
+    .mangaCharacters img:nth-child(1){
+
+        display: none;
+    }
+
+}
+
+@media (max-width:665px) {
+
+    .mangaCharacters img:nth-child(2){
+
+        display: none;
+    }
+
+}
+
+@media (max-width:565px) {
+
+    .mangaCharacters img:nth-child(3){
+
+        display: none;
+    }
+
 }
