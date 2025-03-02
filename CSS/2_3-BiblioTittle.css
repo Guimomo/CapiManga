@@ -11,7 +11,7 @@
 
     position: relative;
 
-    background-image: url("/assets/img/page-elements/TituloDeHistorias/zoom-comiccc.png"), url("/assets/img/page-elements/TituloDeHistorias/zoom-comicc.png");
+    background-image: url("../assets/img/page-elements/TituloDeHistorias/zoom-comiccc.png"), url("../assets/img/page-elements/TituloDeHistorias/zoom-comicc.png");
     background-repeat: no-repeat;
     background-position: top left, bottom right;
 }
