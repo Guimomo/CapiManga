@@ -1,0 +1,43 @@
+[
+    {
+      "titulo": "Sailor Moon",
+      "imagenPrincipal": "assets/img/carrousel-items/sailorMoon/usagi4.png",
+      "logo": "assets/img/carrousel-items/sailorMoon/logosailormoon.png",
+      "genero": "Chicas Mágicas",
+      "enlace": "HTML/SailorMoon/SailorMoon.html"
+    },
+    {
+      "titulo": "Dragon Ball",
+      "imagenPrincipal": "assets/img/carrousel-items/dragonBall/goku.png",
+      "imagenSecundaria": "assets/img/carrousel-items/dragonBall/bulma3.png",
+      "logo": "assets/img/carrousel-items/dragonBall/Dragonball_Logo.png",
+      "genero": "Acción",
+      "enlace": "#"
+    },
+    {
+      "titulo": "JoJo's Bizarre Adventure: Stone Ocean",
+      "logo": "assets/img/carrousel-items/stoneOcean/logo2.png",
+      "genero": "Acción",
+      "enlace": "#"
+    },
+    {
+      "titulo": "One Piece",
+      "imagenPrincipal": "assets/img/carrousel-items/onePiece/luffy.png",
+      "logo": "assets/img/carrousel-items/onePiece/One-Piece-Logo.png",
+      "genero": "Aventura",
+      "enlace": "#"
+    },
+    {
+      "titulo": "My Hero Academia",
+      "imagenPrincipal": "assets/img/carrousel-items/bokuNoHero/izuku22.png",
+      "logo": "assets/img/carrousel-items/bokuNoHero/My_Hero_Academia_logo.png",
+      "genero": "Superhéroes",
+      "enlace": "#"
+    },
+    {
+      "titulo": "Witch Hat Atelier",
+      "logo": "assets/img/carrousel-items/WhitchHat/WitchHatAtelierLogo.png",
+      "genero": "Fantasía",
+      "enlace": "#"
+    }
+  ]
