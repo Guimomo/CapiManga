@@ -5,7 +5,8 @@
       "logo": "assets/img/carrousel-items/sailorMoon/logosailormoon.png",
       "genero": "Chicas Mágicas",
       "generoClass": "chicasMagicas",
-      "enlace": "HTML/SailorMoon/SailorMoon.html"
+      "enlace": "HTML/SailorMoon/SailorMoon.html",
+      "background": "assets/img/carrousel-items/sailorMoon/tokio.png"
     },
     {
       "titulo": "Dragon Ball",
@@ -14,14 +15,17 @@
       "logo": "assets/img/carrousel-items/dragonBall/Dragonball_Logo.png",
       "genero": "Acción",
       "generoClass": "accion",
-      "enlace": "#"
+      "enlace": "#",
+      "background": "assets/img/carrousel-items/dragonBall/fondo.png"
     },
     {
       "titulo": "JoJo's Bizarre Adventure: Stone Ocean",
       "logo": "assets/img/carrousel-items/stoneOcean/logo2.png",
       "genero": "Acción",
       "generoClass": "accion",
-      "enlace": "#"
+      "enlace": "#",
+      "background": "assets/img/carrousel-items/stoneOcean/itemStoneOcean.png",
+      "backgroundResponsive": "assets/img/carrousel-items/stoneOcean/itemStoneOceanResponsive.png"
     },
     {
       "titulo": "One Piece",
@@ -29,7 +33,8 @@
       "logo": "assets/img/carrousel-items/onePiece/One-Piece-Logo.png",
       "genero": "Aventura",
       "generoClass": "aventura",
-      "enlace": "#"
+      "enlace": "#",
+      "background": "assets/img/carrousel-items/onePiece/fondo.jpg"
     },
     {
       "titulo": "My Hero Academia",
@@ -37,13 +42,16 @@
       "logo": "assets/img/carrousel-items/bokuNoHero/My_Hero_Academia_logo.png",
       "genero": "Superhéroes",
       "generoClass": "superheroes",
-      "enlace": "#"
+      "enlace": "#",
+      "background": "assets/img/carrousel-items/bokuNoHero/fondo.png"
     },
     {
       "titulo": "Witch Hat Atelier",
       "logo": "assets/img/carrousel-items/WhitchHat/WitchHatAtelierLogo.png",
       "genero": "Fantasía",
       "generoClass": "fantasia",
-      "enlace": "#"
+      "enlace": "#",
+      "background": "assets/img/carrousel-items/WhitchHat/whcoverResponsive.png",
+      "backgroundResponsive": "assets/img/carrousel-items/WhitchHat/whcover.jpg"
     }
   ]

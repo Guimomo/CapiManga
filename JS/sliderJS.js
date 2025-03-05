@@ -22,13 +22,22 @@ const SliderItem = async () => {
 
         sliderItems.forEach(item => {
             
-            const sliderItem = document.createElement("div");
-            sliderItem.classList.add("slider-item"); // Agrega la clase del género
+            const sliderItem = document.createElement("a");
+            sliderItem.href = item.enlace;
+            sliderItem.classList.add("slider-item");
 
-            const link = document.createElement("a");
-            link.href = item.enlace;
-            link.classList.add("contenido-slider-item");
+            const itemcontent = document.createElement("div");
+            itemcontent.classList.add("contenido-slider-item"); // Agrega la clase del género
 
+            if (item.background) {
+                sliderItem.style.backgroundImage = `url(${item.background})`;
+                sliderItem.style.backgroundSize = "cover";
+                sliderItem.style.backgroundPosition = "top right";
+            }
+
+            const sliderPng = document.createElement("div");
+            sliderPng.classList.add("slider--png");
+            
             // Imagen principal
             if (item.imagenPrincipal) {
                 const backgroundPng = document.createElement("div");
@@ -40,7 +49,7 @@ const SliderItem = async () => {
                 imgPrincipal.loading = "lazy";
 
                 backgroundPng.appendChild(imgPrincipal);
-                link.appendChild(backgroundPng);
+                sliderPng.appendChild(backgroundPng);
             }
 
             // Imagen secundaria
@@ -54,7 +63,7 @@ const SliderItem = async () => {
                 imgSecundaria.loading = "lazy";
 
                 backgroundPng2.appendChild(imgSecundaria);
-                link.appendChild(backgroundPng2);
+                sliderPng.appendChild(backgroundPng2);
             }
 
             const sliderInfo = document.createElement("div");
@@ -80,8 +89,8 @@ const SliderItem = async () => {
             sliderInfo.appendChild(logoManga);
             sliderInfo.appendChild(generoManga);
 
-            link.appendChild(sliderInfo);
-            sliderItem.appendChild(link);
+            itemcontent.append(sliderInfo, sliderPng);
+            sliderItem.appendChild(itemcontent);
             itemFragment.appendChild(sliderItem);
 
             const dot = document.createElement("span");
@@ -97,7 +106,6 @@ const SliderItem = async () => {
         document.querySelector('.overflow-slider').innerHTML;
         
         initializeSlider();
-
 
     } catch (error) {
         console.error('Error al cargar JSON:', error);
