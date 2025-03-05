@@ -36,7 +36,8 @@
 
     justify-content: center;  /* Centrar los items */
     position: relative; /* Necesario para apilar los slider-item */
-    overflow: hidden;
+    /* overflow: hidden; */
+
 }
 
 
@@ -56,9 +57,10 @@
     
     /* para el desvanecimiento de cada slider item */
     opacity: 0;
-    transition: opacity 0.5s ease-in-out;
 
+    transition: opacity 0.5s ease-in-out;
 }
+
 
 .slider-item.active {
     opacity: 1; /* para el desvanecimiento de cada slider item */
@@ -153,16 +155,11 @@
     scale: 1.1;
 }
 
-.demografia-manga{
+
+.genero-manga{
+
     margin: 0 auto;
-    z-index: 100;
-
-}
-
-.demografia{
-
-
-    padding: 3px 10px;
+    padding: 5px 10px;
     border-radius: 50px;
     font-weight: bold;
     display: inline-block;

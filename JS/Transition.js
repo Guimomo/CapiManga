@@ -1,21 +1,12 @@
-let currentIndex = 0;
+let currentIndex = 0;  // Asegúrate de definir currentIndex aquí
+let slideInterval;
 
-document.addEventListener('DOMContentLoaded', () => {
-
+export function initializeSlider() {
     const dots = document.querySelectorAll('.dot');
+    const gallItems = document.querySelectorAll('.slider-item');
+
     dots[0].classList.add('active');
-
-    // document.querySelector('.prev').addEventListener('click', () => {
-    //     navigate(-1);
-    //     resetSlide();
-    // });
-
-    // document.querySelector('.next').addEventListener('click', () => {
-    //     navigate(1);
-    //     resetSlide();
-    // });
-
-    document.querySelector
+    gallItems[0].classList.add('active');
 
     dots.forEach((dot, index) => {
         dot.addEventListener('click', () => {
@@ -25,37 +16,29 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-
     startSlideInterval();
-});
-
+}
 
 function navigate(direction) {
-
-    const gallCont = document.querySelector('.overflow-slider');
     const gallItems = document.querySelectorAll('.slider-item'); 
     const totalItems = gallItems.length;
 
+    gallItems[currentIndex].classList.remove('active');
     currentIndex = (currentIndex + direction + totalItems) % totalItems;
-    
-    const offset = -currentIndex * 100;
-    gallCont.style.transform = `translateX(${offset}%)`;
+    gallItems[currentIndex].classList.add('active');
 
-    indicadores();
+    updateIndicators();
 }
 
-function indicadores() {
+function updateIndicators() {
     const dots = document.querySelectorAll('.dot');
-    dots.forEach((dot,index)=>{
+    dots.forEach((dot, index) => {
         dot.classList.remove('active');
         if (index === currentIndex) {
             dot.classList.add('active');
         }
-    })
+    });
 }
-
-indicadores();
-
 
 function startSlideInterval() {
     slideInterval = setInterval(() => {
