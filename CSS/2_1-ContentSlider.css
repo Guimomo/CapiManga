@@ -192,6 +192,7 @@
     width: 100%;
     height: auto;
     transition: ease 0.5s;
+    padding: 10px;
 }
 
 .contenido-slider-item:hover .logo--manga img {

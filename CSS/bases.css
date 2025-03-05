@@ -135,6 +135,13 @@ img {
     background-color: rgb(0, 74, 117);
 }
 
+.aventura {
+    background-color: rgb(34, 139, 34); /* Verde bosque */
+}
+
+.superheroes {
+    background-color: rgb(255, 45, 85); /* Rojo brillante */
+}
 
 /* Estilo del scrollbar para navegadores basados en WebKit
 ::-webkit-scrollbar {
