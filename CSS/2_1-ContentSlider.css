@@ -390,3 +390,42 @@
     }
 }
 
+@media (min-width: 2100px) {
+
+    .slider-content {
+    
+        display: flex;
+        
+        flex-direction: column;
+    
+        border-radius: 0;
+    
+        margin-left: 0;
+
+        margin: 15px 0 15px 0;
+    
+    }
+
+    .slider-indicators {
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+    
+        /* width: 100%; */
+
+        left: 50%;
+        transform: translateX(-50%);
+        top: auto;  /* Esto es clave para evitar conflictos con `top: 50%` del estado normal */
+        bottom: 10px;
+        
+        background-color: rgba(255, 255, 255, 0.618);
+        border-radius: 100px;
+    
+        /* background-color: var(--main_color); */
+    }
+
+
+}
