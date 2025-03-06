@@ -51,7 +51,16 @@
       "genero": "Fantasía",
       "generoClass": "fantasia",
       "enlace": "#",
-      "background": "assets/img/carrousel-items/WhitchHat/whcoverResponsive.png",
+      "background": "assets/img/carrousel-items/WhitchHat/whiatecover.png",
+      "backgroundResponsive": "assets/img/carrousel-items/WhitchHat/whcover.jpg"
+    },
+    {
+      "titulo": "Utena la chica revolucionaria",
+      "logo": "assets/img/carrousel-items/WhitchHat/WitchHatAtelierLogo.png",
+      "genero": "Fantasía",
+      "generoClass": "fantasia",
+      "enlace": "#",
+      "background": "assets/img/carrousel-items/WhitchHat/whiatecover.png",
       "backgroundResponsive": "assets/img/carrousel-items/WhitchHat/whcover.jpg"
     }
   ]
