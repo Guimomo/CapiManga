@@ -6,7 +6,7 @@
 
 }
 
-.content::before {
+/* .content::before {
     content: "";
     position: absolute;
     top: 0;
@@ -15,16 +15,40 @@
     height: 100%;
 
     transition: background-color 0.3s ease;
-    z-index: 1; /* Debajo del contenido principal */
-}
+    z-index: 1; /* Debajo del contenido principal
+} */
 
-.mangaBackground {
+/* .mangaBackground {
 
     margin-top: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
+} */
+
+.comicContent {
+
+    width: 100%;
+
+    height: 100vh;
+
+    display: flex;
+    
 }
+
+.comicInfo {
+
+    background-color: var(--five_color);
+
+    width: 70%;
+}
+
+.cover {
+
+    width: 30%;
+}
+
+
 
 .shojoDeg::before {
 

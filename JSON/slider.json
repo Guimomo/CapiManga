@@ -34,7 +34,7 @@
       "genero": "Aventura",
       "generoClass": "aventura",
       "enlace": "#",
-      "background": "assets/img/carrousel-items/onePiece/fondo.jpg"
+      "background": "assets/img/carrousel-items/onePiece/fondo.jpeg"
     },
     {
       "titulo": "My Hero Academia",
@@ -49,6 +49,7 @@
       "titulo": "Witch Hat Atelier",
       "logo": "assets/img/carrousel-items/WhitchHat/WitchHatAtelierLogo.png",
       "genero": "Fantasía",
+      "subgenero": "chicasMagicas",
       "generoClass": "fantasia",
       "enlace": "#",
       "background": "assets/img/carrousel-items/WhitchHat/whiatecover.png",
@@ -60,6 +61,7 @@
       "genero": "Fantasía",
       "generoClass": "fantasia",
       "enlace": "#",
-      "background": "assets/img/carrousel-items/Utena/utena_banner.png"
+      "background": "assets/img/carrousel-items/Utena/utena_banner.png",
+      "backgroundResponsive": "assets/img/carrousel-items/Utena/utenaResponsive.jpeg"
     }
   ]

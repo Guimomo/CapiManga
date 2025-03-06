@@ -29,11 +29,17 @@ const SliderItem = async () => {
             const itemcontent = document.createElement("div");
             itemcontent.classList.add("contenido-slider-item"); // Agrega la clase del género
 
-            if (item.background) {
-                sliderItem.style.backgroundImage = `url(${item.background})`;
-                sliderItem.style.backgroundSize = "cover";
-                sliderItem.style.backgroundPosition = "right";
-            }
+            // if (item.background) {
+            //     sliderItem.style.backgroundImage = `url(${item.background})`;
+            //     sliderItem.style.backgroundSize = "cover";
+            //     sliderItem.style.backgroundPosition = "right";
+            // }
+
+            // Configurar el fondo inicial
+            const isMobile = window.innerWidth <= 722;
+            sliderItem.style.backgroundImage = `url(${isMobile && item.backgroundResponsive ? item.backgroundResponsive : item.background})`;
+            sliderItem.style.backgroundSize = "cover";
+            sliderItem.style.backgroundPosition = "right";
 
             const sliderPng = document.createElement("div");
             sliderPng.classList.add("slider--png");
@@ -105,7 +111,18 @@ const SliderItem = async () => {
         console.log("Elementos en OverlaySlider:", OverlaySlider.children.length);
         document.querySelector('.overflow-slider').innerHTML;
         
+
+
         initializeSlider();
+
+        // ✅ Evento para actualizar los fondos cuando cambie el tamaño de pantalla
+        window.addEventListener("resize", () => {
+            document.querySelectorAll(".slider-item").forEach((item, index) => {
+                const sliderData = sliderItems[index];
+                const isMobile = window.innerWidth <= 722;
+                item.style.backgroundImage = `url(${isMobile && sliderData.backgroundResponsive ? sliderData.backgroundResponsive : sliderData.background})`;
+            });
+        });
 
     } catch (error) {
         console.error('Error al cargar JSON:', error);
