@@ -22,7 +22,7 @@
 
 .overflow-slider{
 
-    height: 400px;
+    height: 550px;
 
     width: 100%;
 
@@ -100,7 +100,7 @@
 
 .slider--png {
 
-    width: 400px;
+    width: 500px;
     height: 100%;
 
     position: relative;
@@ -108,7 +108,7 @@
 
 .background-png {
 
-    height: 380px;
+    height: 100%;
 
     width: auto;
 
@@ -123,13 +123,13 @@
 
 .background-png-2 {
 
-    height: 170px;
+    height: 220px;
 
     position: absolute;
 
     bottom: 0;
 
-    left: -120px;
+    left: -150px;
 
     z-index: 1;
 
@@ -163,7 +163,7 @@
 .sliderInfo {
 
     
-    width: 70%;
+    width: 80%;
 
     max-width: 400px;
 
@@ -392,7 +392,27 @@
 
 @media (min-width: 2100px) {
 
-    .slider-content {
+    /* .overflow-slider{
+
+        height: 1000px;
+    
+        width: 100%;
+    
+        display: flex;
+    
+        align-items: center;
+    
+        flex-direction: row; 
+        
+        transition: transform 0.5s ease;
+    
+        justify-content: center;  /* Centrar los items 
+        position: relative; /* Necesario para apilar los slider-item
+        /* overflow: hidden;
+    
+    } */
+
+    /* .slider-content {
     
         display: flex;
         
@@ -414,18 +434,42 @@
         align-items: center;
         padding: 10px;
     
-        /* width: 100%; */
+        /* width: 100%;
 
         left: 50%;
         transform: translateX(-50%);
-        top: auto;  /* Esto es clave para evitar conflictos con `top: 50%` del estado normal */
+        top: auto;  /* Esto es clave para evitar conflictos con `top: 50%` del estado normal
         bottom: 10px;
         
         background-color: rgba(255, 255, 255, 0.618);
         border-radius: 100px;
     
-        /* background-color: var(--main_color); */
+        /* background-color: var(--main_color);
     }
 
+    .slider-item {
+
+        width: 1000px;
+        border-radius: 20px;
+        opacity: 1;
+        flex: 0 0 auto; /* Los elementos toman su propio ancho
+        position: relative; /* Corrige la posición
+        transform: none; /* Elimina transformaciones previas
+    }
+
+    .overflow-slider {
+
+        width: 100%;
+        overflow: visible;
+        gap: 20px;
+    }
+
+    .slider-content {
+
+        width: 100%;
+    
+        overflow: visible;
+    }
+    */
 
 }

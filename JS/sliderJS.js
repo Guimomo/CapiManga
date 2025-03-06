@@ -32,7 +32,7 @@ const SliderItem = async () => {
             if (item.background) {
                 sliderItem.style.backgroundImage = `url(${item.background})`;
                 sliderItem.style.backgroundSize = "cover";
-                sliderItem.style.backgroundPosition = "center right";
+                sliderItem.style.backgroundPosition = "right";
             }
 
             const sliderPng = document.createElement("div");
