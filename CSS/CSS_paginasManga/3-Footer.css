@@ -10,7 +10,7 @@
 .Foodeco {
     width: 100%;
     height: 5px;
-    background-color: var(--second_color);
+    background-color: var(--five_color);
     position: absolute;
     top: 0;
 }

@@ -6,53 +6,128 @@
 
 }
 
-/* .content::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-
-    transition: background-color 0.3s ease;
-    z-index: 1; /* Debajo del contenido principal
-} */
-
-/* .mangaBackground {
-
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-} */
-
 .comicContent {
 
     width: 100%;
 
-    height: 100vh;
+    min-height: 100vh;
 
     display: flex;
     
 }
 
 .comicInfo {
-
-    background-color: var(--five_color);
-
+    display: grid;
+    grid-template-areas: 
+        "header header"
+        "argumento capitulos"
+        "argumento capitulos";
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 20px;
+    padding: 5px;
+    margin: 5px;
     width: 70%;
 }
 
 .cover {
 
     width: 30%;
+
+    position: relative;
+
+    overflow: hidden;
 }
 
+.cover::before {
+    content: "";
+    position: absolute;
+    right: -50%;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Debajo del contenido principal */
+    transform: skewX(-12deg);
+    background-color: var(--five_color);
+    z-index: 1;
+}
 
+.comicHeader {
 
-.shojoDeg::before {
+    grid-area: header;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
 
-    background-image: linear-gradient(0deg, rgba(255, 123, 167,1) 28%, rgba(0,212,255,0) 70%);
+.comic--logo {
+
+    width: 250px;
+}
+
+.comic--logo img {
+
+    width: 100%;
+}
+
+.tituloComic {
+
+    position: relative;
+
+    padding-left: 20px;
+}
+
+.tituloComic::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%; /* Altura completa del elemento padre */
+    width: 5px; /* Ancho de la línea */
+    border-radius: 50px;
+    background-color: var(--fourth_color);
+}
+
+.genero{
+
+    /* margin: 0 auto; */
+    padding: 5px 10px;
+    border-radius: 50px;
+    font-weight: bold;
+    display: inline-block;
+    transition: ease 0.3s;
+
+}
+
+.sub-genero{
+
+    /* margin: 0 auto; */
+    padding: 5px 10px;
+    border-radius: 50px;
+    font-weight: bold;
+    display: inline-block;
+    transition: ease 0.3s;
+    background-color: var(--fourth_color);
+
+}
+
+.comic-generos {
+
+    display: flex;
+    gap: 5px;
+}
+
+.tituloComic {
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.argumento {
+    grid-area: argumento;
+}
+
+.lista-capitulos {
+    grid-area: capitulos;
 }
 
 .shojoTheme {
@@ -133,65 +208,52 @@
     width: 100%;
 }
 
+@media (max-width:720px) {
 
-@media (max-width:950px) {
 
+    .comicContent {
+    
+        flex-direction: column;
+    }
 
-    .mangaTittle {
-
+    .comicInfo {
         width: 100%;
-        /* padding: 0 30px; */
-        height: 250px;
+        grid-template-columns: minmax(0, 1fr); /* En pantallas más pequeñas, solo una columna */
+        grid-template-areas: 
+            "header"
+            "argumento"
+            "capitulos";
 
+        margin: 0;
+        padding: 10px; 
     }
 
-    .logoManga {
-        width: 300px;
+    .comicHeader {
+        flex-direction: column; /* Apilar logo y título en móvil */
+        align-items: flex-start;
+        width: 100%;
+        gap: 5px;
     }
 
-}
+    .cover {
 
-@media (max-width:680px) {
-
-
-    .mangaTittle {
-
-        position: relative;
-        height: 450px;
-
+        height: 300px;
+        width: 100%;
     }
 
-    .logo-autor-demografia {
-
+    .cover::before {
+        content: "";
         position: absolute;
-        height: auto;
-        bottom: 10px;
-    
+        top: auto;
+        bottom: -150px;
+        right: -20%; /* Ajusta la posición */
+        width: 120%; /* Asegura que cubra todo el ancho */
+        height: 100%; /* Aumenta la altura para cubrir cualquier espacio */
+        z-index: 1; /* Debajo del contenido principal */
+        transform: skewX(100deg) translateY(-40%);
+        background-color: var(--five_color);
+
+        z-index: 1;
     }
 
-    .logoManga {
-
-        width: 300px;
-    }
-
-    .logoManga img {
-
-        filter: drop-shadow(0 0 5px var(--fourth_color));
-    }
-
-    .mangaInfo {
-    
-        width: 100%;
-        border-radius: 0; 
-    }
-
-    .autor a {
-
-        font-size: 0.7rem;
-    }
-
-    .autor {
-
-        padding: 5px;
-    }
 }

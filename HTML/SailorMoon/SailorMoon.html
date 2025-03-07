@@ -18,10 +18,18 @@
 <style>
 
 .cover{
-    background-image: url('../../assets/img/manga-covers/SailorMoon/coverPage.jpg');
+    background-image: url('../../assets/img/manga-covers/SailorMoon/coverPage.jpeg');
     background-size: cover;
-    background-position: left;
+    background-position: left top;
     background-repeat: no-repeat;
+}
+
+@media (max-width:720px) {
+
+    .cover {
+
+        background-image: url('../../assets/img/manga-covers/SailorMoon/itemSailor.png');
+    }
 }
 
 </style>
@@ -127,8 +135,46 @@
 
     <div class="comicContent">
 
-        <div class="cover"></div>
-        <div class="comicInfo"></div>
+        <div class="cover shojoDeg"></div>
+
+        <div class="comicInfo">
+
+            <div class="comicHeader">
+                <div class="comic--logo">
+                    <img src="../../assets/img/manga-covers/SailorMoon/logosailormoon.png" alt="">
+                </div>
+                
+                <div class="tituloComic">
+                    
+                    <h2 class="titulo">Sailor Moon</h2>
+                    
+                    <div class="comic-generos">
+
+                        <div class="genero chicasMagicas"> <p>Chicas magícas</p> </div>
+                        <div class="sub-genero sub-fantasia"> <p>Fantasia</p> </div>
+                    </div>
+                
+                </div>
+                
+            </div>
+
+            <div class="argumento">
+
+                <h3>Sinopsis</h3>
+                <p>Usagi Tsukino es una estudiante de secundaria normal hasta que encuentra a Luna, una gata parlante que le revela su identidad como Sailor Moon.</p>
+
+            </div>
+
+            <div class="lista-capitulos">
+                <h3>Capítulos</h3>
+                <ul>
+                    <li>Capítulo 1: El nacimiento de Sailor Moon</li>
+                    <li>Capítulo 2: La aparición de Sailor Mercury</li>
+                    <!-- más capítulos -->
+                </ul>
+            </div>
+
+        </div>
     </div>
 
   </article>

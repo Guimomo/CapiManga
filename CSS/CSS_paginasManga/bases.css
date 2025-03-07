@@ -116,19 +116,37 @@ img {
     display: inline-block;
 }
 
-.shonen {
+.accion {
 
     background-color: rgb(255, 59, 59);
 }
 
-.shojo {
+.chicasMagicas {
 
     background-color: rgb(255, 123, 167);
 }
 
-.seinen {
+.sub-chicasMagicas {
+
+    color: rgb(255, 123, 167);
+}
+
+.fantasia {
 
     background-color: rgb(0, 74, 117);
+}
+
+.sub-fantasia p{
+
+    color: rgb(0, 74, 117);
+}
+
+.aventura {
+    background-color: rgb(34, 139, 34); /* Verde bosque */
+}
+
+.superheroes {
+    background-color: rgb(255, 45, 85); /* Rojo brillante */
 }
 
 
