@@ -23,10 +23,12 @@
         "argumento capitulos"
         "argumento capitulos";
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-rows: 200px 1fr;
     gap: 20px;
     padding: 5px;
     margin: 5px;
     width: 70%;
+    z-index: 2;
 }
 
 .cover {
@@ -34,8 +36,6 @@
     width: 30%;
 
     position: relative;
-
-    overflow: hidden;
 }
 
 .cover::before {
@@ -47,7 +47,6 @@
     z-index: 1; /* Debajo del contenido principal */
     transform: skewX(-12deg);
     background-color: var(--five_color);
-    z-index: 1;
 }
 
 .comicHeader {
@@ -94,6 +93,12 @@
     font-weight: bold;
     display: inline-block;
     transition: ease 0.3s;
+
+}
+
+.comic-generos p{
+
+    font-size: 12px;
 
 }
 
@@ -252,8 +257,6 @@
         z-index: 1; /* Debajo del contenido principal */
         transform: skewX(100deg) translateY(-40%);
         background-color: var(--five_color);
-
-        z-index: 1;
     }
 
 }
