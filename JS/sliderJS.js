@@ -85,15 +85,29 @@ const SliderItem = async () => {
 
             logoManga.appendChild(logoImg);
 
+            const generoComic = document.createElement("div");
+            generoComic.classList.add("generosComic");
+
             const generoManga = document.createElement("div");
             generoManga.classList.add("genero-manga", item.generoClass);
+
+            const subgenero = document.createElement("div");
+            subgenero.classList.add("subGenero", item.SubgeneroClass);
 
             const generoTexto = document.createElement("p");
             generoTexto.textContent = item.genero;
 
+            const subGeneroTexto = document.createElement("p");
+            subGeneroTexto.textContent = item.subgenero;
+            
             generoManga.appendChild(generoTexto);
+            subgenero.appendChild(subGeneroTexto);
+
+            generoComic.appendChild(generoManga);
+            generoComic.appendChild(subgenero);
+
             sliderInfo.appendChild(logoManga);
-            sliderInfo.appendChild(generoManga);
+            sliderInfo.appendChild(generoComic);
 
             itemcontent.append(sliderInfo, sliderPng);
             sliderItem.appendChild(itemcontent);

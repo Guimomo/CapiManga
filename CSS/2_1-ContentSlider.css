@@ -200,10 +200,19 @@
     scale: 1.1;
 }
 
+.generosComic {
 
-.genero-manga{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    justify-content: center;
+    z-index: 2;
+}
 
-    margin: 0 auto;
+.genero-manga, .subGenero{
+
+    /* margin: 0 auto; */
     padding: 5px 10px;
     border-radius: 50px;
     font-weight: bold;
@@ -212,10 +221,17 @@
 
 }
 
-.contenido-slider-item:hover .genero-manga {
+.subGenero {
+
+    background-color: var(--fourth_color);
+}
+
+.contenido-slider-item:hover .genero-manga, .contenido-slider-item:hover .subGenero {
 
     scale: 1.1;
 }
+
+
 
 /* .slider-item {
     background-image: var(--background-img) !important;
@@ -326,7 +342,7 @@
     
     }
 
-    .genero-manga p{
+    .genero-manga p, .subGenero p{
 
         font-size: 12px;
     

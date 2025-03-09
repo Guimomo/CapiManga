@@ -4,7 +4,9 @@
       "imagenPrincipal": "assets/img/carrousel-items/sailorMoon/usagi4.png",
       "logo": "assets/img/carrousel-items/sailorMoon/logosailormoon.png",
       "genero": "Chicas Mágicas",
+      "subgenero": "Fantasía",
       "generoClass": "chicasMagicas",
+      "SubgeneroClass": "subFantasia",
       "enlace": "HTML/SailorMoon/SailorMoon.html",
       "background": "assets/img/carrousel-items/sailorMoon/tokio.png"
     },
@@ -14,7 +16,9 @@
       "imagenSecundaria": "assets/img/carrousel-items/dragonBall/bulma3.png",
       "logo": "assets/img/carrousel-items/dragonBall/Dragonball_Logo.png",
       "genero": "Acción",
+      "subgenero": "Aventura",
       "generoClass": "accion",
+      "SubgeneroClass": "subAventura",
       "enlace": "#",
       "background": "assets/img/carrousel-items/dragonBall/fondo.png"
     },
@@ -22,7 +26,9 @@
       "titulo": "JoJo's Bizarre Adventure: Stone Ocean",
       "logo": "assets/img/carrousel-items/stoneOcean/logo2.png",
       "genero": "Acción",
+      "subgenero": "Aventura",
       "generoClass": "accion",
+      "SubgeneroClass": "subAventura",
       "enlace": "#",
       "background": "assets/img/carrousel-items/stoneOcean/itemStoneOcean.png",
       "backgroundResponsive": "assets/img/carrousel-items/stoneOcean/itemStoneOceanResponsive.png"
@@ -32,7 +38,9 @@
       "imagenPrincipal": "assets/img/carrousel-items/onePiece/luffy.png",
       "logo": "assets/img/carrousel-items/onePiece/One-Piece-Logo.png",
       "genero": "Aventura",
+      "subgenero": "Acción",
       "generoClass": "aventura",
+      "SubgeneroClass": "subAccion",
       "enlace": "#",
       "background": "assets/img/carrousel-items/onePiece/fondo.jpeg"
     },
@@ -41,7 +49,9 @@
       "imagenPrincipal": "assets/img/carrousel-items/bokuNoHero/izuku22.png",
       "logo": "assets/img/carrousel-items/bokuNoHero/My_Hero_Academia_logo.png",
       "genero": "Superhéroes",
+      "subgenero": "Acción",
       "generoClass": "superheroes",
+      "SubgeneroClass": "subAccion",
       "enlace": "#",
       "background": "assets/img/carrousel-items/bokuNoHero/fondo.png"
     },
@@ -49,8 +59,9 @@
       "titulo": "Witch Hat Atelier",
       "logo": "assets/img/carrousel-items/WhitchHat/WitchHatAtelierLogo.png",
       "genero": "Fantasía",
-      "subgenero": "chicasMagicas",
+      "subgenero": "Aventura",
       "generoClass": "fantasia",
+      "SubgeneroClass": "subAventura",
       "enlace": "#",
       "background": "assets/img/carrousel-items/WhitchHat/whiatecover.png",
       "backgroundResponsive": "assets/img/carrousel-items/WhitchHat/whcover.jpg"
@@ -59,7 +70,9 @@
       "titulo": "Utena la chica revolucionaria",
       "logo": "assets/img/carrousel-items/Utena/utenaLogo.png",
       "genero": "Fantasía",
+      "subgenero": "Acción",
       "generoClass": "fantasia",
+      "SubgeneroClass": "subAccion",
       "enlace": "#",
       "background": "assets/img/carrousel-items/Utena/utena_banner.png",
       "backgroundResponsive": "assets/img/carrousel-items/Utena/utenaResponsive.jpeg"

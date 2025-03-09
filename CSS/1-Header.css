@@ -335,6 +335,15 @@
 
 /* ---------------------------------------- MENU ICON ---------------------------------------- */
 
+.menu-checkbox {
+    display: none;
+}
+
+.menu-icon{
+
+    display: none;
+}
+
 .icon-open-close {
 
     width: 30px;
@@ -342,16 +351,40 @@
 
     background-image: url(../assets/icons/menu.svg);
 
+}
 
+.icon-menu, .close-menu {
+
+    color: var(--five_color);
 
 }
 
-.menu-icon {
-
+.close-menu {
     display: none;
-
 }
 
+.icon-menu {
+    display: block;
+}
+
+.menu-responsive {
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+    transition: ease 0.3s;
+}
+
+.menu-icon:has(.menu-checkbox:checked) .close-menu {
+    display: block;
+}
+
+.menu-icon:has(.menu-checkbox:checked) .icon-menu {
+    display: none;
+}
 
 
 
@@ -361,10 +394,21 @@
 
 
 
-    .menu{
+    .menuSection{
+        position: fixed;
+        z-index: 1000;
+        top: 180px; /* Altura de tu header */
+        left: -100%; /* Escondido por defecto */
+        width: 300px;
+        height: calc(100vh - 180px);
+        background-color: var(--five_color);
+        transition: left 0.3s ease; 
+    }
 
-        display: none;
-     
+    .menu-content {
+
+        
+        flex-direction: column;
     }
 
     .menu-icon {
@@ -378,6 +422,10 @@
 
         display: none;
     
+    }
+
+    .menu-checkbox:checked ~ .menuSection {
+        left: 0;
     }
 }
 
