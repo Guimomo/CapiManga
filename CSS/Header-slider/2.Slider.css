@@ -1,0 +1,287 @@
+/* Contenedor principal del slider */
+.slider {
+    position: relative;
+    width: 100%;
+    height: 100%; /* Ajusta según necesidad */
+    overflow: hidden;
+    background-color: #1a1a1a;
+}
+
+.arrows{
+
+    z-index: 200;
+    position: absolute;
+    top: 80%;
+    left: 10%;
+    width: 300px;
+    max-width: 30%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.arrows button {
+
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    border: none;
+    background-color: #1a1a1a87;
+}
+
+.arrows button:hover {
+
+    background-color: #505050b9;
+}
+
+.list {
+
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+}
+
+/* .slide-item:nth-child(1):after {
+
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 40%;
+    background-color: rgba(0, 0, 0, 0.662);
+    left: 0;
+
+} */
+
+/* Cada ítem del slider */
+.slide-item {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    text-decoration: none;
+
+}
+
+
+.slide-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta la imagen dentro del contenedor sin deformarla */
+}
+
+/* Fondo del slide */
+.slide-content {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    position: relative;
+    z-index: 3;
+}
+
+/* Efecto de oscurecimiento para mejorar la lectura del texto */
+.slide-content::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+}
+
+/* Contenedor de la información del slide */
+.slide-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+    height: 50%;
+    transform: translateY(-50%);
+}
+
+/* Logo */
+.slide-logo {
+    width: 300px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+/* Título */
+.slide-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Género y subgénero */
+.slide-genre,
+.slide-subgenre {
+    font-size: 14px;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+/* Efecto al pasar el mouse */
+/* .slide-item:hover .slide-image {
+    transform: scale(1.05);
+} */
+
+
+.slide-item:nth-child(1) {
+    z-index: 1;
+}
+
+.slide-item.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.slider .slide-item:nth-child(1) .slide-info {
+    animation: fadeSlideIn 0.6s ease-in-out forwards;
+}
+
+@keyframes fadeSlideIn {
+    from {
+        opacity: 0;
+        bottom: -100px;
+    }
+    to {
+        opacity: 1;
+
+    }
+}
+
+
+.slider.next .slide-item:nth-child(1) .slide-image {
+    width: 120px;
+    height: 220px;
+    position: absolute;
+    border-radius: 20px;
+    bottom: 30px;
+    right: calc(500px - 120px);
+    animation: showImage 0.6s ease-in-out forwards;
+}
+
+@keyframes showImage{
+
+    to{
+        width: 100%;
+        height: 100%;
+        right: 0;
+        bottom: 0;
+        border-radius: 0;
+    }
+}
+
+/* ---------------------------------------------------------------- */
+
+/* Contenedor de miniaturas */
+.thumbnail {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    align-items: center;
+    position: absolute;
+    bottom: 30px;
+    width: 500px;
+    right: 0;
+    z-index: 10;
+    padding-right: 10px;
+}
+
+/* Estilo de cada miniatura */
+.thumbnail .item {
+    width: 120px;
+    height: 220px;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+
+}
+
+.thumbnail .item:hover {
+    transform: scale(1.1);
+}
+
+/* Imagen dentro de la miniatura */
+.thumbnail .item img {
+
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.slider.next .thumbnail .item:nth-last-child(1) {
+
+    width: 0;
+    overflow: hidden;
+    animation: showthumbnail 0.5s linear 1 forwards;
+}
+
+@keyframes showthumbnail{
+    to{
+        width: 120px;
+    }
+}
+
+/* PREVIO------------------------------------------------ */
+
+.slider.prev .list .slide-item:nth-child(2){
+    z-index: 100;
+}
+
+.slider.prev .list .slide-item:nth-child(2) .slide-image{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    animation: outImage 0.5s linear 1 forwards;
+}
+@keyframes outImage{
+    
+    to{
+        width: 120px;
+        height: 220px;
+        border-radius: 20px;
+        right: calc(500px - 230px);
+        bottom: 30px;
+    }
+}
+
+.slider.prev .thumbnail .item:nth-child(1) {
+
+    width: 0;
+    overflow: hidden;
+    opacity: 0;
+    animation: showthumbnail 0.5s linear 1 forwards;
+}
+
+.slider.prev .slide-item:nth-child(2) .slide-info {
+    animation: infoOut 0.6s ease-in-out forwards;
+}
+@keyframes infoOut {
+
+    to{
+        transform: translateY(-120px);
+        opacity: 0;
+    }
+    
+}
+
+

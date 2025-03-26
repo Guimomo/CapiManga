@@ -1,0 +1,32 @@
+[
+    {
+      "titulo": "JoJo's Bizarre Adventure: Stone Ocean",
+      "imgItem": "../ASSETS/img/slider_items/1.stone_ocean/imgItem.png",
+      "logo": "../ASSETS/img/slider_items/1.stone_ocean/logo.png",
+      "genero": "Acción",
+      "subgenero": "Aventura",
+      "generoClass": "accion",
+      "SubgeneroClass": "subAventura",
+      "enlace": "#"
+    },
+    {
+      "titulo": "Dragon Ball",
+      "imgItem": "../ASSETS/img/slider_items/2.dragon_ball/imgItem.png",
+      "logo": "../ASSETS/img/slider_items/2.dragon_ball/logo.png",
+      "genero": "Acción",
+      "subgenero": "Aventura",
+      "generoClass": "accion",
+      "SubgeneroClass": "subAventura",
+      "enlace": "#"
+    },
+    {
+      "titulo": "Sailor Moon ",
+      "imgItem": "../ASSETS/img/slider_items/3.sailor_moon/imgItem.png",
+      "logo": "../ASSETS/img/slider_items/3.sailor_moon/logo.png",
+      "genero": "Chicas Mágicas",
+      "subgenero": "Fantasía",
+      "generoClass": "chicasMagicas",
+      "SubgeneroClass": "subFantasia",
+      "enlace": "#"
+    }
+]

@@ -1,0 +1,199 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    
+        /* FONT */
+    font-family: "Roboto", sans-serif;
+    color: #fff;
+    font-style: normal;
+}
+
+html {
+    scroll-behavior: smooth;
+    /* min-zoom: 0.7;
+    zoom: 1; */
+}
+
+:root{
+
+    --main_color: #F04C0E;
+    --third_color: #F2F2F2;
+    --fourth_color: #0D0D0D;
+    --five_color:rgba(255, 255, 255, 0.1);
+    --gradiente_1: linear-gradient(180deg, rgba(240,76,14,0.21732020444896705) 18%, rgba(240,76,14,0) 76%);
+
+    
+}
+
+
+/* ---------------- LAYOUT ------------------------------------------------- */
+
+body{
+
+
+    background-color: var(--five_color) ;
+
+    min-height: 100vh;
+
+
+    /* GRID --------- */
+
+    display: grid;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: 100vh 1fr 300px;
+
+    grid-template-areas: 
+    'header-slider'
+    'content'
+    'footer';
+
+}
+
+/* @media (max-width:1300px) {
+    body {
+        grid-template-columns: 1fr;
+        grid-template-rows: 140px 500px 1fr 500px 300px;
+        grid-template-areas: 
+            'header'
+            'slider-content'
+            'content'
+            'sidebar'
+            'footer';
+    }
+} */
+
+
+*::selection {
+
+    background-color: var(--second_color);
+    color: var(--fourth_color);
+  
+}
+
+
+h1{
+    font-size: 0.9rem;
+}
+
+h3{
+
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+h4{
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    color: var(--fourth_n_color);
+    margin-left: 20px;
+}
+
+i{
+    font-size: 1.5rem;
+    color:var(--third_n_color);
+}
+
+a{
+    text-decoration: none;
+    display: inline-block;    
+}
+
+p,a{
+    font-size: 0.9rem;
+}
+
+hr{
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 12px 0;
+}
+
+li{
+    list-style: none;
+}
+
+img {
+
+    display: inline-block;
+}
+
+.accion {
+
+    background-color: rgb(255, 59, 59);
+}
+
+.chicasMagicas {
+
+    background-color: rgb(255, 123, 167);
+}
+
+.fantasia {
+
+    background-color: rgb(0, 74, 117);
+}
+
+.aventura {
+    background-color: rgb(34, 139, 34); /* Verde bosque */
+}
+
+.superheroes {
+    background-color: rgb(255, 45, 85); /* Rojo brillante */
+}
+
+
+.accion {
+
+    background-color: rgb(255, 59, 59);
+}
+
+/* ------------------------------------------------------------------------ */
+
+.subAccion p{
+
+    color: rgb(255, 59, 59);
+}
+
+.subAccion {
+
+    border: solid 3px rgb(255, 59, 59);
+}
+
+.subChicasMagicas p{
+
+    color: rgb(255, 123, 167);
+}
+
+.subChicasMagicas {
+
+    border: solid 3px rgb(255, 123, 167);
+}
+
+.subFantasia p{
+
+    color: rgb(0, 74, 117);
+}
+
+.subFantasia {
+
+    border: solid 3px rgb(0, 74, 117);
+}
+
+.subAventura p{
+    color: rgb(34, 139, 34); /* Verde bosque */
+}
+
+.subAventura {
+
+    border: solid 3px rgb(34, 139, 34);
+}
+
+.subSuperheroes p{
+    color: rgb(255, 45, 85); /* Rojo brillante */
+}
+
+.subSuperheroes {
+
+    border: solid 3px rgb(255, 45, 85);
+}

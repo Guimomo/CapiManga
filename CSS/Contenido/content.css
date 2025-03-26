@@ -1,0 +1,6 @@
+.content {
+
+    grid-area: content;
+    height: 200px;
+    background-color: aliceblue;
+}
