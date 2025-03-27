@@ -150,50 +150,32 @@ img {
 
 /* ------------------------------------------------------------------------ */
 
-.subAccion p{
-
-    color: rgb(255, 59, 59);
-}
-
 .subAccion {
 
     border: solid 3px rgb(255, 59, 59);
-}
-
-.subChicasMagicas p{
-
-    color: rgb(255, 123, 167);
+    color: rgb(255, 59, 59);
 }
 
 .subChicasMagicas {
 
     border: solid 3px rgb(255, 123, 167);
-}
-
-.subFantasia p{
-
-    color: rgb(0, 74, 117);
+    color: rgb(255, 123, 167);
 }
 
 .subFantasia {
 
     border: solid 3px rgb(0, 74, 117);
-}
-
-.subAventura p{
-    color: rgb(34, 139, 34); /* Verde bosque */
+    color: rgb(0, 74, 117);
 }
 
 .subAventura {
 
     border: solid 3px rgb(34, 139, 34);
-}
-
-.subSuperheroes p{
-    color: rgb(255, 45, 85); /* Rojo brillante */
+    color: rgb(34, 139, 34);
 }
 
 .subSuperheroes {
 
     border: solid 3px rgb(255, 45, 85);
+    color: rgb(255, 45, 85);
 }

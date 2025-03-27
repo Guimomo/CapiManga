@@ -2,22 +2,23 @@
 .slider {
     position: relative;
     width: 100%;
-    height: 100%; /* Ajusta según necesidad */
+    /*height: 85%; /* Ajusta según necesidad */
+    height: 100%;
     overflow: hidden;
     background-color: #1a1a1a;
 }
 
 .arrows{
 
-    z-index: 200;
+    z-index: 50;
     position: absolute;
-    top: 80%;
-    left: 10%;
-    width: 300px;
-    max-width: 30%;
+    top: 85%;
+    left: 20px;
+    width: 450px;
     display: flex;
     gap: 10px;
     align-items: center;
+    justify-content: center;
 }
 
 .arrows button {
@@ -51,11 +52,12 @@
 .slide-item {
     position: absolute;
     display: flex;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     overflow: hidden;
     text-decoration: none;
-    
 
 }
 
@@ -150,9 +152,14 @@ intercambiando de un slide-item a otro, por lo que el siguiente item de pasara a
     font-size: 14px;
     font-weight: bold;
     padding: 5px 10px;
-    border-radius: 5px;
+    border-radius: 100px;
     display: inline-block;
     margin-top: 5px;
+}
+
+.slide-subgenre {
+
+    background-color: var(--third_color);
 }
 
 

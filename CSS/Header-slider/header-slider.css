@@ -1,8 +1,10 @@
+@import url(1.Header.css);
 @import url(2.Slider.css);
 
 .header-slider {
 
     grid-area: header-slider;
     background-color: var(--fourth_color);
-
+    position: relative;
+    overflow: hidden;
 }
