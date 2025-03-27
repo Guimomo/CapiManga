@@ -4,18 +4,21 @@
     height: 12%;
     /* background-color: rgba(0, 0, 0, 0.588); */
     /* position: static; */
-    position: fixed;
+    /* position: fixed; */
+    position: absolute;
     z-index: 100;
     
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 }
 
 .header-content {
 
     height: 90%;
-    width: 80%;
+    width: 100%;
+    max-width: 500px;
     background-color: var(--third_color);
     border-radius: 200px;
+    margin-left: 10px;
 }
