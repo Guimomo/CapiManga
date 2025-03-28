@@ -1,7 +1,7 @@
 .header {
 
     width: 100%;
-    height: 12%;
+    height: 120px;
     /* background-color: rgba(0, 0, 0, 0.588); */
     /* position: static; */
     /* position: fixed; */
@@ -23,7 +23,7 @@
     border-radius: 200px;
     margin-left: 10px;
     padding: 5px 40px;
-    box-shadow: 5px 10px 0 var(--fourth_color);
+    /* box-shadow: 5px 10px 0 var(--fourth_color); */
 }
 
 .div--logo {

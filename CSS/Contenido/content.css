@@ -2,5 +2,6 @@
 
     grid-area: content;
     height: 200px;
-    background-color: aliceblue;
+    background-color: var(--fourth_color);
+    min-height: 100vh;
 }

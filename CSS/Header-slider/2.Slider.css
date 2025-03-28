@@ -6,6 +6,7 @@
     height: 100%;
     overflow: hidden;
     background-color: #1a1a1a;
+
 }
 
 .arrows{
@@ -65,6 +66,22 @@
     width: 100%;
     height: 100%;
     object-fit: cover; /* Ajusta la imagen dentro del contenedor sin deformarla */
+    object-position: top;
+}
+
+@media screen and (min-width: 2300px) {
+    .slider {
+        width: 70%; /* Ajusta el tamaño según necesites */
+
+        margin: 0 auto; /* Centra la imagen si es necesario */
+    }
+}
+
+@media screen and (min-width: 3500px) {
+    .slider {
+        width: 45%; /* Ajusta el tamaño según necesites */
+        margin: 0 auto; /* Centra la imagen si es necesario */
+    }
 }
 
 /* Fondo del slide */
