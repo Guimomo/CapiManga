@@ -23,14 +23,25 @@
     border-radius: 200px;
     margin-left: 10px;
     padding: 5px 40px;
+    box-shadow: 5px 10px 0 var(--fourth_color);
 }
 
 .div--logo {
 
     height: 100%;
+    width: 100px;
+    transition: 0.5s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .logo--image {
 
     height: 100%;
+}
+
+.div--logo:hover {
+
+    scale: 1.07;
 }
