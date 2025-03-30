@@ -11,3 +11,18 @@
     min-height: 600px; /* Evita que sea demasiado pequeño */
     max-height: 800px; /* Evita que sea demasiado grande en pantallas grandes */
 }
+
+@media screen and (min-width: 2300px) {
+    .header-slider {
+        width: 70%; /* Ajusta el tamaño según necesites */
+
+        margin: 0 auto; /* Centra la imagen si es necesario */
+    }
+}
+
+@media screen and (min-width: 3500px) {
+    .header-slider {
+        width: 45%; /* Ajusta el tamaño según necesites */
+        margin: 0 auto; /* Centra la imagen si es necesario */
+    }
+}

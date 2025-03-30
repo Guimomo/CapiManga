@@ -69,21 +69,6 @@
     object-position: top;
 }
 
-@media screen and (min-width: 2300px) {
-    .slider {
-        width: 70%; /* Ajusta el tamaño según necesites */
-
-        margin: 0 auto; /* Centra la imagen si es necesario */
-    }
-}
-
-@media screen and (min-width: 3500px) {
-    .slider {
-        width: 45%; /* Ajusta el tamaño según necesites */
-        margin: 0 auto; /* Centra la imagen si es necesario */
-    }
-}
-
 /* Fondo del slide */
 .slide-content {
     width: 100%;
