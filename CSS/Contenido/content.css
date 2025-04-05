@@ -6,7 +6,7 @@
     height: 200px;
     background-color: var(--fourth_color);
     min-height: 100vh;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 @media screen and (min-width: 2300px) {
