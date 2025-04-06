@@ -53,8 +53,9 @@ body{
 
 }
 
+
 body {
-    min-width: 1200px; /* Ajusta este valor según tu diseño mínimo */
+    min-width: 320px; /* Ajusta este valor según tu diseño mínimo */
     margin: 0 auto;
 }
 

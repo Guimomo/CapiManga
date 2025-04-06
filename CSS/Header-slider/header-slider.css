@@ -8,21 +8,22 @@
     position: relative;
     overflow: hidden;
     height: 100vh;
-    min-height: 600px; /* Evita que sea demasiado pequeño */
-    max-height: 800px; /* Evita que sea demasiado grande en pantallas grandes */
+    /* max-width: 320px; */
+
 }
 
-@media screen and (min-width: 2300px) {
-    .header-slider {
-        width: 70%; /* Ajusta el tamaño según necesites */
-
-        margin: 0 auto; /* Centra la imagen si es necesario */
-    }
-}
-
-@media screen and (min-width: 3500px) {
+@media screen and (min-width: 2500px) {
     .header-slider {
         width: 45%; /* Ajusta el tamaño según necesites */
+        min-height: 600px; /* Evita que sea demasiado pequeño */
+        max-height: 800px; /* Evita que sea demasiado grande en pantallas grandes */
         margin: 0 auto; /* Centra la imagen si es necesario */
     }
 }
+
+@media screen and (max-width: 1100px) {
+    .header-slider {
+        height: 800px;
+    }
+}
+

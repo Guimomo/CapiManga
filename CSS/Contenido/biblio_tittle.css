@@ -44,3 +44,10 @@
     right: 0;
     z-index: 1;
 }
+
+@media screen and (max-width: 1400px) {
+    .biblio_tittle {
+        height: 150px;
+        border-radius: 0 0 40px 40px;
+    }
+}

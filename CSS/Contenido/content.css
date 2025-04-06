@@ -7,19 +7,13 @@
     background-color: var(--fourth_color);
     min-height: 100vh;
     overflow: hidden;
+    /* max-width: 320px; */
 }
 
-@media screen and (min-width: 2300px) {
-    .content {
-        width: 70%; /* Ajusta el tamaño según necesites */
-
-        margin: 0 auto; /* Centra la imagen si es necesario */
-    }
-}
-
-@media screen and (min-width: 3500px) {
+@media screen and (min-width: 2500px) {
     .content {
         width: 45%; /* Ajusta el tamaño según necesites */
         margin: 0 auto; /* Centra la imagen si es necesario */
     }
 }
+
