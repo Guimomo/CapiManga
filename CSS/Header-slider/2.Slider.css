@@ -212,7 +212,7 @@ intercambiando de un slide-item a otro, por lo que el siguiente item de pasara a
 .thumbnail {
     display: flex;
     gap: 10px;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
     position: absolute;
     bottom: 30px;
@@ -249,11 +249,15 @@ intercambiando de un slide-item a otro, por lo que el siguiente item de pasara a
 
     width: 0;
     overflow: hidden;
-    animation: showthumbnail 0.5s linear 1 forwards;
+    animation: showthumbnail 0.6s linear 1 forwards;
 }
 
 @keyframes showthumbnail{
-    to{
+    0%{
+        width: 0;
+    }
+    100%{
+
         width: 120px;
     }
 }
@@ -276,7 +280,7 @@ intercambiando de un slide-item a otro, por lo que el siguiente item de pasara a
         width: 120px;
         height: 220px;
         border-radius: 20px;
-        right: calc(500px - 230px);
+        right: calc(500px - 175px);
         bottom: 30px;
     }
 }
@@ -324,13 +328,13 @@ intercambiando de un slide-item a otro, por lo que el siguiente item de pasara a
 
     .thumbnail {
 
-        flex-direction: column;
-        justify-content: flex-end;
+        justify-content: center;
         align-items: center;
         position: absolute;
-        bottom: 10px;
-        width: auto;
-        right: 5px;
+        bottom: 60px;
+        width: 500px;
+        right: 50%;
+        transform: translateX(50%);
         padding-right: 10px;
     }
 
@@ -359,22 +363,22 @@ intercambiando de un slide-item a otro, por lo que el siguiente item de pasara a
 
     .slider.next .thumbnail .item:nth-last-child(1) {
 
-        transform: scaleY(0);
-        transform-origin: bottom;
-        opacity: 0;
-        animation: showthumbnail 0.5s ease-out forwards;
+        /* transform: scaleY(0); */
+        /* transform-origin: bottom; */
+        /* opacity: 0; */
+        animation: showthumbnail 0.5s linear forwards;
+        width: 80px;
     }
 
     @keyframes showthumbnail{
 
         0%{
-            
-            transform: scaleY(0);
+            width: 0;
             opacity: 0;
         }
         100%{
-            
-            transform: scaleY(1);
+
+            width: 80px;
             opacity: 1;
         }
     }
@@ -382,7 +386,7 @@ intercambiando de un slide-item a otro, por lo que el siguiente item de pasara a
     /* Contenedor de la información del slide */
     .slide-info {
 
-        bottom: 90px;
+        bottom: 170px;
         left: 50%;
         width: 50%;
         color: white;
@@ -395,8 +399,8 @@ intercambiando de un slide-item a otro, por lo que el siguiente item de pasara a
 
     /* Logo */
     .slide-logo {
-      width: 300px;
-      height: auto;
+      width: auto;
+      height: 150px;
       margin-bottom: 10px;
 
     }
@@ -440,8 +444,9 @@ intercambiando de un slide-item a otro, por lo que el siguiente item de pasara a
         height: 80px;
         position: absolute;
         border-radius: 20px;
-        bottom: 190px;
-        right: 15px;
+        bottom: 60px;
+        right: auto;
+        left: calc(50% - 135px);
         animation: showImage 0.6s ease-in-out forwards;
     }
     
@@ -450,7 +455,7 @@ intercambiando de un slide-item a otro, por lo que el siguiente item de pasara a
         to{
             width: 100%;
             height: 100%;
-            right: 0;
+            left: 0;
             bottom: 0;
             border-radius: 0;
         }
@@ -458,14 +463,23 @@ intercambiando de un slide-item a otro, por lo que el siguiente item de pasara a
 
     /* PREV */
 
+    .slider.prev .list .slide-item:nth-child(2) .slide-image{
+        position: absolute;
+        bottom: 0;
+        right: auto;
+        left: 0;
+        animation: outImage 0.5s linear 1 forwards;
+    }
+
     @keyframes outImage{
     
         to{
             width: 80px;
             height: 80px;
             border-radius: 20px;
-            right: 15px;
-            bottom: 190px;
+            right: auto;
+            left: calc(50% - 135px);
+            bottom: 60px;
         }
     }
 }
