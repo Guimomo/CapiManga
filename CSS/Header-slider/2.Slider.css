@@ -308,7 +308,7 @@ intercambiando de un slide-item a otro, por lo que el siguiente item de pasara a
 
 /* > Cambio del slider a partir de 500px _____________________________________________________________________ */
 
-@media (max-width: 770px) {
+@media (max-width: 950px) {
 
     
 
@@ -322,7 +322,7 @@ intercambiando de un slide-item a otro, por lo que el siguiente item de pasara a
         background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.899), rgba(0, 0, 0, 0.356) 20%, rgba(0, 0, 0, 0) 50%),
         url('../../ASSETS/img/page_elements/zoom-comic-b.png');
         background-position: left bottom;
-        background-size: 100% auto;
+        background-size:  auto, auto 50%;
         background-repeat: no-repeat;
     }
 
@@ -331,7 +331,7 @@ intercambiando de un slide-item a otro, por lo que el siguiente item de pasara a
         justify-content: center;
         align-items: center;
         position: absolute;
-        bottom: 60px;
+        bottom: 50px;
         width: 500px;
         right: 50%;
         transform: translateX(50%);
@@ -432,7 +432,8 @@ intercambiando de un slide-item a otro, por lo que el siguiente item de pasara a
 
         z-index: 50;
         position: absolute;
-        top: 94%;
+        top: auto;
+        bottom: 5px;
         left: 50%;
         transform: translatex(-50%);
     }

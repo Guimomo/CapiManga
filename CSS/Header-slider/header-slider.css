@@ -23,7 +23,19 @@
 
 @media screen and (max-width: 1100px) {
     .header-slider {
-        height: 800px;
+        height: 80vh;
+    }
+
+    .biblio_tittle {
+        height: 20vh;
+    }
+}
+
+@media (max-height: 570px) {
+
+    .header-slider {
+
+        height: 600px;
     }
 }
 
