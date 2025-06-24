@@ -1,0 +1,360 @@
+header {
+
+    grid-area: header;
+    /* position: fixed; */
+    /* z-index: 1000; */
+    /* top: 0; */
+    /* left: 0; */
+    /* height: 100vh; */
+    padding-bottom: 20px;
+    padding-top: 20px;
+    display: flex;
+    height: 100%;
+    /* align-items: center; */
+    /* gap: 15px; */
+}
+
+/* Quitar el scrollbar de todos los navegadores */
+header {
+    /* ...existing code... */
+    scrollbar-width: none;        /* Firefox */
+}
+
+/* Chrome, Edge, Safari */
+header::-webkit-scrollbar {
+    display: none;
+}
+
+header .header-content {
+
+    /* background-color: var(--second_color); */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    padding-bottom: 20px;
+    padding-top: 20px;
+    padding-right: 10px;
+    /* flex: 1 1; */
+
+}
+
+header .header-content .menuHeader {
+
+    display: flex;
+    position: relative;
+    padding-right: 20px;
+    padding-left: 20px;
+    flex-direction: column;
+    width: 100%;
+    flex: 1;
+    gap: 25px;
+    align-items: center;
+    /* justify-content: center; */
+    color: var(--second_color);
+}
+
+header .perfilCont {
+
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    width: 100%;
+    background-color: var(--second_color);
+    padding-left: 10px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    gap: 10px;
+    border-radius: 0 100px 100px 0;
+
+}
+
+/* header .header-content .menuHeader::before {
+
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 70%;
+    background-color: var(--main_color);
+    right: 5px;
+    border-radius: 100px;
+} */
+
+.icono-perfil {
+
+    width: 50px;
+}
+
+.logo-link {
+
+    height: 100px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* flex-shrink: 0; */
+}
+
+.logo-img {
+
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+header .menu-icons {
+
+    width: 20px;
+}
+
+/* LOGO ------------------------------------------> */
+
+/* 
+==========================================
+¿QUÉ ES flex-shrink?
+==========================================
+
+flex-shrink es una propiedad de Flexbox que controla 
+cuánto puede reducirse (encogerse) un elemento flexible 
+cuando el espacio en el contenedor es insuficiente.
+
+- Valor por defecto: 1 (el elemento puede encogerse)
+- Si usas flex-shrink: 0; el elemento NO se encogerá
+- Si usas flex-shrink: 2; el elemento se encogerá el doble de rápido que uno con flex-shrink: 1
+*/
+
+/* PERFIL ICON */
+
+header .icono--perfil {
+
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: var(--main_color);
+    overflow: hidden;
+    cursor: pointer;
+    z-index: 2;
+}
+
+
+
+
+header .check--perfil-label {
+
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+header .check--perfil-label img {
+
+    width: 70%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+
+header input[type="checkbox"] {
+    display: none;
+}
+
+header label {
+    display: inline-block;
+}
+
+/* MENU --------------------------------------------------> */
+
+
+/* header:has(.check--menu-checkbox:checked) .opciones {
+
+    opacity: 1;
+    transform: translateX(0);
+    transition: transform 1s ease-in-out;
+} */
+
+
+
+
+/* .chiguiGoku--content {
+
+    grid-area: chuguiGoku;
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+    background-color: var(--main_color);
+    overflow: hidden;
+    position: relative;
+}
+
+.chiguiGoku--content img {
+
+    width: 100%;
+
+    position: absolute;
+    bottom: 0;
+    animation: chiguiGoku 3s infinite;
+}
+
+@keyframes chiguiGoku {
+    
+    0%{
+        bottom: 0;
+    }
+
+    50% {
+        bottom: -15px;
+    }
+
+    100% {
+        bottom: 0;
+    }
+
+} */
+
+.menu-item {
+
+    /* height: 300px; */
+    /* max-height: 300px; 
+    width: 100%;
+    overflow: hidden;
+    background-color: var(--third_color);
+    padding: 10px;
+    border-radius: 20px; */
+
+    display: flex;
+    /* flex-direction: column; */
+    width: 100%;
+    align-items: center;
+    /* justify-content: center; */
+    gap: 10px;
+    color: var(--second_color);
+}
+
+.menu-item i {
+
+    font-size: 20px;
+}
+
+.menu-item a {
+
+    color: var(--second_color);
+}
+
+.home-option {
+
+    display: none;
+}
+
+/* header:has(.check--menu-checkbox:checked) .menu-originals {
+
+    transition: ease-in-out 0.8;
+    transform: translateX(0);
+}
+
+header:has(.check--menu-checkbox:checked) .menu-capiboard {
+
+    transition: ease-in-out 1s;
+    transform: translateX(0);
+}
+
+header:has(.check--menu-checkbox:checked) .menu-header {
+
+    transition: ease-in-out 0.4s;
+    transform: translateX(0);
+} */
+
+@media (max-width: 650px){
+
+}
+
+@media (max-width: 800px) {
+
+    header {
+
+        position: fixed;
+        z-index: 1000;    
+        padding-top: 0;
+        padding-bottom: 0;
+        bottom: 0;
+        height: 100px;
+        width: 100%;
+        min-width: 320px;
+        /* background-color: var(--second_color); */
+    }
+
+    header .header-content {
+
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    header .header-content .menuHeader {
+
+        flex-direction: row;
+        gap: 15px;
+        padding-right: 10px;
+        padding-left: 10px;
+        width: auto;
+    }
+
+    .logo-link {
+
+        display: none;
+    }
+
+    .menu-item {
+
+        flex-direction: column;
+        font-size:  14px; ;
+    }
+
+    .home-option {
+
+        display: flex;
+    }
+
+    .home-option .home-icon {
+
+        width: 60px;
+    }
+
+    header .perfilCont {
+
+        width: 100px;
+        flex-direction: column;
+        padding-left: 0;
+        gap: 2px;
+        position: fixed;
+        top: 20px;
+    }
+
+    .perfilCont span {
+
+        font-size: 14px;
+    }
+
+    .menu-item:nth-child(6),
+    .menu-item:nth-child(7),
+    .menu-item:nth-child(8) {
+
+        display: none;
+    }
+
+}
+
+@media (max-width: 420px) {
+
+    .menu-item span {
+
+        font-size: 10px;
+    }
+}

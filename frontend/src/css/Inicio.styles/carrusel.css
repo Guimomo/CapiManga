@@ -1,0 +1,746 @@
+.carrusel {
+
+    /* height: 100vh; */
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    background-color: var(--third_color);
+    overflow: hidden;
+    position: relative;
+    border-radius: 0 0 40px 40px ;
+    color: var(--second_color);
+/* 
+    margin-top: 100px; */
+}
+
+
+.carrusel--selector {
+
+    display: none;
+}
+
+.carrusel {
+
+    display: flex;
+}
+
+.carrusel_content {
+
+    position: relative;
+    flex: 1;
+}
+
+.carrusel--Img {
+
+    position: relative;
+    height: 100%;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.carrusel--Img_item {
+    /* display: none; */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.carrusel--Img_item:first-child {
+
+    /* opacity: 1; */
+    z-index: 1;
+}
+
+.diagonal_carrusel-info {
+
+    position: absolute;
+    right: 0;
+    height: 100%;
+    width: 100px;
+    z-index: 3;
+
+}
+
+.diagonal_carrusel-info::before {
+
+    content: "";
+    width: 600px;
+    height: 100%;
+    background-color: var(--third_color);
+    transform: skewX(-7deg);
+    border-radius: 0 0 0 100px;
+    position: absolute;
+}
+
+.carrusel--Img_item img{
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta la imagen dentro del contenedor sin deformarla */
+    object-position: top;
+}
+
+.carrusel--info {
+
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    height: 100%;
+    background-color: var(--third_color);
+    background-image: url("../../assets/img/page_elements/zoom-comic-r.png");
+    background-repeat: no-repeat;
+    background-size: 70% 100%;
+    background-position: right;
+    z-index: 3;
+}
+
+.carrusel--info_item {
+
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.carrusel--info_elements {
+
+    height: 400px;
+    width: 100%;
+    position: absolute;
+    right: 0;
+    display: flex;
+    bottom: 40%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    padding-right: 80px;
+    bottom: -50%;
+    opacity: 0;
+    transform: translateY(50%);
+    transition: ease-in-out 0.5s;
+    z-index: 2;
+}
+
+.carrusel--info_item:first-child {
+    z-index: 1;
+}
+
+.carrusel--info_item:first-child .carrusel--info_elements{
+    opacity: 1;
+    bottom: 40%;
+}
+
+.button_carrusel{
+
+    width: 40px;
+    height: 40px;
+    position: absolute;
+
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    bottom: 45%;
+    transform: translateX(-50%);
+
+}
+
+.button_carrusel img {
+
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    cursor: pointer;
+}
+
+.arrow_prev{
+
+    right: 480px;
+    transition: ease 0.3s;
+}
+.arrow_prev:hover {
+    scale: 1.2;
+}
+
+.arrow_next{
+
+    right: 10px;
+    transition: ease 0.3s;
+}
+.arrow_next:hover {
+    scale: 1.2;
+}
+
+.carrusel-logo {
+
+    width: 100%;
+    /* height: 200px; */
+    z-index: 2;
+    position: relative;
+    object-fit: contain;
+}
+
+.genres {
+
+    white-space: nowrap;
+}
+
+.carrusel-genres {
+
+    position: relative;
+    z-index: 2;
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    justify-content: center;
+}
+
+.carrusel-subgenre {
+ 
+    background-color: var(--second_color);
+}
+
+.carrusel-genre,
+.carrusel-subgenre {
+ 
+    padding: 2px 15px;
+    border-radius: 20px;
+}
+
+.carrusel-horario {
+
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 30px;
+    gap: 10px;
+}
+
+.calendar--icon {
+
+    width: 30px;
+    height: 30px;
+    background-color: var(--main_color);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.silh--Character_Carrusel {
+
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 600px;
+    height: 80%;
+    width: 80%;
+    object-fit: contain;
+    opacity: 0.9;
+
+}
+
+.carrusel--info_item:first-child .silh--Character_Carrusel {
+
+    left: 0;
+}
+
+
+
+/* Acciones de NETX */
+.carrusel.next .carrusel_content .carrusel--Img .carrusel--Img_item:first-child img {
+
+    width: 0;
+    animation: showImage 1s ease-in-out forwards;
+}
+
+
+@keyframes showImage {
+
+    to{
+    
+        width: 100%;
+    }
+
+}
+
+.carrusel.next .carrusel--info .carrusel--info_item:last-child .carrusel--info_elements {
+
+    bottom: 40%;
+    opacity: 1;
+
+    animation: outInfoNext 1s ease-in-out forwards;
+}
+
+@keyframes outInfoNext {
+    to {
+        bottom: -50%;
+        opacity: 0;
+    }
+}
+
+.carrusel.next .carrusel--info .carrusel--info_item:first-child .carrusel--info_elements {
+
+    bottom: -50px;
+    opacity: 0;
+
+    animation: showInfo 1s ease-in-out forwards;
+}
+
+@keyframes showInfo {
+
+    to {
+
+        bottom: 40%;
+        opacity: 1;
+    }
+}
+
+.carrusel.next .carrusel--info .carrusel--info_item:first-child .silh--Character_Carrusel{
+
+    left: 600px;
+    opacity: 0;
+
+    animation-delay: opacity 0.5s;
+    animation: showSilh 1s ease-in-out forwards;
+}
+
+@keyframes showSilh {
+
+    to {
+
+        opacity: 1;
+        left: 0;
+
+    }
+}
+
+.carrusel.next .carrusel--info .carrusel--info_item:last-child .silh--Character_Carrusel{
+
+    left: 0;
+    opacity: 1;
+
+    animation-delay: opacity 0.5s;
+    animation: outLastSilh 1s ease-in-out forwards;
+}
+
+@keyframes outLastSilh {
+
+    to {
+
+        opacity: 0;
+        left: 600px;
+
+    }
+}
+
+/*PREV*/
+
+.carrusel.prev .carrusel_content .carrusel--Img .carrusel--Img_item:nth-child(2) {
+
+    width: 100%;
+    position: absolute;
+    z-index: 2;
+
+    animation: showImagePrev 1s ease-in-out forwards;
+}
+
+@keyframes showImagePrev {
+
+    to{
+
+        width: 0;
+    }
+
+}
+
+/* .carrusel.prev .carrusel_content .carrusel--Img .carrusel--Img_item:nth-child(2) .diagonal_carrusel-info {
+
+    opacity: 0;
+
+} */
+
+.carrusel.prev .carrusel--info .carrusel--info_item:nth-child(2) .carrusel--info_elements {
+
+    bottom: 40%;
+    opacity: 1;
+
+    animation: outInfoPrev 1s ease-in-out forwards;
+}
+
+@keyframes outInfoPrev {
+    to {
+        bottom: -50%;
+        opacity: 0;
+    }
+}
+
+.carrusel.prev .carrusel--info .carrusel--info_item:first-child .carrusel--info_elements {
+
+    bottom: -50px;
+    opacity: 0;
+
+    animation: showInfoPrev 1s ease-in-out forwards;
+}
+
+@keyframes showInfoPrev {
+
+    to {
+
+        bottom: 40%;
+        opacity: 1;
+    }
+}
+
+.carrusel.prev .carrusel--info .carrusel--info_item:first-child .silh--Character_Carrusel{
+
+    left: 600px;
+    opacity: 0;
+
+    animation-delay: opacity 0.5s;
+    animation: showSilhPrev 1s ease-in-out forwards;
+}
+
+@keyframes showSilhPrev {
+
+    to {
+
+        opacity: 1;
+        left: 0;
+
+    }
+}
+
+.carrusel.prev .carrusel--info .carrusel--info_item:nth-child(2) .silh--Character_Carrusel{
+
+    left: 0;
+    opacity: 1;
+
+    animation-delay: opacity 0.5s;
+    animation: outLastSilhPrev 1s ease-in-out forwards;
+}
+
+@keyframes outLastSilhPrev {
+
+    to {
+
+        opacity: 0;
+        left: 600px;
+
+    }
+}
+
+
+@media (max-width: 1190px) {
+    
+    .carrusel {
+        height: 600px;
+    }
+
+    .carrusel--info {
+
+        width: 300px;
+    }
+
+    .button_carrusel{
+
+        width: 30px;
+        height: 30px;
+
+    }
+
+    .arrow_prev{
+
+        right: 300px;
+    }
+    .arrow_next{
+
+        right: 5px;
+    }
+
+}
+
+@media (max-width: 650px) {
+
+    .carrusel {
+
+        flex-direction: column;
+        height: 600px;
+        /* border-radius: 30px;
+        margin: 10px; */
+    }
+
+    .carrusel--info {
+        
+        width: 100%;
+        height: 250px;
+        background-image: url("../../assets/img/page_elements/zoom-comic-b.png");
+        background-size: 100% 80%;
+        background-position: bottom;
+    }
+
+    .button_carrusel{
+        
+        bottom: 150px;
+        transform: none;
+    }
+
+    .arrow_prev{
+
+        right: auto;
+        left: 15px;
+    }
+    .arrow_next{
+        right: 15px;
+    }
+
+    .diagonal_carrusel-info {
+        
+        position: absolute;
+        right: auto;
+        bottom: 0;
+        height: 50px;
+        width: 100%;
+        /* background-color: var(--third_color); */
+        z-index: 3;
+    }
+
+    .diagonal_carrusel-info::before {
+        
+        content: "";
+        width: 100%;
+        height: 300px;
+        background-color: var(--third_color);
+        transform: skewy(8deg);
+        /* border-radius: 30px 0 0 0; */
+        border-radius: 0;
+        position: absolute;
+    }
+
+    .silh--Character_Carrusel {
+
+        z-index: 1;
+        top: auto;
+        bottom: -10px;
+        left: 600px;
+        height: 460px;
+        width: 320px;
+        object-fit: contain;
+        opacity: 0.9;
+        filter: drop-shadow(10px 10px 0 var(--third_color));
+    }
+
+    .carrusel .carrusel--info .carrusel--info_item:first-child .silh--Character_Carrusel {
+
+        left: -50px;
+    }
+
+    .carrusel.next .carrusel--info .carrusel--info_item:first-child .silh--Character_Carrusel{
+
+        left: 600px;
+        opacity: 0;
+
+        animation-delay: opacity 0.5s;
+        animation: showSilh 1s ease-in-out forwards;
+    }
+    .carrusel.next .carrusel--info .carrusel--info_item:last-child .silh--Character_Carrusel{
+
+        left: -50px;
+        opacity: 1;
+
+        animation-delay: opacity 0.5s;
+        animation: outLastSilh 1s ease-in-out forwards;
+    }
+    .carrusel.prev .carrusel--info .carrusel--info_item:first-child .silh--Character_Carrusel{
+
+        left: 600px;
+        opacity: 0;
+
+        animation-delay: opacity 0.5s;
+        animation: showSilhPrev 1s ease-in-out forwards;
+    }
+    .carrusel.prev .carrusel--info .carrusel--info_item:nth-child(2) .silh--Character_Carrusel{
+
+        left: -50px;
+        opacity: 1;
+
+        animation-delay: opacity 0.5s;
+        animation: outLastSilhPrev 1s ease-in-out forwards;
+    }
+
+    @keyframes showSilh {
+
+        to {
+
+            opacity: 1;
+            left: -50px;
+
+        }
+    }
+    @keyframes outLastSilh {
+
+        to {
+
+            opacity: 0;
+            left: 600px;
+
+        }
+    }
+    @keyframes showSilhPrev {
+
+        to {
+
+            opacity: 1;
+            left: -50px;
+
+        }
+    }
+    @keyframes outLastSilhPrev {
+
+        to {
+
+            opacity: 0;
+            left: 600px;
+
+        }
+    }
+
+    .carrusel--info_item {
+
+        /* bottom: 20px; */
+        padding-bottom: 20px;
+        height: 100%;
+    }
+
+    .carrusel--info_elements {
+        
+        height: 100%;
+        width: 100%;
+        padding: 0;
+        padding-left: 50px;
+        padding-right: 50px;
+        gap: 15px;
+        bottom: 10px;
+        transform: none;
+    }
+
+    .carrusel.next .carrusel--info .carrusel--info_item:last-child .carrusel--info_elements {
+
+        bottom: 10px;
+        opacity: 1;
+
+        animation: outInfoNext 0.5s ease-in-out forwards;
+    }
+
+    @keyframes outInfoNext {
+        to {
+            bottom: -50%;
+            opacity: 0;
+        }
+    }
+
+    .carrusel.next .carrusel--info .carrusel--info_item:first-child .carrusel--info_elements {
+
+        bottom: -50px;
+        opacity: 0;
+
+        animation: showInfo 0.5s ease-in-out forwards;
+    }
+
+    @keyframes showInfo {
+
+        to {
+
+            bottom: 10px;
+            opacity: 1;
+        }
+    }
+    .carrusel.prev .carrusel--info .carrusel--info_item:nth-child(2) .carrusel--info_elements {
+
+        bottom: 10px;
+        opacity: 1;
+
+        animation: outInfoPrev 0.5s ease-in-out forwards;
+    }
+
+    @keyframes outInfoPrev {
+        to {
+            bottom: -50%;
+            opacity: 0;
+        }
+    }
+
+    .carrusel.prev .carrusel--info .carrusel--info_item:first-child .carrusel--info_elements {
+
+        bottom: -50px;
+        opacity: 0;
+
+        animation: showInfoPrev 0.5s ease-in-out forwards;
+    }
+
+    @keyframes showInfoPrev {
+
+        to {
+
+            bottom: 10px;
+            opacity: 1;
+        }
+    }
+
+
+    .carrusel--info_item:first-child .carrusel--info_elements{
+        opacity: 1;
+        bottom: 10px;
+    }
+
+    .carrusel--info_elements p,
+    .carrusel--info_elements i {
+
+        font-size: 14px;
+    }
+
+    .carrusel-logo {
+
+        width: 100%;
+        max-width: 300px;
+        height: 150px;
+        position: relative;
+        object-fit: contain;
+    }
+
+    /* .carrusel_content {
+        
+        position: relative;
+        flex: 1;
+    } */
+
+}
+
+@media (min-width: 1800px){
+  .carrusel {
+    height: 800px;
+  }
+}
+
+@media (min-height: 1400px) {
+    
+    .carrusel {
+        height: 800px;
+    }
+}
+
+@media (max-height: 600px){
+  .carrusel {
+    height: 600px;
+  }
+}
