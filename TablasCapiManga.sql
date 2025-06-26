@@ -27,7 +27,7 @@ create table generos (
 create table Historia (
     id int auto_increment primary key,
     autor_Historia int not null,
-    titulo_Historia varchar(255) not null,
+    titulo_Historia varchar(255) not null unique,
     formato_Publicacion enum ('serie', 'one-Shot'), -- One shot: historia de un capitulo; serie: historia de varios capitulos
     portada_Historia varchar(255) not null,
     logo_historia varchar (255) default null,
@@ -39,7 +39,8 @@ create table Historia (
     estado_Historia int not null, -- No se si necesito una columna del estado de la serie (en publicacion, en pausa, cancelada y finalizada)
     edad_Recomendada int not null,
     visibilidad_Historia enum ('publica', 'privada'),
-    tipo_Historia int not null -- Se ve si la historia es un comic, webcomic o novela
-    -- Nece
+    tipo_Historia int not null, -- Se ve si la historia es un comic, webcomic o novela
+    fecha_Publicacion_Historia datetime default current_timestamp
+    -- Necesito una tabla para 
     
 );
