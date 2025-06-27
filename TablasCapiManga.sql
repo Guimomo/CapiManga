@@ -7,7 +7,7 @@ create table Usuario (
     user_Name varchar (100) not null unique,
     foto_Perfil varchar(255),
     banner_Perfil varchar(255),
-    rol_Usuario enum ('normal', 'verificado', 'Administrador'),
+    rol_Usuario enum ('normal', 'verificado', 'administrador') default 'normal',
     edad_Usuario int,
     fecha_Nacimiento date not null,
     email_Usuario varchar (200),
@@ -15,8 +15,9 @@ create table Usuario (
     contrasena varchar (255) not null,
     genero_Usuario enum ('femenino', 'masculino', 'ninguno', 'otro'),
     biografia_Usuario varchar (500) default null,
-    visibilidad_Usuario enum ('publico', 'privado') default 'publico'
+    visibilidad_Usuario enum ('publico', 'privado') default 'publico',
     
+    fecha_Usuario datetime default current_timestamp
 );
 
 create table Generos (
@@ -24,15 +25,12 @@ create table Generos (
     nombre varchar(200) not null unique
 );
 
-Estado_Serie (
-    -- En caso de ser una serie solamente, esto no deberia usarse en un one shot ya que este este de un capitulo
-    -- Esto es para ingresar el tipo de estado
+create table Tipo_Estado (
     id int auto_increment primary key,
-    tipo_Estado varchar(100) not null,
-    fecha_Estado datetime default current_timestamp -- quiero tener la fecha cuando un proyecto se cancela, se pausa o se finaliza
+    nombre_Estado varchar(100) not null unique
 );
 
-edad_Recomendada (
+create table edad_Recomendada (
     id int auto_increment primary key,
     tipo_Recomendacion varchar(200) not null,
     edad_Minima int not null,
@@ -41,27 +39,54 @@ edad_Recomendada (
 
 -- no se si poner calificacion desde ante e integrarla a la tabla historia o... asi como esta el orden esta bien?
 
+create table tipo_historia (
+    id int auto_increment primary key,
+    nombre_tipo varchar(100) not null unique
+);
+
 create table Historia (
     id int auto_increment primary key,
     autor_Historia int not null,
     titulo_Historia varchar(255) not null unique,
-    formato_Publicacion enum ('serie', 'one-Shot'), -- One shot: historia de un capitulo; serie: historia de varios capitulos
+    formato_Publicacion enum ('serie', 'one-Shot'),
     portada_Historia varchar(255) not null,
-    icono_Historia varchar (255) not null,
-    logo_historia varchar (255) default null,
-    banner_Historia varchar(255), -- No se como hacer para que el banner perzonalizado sea solo para usuarios verificados que vayan a crear una historia
-    personaje_Png varchar(255), -- no se como hacer para que esto solo sea para para el usuario verificado que vaya a crear una historia
+    icono_Historia varchar(255) not null,
+    logo_Historia varchar(255) not null,
+    banner_Historia varchar(255),
+    personaje_Png varchar(255),
     genero_Id int not null,
     subgenero_Id int not null,
     argumento_Historia varchar(500) not null,
-    estado_Serie int not null, -- No se si necesito una columna del estado de la serie (en publicacion, en pausa, cancelada y finalizada)
+    tipo_Serie int not null,
     edad_Recomendada int not null,
     visibilidad_Historia enum ('publica', 'privada'),
-    tipo_Historia int not null, -- Se ve si la historia es un comic, webcomic o novela
-    fecha_Publicacion_Historia datetime default current_timestamp, -- no se actualiza
-    verificación_Historia enum ('original', 'capiBoard') -- No se si esto deba ser aqui o en una tabla a parte	
-    -- Necesito una tabla para 
+    tipo_Historia int not null,
+    fecha_Publicacion_Historia datetime default current_timestamp,
+    verificación_Historia enum ('original', 'capiBoard'),
     
+    -- llaves foraneas
+    foreign key (autor_Historia) references Usuario(id) on delete cascade,
+    foreign key (genero_Id) references Generos(id),
+    foreign key (subgenero_Id) references Generos(id),
+    foreign key (tipo_Serie) references Tipo_Estado(id),
+    foreign key (tipo_historia) references tipo_historia(id),
+    foreign key (edad_Recomendada) references edad_Recomendada(id)
+);
+
+create table Estado_Serie (
+    -- En caso de ser una serie solamente, esto no deberia usarse en un one shot ya que este este de un capitulo
+    -- Esto es para ingresar el tipo de estado
+    -- id int auto_increment primary key,
+    -- tipo_Estado varchar(100) not null,
+    -- fecha_Estado datetime default current_timestamp -- quiero tener la fecha cuando un proyecto se cancela, se pausa o se finaliza
+	id int auto_increment primary key,
+	id_Historia int not null,
+	estado_Serie int not null,
+	fecha_Estado datetime default current_timestamp,
+    
+    -- llaves foraneas
+    foreign key (id_Historia) references Historia(id) on delete cascade,
+    foreign key (estado_Serie) references Tipo_Estado(id)
 );
 
 create table Capitulo (
@@ -70,50 +95,81 @@ create table Capitulo (
     titulo_Capitulo varchar (200) not null,
     numero_Capitulo int not null, -- No se si esto deba ser así
     argumento_Capitulo varchar (150) default null,
-    icono_Capitulo varchar varchar (255),
+    icono_Capitulo varchar (255),
+    
+    -- Evita capítulos duplicados por número en la misma historia
+    unique (id_Historia, numero_Capitulo),
+    
+    -- llaves foraneas
+    foreign key (id_Historia) references Historia(id) on delete cascade
 );
 
 create table Paginas_Capitulo (
     id int auto_increment primary key,
-    id_Capitulo int not null, -- se relacionan las paginas con un capitulo que a su vez esta relacionada a una historia
-    pagina_img varchar(255) not null, -- las paginas y en general imagenes se guardaran en un backend por lo que se creara una url para llamar a estas paginas e imagenes con formato png o jpg
-    pagina_numeracion_nombre int auto_increment primary key -- ... no se si esta sea la froma correcta porque imaginate que se cambie la pocision si lo edito, o bueno no se como se haga en webtoon en otras plataformas el nombramiento de cada pagina y con que nombre se guarde en el backend
+    id_Capitulo int not null,
+    pagina_img varchar(255) not null,
+    pagina_numero int not null, -- Número de página dentro del capítulo
+    
+    -- Evita capítulos duplicados por número en la misma historia
+    unique (id_Capitulo, pagina_numero),
+    
+    -- llaves foraneas
+    foreign key (id_Capitulo) references Capitulo(id) on delete cascade
 );
 
-create table guardar_Historia ( -- no se si solo hacerlo con series o tambien lo aplico para one-shots
-    id int auto_increment primary key,
+create table guardar_Historia (
     id_Historia int not null,
-    guardada_por int not null -- Aqui va el id del usuario que empezo a guardar a historia
+    guardada_por int not null,
+    fecha_Guardado datetime default current_timestamp,
+    
+    -- llaves foraneas
+    primary key (id_Historia, guardada_por),
+    foreign key (id_Historia) references Historia(id) on delete cascade,
+    foreign key (guardada_por) references Usuario(id)  on delete cascade
 );
 
 create table calificacion_Historia (
-    id int auto_increment primary key,
     id_Historia int not null,
-    calificacion int not null, -- no se si deba normalizar una tabla o hacerlo todo aqui con las puntuaciones del 1 al 10 o un sistema mas amigable con enum de pulgar arriba y pulgar abajo, necesito ayuda
-    reseña_Historia varchar (600) default null,
-    calificada_por int not null -- Aqui va el id del usuario que reseño
+    calificada_por int not null,
+    calificacion enum ('positivo', 'negativo'),
+    reseña_Historia varchar(600) default null,
+    
+    -- llaves foraneas
+    primary key (id_Historia, calificada_por),
+    foreign key (id_Historia) references Historia(id) on delete cascade,
+    foreign key (calificada_por) references Usuario(id)  on delete cascade
 );
 -- ___________________________________ Seccion social
 
-create table seguir_Usuario ( -- solo funciona si el usuario es publico... una cosa no porque el usuario sea privado significa que sus historias tambien los sean, puede ser que solo quiera publicar su historia sin tener que mostrar su perfil en capimanga al publico
-    id int auto_increment primary key,
-    siguiendo_a int not null, -- Usuario al que se sigue :)
-    seguido_por int not null, -- Usuario que empezo a seguir al anterior
-    seguimiento_fecha datetime default current_timestamp
-    -- No se si a esta tabla le falte algo o asi esta bien
-)
+create table seguir_Usuario (
+    siguiendo_a int not null,
+    seguido_por int not null,
+    seguimiento_fecha datetime default current_timestamp,
+    
+    -- llaves foraneas
+    primary key (siguiendo_a, seguido_por),
+    foreign key (siguiendo_a) references Usuario(id)  on delete cascade,
+    foreign key (seguido_por) references Usuario(id)  on delete cascade
+);
 
 create table publicacion (
-
     id int auto_increment primary key,
     publicado_por int not null,
-    publicacion_Text text(600) not null,
-    publicacion_Img varchar (255) default null,
+    publicacion_Text varchar(600) not null,
+    publicacion_Img varchar(255) default null,
     publicacion_Fecha datetime default current_timestamp,
-    publicacion_Reaccion enum ('me gusta', 'no me gusta') -- no se si solo dejar el boton de me gusta por temas de hacer un ambiente amigable o hacer una normalizacion de tabla para agregar reacciones estilo facebook
+    
+    -- llaves foraneas
+    foreign key (publicado_por) references Usuario(id)  on delete cascade
 );
 
 create table notificaciones (
-    -- No se como se deveria hacer esta tabla o si es necesaria pero me gustaria integrar notificaciones tipo "tal persona que siguies subio una nueva historia" o "nuevo capitulo de tu serie guardada" o "mira que publico @user_name"
-    -- Ya sabes cosas de notificaciones
+    id int auto_increment primary key,
+    id_Usuario int not null, -- A quién se le notifica
+    mensaje varchar(500) not null,
+    leida boolean default false,
+    fecha_Notificacion datetime default current_timestamp,
+    
+    -- llaves foraneas
+    foreign key (id_Usuario) references Usuario(id)  on delete cascade
 );
