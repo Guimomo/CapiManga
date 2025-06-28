@@ -4,6 +4,6 @@ import { getAllUsuarios } from "../controllers/usuarioController.js";
 const router = express.Router();
 
 // Listar todos los usuarios
-router.get("/usuarios", getAllUsuarios);
+router.get("/", getAllUsuarios);
 
 export default router;

@@ -64,7 +64,7 @@ app.use("/api/reacciones", reaccionRoutes);
 app.use("/api/seguir-usuario", seguirUsuarioRoutes);
 app.use("/api/tipo-estado", tipoEstadoRoutes);
 app.use("/api/tipo-historia", tipoHistoriaRoutes);
-app.use("/api", usuarioRoutes);
+app.use("/api/usuarios", usuarioRoutes);
 
 // Puerto para ejecutar el servidor
 const port = process.env.PORT || 3000;
