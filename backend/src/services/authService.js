@@ -12,45 +12,53 @@ const refreshExpiration = process.env.REFRESH_EXPIRATION;
 
 class AuthService {
   /**
-   *
+   * Registro de usuario usando la tabla Usuario
    * @param {*} nombre
-   * @param {*} email
-   * @param {*} password
+   * @param {*} email_Usuario
+   * @param {*} contrasena
+   * @param {*} user_Name
+   * @param {*} telefono
    * @returns
    */
-  static async register(nombre, email, password, userName, telefono) {
+  static async register(nombre, email_Usuario, contrasena, user_Name, telefono) {
     try {
-      // Verificar si el usuario ya existe
-      const userExists = await Usuario.findByEmail(email);
-
-      // Validamos si el correo ya esta registrado en la base de datos
+      // Verificar si el usuario ya existe por email
+      const userExists = await Usuario.findByEmail(email_Usuario);
       if (userExists)
-        return { error: true, code: 401, message: "El corre ya se encuentra registrado en el sistema" };
-      
-      // Hashear la contraseña || encriptar la contraseña
-      const hashedPassword = await bcrypt.hash(password, 10);
-      
-      // Registramos el usuario en la base de datos
-      const userId = await Usuario.create(nombre, email, hashedPassword);
-      
-      // Retornamos la respuesta
-      return { error: false, code: 201, message: "Usuario creado" };
-      
-    } catch (error) {      
+        return { error: true, code: 401, message: "El correo ya se encuentra registrado en el sistema" };
+      // Verificar si el username ya existe
+      const userNameExists = await Usuario.findByUserName(user_Name);
+      if (userNameExists)
+        return { error: true, code: 401, message: "El nombre de usuario ya está en uso" };
+      // Hashear la contraseña
+      const hashedPassword = await bcrypt.hash(contrasena, 10);
+      // Crear usuario
+      const usuario = await Usuario.create({
+        nombre,
+        user_Name,
+        email_Usuario,
+        telefono,
+        contrasena: hashedPassword,
+        // Puedes agregar más campos requeridos aquí
+      });
+
+
+      return { error: false, code: 201, message: "Usuario creado", data: { id: usuario.id } };
+
+    } catch (error) {
       return { error: true, code: 500, message: "Error al crear el usuario" };
     }
   }
+
   /**
-   *
-   * @param {*} email
-   * @param {*} password
+   * Login usando la tabla Usuario
+   * @param {*} email_Usuario
+   * @param {*} contrasena
    * @returns
    */
-  static async login(email, password) {
+  static async login(email_Usuario, contrasena) {
     try {
-      // Consultamos el usuario por el email
-      const user = await Usuario.findByEmail(email);
-      // Validamos si el usuario esta registrado en la base de datos      
+      const user = await Usuario.findByEmail(email_Usuario);
       if (!user)
         return {
           error: true,
@@ -58,7 +66,7 @@ class AuthService {
           message: "El correo o la contraseña proporcionados no son correctos.",
         };
       // Comparmamos la contraseña del usuarios registrado con la ingresada basado en la llave de encriptación
-      const validPassword = await bcrypt.compare(password, user.password);
+      const validPassword = await bcrypt.compare(contrasena, user.contrasena);
       // Validamos si la contraseña es la misma
       if (!validPassword)
         return {
@@ -89,7 +97,7 @@ class AuthService {
   }
 
   /**
-   *
+   * Genera access token con datos de Usuario
    * @param {*} user
    * @returns
    */
@@ -97,8 +105,9 @@ class AuthService {
     return jwt.sign(
       {
         id: user.id,
-        email: user.email,
-        // Podemos pasar más datos
+        email_Usuario: user.email_Usuario,
+        user_Name: user.user_Name,
+        rol_Usuario: user.rol_Usuario,
       },
       secretKey,
       { expiresIn: tokenExpiration }
@@ -106,7 +115,7 @@ class AuthService {
   }
 
   /**
-   *
+   * Genera refresh token
    * @param {*} user
    * @returns
    */
@@ -114,8 +123,7 @@ class AuthService {
     return jwt.sign(
       {
         id: user.id,
-        email: user.email,
-        // Podemos pasar más datos
+        email_Usuario: user.email_Usuario,
       },
       refreshSecretKey,
       { expiresIn: refreshExpiration }
@@ -123,35 +131,30 @@ class AuthService {
   }
 
   /**
-   *
+   * Verifica y renueva el access token usando refresh token
    * @param {*} refreshToken
    */
-  static async verifyAccessToken(refreshToken) {    
-    try {      
-      // Verificamos el token
+  static async verifyAccessToken(refreshToken) {
+    try {
       const decoded = jwt.verify(refreshToken, refreshSecretKey);
-      
-      // Consultamos los datos del usuario en la base de datos
-      const user = await Usuario.findByEmail(decoded.email);
-      if (!user || user.refresh_token !== refreshToken) {
+      const user = await Usuario.findByEmail(decoded.email_Usuario);
+      if (!user || user.refresh_Token !== refreshToken) {
         return { error: true, code: 403, message: "Token inválido" };
       }
       
       // Generamos nuevo access token
       const accessToken = this.generateAccessToken(user);
-      // Validamos si tenemos que renovar el token de refreso y asignamos el nuevo
-      refreshToken = await this.renewAccessToken(refreshToken, user);
-      // Retornamos los token
-        return {
-          error: false,
-          code: 201,
-          message: "Token actualizado correctamente",
-          data: {
+      const newRefreshToken = await this.renewAccessToken(refreshToken, user);
+      return {
+        error: false,
+        code: 201,
+        message: "Token actualizado correctamente",
+        data: {
           accessToken,
-          refreshToken,
-          },
-        };
-    } catch (error) {      
+          refreshToken: newRefreshToken || refreshToken,
+        },
+      };
+    } catch (error) {
       if (error.name === "TokenExpiredError") {
         return {
           error: true,
@@ -164,10 +167,10 @@ class AuthService {
   }
 
   /**
-   * 
-   * @param {*} refreshToken 
-   * @param {*} user 
-   * @returns 
+   * Renueva refresh token si está por expirar
+   * @param {*} refreshToken
+   * @param {*} user
+   * @returns
    */
   static async renewAccessToken(refreshToken, user) {
     let newRefreshToken = "";
@@ -177,10 +180,10 @@ class AuthService {
     if (tiempoRestante < 60 * 60 * 24) {
       // Si quedan menos de 24 horas
       newRefreshToken = jwt.sign(
-        { id: decoded.id },
+        { id: user.id, email_Usuario: user.email_Usuario },
         refreshSecretKey,
-        {
-        expiresIn: refreshExpiration,
+        { 
+          expiresIn: refreshExpiration 
         }
       );
       // Actualizamos el token de refresco en la base de datos
@@ -191,7 +194,7 @@ class AuthService {
   }
 
   /**
-   *
+   * Logout: elimina el refresh token del usuario
    * @param {*} userId
    * @returns
    */

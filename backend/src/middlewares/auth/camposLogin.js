@@ -2,14 +2,14 @@ import { ResponseProvider } from "../../providers/ResponseProvider.js";
 // Campos personalizados para validar el login
 const campos = [
   {
-    name: "email",
+    name: "email_Usuario",
     required: true,
     minLength: 6,
-    maxLength: 40,
+    maxLength: 255,
     type: "email",
   },
   {
-    name: "password",
+    name: "contrasena",
     required: true,
     minLength: 6,
     maxLength: 40,
@@ -22,7 +22,7 @@ export const camposLogin = (req, res, next) => {
 
   // Recorremos el arreglo de campos a validar
   for (const campo of campos) {
-    const { name, required, type } = campo;
+    const { name, required, type, minLength, maxLength } = campo;
     // Capturamos el valor del campo del body de la petición
     const value = req.body[name];
     // Validar si el campo es requerido y está vacío
@@ -31,6 +31,23 @@ export const camposLogin = (req, res, next) => {
         campo: name,
         message: `El campo ${name} es obligatorio y no puede estar vacío.`,
       });
+      continue;
+    }
+    // Validar que el campo tenga la longitud mínima requerida
+    if (minLength && value && value.length < minLength) {
+      errors.push({
+        campo: name,
+        message: `El campo ${name} debe tener al menos ${minLength} caracteres.`,
+      });
+      continue;
+    }
+    // Validar que el campo no exceda la longitud máxima permitida
+    if (maxLength && value && value.length > maxLength) {
+      errors.push({
+        campo: name,
+        message: `El campo ${name} no puede tener más de ${maxLength} caracteres.`,
+      });
+      continue;
     }
     // Validar que el campo sea del tipo requerido en los campos de validación
     if (type === "email" && value) {

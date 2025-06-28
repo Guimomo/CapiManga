@@ -2,111 +2,112 @@ import { ResponseProvider } from "../providers/ResponseProvider.js";
 import AuthService from "../services/authService.js";
 
 export const register = async (req, res) => {
-  // Extraer explícitamente los campos de la tabla Usuario
-  const {
-    nombre,
-    user_Name,
-    foto_Perfil = null,
-    banner_Perfil = null,
-    rol_Usuario = 'normal',
-    edad_Usuario = null,
-    fecha_Nacimiento,
-    email_Usuario,
-    telefono = null,
-    contrasena,
-    genero_Usuario = null,
-    biografia_Usuario = null,
-    visibilidad_Usuario = 'publico',
-    refresh_Token = null
-  } = req.body;
-
-  console.log("Datos recibidos:", {
-    nombre,
-    user_Name,
-    foto_Perfil,
-    banner_Perfil,
-    rol_Usuario,
-    edad_Usuario,
-    fecha_Nacimiento,
-    email_Usuario,
-    telefono,
-    contrasena,
-    genero_Usuario,
-    biografia_Usuario,
-    visibilidad_Usuario,
-    refresh_Token
-  });
-
+  const { nombre, email_Usuario, contrasena, user_Name, telefono, fecha_Nacimiento } = req.body;
   try {
-    const response = await AuthService.register({
-      nombre,
-      user_Name,
-      foto_Perfil,
-      banner_Perfil,
-      rol_Usuario,
-      edad_Usuario,
-      fecha_Nacimiento,
-      email_Usuario,
-      telefono,
-      contrasena,
-      genero_Usuario,
-      biografia_Usuario,
-      visibilidad_Usuario,
-      refresh_Token
-    });
+    const response = await AuthService.register(nombre, email_Usuario, contrasena, user_Name, telefono, fecha_Nacimiento);
     if (response.error) {
-      ResponseProvider.error(res, response.message, response.code);
+      ResponseProvider.error(
+        res, 
+        response.message, 
+        response.code
+      );
+
     } else {
-      ResponseProvider.success(res, {}, response.message, response.code);
+      ResponseProvider.success(
+        res, 
+        response.data, 
+        response.message, 
+        response.code
+      );
+      
     }
   } catch (error) {
     // Llamamos el provider para centralizar los mensajes de respuesta
     ResponseProvider.error(res, "Error en el servidor", 500);
   }
+
 };
 
 export const login = async (req, res) => {
   const { email_Usuario, contrasena } = req.body;
   try {
+
     const response = await AuthService.login(email_Usuario, contrasena);
     if (response.error) {
-      ResponseProvider.error(res, response.message, response.code);
+      ResponseProvider.error(
+        res, 
+        response.message, 
+        response.code
+      );
+      ResponseProvider.error(
+        res, 
+        "Error en el servidor", 
+        500
+      );
+
     } else {
-      ResponseProvider.success(res, response.data, response.message, response.code);
+      ResponseProvider.success(
+        res, 
+        response.data, 
+        response.message, 
+        response.code
+      );
+
     }
   } catch (error) {
-    // Llamamos el provider para centralizar los mensajes de respuesta
-    ResponseProvider.error(res, "Error en el servidor", 500);
+    ResponseProvider.error(
+      res, 
+      "Error en el servidor", 
+      500
+    );
+
   }
 };
 
 export const logout = async (req, res) => {
   try {
+
+    // Llamamos el servio y pasamos el id del usuario
     const response = await AuthService.logout(req.user.id);
+
     // Llamamos el provider para centralizar los mensajes de respuesta
     ResponseProvider.success(res, {}, response.message, response.code);
+
     return res.status(response.code).json(response);
+
   } catch (error) {
     ResponseProvider.error(res, "Error en el servidor", 500);
   }
 };
 
-export const refreshToken = async (req, res) => {  
-  // Asiganmos el token a una variable
-  const authHeader = req.headers.authorization;  
+export const refreshToken = async (req, res) => {
+
+  const authHeader = req.headers.authorization;
   try {
     const refreshToken = authHeader.split(" ")[1];
-    // Verificamos el token de accesso
-    const response = await AuthService.verifyAccessToken(refreshToken);    
-    // Llamamos el provider para centralizar los mensajes de respuesta
-    ResponseProvider.success(
-      res,
-      response.data,
-      response.message,
-      response.code
+    const response = await AuthService.verifyAccessToken(refreshToken);
+    if (response.error) {
+      ResponseProvider.error(
+        res, 
+        response.message, 
+        response.code
+      );
+
+    } else {
+      ResponseProvider.success(
+        res, 
+        response.data, 
+        response.message, 
+        response.code
+      );
+
+    }
+  } catch (error) {
+    ResponseProvider.error(
+      res, 
+      "Error en el servidor", 
+      500
     );
-  } catch (error) {      
-    // Llamamos el provider para centralizar los mensajes de respuesta
-    ResponseProvider.error(res, "Error en el servidor", 500);
+
   }
 };

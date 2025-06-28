@@ -1,4 +1,4 @@
-create database CapiManga_DB;
+-- create database CapiManga_DB;
 
 -- Usuario
 create table Usuario (
@@ -21,6 +21,9 @@ create table Usuario (
     
     refresh_Token text
 );
+
+ALTER TABLE Usuario ADD CONSTRAINT unique_email UNIQUE (email_Usuario);
+ALTER TABLE Usuario ADD CONSTRAINT unique_telefono UNIQUE (telefono);
 
 create table Generos (
     id int auto_increment primary key,

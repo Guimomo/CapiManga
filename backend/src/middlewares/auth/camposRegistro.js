@@ -58,6 +58,19 @@ export const camposRegistro = (req, res, next) => {
         continue;
       }
     }
+    // Validar que el campo sea de tipo fecha y tenga el formato correcto
+    if (type === "date" && value) {
+      // Validación simple de fecha (YYYY-MM-DD)
+      const regexDate = /^\d{4}-\d{2}-\d{2}$/;
+      if (!regexDate.test(value)) {
+        errors.push({
+          campo: name,
+          message: `El campo ${name} debe tener formato YYYY-MM-DD.`,
+        });
+        // Si el campo no tiene el formato de fecha correcto, continuamos al siguiente campo, evitando el resto de validaciones
+        continue;
+      }
+    }
   }
 
   // Si hay errores, devolver una respuesta con los errores

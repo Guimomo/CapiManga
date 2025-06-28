@@ -13,16 +13,16 @@ import {
 
 const router = express.Router();
 
-// Registro de usuario
+// Registro de usuario (campos requeridos: nombre, email_Usuario, contrasena, user_Name, fecha_Nacimiento)
 router.post("/register", camposRegistro, register);
 
-// Inicio de sesión
-router.post("/login",camposLogin, login);
+// Inicio de sesión (campos requeridos: email_Usuario, contrasena)
+router.post("/login", camposLogin, login);
 
-// Ruta para refrescar el token del usuario autenticado, falta el middleware de verificación del token de refresco
+// Refrescar token (requiere header Authorization: Bearer <refreshToken>)
 router.post("/refresh", refreshToken);
 
-// Logout
+// Logout (requiere token de acceso válido)
 router.post("/logout", verifyToken, logout);
 
 // Faltan las rutas para recuperar la contraseña y verificar el email
