@@ -17,7 +17,9 @@ create table Usuario (
     biografia_Usuario varchar (500) default null,
     visibilidad_Usuario enum ('publico', 'privado') default 'publico',
     
-    fecha_Usuario datetime default current_timestamp
+    fecha_Usuario datetime default current_timestamp,
+    
+    refresh_Token text
 );
 
 create table Generos (
@@ -172,4 +174,44 @@ create table notificaciones (
     
     -- llaves foraneas
     foreign key (id_Usuario) references Usuario(id)  on delete cascade
+);
+
+create table Comentario (
+    id int auto_increment primary key,
+    id_Usuario int not null, -- Quién hizo el comentario
+    contenido varchar(600) not null,
+    fecha_Comentario datetime default current_timestamp,
+    
+    -- Identifica a qué tipo de entidad va dirigido el comentario
+    tipo_objetivo enum ('historia', 'capitulo', 'publicacion', 'comentario') not null,
+    id_objetivo int not null, -- El id de la historia, capítulo, publicación o comentario que se comenta
+    
+    -- Relaciones
+    foreign key (id_Usuario) references Usuario(id) on delete cascade
+);
+
+create table Reaccion (
+    id int auto_increment primary key,
+    id_Usuario int not null, -- Quién reaccionó
+    tipo_objetivo enum ('publicacion', 'comentario') not null, -- A qué se reacciona
+    id_objetivo int not null, -- El ID de publicación o comentario
+    tipo_Reaccion enum ('me_gusta', 'me_encanta', 'muy_divertido', 'que_increible', 'que_triste', 'no_me_parece') not null,
+    fecha_Reaccion datetime default current_timestamp,
+    
+    -- Evita duplicadas: un usuario solo puede tener 1 reacción por elemento, pero puede cambiarla
+    unique (id_Usuario, tipo_objetivo, id_objetivo),
+    
+    -- Relaciones
+    foreign key (id_Usuario) references Usuario(id) on delete cascade
+);
+
+create table MeGusta_Capitulo (
+    id_Capitulo int not null,
+    id_Usuario int not null,
+    fecha_MeGusta datetime default current_timestamp,
+    
+    -- Llaves foraneas
+    primary key (id_Capitulo, id_Usuario),
+    foreign key (id_Capitulo) references Capitulo(id) on delete cascade,
+    foreign key (id_Usuario) references Usuario(id) on delete cascade
 );
