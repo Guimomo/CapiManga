@@ -1,266 +1,3 @@
-// const Header =()=> {
-
-//     const header = document.querySelector("header");
-//     const headerContent = document.querySelector(".header-content")
-//     const opciones = document.querySelector(".opciones")
-
-//     /**
-//      *  ------------------------------------ #1: Logo
-//      ************************************************/
-
-//     // Crear enlace
-//     // const logoLink = document.createElement("a");
-//     // logoLink.setAttribute("href", "/");
-//     // logoLink.classList.add("logo-link");
-
-//     // const logoImg = document.createElement("img");
-//     // logoImg.setAttribute("src", "src/assets/img/page_elements/logo/logo.png");
-//     // logoImg.setAttribute("alt", "Logo");
-//     // logoImg.classList.add("logo-img");
-    
-//     // logoLink.appendChild(logoImg);
-
-//     // const menuCheck = document.createElement("div");
-//     // menuCheck.classList.add("menu-check");
-
-
-//     // // check menu
-//     // const checkinput = document.createElement("input");
-//     // checkinput.setAttribute("type", "checkbox");
-//     // checkinput.setAttribute("id", "checkMenu");
-//     // checkinput.classList.add("check--menu-checkbox");
-
-//     // // Icono flecha izquierda
-//     // const menuIcon = document.createElement("i");
-//     // //arrowLeft.setAttribute("src", "src/assets/icon/arrow-drop-left.svg");
-//     // menuIcon.classList.add("menu-icon_opciones", "ri-more-2-fill");
-
-//     // // label check logo
-//     // const labelCheckMenu = document.createElement("label");
-//     // labelCheckMenu.setAttribute("for", "checkMenu");
-//     // labelCheckMenu.classList.add("check--menu-label");
-//     // labelCheckMenu.append(menuIcon);
-
-//     // // Agregar el checkbox y el label al contenedor logoCheck
-//     // menuCheck.append(checkinput, labelCheckMenu);
-
-//     // headerContent.append( logoLink, menuCheck );
-    
-
-//     /**
-//      * ------------------------------------ #2: Icono perfil
-//      ********************************************************/
-
-//     // const profileIcon = document.createElement("div");
-//     // profileIcon.classList.add("icono--perfil");
-
-//     // const iconoPerfil = document.createElement("img");
-//     // iconoPerfil.setAttribute("src", "src/assets/icon/user.svg");
-
-//     // const checkPerfil = document.createElement("input");
-//     // checkPerfil.setAttribute("type", "checkbox");
-//     // checkPerfil.setAttribute("id", "checkperfil");
-//     // checkPerfil.classList.add("check--perfil-checkbox");
-
-//     // const labelCheckPerfil = document.createElement("label");
-//     // labelCheckPerfil.setAttribute("for", "checkperfil");
-//     // labelCheckPerfil.classList.add("check--perfil-label");
-//     // labelCheckPerfil.appendChild(iconoPerfil);
-
-//     // profileIcon.append( checkPerfil, labelCheckPerfil );
-
-
-    
-//     /**
-//      * ------------------------------------ #3: search bar
-//      ****************************************************/
-
-//     // const searchBar = document.createElement("div");
-//     // searchBar.classList.add("search-bar");
-
-//     // //form
-//     // const formBuscar = document.createElement("form");
-//     // formBuscar.setAttribute("action", "#");
-//     // formBuscar.setAttribute("method", "get");
-//     // formBuscar.classList.add("form--buscador");
-
-//     // const buscadorInput = document.createElement("input");
-//     // buscadorInput.setAttribute("type", "search");
-//     // buscadorInput.setAttribute("placeholder", "Buscar...");
-//     // buscadorInput.classList.add("buscador--input");
-
-//     // const buscadorBoton = document.createElement("button");
-//     // buscadorBoton.setAttribute("type", "submit");
-//     // buscadorBoton.classList.add("buscador--boton");
-
-//     // formBuscar.append(buscadorInput, buscadorBoton);
-//     // searchBar.appendChild(formBuscar);
-
-
-//     /** 
-//      * ------------------------------------ #4: Agregar elementos de menu al header
-//     */
-
-//     // const menuHeader = document.createElement("div");
-//     // menuHeader.classList.add("menu-header");
-
-//     // const chiguigokuContent = document.createElement("div");
-//     // chiguigokuContent.classList.add("chiguiGoku--content");
-
-//     // const chiguiGokuImg = document.createElement("img");
-//     // chiguiGokuImg.setAttribute("src", "src/assets/img/page_elements/menu_elements/chigoku.png");
-
-//     // chiguigokuContent.appendChild(chiguiGokuImg)
-
-//     // menuHeader.append(searchBar, chiguigokuContent)
-
-
-    
-//     // Menu Originals ------------------------------------------------>
-
-//     // const menuOriginals = document.createElement("div");
-//     // menuOriginals.classList.add("menu-item", "menu-originals");
-
-//     // const checkOriginals = document.createElement("input");
-//     // checkOriginals.setAttribute("type", "checkbox");
-//     // checkOriginals.setAttribute("id", "check-originals");
-//     // checkOriginals.classList.add("check--menu-originals");
-
-//     // const labelOriginals = document.createElement("label");
-//     // labelOriginals.setAttribute("for", "check-originals");
-//     // labelOriginals.classList.add("label--menu","menu-originals-title");
-//     // // labelOriginals.textContent = "Originals";
-
-//     // const logoOriginal = document.createElement("img");
-//     // logoOriginal.classList.add("logo--item");
-//     // logoOriginal.setAttribute("src","src/assets/icon/logoOG.svg");
-
-//     // labelOriginals.appendChild(logoOriginal);
-
-//     // const tittleOriginal = document.createElement("div");
-//     // tittleOriginal.classList.add("tittle-div","OG-tittle");
-
-//     // tittleOriginal.append(checkOriginals, labelOriginals);
-
-//     // const originalsOpciones = document.createElement("div");
-//     // originalsOpciones.classList.add("menu-opciones","originals-opciones");
-
-//     // const originalComics = document.createElement("a");
-//     // originalComics.setAttribute("href", "#");
-//     // originalComics.classList.add("item-originals");
-//     // originalComics.textContent = "Comics";
-
-//     // const originalNovels = document.createElement("a");
-//     // originalNovels.setAttribute("href", "#");
-//     // originalNovels.classList.add("item-originals");
-//     // originalNovels.textContent = "Novelas";
-
-//     // const originalWebcomics = document.createElement("a");
-//     // originalWebcomics.setAttribute("href", "#");
-//     // originalWebcomics.classList.add("item-originals");
-//     // originalWebcomics.textContent = "Webcomics";
-
-//     // const originalOneCapi = document.createElement("a");
-//     // originalOneCapi.setAttribute("href", "#");
-//     // originalOneCapi.classList.add("item-originals");
-//     // originalOneCapi.textContent = "OneCapis";
-
-//     // originalsOpciones.append(originalComics, originalNovels, originalWebcomics, originalOneCapi);
-//     // menuOriginals.append(tittleOriginal, originalsOpciones);
-
-
-//     // Menú Capiboard ------------------------------------------------>
-//     // const menuCapiBoard = document.createElement("div");
-//     // menuCapiBoard.classList.add("menu-item", "menu-capiboard");
-
-//     // const checkCapiBoard = document.createElement("input");
-//     // checkCapiBoard.setAttribute("type", "checkbox");
-//     // checkCapiBoard.setAttribute("id", "check-capiboard");
-//     // checkCapiBoard.classList.add("check--menu-capiboard");
-
-//     // const labelCapiBoard = document.createElement("label");
-//     // labelCapiBoard.setAttribute("for", "check-capiboard");
-//     // labelCapiBoard.classList.add("label--menu", "menu-capiboard-title");
-
-//     // const logoCapiBoard = document.createElement("img");
-//     // logoCapiBoard.classList.add("logo--item");
-//     // logoCapiBoard.setAttribute("src", "src/assets/icon/logoCB.svg");
-
-//     // labelCapiBoard.appendChild(logoCapiBoard);
-
-//     // const tittleCapiBoard = document.createElement("div");
-//     // tittleCapiBoard.classList.add("tittle-div", "CB-tittle");
-
-//     // tittleCapiBoard.append(checkCapiBoard, labelCapiBoard);
-
-//     // const capiBoardOpciones = document.createElement("div");
-//     // capiBoardOpciones.classList.add("menu-opciones", "capiboard-opciones");
-
-//     // const capiBoardComics = document.createElement("a");
-//     // capiBoardComics.setAttribute("href", "#");
-//     // capiBoardComics.classList.add("item-capiboard");
-//     // capiBoardComics.textContent = "Comics";
-
-//     // const capiBoardNovels = document.createElement("a");
-//     // capiBoardNovels.setAttribute("href", "#");
-//     // capiBoardNovels.classList.add("item-capiboard");
-//     // capiBoardNovels.textContent = "Novelas";
-
-//     // const capiBoardWebcomics = document.createElement("a");
-//     // capiBoardWebcomics.setAttribute("href", "#");
-//     // capiBoardWebcomics.classList.add("item-capiboard");
-//     // capiBoardWebcomics.textContent = "Webcomics";
-
-//     // const capiBoardOneCapi = document.createElement("a");
-//     // capiBoardOneCapi.setAttribute("href", "#");
-//     // capiBoardOneCapi.classList.add("item-originals");
-//     // capiBoardOneCapi.textContent = "OneCapis";
-
-//     // capiBoardOpciones.append(capiBoardComics, capiBoardNovels, capiBoardWebcomics, capiBoardOneCapi);
-//     // menuCapiBoard.append(tittleCapiBoard, capiBoardOpciones);
-
-//     // Agregar los elementos de menu al header
-
-//     // const menuExtra = document.createElement("div");
-//     // menuExtra.classList.add("extra-menu-header");
-//     // menuExtra.append(menuOriginals, menuCapiBoard);
-
-//     // const cerrarOpciones = document.createElement("input");
-//     // cerrarOpciones.setAttribute("type", "checkbox");
-//     // cerrarOpciones.setAttribute("id", "checkOpciones");
-
-//     // const labelCheckCerrar = document.createElement("label");
-//     // labelCheckCerrar.setAttribute("for", "checkOpciones");
-//     // labelCheckCerrar.classList.add("check--logo-label");
-
-//     // const cerrarIcon = document.createElement("i");
-//     // cerrarIcon.classList.add("close-icon_opciones", "ri-close-line");
-
-//     // labelCheckCerrar.append(cerrarIcon);
-
-//     // const checkCerrarOpciones = document.createElement ("div");
-//     // checkCerrarOpciones.classList.add("check-cerrar_opciones");
-//     // checkCerrarOpciones.append(labelCheckCerrar,cerrarOpciones)
-
-//     // const perfilSeccion = document.createElement("div");
-//     // perfilSeccion.classList.add("perfil_seccion");
-//     // perfilSeccion.append(profileIcon, checkCerrarOpciones);
-
-//     // // const opciones = document.createElement("div");
-//     // opciones.append(perfilSeccion, menuHeader, menuExtra )
-
-//     //     cerrarOpciones.addEventListener("change", () => {
-        
-//     //     if (cerrarOpciones.checked) {
-            
-//     //         checkinput.checked = false;
-//     //         cerrarOpciones.checked = false; // Opcional: para que también se desmarque el close
-//     //     }
-//     // });
-
-//     // header.append( headerContent, opciones );
-// }
-
 const Header =()=> {
 
     const header = document.querySelector("header");
@@ -284,6 +21,9 @@ const Header =()=> {
     const perfilCont = document.createElement("div");
     perfilCont.classList.add("perfilCont");
 
+    const iconoPerfilCont = document.createElement("div");
+    iconoPerfilCont.classList.add("icono-perfil-cont");
+
     const iconoPerfil = document.createElement("img");
     iconoPerfil.setAttribute("src", "src/assets/icon/user.svg");
     iconoPerfil.classList.add("icono-perfil");
@@ -292,7 +32,30 @@ const Header =()=> {
     perfilText.textContent = "Perfil";
     perfilText.classList.add("perfil-text");
 
-    perfilCont.append( iconoPerfil, perfilText );
+    const perfilLabel = document.createElement("label");
+    perfilLabel.setAttribute("for", "perfilLabel");
+    perfilLabel.classList.add("perfil-label");
+
+    const menuPerfilIcon = document.createElement("i");
+    menuPerfilIcon.classList.add("ri-menu-4-line", "item_perfil--icon");
+
+    const closeMenuPerfilIcon = document.createElement("i");
+    closeMenuPerfilIcon.classList.add("ri-close-line", "item_perfil--icon");
+
+    const perfilMenuIconsCont = document.createElement("div");
+    perfilMenuIconsCont.classList.add("perfil-menu--icon");
+    perfilMenuIconsCont.append(menuPerfilIcon, closeMenuPerfilIcon);
+
+    const perfilCheckbox = document.createElement("input");
+    perfilCheckbox.setAttribute("type", "checkbox");
+    perfilCheckbox.setAttribute("id", "perfilLabel");
+    perfilCheckbox.classList.add("perfil-checkbox");
+
+    perfilLabel.append(iconoPerfilCont, perfilText, perfilMenuIconsCont, perfilCheckbox);
+
+    iconoPerfilCont.appendChild(iconoPerfil);
+
+    perfilCont.append( perfilLabel, );
 
     headerContent.append(logoLink, perfilCont);
 
