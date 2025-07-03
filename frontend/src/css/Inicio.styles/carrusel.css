@@ -7,10 +7,8 @@
     background-color: var(--third_color);
     overflow: hidden;
     position: relative;
-    border-radius: 0 0 40px 40px ;
+    border-radius: 0 0 40px 40px;
     color: var(--second_color);
-/* 
-    margin-top: 100px; */
 }
 
 
@@ -70,7 +68,7 @@
     width: 100%;
     height: 400px;
     background: linear-gradient(0deg,rgba(13, 13, 13, 1) 0%, rgba(13, 13, 13, 0.53) 50%, rgba(237, 221, 83, 0) 100%);
-    z-index: 10;
+    z-index: 5;
 }
 
 .carrusel--Img {
@@ -147,7 +145,7 @@
     background-repeat: no-repeat;
     background-size: 70% 100%;
     background-position: right; */
-    z-index: 20;
+    z-index: 6;
 }
 
 .carrusel--info_item {
@@ -185,17 +183,27 @@
     bottom: 40%;
 }
 
+.carrusel_buttons {
+
+    position: absolute;
+    z-index: 15;
+    bottom: 250px;
+    display: flex;
+    gap: 320px;
+    left: 180px;
+}
+
 .button_carrusel{
 
     width: 30px;
     height: 30px;
-    position: absolute;
+    /* position: absolute; */
 
-    z-index: 100;
+    /* z-index: 100; */
     background-color: rgba(0, 0, 0, 0);
     border: none;
-    bottom: 350px;
-    transform: translateX(-50%);
+    /* bottom: 350px; */
+    /* transform: translateX(-50%); */
 
 }
 
@@ -209,7 +217,7 @@
 
 .arrow_prev{
 
-    left: 250px;
+    /* left: 250px; */
     transition: ease 0.3s;
 }
 .arrow_prev:hover {
@@ -218,7 +226,7 @@
 
 .arrow_next{
 
-    left: 750px;
+    /* left: 750px; */
     transition: ease 0.3s;
 }
 .arrow_next:hover {
