@@ -7,7 +7,7 @@
     background-color: var(--third_color);
     overflow: hidden;
     position: relative;
-    border-radius: 0 0 40px 40px;
+    /* border-radius: 0 0 40px 40px; */
     color: var(--second_color);
 }
 
@@ -18,11 +18,11 @@
     position: absolute;
     z-index: 10;
     display: flex;
+    width: 90px;
+    flex-direction: column;
     gap: 10px;
     left: 40px;
-    bottom: 10px;
-    align-items: baseline;
-
+    top: 10px;
 }
 
 .carrusel--selector_item {
@@ -35,9 +35,45 @@
 
 .carrusel--selector_item.active {
 
-    width: 200px;
-    height: 200px;
+    /* width: 150px;
+    height: 150px; */
     /* border: 2px solid var(--main_color); */
+    animation: scaleSelector 0.5s ease-in-out forwards;
+}
+
+@keyframes scaleSelector {
+
+    from {
+        width: 90px;
+        height: 90px;
+        box-shadow: 0 0 0 white;
+    }
+
+    to {
+        width: 150px;
+        height: 150px;
+        box-shadow: 0 0 20px white;
+    }
+}
+
+.carrusel--selector_item:not(.active) {
+
+    animation: descaleSelector 0.5s ease-in-out forwards;
+}
+
+@keyframes descaleSelector {
+
+    from {
+        width: 150px;
+        height: 150px;
+        box-shadow: 0 0 20px white;
+    }
+
+    to {
+        width: 90px;
+        height: 90px;
+        box-shadow: 0 0 0 white;
+    }
 }
 
 .carrusel--selector_item img {
@@ -47,6 +83,7 @@
     object-fit: contain;
     cursor: pointer;
 }
+
 
 .carrusel {
 
@@ -60,15 +97,28 @@
     width: 100%;
 }
 
-.carrusel_content::before {
+.carrusel--Img_item::before {
     content: "";
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 400px;
+    height: 250px;
     background: linear-gradient(0deg,rgba(13, 13, 13, 1) 0%, rgba(13, 13, 13, 0.53) 50%, rgba(237, 221, 83, 0) 100%);
     z-index: 5;
+}
+
+.carrusel--Img_item::after {
+
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 100%;
+    left: 0;
+    background-image: url("../../assets/img/page_elements/zoom-comic-l.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right;
 }
 
 .carrusel--Img {
@@ -91,61 +141,48 @@
     width: 100%;
     height: 100%;
     overflow: hidden;
+
+    opacity: 0;
+    pointer-events: none;
+    z-index: 0;
+    transition: opacity 0.5s;
 }
 
-.carrusel--Img_item:first-child {
+.carrusel--Img_item.active {
 
-    /* opacity: 1; */
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 2;
+}
+
+/* .carrusel--Img_item:first-child {
     z-index: 1;
-}
-
-/* .diagonal_carrusel-info {
-
-    position: absolute;
-    right: 0;
-    height: 100%;
-    width: 100px;
-    z-index: 3;
-
 } */
 
-/* .diagonal_carrusel-info::before {
 
-    content: "";
-    width: 600px;
-    height: 100%;
-    background-color: var(--third_color);
-    transform: skewX(-7deg);
-    border-radius: 0 0 0 100px;
-    position: absolute;
-} */
 
 .carrusel--Img_item img{
 
     width: 100%;
     height: 100%;
     object-fit: cover; /* Ajusta la imagen dentro del contenedor sin deformarla */
-    object-position: top;
+    object-position: center;
 }
 
 .carrusel--info {
 
     position: absolute;
 
-    left: 220px;
-    bottom: 100px;
+    right: 60px;
+    bottom: 10px;
 
     display: flex;
     justify-content: center;
     align-items: center;
     width: 300px;
-    height: 300px;
+    height: 280px;
     /* background-color: var(--third_color); */
-    /* background-image: url("../../assets/img/page_elements/zoom-comic-r.png");
-    background-repeat: no-repeat;
-    background-size: 70% 100%;
-    background-position: right; */
-    z-index: 6;
+    z-index: 100;
 }
 
 .carrusel--info_item {
@@ -153,6 +190,11 @@
     position: absolute;
     height: 100%;
     width: 100%;
+
+    opacity: 0;
+    pointer-events: none;
+    z-index: 0;
+    transition: opacity 0.5s;
 }
 
 .carrusel--info_elements {
@@ -162,35 +204,42 @@
     position: absolute;
     right: 0;
     display: flex;
-    /* justify-content: baseline; */
-    /* align-items: center; */
+
     flex-direction: column;
     gap: 20px;
-    /* padding-right: 80px; */
-    bottom: -50%;
+
+    bottom: -100%;
     opacity: 0;
-    transform: translateY(50%);
-    transition: ease-in-out 0.5s;
+    /* transform: translateY(50%); */
+    transition: opacity 0.5s, transform 0.5s;
     z-index: 2;
 }
 
-.carrusel--info_item:first-child {
+/* .carrusel--info_item:first-child {
     z-index: 1;
+} */
+
+.carrusel--info_item.active {
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 2;
 }
 
-.carrusel--info_item:first-child .carrusel--info_elements{
+.carrusel--info_item.active .carrusel--info_elements {
     opacity: 1;
-    bottom: 40%;
+    bottom: 0;
+    /* transform: translateY(-50%); */
 }
 
 .carrusel_buttons {
 
     position: absolute;
     z-index: 15;
-    bottom: 250px;
+    bottom: 180px;
     display: flex;
     gap: 320px;
-    left: 180px;
+    
+    right: 20px;
 }
 
 .button_carrusel{
@@ -323,26 +372,10 @@
 
 
 
-/* Acciones de NETX */
-.carrusel.next .carrusel_content .carrusel--Img .carrusel--Img_item:first-child img {
+/* Acciones de NEXT */
 
-    width: 0;
-    animation: showImage 1s ease-in-out forwards;
-}
-
-
-@keyframes showImage {
-
-    to{
-    
-        width: 100%;
-    }
-
-}
-
-.carrusel.next .carrusel--info .carrusel--info_item:last-child .carrusel--info_elements {
-
-    bottom: 40%;
+.carrusel.next .carrusel--info .carrusel--info_item:not(.active) .carrusel--info_elements {
+    bottom: 0;
     opacity: 1;
 
     animation: outInfoNext 1s ease-in-out forwards;
@@ -350,14 +383,13 @@
 
 @keyframes outInfoNext {
     to {
-        bottom: -50%;
+        bottom: -100%;
         opacity: 0;
     }
 }
 
-.carrusel.next .carrusel--info .carrusel--info_item:first-child .carrusel--info_elements {
-
-    bottom: -50px;
+.carrusel.next .carrusel--info .carrusel--info_item.active .carrusel--info_elements {
+    bottom: -100%;
     opacity: 0;
 
     animation: showInfo 1s ease-in-out forwards;
@@ -367,12 +399,12 @@
 
     to {
 
-        bottom: 40%;
+        bottom: 0;
         opacity: 1;
     }
 }
 
-.carrusel.next .carrusel--info .carrusel--info_item:first-child .silh--Character_Carrusel{
+.carrusel.next .carrusel--info .carrusel--info_item.active .silh--Character_Carrusel {
 
     left: 600px;
     opacity: 0;
@@ -391,7 +423,7 @@
     }
 }
 
-.carrusel.next .carrusel--info .carrusel--info_item:last-child .silh--Character_Carrusel{
+.carrusel.next .carrusel--info .carrusel--info_item:not(.active) .silh--Character_Carrusel {
 
     left: 0;
     opacity: 1;
@@ -410,65 +442,38 @@
     }
 }
 
-/*PREV*/
+/* PREV*/
 
-.carrusel.prev .carrusel_content .carrusel--Img .carrusel--Img_item:nth-child(2) {
+.carrusel.prev .carrusel--info .carrusel--info_item:not(.active) .carrusel--info_elements {
 
-    width: 100%;
-    position: absolute;
-    z-index: 2;
-
-    animation: showImagePrev 1s ease-in-out forwards;
-}
-
-@keyframes showImagePrev {
-
-    to{
-
-        width: 0;
-    }
-
-}
-
-/* .carrusel.prev .carrusel_content .carrusel--Img .carrusel--Img_item:nth-child(2) .diagonal_carrusel-info {
-
-    opacity: 0;
-
-} */
-
-.carrusel.prev .carrusel--info .carrusel--info_item:nth-child(2) .carrusel--info_elements {
-
-    bottom: 40%;
+    bottom: 0;
     opacity: 1;
-
     animation: outInfoPrev 1s ease-in-out forwards;
 }
 
 @keyframes outInfoPrev {
     to {
-        bottom: -50%;
+        bottom: -100%;
         opacity: 0;
     }
 }
 
-.carrusel.prev .carrusel--info .carrusel--info_item:first-child .carrusel--info_elements {
+/* .carrusel.prev .carrusel--info .carrusel--info_item.active .carrusel--info_elements {
 
-    bottom: -50px;
+    bottom: -100%;
     opacity: 0;
-
     animation: showInfoPrev 1s ease-in-out forwards;
 }
 
 @keyframes showInfoPrev {
 
     to {
-
-        bottom: 40%;
+        bottom: 0;
         opacity: 1;
     }
-}
+} */
 
-.carrusel.prev .carrusel--info .carrusel--info_item:first-child .silh--Character_Carrusel{
+.carrusel.prev .carrusel--info .carrusel--info_item.active .silh--Character_Carrusel {
 
     left: 600px;
     opacity: 0;
@@ -487,7 +492,7 @@
     }
 }
 
-.carrusel.prev .carrusel--info .carrusel--info_item:nth-child(2) .silh--Character_Carrusel{
+.carrusel.prev .carrusel--info .carrusel--info_item:not(.active) .silh--Character_Carrusel {
 
     left: 0;
     opacity: 1;
@@ -515,44 +520,111 @@
 
     .carrusel--info {
 
-        width: 300px;
+        width: 240px;
+        height: 250px;
+        right: 65px;
     }
 
-    .button_carrusel{
+    .carrusel-logo {
 
-        width: 30px;
-        height: 30px;
-
+        height: 120px;
     }
 
-    .arrow_prev{
+    .carrusel_selector--icon{
 
-        right: 300px;
-    }
-    .arrow_next{
-
-        right: 5px;
+        width: 70px;
     }
 
+    @keyframes scaleSelector {
+
+        from {
+            width: 70px;
+            height: 70px;
+            box-shadow: 0 0 0 white;
+        }
+
+        to {
+            width: 100px;
+            height: 100px;
+            box-shadow: 0 0 20px white;
+        }
+    }
+
+    @keyframes descaleSelector {
+
+        from {
+            width: 100px;
+            height: 100px;
+            box-shadow: 0 0 20px white;
+        }
+
+        to {
+            width: 70px;
+            height: 70px;
+            box-shadow: 0 0 0 white;
+        }
+    }
+
+    .genres {
+
+        font-size: 10px;
+    }
+
+    .carrusel-genre,
+    .carrusel-subgenre {
+ 
+        padding: 2px 10px;
+    }
+
+    .carrusel-horario {
+
+        height: 20px;
+    }
+
+    .carrusel-horario i, 
+    .carrusel-horario p {
+
+        font-size: 10px;
+    }
+
+    .calendar--icon {
+
+        width: 20px;
+        height: 20px;
+    }
+
+    .carrusel_buttons {
+
+        gap: 250px;
+        right: 30px;
+    }
+}
+
+@media (max-width: 800px) {
+    
+    .carrusel_selector--icon{
+
+        top: 90px;
+        left: 20px;
+    }
 }
 
 @media (max-width: 650px) {
 
     .carrusel {
 
-        flex-direction: column;
-        height: 600px;
-        /* border-radius: 30px;
-        margin: 10px; */
+        height: 620px;
     }
 
     .carrusel--info {
         
-        width: 100%;
+        width: 70%;
+        max-width: 300px;
+        /* min-width: 200px; */
         height: 250px;
-        background-image: url("../../assets/img/page_elements/zoom-comic-b.png");
-        background-size: 100% 80%;
-        background-position: bottom;
+        right: 50%;
+        bottom: 40px;
+        transform: translateX(50%);
     }
 
     .button_carrusel{
@@ -561,36 +633,16 @@
         transform: none;
     }
 
-    .arrow_prev{
+    .carrusel_buttons {
 
-        right: auto;
-        left: 15px;
-    }
-    .arrow_next{
-        right: 15px;
-    }
-
-    .diagonal_carrusel-info {
-        
-        position: absolute;
-        right: auto;
-        bottom: 0;
-        height: 50px;
         width: 100%;
-        /* background-color: var(--third_color); */
-        z-index: 3;
-    }
-
-    .diagonal_carrusel-info::before {
-        
-        content: "";
-        width: 100%;
-        height: 300px;
-        background-color: var(--third_color);
-        transform: skewy(8deg);
-        /* border-radius: 30px 0 0 0; */
-        border-radius: 0;
-        position: absolute;
+        max-width: 400px;
+        right: 50%;
+        transform: translateX(50%);
+        gap: 0;
+        justify-content: space-between;
+        padding-left: 10px;
+        padding-right: 10px;
     }
 
     .silh--Character_Carrusel {
@@ -681,114 +733,59 @@
         }
     }
 
-    .carrusel--info_item {
-
-        /* bottom: 20px; */
-        padding-bottom: 20px;
-        height: 100%;
-    }
-
-    .carrusel--info_elements {
-        
-        height: 100%;
-        width: 100%;
-        padding: 0;
-        padding-left: 50px;
-        padding-right: 50px;
-        gap: 15px;
-        bottom: 10px;
-        transform: none;
-    }
-
-    .carrusel.next .carrusel--info .carrusel--info_item:last-child .carrusel--info_elements {
-
-        bottom: 10px;
-        opacity: 1;
-
-        animation: outInfoNext 0.5s ease-in-out forwards;
-    }
-
-    @keyframes outInfoNext {
-        to {
-            bottom: -50%;
-            opacity: 0;
-        }
-    }
-
-    .carrusel.next .carrusel--info .carrusel--info_item:first-child .carrusel--info_elements {
-
-        bottom: -50px;
-        opacity: 0;
-
-        animation: showInfo 0.5s ease-in-out forwards;
-    }
-
-    @keyframes showInfo {
-
-        to {
-
-            bottom: 10px;
-            opacity: 1;
-        }
-    }
-    .carrusel.prev .carrusel--info .carrusel--info_item:nth-child(2) .carrusel--info_elements {
-
-        bottom: 10px;
-        opacity: 1;
-
-        animation: outInfoPrev 0.5s ease-in-out forwards;
-    }
-
-    @keyframes outInfoPrev {
-        to {
-            bottom: -50%;
-            opacity: 0;
-        }
-    }
-
-    .carrusel.prev .carrusel--info .carrusel--info_item:first-child .carrusel--info_elements {
-
-        bottom: -50px;
-        opacity: 0;
-
-        animation: showInfoPrev 0.5s ease-in-out forwards;
-    }
-
-    @keyframes showInfoPrev {
-
-        to {
-
-            bottom: 10px;
-            opacity: 1;
-        }
-    }
-
-
-    .carrusel--info_item:first-child .carrusel--info_elements{
-        opacity: 1;
-        bottom: 10px;
-    }
-
-    .carrusel--info_elements p,
-    .carrusel--info_elements i {
-
-        font-size: 14px;
-    }
-
     .carrusel-logo {
 
-        width: 100%;
-        max-width: 300px;
-        height: 150px;
-        position: relative;
-        object-fit: contain;
+        height: 140px;
     }
 
-    /* .carrusel_content {
-        
-        position: relative;
-        flex: 1;
+    .carrusel_selector--icon {
+
+        flex-direction: row;
+        width: 100%;
+        height: 30px;
+        top: auto;
+        bottom: 20px;
+        left: auto;
+        align-items: center;
+        justify-content: center;
+        z-index: 101;
+    }
+
+    /* .carrusel--selector_item {
+
+        width: 30px;
+        height: 30px;
     } */
+
+    @keyframes scaleSelector {
+
+        from {
+            width: 30px;
+            height: 30px;
+            box-shadow: 0 0 0 white;
+        }
+
+        to {
+            width: 50px;
+            height: 50px;
+            box-shadow: 0 0 10px white;
+        }
+    }
+
+    @keyframes descaleSelector {
+
+        from {
+            width: 50px;
+            height: 50px;
+            box-shadow: 0 0 10px white;
+        }
+
+        to {
+            width: 30px;
+            height: 30px;
+            box-shadow: 0 0 0 white;
+        }
+    }
 
 }
 
