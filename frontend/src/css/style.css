@@ -3,3 +3,5 @@
 /* Header */ @import url('header.styles/header.css');
 /* Pagina de Inicio */ @import url('Inicio.styles/styles.css');
 /* Footer */ @import url('footer.styles/footer.css');
+
+/* Log */ @import url('log.styles/log.css');

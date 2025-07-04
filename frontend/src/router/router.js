@@ -1,12 +1,28 @@
 import { loadView } from "../helpers/loadView";
 import { inicioController } from "../views/inicio/controllers/inicioController";
+import { loginController } from "../views/log/controllers/loginController";
 
 const routes = {
 
     "":{
         "template": "inicio/index.html",
-        controlador: inicioController
+        controlador: inicioController,
+        private: false,
     },
+
+    login: {
+        "template": "log/login.html",
+        controlador: loginController,
+        private: false,
+    },
+
+    register: {
+        "template": "log/registro.html",
+        controlador: loginController,
+        private: false,
+    },
+
+
 }
 
 export const router = async (app) => {

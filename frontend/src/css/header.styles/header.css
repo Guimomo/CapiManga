@@ -1,17 +1,12 @@
 header {
 
     grid-area: header;
-    /* position: fixed; */
-    /* z-index: 1000; */
-    /* top: 0; */
-    /* left: 0; */
-    /* height: 100vh; */
     padding-bottom: 20px;
     padding-top: 20px;
     display: flex;
     height: 100%;
-    /* align-items: center; */
-    /* gap: 15px; */
+    position: relative;
+    overflow: hidden;
 }
 
 /* Quitar el scrollbar de todos los navegadores */
@@ -27,7 +22,6 @@ header::-webkit-scrollbar {
 
 header .header-content {
 
-    /* background-color: var(--second_color); */
     width: 100%;
     height: 100%;
     display: flex;
@@ -53,59 +47,10 @@ header .header-content .menuHeader {
     flex: 1;
     gap: 25px;
     align-items: center;
-    /* justify-content: center; */
     color: var(--second_color);
 }
 
-header .perfilCont {
-
-    /* justify-content: center; */
-    width: 100%;
-    background-color: var(--second_color);
-    padding-left: 10px;
-    padding-bottom: 5px;
-    padding-top: 5px;
-    border-radius: 0 100px 100px 0;
-
-}
-
-header .perfil-label {
-
-    height: 100%;
-    width: 100%;
-    display: flex;
-    /* justify-content: center; */
-    align-items: center;
-    gap: 10px;
-}
-
-header .icono-perfil-cont {
-
-    width: 50px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    overflow: hidden;
-    background-color: var(--main_color);
-}
-
-/* header .header-content .menuHeader::before {
-
-    content: "";
-    position: absolute;
-    width: 10px;
-    height: 70%;
-    background-color: var(--main_color);
-    right: 5px;
-    border-radius: 100px;
-} */
-
-.icono-perfil {
-
-    width: 100%;
-}
+/* LOGO ------------------------------------------> */
 
 .logo-link {
 
@@ -127,6 +72,60 @@ header .icono-perfil-cont {
 header .menu-icons {
 
     width: 20px;
+}
+
+
+/* 
+==========================================
+¿QUÉ ES flex-shrink?
+==========================================
+
+flex-shrink es una propiedad de Flexbox que controla 
+cuánto puede reducirse (encogerse) un elemento flexible 
+cuando el espacio en el contenedor es insuficiente.
+
+- Valor por defecto: 1 (el elemento puede encogerse)
+- Si usas flex-shrink: 0; el elemento NO se encogerá
+- Si usas flex-shrink: 2; el elemento se encogerá el doble de rápido que uno con flex-shrink: 1
+*/
+
+/* PERFIL ICON */
+
+header .perfilCont {
+
+    width: 100%;
+    background-color: var(--second_color);
+    padding-left: 10px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    border-radius: 0 100px 100px 0;
+
+}
+
+header .perfil-label {
+
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+header .icono-perfil-cont {
+
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: var(--main_color);
+}
+
+.icono-perfil {
+
+    width: 100%;
 }
 
 header .perfil-menu--icon {
@@ -157,46 +156,6 @@ header:has(.perfil-checkbox:checked) .item_perfil--icon:nth-child(2) {
     display: inline-block;
 }
 
-/* LOGO ------------------------------------------> */
-
-/* 
-==========================================
-¿QUÉ ES flex-shrink?
-==========================================
-
-flex-shrink es una propiedad de Flexbox que controla 
-cuánto puede reducirse (encogerse) un elemento flexible 
-cuando el espacio en el contenedor es insuficiente.
-
-- Valor por defecto: 1 (el elemento puede encogerse)
-- Si usas flex-shrink: 0; el elemento NO se encogerá
-- Si usas flex-shrink: 2; el elemento se encogerá el doble de rápido que uno con flex-shrink: 1
-*/
-
-/* PERFIL ICON */
-
-
-
-
-
-header .check--perfil-label {
-
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-}
-
-header .check--perfil-label img {
-
-    width: 70%;
-    object-fit: cover;
-    border-radius: 50%;
-}
-
-
 header input[type="checkbox"] {
     display: none;
 }
@@ -210,54 +169,80 @@ header label {
     display: inline-block;
 }
 
-/* MENU --------------------------------------------------> */
+/* OPCIONES DE LOG */
 
+.log-options {
 
-/* header:has(.check--menu-checkbox:checked) .opciones {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    width: 90%;
+    top: 240px;
+    left: -100%;
+    background-color: var(--second_color);
+    border-radius: 0 10px 10px 0;
 
-    opacity: 1;
-    transform: translateX(0);
-    transition: transform 1s ease-in-out;
-} */
+    transition: ease 0.3s;
+}
 
+.log-options a {
 
+    color: var(--third_color);
+    transition: 0.3s ease;
+    padding-left: 5px;
+}
 
+.log-options a:hover {
 
-/* .chiguiGoku--content {
+    color: var(--main_color);
+    font-weight: bold;
+}
 
-    grid-area: chuguiGoku;
-    height: 100%;
+.chigui-cont {
+
+    height: 250px;
     width: 100%;
-    border-radius: 20px;
     background-color: var(--main_color);
+    border-radius: 10px;
     overflow: hidden;
     position: relative;
 }
 
-.chiguiGoku--content img {
+.chigui-cont img {
 
     width: 100%;
-
+    height: 90%;
+    object-fit: cover;
     position: absolute;
     bottom: 0;
-    animation: chiguiGoku 3s infinite;
+    animation: chigui-animation 3s infinite;
 }
 
-@keyframes chiguiGoku {
-    
-    0%{
+@keyframes chigui-animation {
+    0% { 
+        /* transform: scale(1);  */
         bottom: 0;
     }
 
-    50% {
-        bottom: -15px;
+    50% { 
+        /* transform: scale(1.05); */
+        bottom: -5px;
     }
 
     100% {
+        /* transform: scale(1);  */
         bottom: 0;
     }
+}
 
-} */
+header:has(.perfil-checkbox:checked) .log-options {
+
+    left: 0;
+}
+
+/* MENU --------------------------------------------------> */
 
 .menu-item {
 
@@ -285,23 +270,7 @@ header label {
     display: none;
 }
 
-/* header:has(.check--menu-checkbox:checked) .menu-originals {
 
-    transition: ease-in-out 0.8;
-    transform: translateX(0);
-}
-
-header:has(.check--menu-checkbox:checked) .menu-capiboard {
-
-    transition: ease-in-out 1s;
-    transform: translateX(0);
-}
-
-header:has(.check--menu-checkbox:checked) .menu-header {
-
-    transition: ease-in-out 0.4s;
-    transform: translateX(0);
-} */
 
 @media (max-width: 650px){
 

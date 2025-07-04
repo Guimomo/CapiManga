@@ -173,6 +173,33 @@ const Header =()=> {
 
     headerContent.appendChild(menu);
 
+    //------- Div de inicio de sesion y registro -------//
+
+    const logOptions = document.createElement("div");
+    logOptions.classList.add("log-options");
+
+    const loginOption = document.createElement("a");
+    loginOption.setAttribute("href", "#login");
+    loginOption.classList.add("login-option", "log-item");
+    loginOption.textContent = "Iniciar sesión";
+
+    const registerOption = document.createElement("a");
+    registerOption.setAttribute("href", "#register");
+    registerOption.classList.add("register-option", "log-item");
+    registerOption.textContent = "Registrarse";
+
+    const chiguiCont = document.createElement("div");
+    chiguiCont.classList.add("chigui-cont");
+
+    const chigui = document.createElement("img");
+    chigui.setAttribute("src", "/src/assets/img/page_elements/menu_elements/chigoku.png");
+
+    chiguiCont.appendChild(chigui);
+
+    logOptions.append(loginOption, registerOption, chiguiCont);
+
+    header.appendChild(logOptions);
+
 }
 
 export default Header;

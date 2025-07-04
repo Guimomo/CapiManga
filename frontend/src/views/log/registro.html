@@ -1,0 +1,47 @@
+<link rel="stylesheet" href="../../css/style.css">
+
+<div class="body_content">
+
+    <form id="formRegistro">
+
+      <label>Nombre completo:
+        <input type="text" name="nombre" required minlength="2" maxlength="255">
+      </label>
+
+      <label>Nombre de usuario:
+        <input type="text" name="user_Name" required minlength="4" maxlength="100">
+      </label>
+
+      <label>Email:
+        <input type="email" name="email_Usuario" required maxlength="200">
+      </label>
+
+      <label>Contraseña:
+        <input type="password" name="contrasena" required minlength="6" maxlength="255">
+      </label>
+
+      <label>Fecha de nacimiento:
+        <input type="date" name="fecha_Nacimiento" required>
+      </label>
+
+      <label>Teléfono (opcional):
+        <input type="tel" name="telefono" maxlength="100">
+      </label>
+
+      <label>Género (opcional):
+
+        <select name="genero_Usuario">
+          <option value="">Selecciona...</option>
+          <option value="femenino">Femenino</option>
+          <option value="masculino">Masculino</option>
+          <option value="ninguno">Ninguno</option>
+          <option value="otro">Otro</option>
+        </select>
+
+      </label>
+
+      <button type="submit">Registrarse</button>
+      
+    </form>
+
+</div>

@@ -18,7 +18,7 @@
 body {
 
     background-color: var(--third_color);
-    min-height: 100vh;
+    /* min-height: 100vh; */
 
     min-width: 320px;
     max-width: 2200px;
@@ -36,6 +36,8 @@ body {
     grid-template-areas: 
     'header app'
     'footer footer';
+
+    overflow-x: hidden;
 }
 
 #app {
@@ -43,6 +45,7 @@ body {
     grid-area: app;
     width: 100%;
     margin: 0 auto;
+    height: 100vh;
 }
 
 input:focus {
