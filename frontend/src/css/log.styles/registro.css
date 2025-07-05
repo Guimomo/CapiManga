@@ -1,14 +1,16 @@
 .body_content {
 
     /* height: 100vh; */
-    height: 100%;
+    /* height: 100%; */
+    height: 1200px;
     width: 100%;
+    min-width: 320px;
     /* background-color: var(--main_color); */
     position: relative;
     
     background-image: url("/src/assets/img/page_elements/log_elements/tramadoComic.png");
     background-size: cover;
-    background-position: left;
+    background-position-x: 150px;
     background-repeat: no-repeat;
 }
 
@@ -22,9 +24,10 @@
     height: 100%;
     background-color: var(--main_color);
     background-image: url("/src/assets/img/page_elements/log_elements/chiguiMoon.png");
+    background-size: cover;
+    background-position: right;
     /* clip-path: polygon(30% 0, 100% 0, 80% 100%, 0% 100%); */
 
-    filter: drop-shadow(20px 20px 0 var(--main_color));
     z-index: 1;
 
     animation: aparison 0.5s ease-in forwards;
@@ -32,10 +35,10 @@
 
 @keyframes aparison {
     from {
-        transform: translateX(100%);
+        transform: translateY(-100%);
     }
     to {
-        transform: translateX(0);
+        transform: translateY(0);
     }
 }
 
@@ -53,15 +56,23 @@
 .formCont {
 
     height: 100%;
-    width: 70%;
+    width: 55%;
+    margin-left: 20px;
     background-color: var(--second_color);
     position: absolute;
     left: 0;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    /* justify-content: center; */
+    padding-top: 100px;
     align-items: center;
-    z-index: 5;
-    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
+    z-index: 4;
+    /* clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%); */
+    /* padding: 20px; */
+    border-radius: 0 0 100px 100px;
+    overflow: hidden;
+    /* border-radius: 20px 20px 200px 100px; */
 }
 
 #formRegistro {
@@ -70,20 +81,21 @@
     flex-direction: column;
     gap: 15px;
     align-items: center;
-    z-index: 3;
+    /* z-index: 5; */
 
-    
+    /* width: 100%; */
 
-    /* background-color: var(--main_color_transparent);
-    padding: 30px 50px;
-    border-radius: 30px; */
+    /* scale: 0.8; */
+
+    /* max-width: 400px;
+    min-width: 350px; */
 
     animation: aparisonForm 0.5s ease-in forwards;
 }
 
 @keyframes aparisonForm {
     from {
-        transform: translateY(-120%);
+        transform: translateY(120%);
     }
     to {
         transform: translateY(0);
@@ -95,7 +107,7 @@
 
     display: flex;
     flex-direction: column;
-    width: 300px;
+    width: 350px;
     gap: 3px;
     color: var(--third_color);
 }
@@ -137,6 +149,7 @@
     gap: 10px;
     align-items: center;
     color: var(--second_color);
+    color: var(--third_color);
 }
 
 #formRegistro .form_genero select {
@@ -146,9 +159,9 @@
     border-radius: 10px;
     border: none;
     padding-left: 10px;
-    padding-right: 10px;
-    background-color: var(--second_color);
-    color: var(--third_color);
+    /* padding-right: 20px; */
+    background-color: var(--third_color);
+    color: var(--second_color);
 }
 
 #formRegistro .password_cont,
@@ -200,3 +213,120 @@
 .password_confirm_cont:has(.check_contrasena:checked) .no_visualizar {
     display: none;
 }
+
+#formRegistro .terminos {
+
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    color: var(--third_color);
+    font-size: 0.9rem;
+}
+
+.terminos a {
+
+    color: var(--main_color);
+}
+
+.terminos p {
+
+    color: var(--third_color);
+}
+
+#formRegistro .terminos input[type="checkbox"] {
+
+    display: inline-block;
+    width: 30px;
+}
+
+@media (max-width: 1000px) {
+
+    .formCont {
+
+        width: 100%;
+        border-radius: 0 0 0 100px;
+    }
+
+    .body_content::before {
+
+        display: none;
+    }
+
+}
+
+@media (max-width: 800px) {
+
+    .body_content {
+
+        background-position-x: left;
+    }
+
+    .formCont {
+
+        width: 100%;
+        height: 950px;
+        /* margin-top: 200px; */
+        /* padding-top: 50px; */
+        clip-path: polygon(0 0, 100% 5%, 100% 100%, 0% 95%);
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        padding-left: 20px;
+        padding-right: 20px;
+        border-radius: 0;
+        margin-left: 0;
+    }
+
+    .body_content::before {
+
+        display: inline-block;
+        width: 100%;
+        height: 650px;
+    }
+
+    @keyframes aparison {
+        from {
+            transform: translateX(-100%);
+        }
+        to {
+            transform: translateX(0);
+        }
+        
+    }
+
+}
+
+@media (max-width: 420px) {
+
+    #formRegistro {
+
+        scale: 0.75;
+    }
+
+    .formCont {
+
+        height: 900px;
+    }
+    
+}
+
+@media (min-width: 2600px){
+  
+    .body_content {
+        height: 100vh;
+    }
+
+    .formCont {
+
+        justify-content: center;
+        align-items: center;
+        padding-top: 0;
+    }
+
+    #formRegistro {
+        
+        /* scale: 2; */
+    }
+}
+
