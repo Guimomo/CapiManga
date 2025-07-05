@@ -10,6 +10,7 @@
 :root {
 
     --main_color: #F04C0E;
+    --main_color_transparent: rgba(240, 74, 14, 0.39);
     --second_color: #ffffff;
     --third_color: #0D0D0D;
     --fourth_color: #ff6a00;

@@ -2,46 +2,75 @@
 
 <div class="body_content">
 
+  
+  <div class="formCont">
+    
     <form id="formRegistro">
-
-      <label>Nombre completo:
+  
+      <label>Nombre
         <input type="text" name="nombre" required minlength="2" maxlength="255">
       </label>
-
-      <label>Nombre de usuario:
+  
+      <label>Nombre de usuario
         <input type="text" name="user_Name" required minlength="4" maxlength="100">
       </label>
-
-      <label>Email:
-        <input type="email" name="email_Usuario" required maxlength="200">
-      </label>
-
-      <label>Contraseña:
-        <input type="password" name="contrasena" required minlength="6" maxlength="255">
-      </label>
-
-      <label>Fecha de nacimiento:
-        <input type="date" name="fecha_Nacimiento" required>
-      </label>
-
-      <label>Teléfono (opcional):
-        <input type="tel" name="telefono" maxlength="100">
-      </label>
-
-      <label>Género (opcional):
-
+  
+      <label class="form_genero">Género (opcional):
+  
         <select name="genero_Usuario">
-          <option value="">Selecciona...</option>
+          <!-- <option value="" disabled> Selecciona...</option> -->
           <option value="femenino">Femenino</option>
           <option value="masculino">Masculino</option>
           <option value="ninguno">Ninguno</option>
           <option value="otro">Otro</option>
         </select>
-
+  
       </label>
-
+  
+      <label>Email
+        <input type="email" name="email_Usuario" required maxlength="200">
+      </label>
+  
+      <label>Teléfono (opcional)
+        <input type="tel" name="telefono" maxlength="100">
+      </label>
+  
+      <label>Fecha de nacimiento
+        <input type="date" name="fecha_Nacimiento" required>
+      </label>
+  
+      <label>Contraseña
+  
+        <div class="password_cont">
+          <input type="password" name="contrasena" required minlength="6" maxlength="255">
+          <label for="contrasena" class="visualizar_contrasena">
+            <i class="ri-eye-fill visualizar"></i>
+            <i class="ri-eye-close-fill no_visualizar"></i>
+            <input type="checkbox" id="contrasena" class="check_contrasena">
+          </label>
+  
+        </div>
+        
+      </label>
+  
+      <label>Confirmar contraseña
+  
+        <div class="password_confirm_cont">
+          <input type="password" name="confirmar_contrasena" required minlength="6" maxlength="255">
+          <label for="confirmar_contrasena" class="visualizar_contrasena">
+            <i class="ri-eye-fill visualizar"></i>
+            <i class="ri-eye-close-fill no_visualizar"></i>
+            <input type="checkbox" id="confirmar_contrasena" class="check_contrasena">
+          </label>
+        </div>
+  
+      </label>
+  
       <button type="submit">Registrarse</button>
       
     </form>
+    
+    </div>
+
 
 </div>

@@ -366,6 +366,13 @@ header:has(.perfil-checkbox:checked) .log-options {
         display: none;
     }
 
+    .log-options {
+
+        position: fixed;
+        width: 200px;
+        top: 85px;
+    }
+
 }
 
 @media (max-width: 420px) {
