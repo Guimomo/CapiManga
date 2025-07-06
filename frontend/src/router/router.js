@@ -1,6 +1,7 @@
 import { loadView } from "../helpers/loadView";
 import { inicioController } from "../views/inicio/controllers/inicioController";
 import { loginController } from "../views/log/controllers/loginController";
+import { registroCotroller } from "../views/log/controllers/registroController";
 
 const routes = {
 
@@ -18,7 +19,7 @@ const routes = {
 
     register: {
         "template": "log/registro.html",
-        controlador: loginController,
+        controlador: registroCotroller,
         private: false,
     },
 

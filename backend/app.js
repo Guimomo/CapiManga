@@ -25,6 +25,7 @@ import reaccionRoutes from "./src/routes/reaccionRoutes.js";
 import meGustaCapituloRoutes from "./src/routes/meGustaCapituloRoutes.js";
 import comentarioRoutes from "./src/routes/comentarioRoutes.js";
 import usuarioRoutes from "./src/routes/usuarioRoutes.js";
+import codigoTelefonicoRoutes from "./src/routes/codigoTelefonicoRoutes.js";
 
 dotenv.config();
 
@@ -65,6 +66,7 @@ app.use("/api/seguir-usuario", seguirUsuarioRoutes);
 app.use("/api/tipo-estado", tipoEstadoRoutes);
 app.use("/api/tipo-historia", tipoHistoriaRoutes);
 app.use("/api/usuarios", usuarioRoutes);
+app.use("/api/codigos-telefonicos", codigoTelefonicoRoutes);
 
 // Puerto para ejecutar el servidor
 const port = process.env.PORT || 3000;

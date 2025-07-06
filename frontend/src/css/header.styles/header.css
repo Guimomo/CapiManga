@@ -221,7 +221,7 @@ header label {
     object-fit: cover;
     position: absolute;
     bottom: 0;
-    animation: chigui-animation 3s infinite;
+    animation: chigui-animation 1s infinite;
 }
 
 @keyframes chigui-animation {
