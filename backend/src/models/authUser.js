@@ -22,10 +22,15 @@ export class Usuario {
     return rows[0];
   }
 
-  static async create({ nombre, user_Name, email_Usuario, contrasena, telefono = null, fecha_Nacimiento }) {
+  static async findById(id) {
+    const [rows] = await db.query("SELECT * FROM Usuario WHERE id = ?", [id]);
+    return rows[0];
+  }
+
+  static async create({ nombre, user_Name, email_Usuario, contrasena, telefono = null, fecha_Nacimiento, genero_Usuario }) {
     const [result] = await db.query(
-      `INSERT INTO Usuario (nombre, user_Name, email_Usuario, contrasena, telefono, fecha_Nacimiento) VALUES (?, ?, ?, ?, ?, ?)`,
-      [nombre, user_Name, email_Usuario, contrasena, telefono, fecha_Nacimiento]
+      `INSERT INTO Usuario (nombre, user_Name, email_Usuario, contrasena, telefono, fecha_Nacimiento, genero_Usuario) VALUES (?, ?, ?, ?, ?, ?, ?)`,
+      [nombre, user_Name, email_Usuario, contrasena, telefono, fecha_Nacimiento, genero_Usuario]
     );
     return { id: result.insertId };
   }

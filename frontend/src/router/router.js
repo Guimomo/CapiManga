@@ -1,7 +1,7 @@
 import { loadView } from "../helpers/loadView";
-import { inicioController } from "../views/inicio/controllers/inicioController";
-import { loginController } from "../views/log/controllers/loginController";
-import { registroCotroller } from "../views/log/controllers/registroController";
+import { inicioController } from "../views/inicio/controllers/inicioController.js";
+import { loginController } from "../views/login/controllers/loginController.js";
+import { registroCotroller } from "../views/registro/controllers/registroController.js";
 
 const routes = {
 
@@ -12,13 +12,13 @@ const routes = {
     },
 
     login: {
-        "template": "log/login.html",
+        "template": "login/login.html",
         controlador: loginController,
         private: false,
     },
 
     register: {
-        "template": "log/registro.html",
+        "template": "registro/registro.html",
         controlador: registroCotroller,
         private: false,
     },

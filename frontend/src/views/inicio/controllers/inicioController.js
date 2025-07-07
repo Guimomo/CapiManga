@@ -1,6 +1,9 @@
+import { getData } from "../../../helpers/auth";
 import { initCarrusel } from "./functionCarrusel"
 
 export const inicioController = async () => {
+
+    let { accessToken } = getData();
 
     initCarrusel();
 

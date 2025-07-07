@@ -1,10 +1,12 @@
 import { ResponseProvider } from "../providers/ResponseProvider.js";
 import AuthService from "../services/authService.js";
+import fs from 'fs';
+import path from 'path';
 
 export const register = async (req, res) => {
-  const { nombre, email_Usuario, contrasena, user_Name, telefono, fecha_Nacimiento } = req.body;
+  const { nombre, email_Usuario, contrasena, user_Name, telefono, fecha_Nacimiento, genero_Usuario } = req.body;
   try {
-    const response = await AuthService.register(nombre, email_Usuario, contrasena, user_Name, telefono, fecha_Nacimiento);
+    const response = await AuthService.register(nombre, email_Usuario, contrasena, user_Name, telefono, fecha_Nacimiento, genero_Usuario);
     if (response.error) {
       ResponseProvider.error(
         res, 
@@ -13,6 +15,20 @@ export const register = async (req, res) => {
       );
 
     } else {
+      // Crear carpeta de usuario en uploads si el registro fue exitoso
+      const userId = response.data.id;
+      const userDir = path.resolve('uploads', String(userId));
+      try {
+
+        if (!fs.existsSync(userDir)) {
+          fs.mkdirSync(userDir, { recursive: true });
+          
+        } else {
+          console.log('La carpeta ya existe:', userDir);
+        }
+      } catch (err) {
+        console.error('Error creando la carpeta de usuario:', err);
+      }
       ResponseProvider.success(
         res, 
         response.data, 

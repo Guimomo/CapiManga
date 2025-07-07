@@ -20,7 +20,7 @@ class AuthService {
    * @param {*} telefono
    * @returns
    */
-  static async register(nombre, email_Usuario, contrasena, user_Name, telefono) {
+  static async register(nombre, email_Usuario, contrasena, user_Name, telefono, fecha_Nacimiento, genero_Usuario) {
     try {
       // Verificar si el usuario ya existe por email
       const userExists = await Usuario.findByEmail(email_Usuario);
@@ -39,11 +39,12 @@ class AuthService {
         email_Usuario,
         telefono,
         contrasena: hashedPassword,
-        // Puedes agregar más campos requeridos aquí
+        fecha_Nacimiento,
+        genero_Usuario
       });
-
-
-      return { error: false, code: 201, message: "Usuario creado", data: { id: usuario.id } };
+      // Calcular edad para devolverla en la respuesta
+      const edad = this.calcularEdad(fecha_Nacimiento);
+      return { error: false, code: 201, message: "Usuario creado", data: { id: usuario.id, edad } };
 
     } catch (error) {
       return { error: true, code: 500, message: "Error al crear el usuario" };
@@ -201,6 +202,23 @@ class AuthService {
   static async logout(userId) {
     await Usuario.updateRefreshToken(userId, null);
     return { error: false, code: 200, message: "Sesión cerrada correctamente" };
+  }
+
+  /**
+   * Calcula la edad a partir de la fecha de nacimiento
+   * @param {*} fecha_Nacimiento
+   * @returns
+   */
+  static calcularEdad(fecha_Nacimiento) {
+    const hoy = new Date();
+    const cumpleanos = new Date(fecha_Nacimiento);
+    let edad = hoy.getFullYear() - cumpleanos.getFullYear();
+    const m = hoy.getMonth() - cumpleanos.getMonth();
+    const d = hoy.getDate() - cumpleanos.getDate();
+    if (m < 0 || (m === 0 && d < 0)) {
+      edad--;
+    }
+    return edad;
   }
 }
 

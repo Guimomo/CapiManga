@@ -1,0 +1,75 @@
+
+.overlay_perfil {
+
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    background: rgba(20,20,20,0.7);
+    z-index: 9999;
+    pointer-events: none;
+    animation: fadeOutOverlay 1.2s 1.8s forwards;
+}
+
+.bienvenida_perfil_contenedor {
+
+    background: var(--second_color);
+    border-radius: 50%;
+    box-shadow: 0 0 40px 10px var(--main_color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 160px;
+    height: 160px;
+    transform: scale(1.5);
+    opacity: 0;
+    animation: perfilBienvenidaAnim 1.2s ease-in-out forwards;
+}
+
+.icono_perfil_overlay {
+
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.texto_bienvenida_overlay {
+
+    margin-top: 15px;
+    color: var(--main_color);
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+@keyframes perfilBienvenidaAnim {
+
+    0% { 
+        transform: scale(0.5); 
+        opacity: 0; 
+    }
+    40% { 
+        transform: scale(1.2); 
+        opacity: 1; 
+    }
+    80% { 
+        transform: scale(1); 
+        opacity: 1; 
+    }
+    100% { 
+        transform: scale(0.3); 
+        opacity: 0; 
+    }
+}
+
+@keyframes fadeOutOverlay {
+    to { 
+        opacity: 0; 
+        pointer-events: none; 
+    }
+}

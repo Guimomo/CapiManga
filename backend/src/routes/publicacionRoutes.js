@@ -1,19 +1,20 @@
 import express from "express";
 import PublicacionController from "../controllers/publicacionController.js";
 import { camposPublicacion, parcialesPublicacion } from "../middlewares/publicacion/index.js";
+import { verifyToken } from "../middlewares/auth/tokenMiddleware.js";
 
 const router = express.Router();
 
-router.get("/", PublicacionController.getAllPublicaciones);
+router.get("/", verifyToken, PublicacionController.getAllPublicaciones);
 
-router.get("/:id", PublicacionController.getPublicacionById);
+router.get("/:id", verifyToken, PublicacionController.getPublicacionById);
 
-router.post("/", camposPublicacion, PublicacionController.createPublicacion);
+router.post("/", verifyToken, camposPublicacion, PublicacionController.createPublicacion);
 
-router.put("/:id", camposPublicacion, PublicacionController.updatePublicacion);
+router.put("/:id", verifyToken, camposPublicacion, PublicacionController.updatePublicacion);
 
-router.patch("/:id", parcialesPublicacion, PublicacionController.updatePublicacion);
+router.patch("/:id", verifyToken, parcialesPublicacion, PublicacionController.updatePublicacion);
 
-router.delete("/:id", PublicacionController.deletePublicacion);
+router.delete("/:id", verifyToken, PublicacionController.deletePublicacion);
 
 export default router;

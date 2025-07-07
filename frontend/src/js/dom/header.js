@@ -1,3 +1,7 @@
+import Swal from "sweetalert2";
+import { Autenticado } from "../../helpers/auth";
+import { router } from "../../router/router";
+
 const Header =()=> {
 
     const header = document.querySelector("header");
@@ -199,6 +203,101 @@ const Header =()=> {
     logOptions.append(loginOption, registerOption, chiguiCont);
 
     header.appendChild(logOptions);
+
+    window.addEventListener("DOMContentLoaded", () => {
+
+        router(app);
+
+        if (Autenticado()) {
+            // Si el usuario está autenticado, ocultar las opciones de inicio de sesión y registro
+            logOptions.style.display = "none";
+
+            // Mostrar el menú de perfil
+            const menuPerfil = document.createElement("div");
+            menuPerfil.classList.add("perfil_menu_log");
+            header.appendChild(menuPerfil);
+
+            // opciones del menú de perfil
+            const irAPerfil = document.createElement("a");
+            irAPerfil.setAttribute("href", "#perfil");
+            irAPerfil.classList.add("perfil-option", "menu-item");
+            const perfilIcon = document.createElement("i");
+            perfilIcon.classList.add("ri-user-smile-line", "menu-icon");
+            irAPerfil.append(perfilIcon, " Ir a perfil");
+
+            // Seguidos
+            const seguidosLink = document.createElement("a");
+            seguidosLink.setAttribute("href", "#seguido");
+            seguidosLink.classList.add("seguidos-option", "menu-item");
+            const seguidosIcon = document.createElement("i");
+            seguidosIcon.classList.add("ri-user-follow-line", "menu-icon");
+            seguidosLink.append(seguidosIcon, " Seguidos");
+
+            // Seguidores
+            const seguidoresLink = document.createElement("a");
+            seguidoresLink.setAttribute("href", "#seguidores");
+            seguidoresLink.classList.add("seguidores-option", "menu-item");
+            const seguidoresIcon = document.createElement("i");
+            seguidoresIcon.classList.add("ri-group-line", "menu-icon");
+            seguidoresLink.append(seguidoresIcon, " Seguidores");
+
+            const verNotificaciones = document.createElement("a");
+            verNotificaciones.setAttribute("href", "#notificaciones");
+            verNotificaciones.classList.add("notificaciones-option", "menu-item");
+            const notiIcon = document.createElement("i");
+            notiIcon.classList.add("ri-notification-3-line", "menu-icon");
+            verNotificaciones.append(notiIcon, " Notificaciones");
+
+            const verHistoriasGuardadas = document.createElement("a");
+            verHistoriasGuardadas.setAttribute("href", "#historias-guardadas");
+            verHistoriasGuardadas.classList.add("historias-guardadas-option", "menu-item");
+            const guardadasIcon = document.createElement("i");
+            guardadasIcon.classList.add("ri-bookmark-line", "menu-icon");
+            verHistoriasGuardadas.append(guardadasIcon, " Historias guardadas");
+
+            const verActividad = document.createElement("a");
+            verActividad.setAttribute("href", "#actividad");
+            verActividad.classList.add("actividad-option", "menu-item");
+            const actividadIcon = document.createElement("i");
+            actividadIcon.classList.add("ri-history-line", "menu-icon");
+            verActividad.append(actividadIcon, " Actividad");
+
+            const cerrarSesion = document.createElement("button");
+            cerrarSesion.classList.add("cerrar-sesion-option", "menu-item");
+            cerrarSesion.textContent = "Cerrar sesión";
+
+            menuPerfil.append(
+                irAPerfil,
+                seguidosLink,
+                seguidoresLink,
+                verNotificaciones,
+                verHistoriasGuardadas,
+                verActividad,
+                cerrarSesion
+            );
+
+            cerrarSesion.addEventListener("click", () => {
+                // Aquí puedes agregar la lógica para cerrar sesión
+                localStorage.removeItem("accessToken");
+                localStorage.removeItem("refreshToken");
+                
+                Swal.fire({
+                    title: 'Sesión cerrada',
+                    text: 'Has cerrado sesión correctamente.',
+                    icon: 'success',
+                    confirmButtonText: 'Aceptar'
+                }).then(() => {
+                    // router.navigate("/#");
+                    window.location.href = "/"; // Redirigir a la página principal
+                    menuPerfil.remove();
+                    logOptions.style.display = "flex"; // Mostrar las opciones de inicio de sesión y registro
+                });
+
+            });
+
+
+        }
+    });
 
 }
 

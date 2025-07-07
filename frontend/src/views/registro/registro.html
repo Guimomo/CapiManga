@@ -30,7 +30,7 @@
       </label>
   
       <label>Email
-        <input type="email" name="email_Usuario" required maxlength="200">
+        <input type="email" name="email_Usuario" id="email" required maxlength="200">
       </label>
   
       <label>Teléfono (opcional)
@@ -38,7 +38,7 @@
         <div class="telefono_cont">
 
           <select name="codigo_pais" id="codigo_pais">
-            <option value="" disabled selected> País </option>
+            <option value="" selected> País </option>
           </select>
           
           <input type="tel" name="telefono" id="telefono" maxlength="100">
@@ -57,7 +57,7 @@
           <label for="password" class="visualizar_contrasena">
             <i class="ri-eye-fill visualizar"></i>
             <i class="ri-eye-close-fill no_visualizar"></i>
-            <input type="checkbox" id="password" class="check_contrasena">
+            <input type="checkbox" id="password" class="check_contrasena" >
           </label>
   
         </div>
@@ -79,14 +79,14 @@
 
       <label class="terminos">
 
-        <input type="checkbox" name="terminos" required>
+        <input type="checkbox" name="terminos" id="terminos" required>
 
         <p>Acepto los <a href="">términos y condiciones</a> y 
         la <a href="">política de privacidad</a>.</p>
 
       </label>
   
-      <button type="submit">Registrarse</button>
+      <button type="submit" class="btnRegistro" disabled>Registrarse</button>
       
     </form>
 

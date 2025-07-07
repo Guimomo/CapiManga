@@ -9,12 +9,12 @@ export const es_contrasena = (event, element) => {
     elemento = element;
   }
 
-  const contraseña = elemento.value;
+  const contrasena = elemento.value;
   const mensaje = "La contraseña debe tener al menos 7 caracteres, una mayúscula, una minúscula, un número y un carácter especial.";
 
-  const regexContraseña = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{7,100}$/;
+  const regexContrasena = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{7,100}$/;
 
-  if (!regexContraseña.test(contraseña)) {
+  if (!regexContrasena.test(contrasena)) {
     mostrar_error(elemento, mensaje);
     return false;
   } else {

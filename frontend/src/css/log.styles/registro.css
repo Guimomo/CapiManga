@@ -8,7 +8,6 @@
     background-image: url("/src/assets/img/page_elements/log_elements/tramadoComic.png");
     background-size: cover;
     background-position: center;
-    /* background-position-x: 150px; */
     background-repeat: no-repeat;
 
     display: flex;
@@ -82,7 +81,6 @@
 
 .formCont {
 
-    /* height: 100%; */
     width: 80%;
     max-width: 700px;
 
@@ -170,6 +168,35 @@
     color: var(--second_color);
 }
 
+/* --- Asegura que los inputs de contraseña y texto (cuando muestran contraseña) tengan el mismo estilo --- */
+#formRegistro input[type="password"],
+#formRegistro input[type="text"].input-password {
+    background-color: var(--third_color) !important;
+    color: var(--second_color) !important;
+}
+
+/* --- Corrige el estilo de inputs en error para que nunca se oculten ni cambien el fondo/texto --- */
+#formRegistro input.form__input--error,
+#formRegistro input[type="text"].input-password.form__input--error,
+#formRegistro input[type="password"].form__input--error {
+    background-color: #ffeded !important;
+    color: #d32f2f !important;
+    border: 2px solid #d32f2f !important;
+}
+
+#formRegistro input.form__input--error::placeholder {
+    color: #d32f2f !important;
+    opacity: 1;
+}
+
+#formRegistro span {
+    color: #d32f2f;
+    font-size: 0.9em;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display: block;
+}
+
 #formRegistro button {
 
     width: 200px;
@@ -182,6 +209,18 @@
     cursor: pointer;
 
     transition: ease 0.3s;
+}
+
+#formRegistro button:disabled {
+
+    background-color: var(--third_color);
+    color: var(--second_color);
+    cursor: not-allowed;
+}
+
+#formRegistro button:disabled:hover {
+
+    scale: 1;
 }
 
 #formRegistro button:hover {
@@ -311,49 +350,15 @@
     width: 30px;
 }
 
-@media (max-width: 1000px) {
-
-    .formCont {
-
-        width: 100%;
-        border-radius: 0 0 0 100px;
-    }
-
-    .body_content::before {
-
-        display: none;
-    }
-
-}
-
 @media (max-width: 800px) {
 
-    .body_content {
-
-        background-position-x: left;
-    }
-
     .formCont {
 
         width: 100%;
+        max-width: 100%;
         height: 950px;
-        /* margin-top: 200px; */
-        /* padding-top: 50px; */
         clip-path: polygon(0 0, 100% 5%, 100% 100%, 0% 95%);
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        padding-left: 20px;
-        padding-right: 20px;
         border-radius: 0;
-        margin-left: 0;
-    }
-
-    .body_content::before {
-
-        display: inline-block;
-        width: 100%;
-        height: 650px;
     }
 
     @keyframes aparison {

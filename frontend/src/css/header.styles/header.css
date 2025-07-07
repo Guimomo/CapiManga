@@ -274,6 +274,70 @@ header:has(.perfil-checkbox:checked) .log-options {
     display: none;
 }
 
+/* MENU PERFIL------------------------- */
+
+header .perfil_menu_log {
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 95%;
+    align-items: center;
+    background-color: var(--second_color);
+    position: absolute;
+    z-index: 5;
+    top: 230px;
+    padding: 20px 10px;
+
+    left: -120%;
+
+    border-radius: 0 20px 20px 0;
+
+    transition: ease 0.3s;
+}
+
+header .perfil_menu_log a {
+
+    color: var(--third_color);
+    transition: 0.3s ease;
+}
+
+header .perfil_menu_log .menu-item {
+
+    display: flex;
+    align-items: center;
+}
+
+header .perfil_menu_log .menu-item:hover {
+
+    font-weight: bold;
+    color: var(--main_color);
+}
+
+header .perfil_menu_log .cerrar-sesion-option {
+
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--main_color);
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+
+    transition: ease 0.3s;
+}
+
+header .perfil_menu_log .cerrar-sesion-option:hover {
+
+    scale: 1.04;
+    color: var(--second_color);
+    font-weight: normal;
+}
+
+header:has(.perfil-checkbox:checked) .perfil_menu_log {
+
+    left: 0;
+}
 
 
 @media (max-width: 650px){
@@ -377,6 +441,23 @@ header:has(.perfil-checkbox:checked) .log-options {
         position: fixed;
         width: 200px;
         top: 85px;
+    }
+
+    header .perfil_menu_log {
+
+        position: fixed;
+        width: 200px;
+        top: 85px;
+        gap: 15px;
+        left: -100%;
+        padding: 20px;
+    }
+
+    header .perfil_menu_log .menu-item {
+        
+        display: flex;
+        align-items: center;
+        gap: 2px;
     }
 
 }
