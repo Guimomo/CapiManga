@@ -31,24 +31,6 @@
     }
 }
 
-/* .body_content::before {
-    content: "";
-    position: absolute;
-    opacity: 0.8;
-    top: 0;
-    right: 0;
-    width: 50%;
-    height: 100%;
-    background-color: var(--main_color);
-    background-image: url("/src/assets/img/page_elements/log_elements/chiguiMoon.png");
-    background-size: cover;
-    background-position: right;
-
-    z-index: 1;
-
-    animation: aparison 0.5s ease-in forwards;
-} */
-
 @keyframes aparison {
     from {
         transform: translateY(-120%);

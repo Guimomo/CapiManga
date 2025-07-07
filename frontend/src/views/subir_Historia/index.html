@@ -1,0 +1,56 @@
+<link rel="stylesheet" href="../../css/style.css">
+
+<div class="body_subirSerie">
+
+    <h1>Crear nueva historia</h1>
+    
+    <form id="formCrearHistoria" enctype="multipart/form-data">
+        <label for="titulo_Historia">Título de la historia *</label>
+        <input type="text" id="titulo_Historia" name="titulo_Historia" required maxlength="255">
+
+        <label for="formato_Publicacion">Formato *</label>
+        <select id="formato_Publicacion" name="formato_Publicacion" required>
+            <option value="serie">Serie</option>
+            <option value="one-Shot">One-Shot</option>
+        </select>
+
+        <label for="portada_Historia">Portada *</label>
+        <input type="file" id="portada_Historia" name="portada_Historia" accept="image/*" required>
+
+        <label for="icono_Historia">Icono *</label>
+        <input type="file" id="icono_Historia" name="icono_Historia" accept="image/*" required>
+
+        <label for="logo_Historia">Logo *</label>
+        <input type="file" id="logo_Historia" name="logo_Historia" accept="image/*" required>
+
+        <label for="genero_Id">Género *</label>
+        <select id="genero_Id" name="genero_Id" required>
+            <!-- Opciones de género se llenarán por JS -->
+        </select>
+
+        <label for="subgenero_Id">Subgénero *</label>
+        <select id="subgenero_Id" name="subgenero_Id" required>
+            <!-- Opciones de subgénero se llenarán por JS -->
+        </select>
+
+        <label for="argumento_Historia">Argumento *</label>
+        <textarea id="argumento_Historia" name="argumento_Historia" rows="4" maxlength="500" required></textarea>
+
+        <label for="tipo_Serie">Estado de la serie *</label>
+        <select id="tipo_Serie" name="tipo_Serie" required>
+            <!-- Opciones de estado se llenarán por JS -->
+        </select>
+
+        <label for="edad_Recomendada">Edad recomendada *</label>
+        <select id="edad_Recomendada" name="edad_Recomendada" required>
+            <!-- Opciones de edad recomendada se llenarán por JS -->
+        </select>
+
+        <label for="tipo_Historia">Tipo de historia *</label>
+        <select id="tipo_Historia" name="tipo_Historia" required>
+            <!-- Opciones de tipo de historia se llenarán por JS -->
+        </select>
+
+        <button type="submit" class="btnCrearHistoria">Crear historia</button>
+    </form>
+</div>

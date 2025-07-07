@@ -37,8 +37,10 @@ const app = express();
 app.use(cors()); 
 
 // Permite que la app acepte datos JSON
-app.use(bodyParser.json()); 
-// app.use(express.json());
+app.use(bodyParser.json());
+
+// Servir la carpeta uploads como pública
+app.use('/uploads', express.static('uploads'));
 
 // Permite el envio de datos de tipo utlencode
 app.use(express.urlencoded({ extended: true }));

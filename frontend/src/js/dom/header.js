@@ -1,5 +1,5 @@
 import Swal from "sweetalert2";
-import { Autenticado } from "../../helpers/auth";
+import { Autenticado, getData } from "../../helpers/auth";
 import { router } from "../../router/router";
 
 const Header =()=> {
@@ -204,7 +204,7 @@ const Header =()=> {
 
     header.appendChild(logOptions);
 
-    window.addEventListener("DOMContentLoaded", () => {
+    window.addEventListener("DOMContentLoaded", async() => {
 
         router(app);
 
@@ -219,7 +219,7 @@ const Header =()=> {
 
             // opciones del menú de perfil
             const irAPerfil = document.createElement("a");
-            irAPerfil.setAttribute("href", "#perfil");
+            irAPerfil.setAttribute("href", "#mi_perfil");
             irAPerfil.classList.add("perfil-option", "menu-item");
             const perfilIcon = document.createElement("i");
             perfilIcon.classList.add("ri-user-smile-line", "menu-icon");
@@ -275,6 +275,18 @@ const Header =()=> {
                 verActividad,
                 cerrarSesion
             );
+
+            const { accessToken } = getData();
+
+            const ResponsePerfil = await fetch('http://localhost:3000/api/usuarios/perfil', {
+                headers: {
+                    'Authorization': `Bearer ${accessToken}`
+                }
+            });
+
+            const { data: perfilData } = await ResponsePerfil.json();
+
+            iconoPerfil.setAttribute("src", perfilData.foto_Perfil ? `http://localhost:3000${perfilData.foto_Perfil}` : "src/assets/icon/user.svg");
 
             cerrarSesion.addEventListener("click", () => {
                 // Aquí puedes agregar la lógica para cerrar sesión

@@ -1,0 +1,149 @@
+.body_MiPerfil {
+
+    position: relative;
+    height: 100%;
+    min-height: 100vh;
+    width: 100%;
+    min-width: 320px;
+    padding: 20px 40px;
+    /* background-color: aliceblue; */
+
+    display: grid;
+    grid-template-columns: 170px 1fr;
+    grid-template-rows: 500px 200px 250px 1fr;
+
+    grid-template-areas: 
+        "banner banner"
+        "opciones_perfil biografia"
+        "opciones_perfil mis_historias"
+        "opciones_perfil publicaciones"
+    ;
+
+}
+
+.miBannerCont {
+
+    grid-area: banner;
+    position: relative;
+}
+
+.miBannerCont .miNombreUser {
+    position: absolute;
+    bottom: 60px;
+    left: 420px;
+    z-index: 1;
+    cursor: default;
+}
+
+.miBannerCont .nombre_perfil {
+
+    color: var(--main_color);
+    /* font-size: 2rem; */
+}
+
+.miBannerCont .user_Name {
+
+    color: var(--second_color);
+    font-size: 1.2rem;
+    cursor: default;
+}
+
+.miBannerCont .miBanner {
+
+    width: 100%;
+    height: 350px;
+    border-radius: 50px;
+    background-color: var(--second_color);
+    overflow: hidden;
+}
+
+.miBannerCont .miBanner .imgBanner {
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.miBiografiaCont .miNombreUser {
+
+    position: absolute;
+    bottom: 20px;
+    left: 300px;
+}
+
+.miBannerCont .fotoMiPerfil {
+
+    width: 300px;
+    height: 300px;
+    border-radius: 100%;
+    position: absolute;
+    bottom: 20px;
+    left: 100px;
+    background-color: var(--main_color);
+    overflow: hidden;
+    border: solid 10px var(--third_color);
+}
+
+.miBannerCont .fotoMiPerfil .imgPerfil {
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.opcionesMiPerfil {
+
+    grid-area: opciones_perfil;;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 40px;
+}
+
+.opcionesMiPerfil h2 {
+
+    color: var(--main_color);
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-align: center;
+    padding-bottom: 20px;
+    /* dejar normal el cursor */
+    cursor: default;
+}
+
+.opcionesMiPerfil .menu-item {
+
+    transition: ease 0.3s;
+}
+
+.opcionesMiPerfil .menu-item:hover {
+
+    color: var(--main_color);
+    font-weight: bold;
+}
+
+.miBiografiaCont {
+
+    grid-area: biografia;
+    padding-left: 50px;
+    padding-right: 70px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.miBiografiaCont h1 {
+
+    color: var(--main_color);
+    cursor: default;
+}
+
+.misHistoriasCont {
+
+    grid-area: mis_historias;
+}
+
+.misPublicacionesCont {
+
+    grid-area: publicaciones;
+}

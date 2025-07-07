@@ -42,26 +42,32 @@ export const loginController = () => {
             });
 
             const respuestaLogin = await solicitud.json();
-            
+
             if (respuestaLogin.success) {
 
                 setData(respuestaLogin.data);
 
                 try {
 
+                    let { accessToken } = respuestaLogin.data;
+
                     const perfil_userName = await fetch(`http://localhost:3000/api/usuarios/perfil`, {
                         method: 'GET',
                         headers: {
-                            'Content-type': 'application/json; charset=UTF-8',
-                            'Authorization': `Bearer ${respuestaLogin.data.token}`
+                        'Authorization': `Bearer ${accessToken}`
                         }
                     });
 
-                    const respuestaPerfil = await perfil_userName.json();
+                    const { data: respuestaPerfil } = await perfil_userName.json();
 
+                    // Construir URL completa para la foto de perfil
+                    let fotoPerfilUrl = '';
+                    if (respuestaPerfil.foto_Perfil) {
+                        fotoPerfilUrl = `http://localhost:3000${respuestaPerfil.foto_Perfil}`;
+                    }
                     bienvenidaPerfil(
-                        respuestaPerfil.data?.user_Name || 'Usuario',
-                        respuestaPerfil.data?.foto_Perfil // o el campo que uses para la foto
+                        respuestaPerfil.user_Name,
+                        fotoPerfilUrl // ahora sí es la URL completa
                     );
 
                 } catch (error) {

@@ -33,13 +33,17 @@ class HistoriaController {
 
   // Crear una nueva historia
   static createHistoria = async (req, res) => {
+    // Guardar rutas de imágenes subidas en el body
+    if (req.files && req.files.portada_Historia) {
+      req.body.portada_Historia = '/' + req.files.portada_Historia[0].path.replace(/\\/g, '/');
+    }
+    if (req.files && req.files.icono_Historia) {
+      req.body.icono_Historia = '/' + req.files.icono_Historia[0].path.replace(/\\/g, '/');
+    }
+    if (req.files && req.files.logo_Historia) {
+      req.body.logo_Historia = '/' + req.files.logo_Historia[0].path.replace(/\\/g, '/');
+    }
     // Asignar el autor desde el usuario autenticado
-    //**
-    // Sí, aquí debes modificar la función `createHistoria` para que asigne automáticamente el campo `autor_Historia` usando 
-    //el id del usuario autenticado (`req.user.id`), en vez de tomarlo del body.
-    // Así garantizas que siempre se registre el usuario logueado como autor de la historia, sin depender del frontend.
-    // */
-
     const data = { ...req.body, autor_Historia: req.user.id };
     try {
       const response = await HistoriaService.createHistoria(data);

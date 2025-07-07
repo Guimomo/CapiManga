@@ -41,4 +41,30 @@ export class Usuario {
       id,
     ]);
   }
+
+  static async updatePerfil(id, { user_Name, biografia_Usuario, foto_Perfil, banner_Perfil }) {
+    await db.query(
+      `UPDATE Usuario SET user_Name = ?, biografia_Usuario = ?, foto_Perfil = ?, banner_Perfil = ? WHERE id = ?`,
+      [user_Name, biografia_Usuario, foto_Perfil, banner_Perfil, id]
+    );
+  }
+
+  static async updateDatosPersonales(id, { nombre, genero_Usuario, fecha_Nacimiento, email_Usuario, telefono, contrasena }) {
+    let query = `UPDATE Usuario SET nombre = ?, genero_Usuario = ?, fecha_Nacimiento = ?, email_Usuario = ?, telefono = ?`;
+    const params = [nombre, genero_Usuario, fecha_Nacimiento, email_Usuario, telefono];
+    if (contrasena) {
+      query += `, contrasena = ?`;
+      params.push(contrasena);
+    }
+    query += ` WHERE id = ?`;
+    params.push(id);
+    await db.query(query, params);
+  }
+
+  static async updatePrivacidad(id, visibilidad_Usuario) {
+    await db.query(
+      `UPDATE Usuario SET visibilidad_Usuario = ? WHERE id = ?`,
+      [visibilidad_Usuario, id]
+    );
+  }
 }

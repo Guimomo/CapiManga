@@ -1,0 +1,52 @@
+.subirCheck {
+
+    display: none;
+}
+
+.subir_crear {
+
+    position: fixed;
+
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    /* flex-direction: column; */
+    gap: 10px;
+    background-color: var(--second_color);
+    border-radius: 100px;
+    padding: 5px;
+
+    transition: ease 0.3s;
+
+}
+
+.subir_crear a {
+
+    color: var(--third_color);
+    transition: ease 0.3s;
+    display: none;
+}
+
+.subir_crear a:hover {
+
+    color: var(--main_color);
+    font-weight: bold;
+}
+
+.crear--icono {
+
+    font-size: 50px;
+    color: var(--main_color);
+}
+
+.subir_crear:has(.subirCheck:checked) a{
+
+    display: inline-block;
+}
+
+.subir_crear:has(.subirCheck:checked) {
+
+    padding-left: 20px;
+}

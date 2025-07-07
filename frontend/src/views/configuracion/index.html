@@ -1,0 +1,111 @@
+<link rel="stylesheet" href="../../css/style.css">
+
+<div class="body_config">
+    
+    <div class="title_config_cont">
+        <h1>Configuración de cuenta</h1>
+        <a href="/#mi_perfil"> volver a mi perfil <i class="ri-user-line"></i> </a>
+    </div>
+    
+    
+    <div class="opciones_config">
+
+        <button class="btn_opcion"> editar perfil </button>
+        <button class="btn_opcion"> editar datos personales </button>
+        <button class="btn_opcion"> editar privacidad </button>
+
+    </div>
+
+    <div class="config_item_cont">
+
+        <div class="editar_perfil config_item">
+    
+            
+            <form id="formDatosPerfil">
+
+                <label id="user_name_config">Nombre de usuario
+                    <input type="text" name="user_Name" id="user_Name" required minlength="4" maxlength="100">
+                </label>
+
+                <label for="foto_perfil">ingresar foto de perfil</label>
+                <input type="file" name="foto_perfil" id="foto_perfil" accept="image/*">
+        
+                <label for="foto_banner">ingresar foto de banner</label>
+                <input type="file" name="foto_banner" id="foto_banner" accept="image/*">
+        
+                <label for="biografia_perfil">Biografía</label>
+                <textarea name="biografia_perfil" id="biografia_perfil" rows="4" maxlength="500"></textarea>
+    
+                <button type="submit" class="btnGuardarCambios">
+                    Guardar cambios
+                </button>
+            </form>
+        </div>
+    
+        <div class="config_DatosPersonales config_item">
+            <form id="formDatosUsuario">
+    
+                <label id="nombre_config">Nombre
+                    <input type="text" name="nombre" id="nombre" required minlength="2" maxlength="255">
+                </label>
+    
+    
+                <label id="genero_config">Género
+                    <select name="genero_Usuario" id="genero_Usuario" required>
+                        <!-- <option value="" disabled selected>Selecciona...</option> -->
+                        <option value="femenino">Femenino</option>
+                        <option value="masculino">Masculino</option>
+                        <option value="ninguno">Ninguno</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </label>
+    
+                <label id="fechaNacimiento_config"> Fecha de nacimiento
+                    <input type="date" name="fecha_nacimiento" id="fecha_nacimiento" required>
+                </label>
+    
+                <label id="email_config">Email
+                    <input type="email" name="email_Usuario" id="email_Usuario" required maxlength="200">
+                </label>
+    
+                <label id="telefono_config">Teléfono (opcional)
+                    <div class="telefono_cont">
+                        <select name="codigo_pais" id="codigo_pais">
+                            <option value="" selected> País </option>
+                            <!-- Aquí se pueden agregar opciones de códigos de país -->
+                        </select>
+                        <input type="tel" name="telefono" id="telefono" maxlength="100">
+                    </div>
+                </label>
+
+                <label id="nueva_contrasena_config">Nueva contraseña
+                    <div class="password_cont">
+                        <input type="password" name="nueva_contrasena" id="nueva_contrasena" minlength="6" maxlength="255" autocomplete="new-password">
+                        <label for="visualizar_nueva_contrasena" class="visualizar_contrasena">
+                            <i class="ri-eye-fill visualizar"></i>
+                            <i class="ri-eye-close-fill no_visualizar"></i>
+                            <input type="checkbox" id="visualizar_nueva_contrasena" class="check_contrasena">
+                        </label>
+                    </div>
+                </label>
+                
+                <button type="submit" class="btnGuardarDatos">Guardar cambios</button>
+            </form>
+            <!-- Modal para contraseña actual -->
+            <div id="modal_contrasena_actual" class="modal_contrasena_actual" style="display:none;">
+                <div class="modal_contenido">
+                    <label for="input_contrasena_actual">Ingresa tu contraseña actual para confirmar el cambio:</label>
+                    <input type="password" id="input_contrasena_actual" name="input_contrasena_actual" minlength="6" maxlength="255">
+                    <button id="btn_confirmar_contrasena_actual" type="button">Confirmar</button>
+                    <button id="btn_cancelar_contrasena_actual" type="button">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    
+        <div class="privacidad_perfil config_item">
+    
+        </div>
+
+    </div>
+
+</div>

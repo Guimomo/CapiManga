@@ -1,7 +1,11 @@
+import { Autenticado } from "../helpers/auth.js";
 import { loadView } from "../helpers/loadView";
+import { configuracionController } from "../views/configuracion/controllers/configuracionController.js";
 import { inicioController } from "../views/inicio/controllers/inicioController.js";
 import { loginController } from "../views/login/controllers/loginController.js";
+import { miPerfilController } from "../views/mi_perfil/controllers/miPerfilControllers.js";
 import { registroCotroller } from "../views/registro/controllers/registroController.js";
+import { subirHistoriaController } from "../views/subir_Historia/controllers/subirHistoriaControllers.js";
 
 const routes = {
 
@@ -23,14 +27,37 @@ const routes = {
         private: false,
     },
 
+    mi_perfil: {
+        "template": "mi_perfil/index.html",
+        controlador: miPerfilController,
+        private: true,
+    },
 
+    configuracion: {
+        "template": "configuracion/index.html",
+        controlador: configuracionController,
+        private: true,
+    },
+
+    crear_historia: {
+        "template": "subir_Historia/index.html",
+        controlador: subirHistoriaController,
+        private: true,
+      },
 }
 
 export const router = async (app) => {
 
     const hash = location.hash.slice(1); //eliminar el # de la url
     const [rutas, params] = matchRoute(hash); //comprobar si la ruta existe //antes era {template, controlador} y funcionaba con {...routes[route], params}
-    console.log(params);
+    console.log(rutas.private);
+
+    if (rutas.private && !Autenticado()) {
+    
+      cargarView(app, "login/login.html"); // Redirigir a la vista de login si no está autenticado
+      loginController(); // Ejecutar el controlador de login
+      return; // Salir de la función para evitar cargar la vista privada
+    }
     
     //llamando la vista
     await loadView(app, rutas.template); //cargar la vista por defecto al cargar la pagina
