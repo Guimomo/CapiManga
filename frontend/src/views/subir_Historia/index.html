@@ -6,14 +6,16 @@
     
     <!-- <form id="formCrearHistoria" enctype="multipart/form-data"> -->
     <form id="formCrearHistoria">
-        <label for="titulo_Historia">Título de la historia *</label>
+        <label for="titulo_Historia">Título de la historia *
         <input type="text" id="titulo_Historia" name="titulo_Historia" required maxlength="255">
+        </label>
 
-        <label for="formato_Publicacion">Formato *</label>
+        <label for="formato_Publicacion">Formato *
         <select id="formato_Publicacion" name="formato_Publicacion" required>
             <option value="serie">Serie</option>
             <option value="one-Shot">One-Shot</option>
         </select>
+        </label>
 
         <label for="portada_Historia">Portada *
             <input type="file" id="portada_Historia" name="portada_Historia" accept="image/*" required>

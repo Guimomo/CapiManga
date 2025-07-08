@@ -1,0 +1,108 @@
+.body_subirHistoria {
+
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--main_color);
+    gap: 20px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    position: relative;
+    z-index: 1;
+}
+
+.body_subirHistoria::before {
+
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100%;
+    clip-path: polygon(0 100%,);
+    z-index: 2;
+}
+
+#formCrearHistoria {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 500px;
+    gap: 10px;
+}
+
+#formCrearHistoria label {
+
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    width: 100%;
+
+}
+
+#formCrearHistoria label input[type="text"],
+#formCrearHistoria label select {
+
+    height: 30px;
+    border-radius: 10px;
+    border: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: var(--third_color);
+    color: var(--second_color);
+}
+
+#formCrearHistoria label input[type="file"] {
+
+    color: var(--second_color);
+}
+
+#formCrearHistoria label input[type="file"]::file-selector-button {
+
+    background-color: var(--second_color);
+    color: var(--third_color);
+    border-radius: 10px;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+
+    transition: ease 0.3s;
+}
+
+#formCrearHistoria label input[type="file"]::file-selector-button:hover {
+
+    scale: 1.02;
+    color: var(--second_color);
+    background-color: var(--third_color);
+}
+
+#formCrearHistoria textarea {
+
+    outline: none;
+    width: 100%;
+    height: 100px;
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+
+    resize: none;
+}
+
+#formCrearHistoria button {
+
+    width: 200px;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 30px;
+    border: none;
+    background-color: var(--second_color);
+    color: var(--main_color);
+    cursor: pointer;
+
+    transition: ease 0.3s;
+}
