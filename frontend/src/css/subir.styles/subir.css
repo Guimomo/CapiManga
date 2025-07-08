@@ -9,6 +9,7 @@
 
     top: 20px;
     right: 20px;
+    height: 60px;
     z-index: 1000;
     display: flex;
     align-items: center;
@@ -20,6 +21,17 @@
 
     transition: ease 0.3s;
 
+}
+
+.subir_crear label {
+
+    cursor: pointer;
+    transition: ease 0.3s;
+}
+
+.subir_crear label:hover {
+
+    scale: 1.1;
 }
 
 .subir_crear a {

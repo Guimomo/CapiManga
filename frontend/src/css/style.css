@@ -10,3 +10,5 @@
 /* Bienvenida */ @import url('bienvenida.styles/bienvenida.css');
 
 /* Mi Perfil y configuracion */ @import url('miPerfil.styles/index.css');
+
+/* Creacion de historia (serie/oneShot) */ @import url('crearHistoria.styles/formularioHistoria.css');

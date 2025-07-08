@@ -1,0 +1,19 @@
+.body_subirHistoria {
+
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--main_color);
+}
+
+#formCrearHistoria {
+
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    gap: 10px;
+}
