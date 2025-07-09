@@ -111,6 +111,8 @@ export const loginController = () => {
 
         btnLogin.disabled = false;
         form.reset();
+        contrasena.type = "password";
+        contrasena.classList.remove("input-password");
     };
 
     form.addEventListener('submit', login);
