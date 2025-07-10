@@ -51,7 +51,7 @@ export const subirHistoriaController = async () => {
     edades.forEach(edad => {
         const option = document.createElement('option');
         option.value = edad.id;
-        option.textContent = `${edad.tipo_Recomendacion} (${edad.edad_Minima} - ${edad.edad_Maxima})`;
+        option.textContent = `${edad.tipo_Recomendacion} ( + ${edad.edad_Minima} )`;
         edad_Recomendada.appendChild(option);
     });
 

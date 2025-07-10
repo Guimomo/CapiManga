@@ -152,15 +152,15 @@ export const validar_campos = (e) => {
         
         if (campo.name === "contrasena") {
           // const regexContrasena = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{7,100}$/;
-            if (campo.value.length < 7) {
-              mostrar_error(campo, `La contraseña debe tener al menos 7 caracteres`);
-              errores.push(`${campo.name}: muy corta`);
-              obj[campo.name] = "";
-              return;
-            }
+            // if (campo.value.length < 7) {
+            //   mostrar_error(campo, `La contraseña debe tener al menos 7 caracteres`);
+            //   errores.push(`${campo.name}: muy corta`);
+            //   obj[campo.name] = "";
+            //   return;
+            // }
           // Regex: al menos una mayúscula, una minúscula, un número y un carácter especial
-            if (!es_correo(e, campo)) {
-              mostrar_error(campo, `La contraseña debe contener al menos una mayúscula, una minúscula, un número y un carácter especial`);
+            if (!es_contrasena(e, campo)) {
+              mostrar_error(campo, `La contraseña debe tener al menos 7 caracteres y contener al menos una mayúscula, una minúscula, un número y un carácter especial`);
               errores.push(`${campo.name}: formato inseguro`);
               obj[campo.name] = "";
               return;
