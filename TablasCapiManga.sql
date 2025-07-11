@@ -109,6 +109,8 @@ create table Capitulo (
     foreign key (id_Historia) references Historia(id) on delete cascade
 );
 
+ALTER TABLE Capitulo MODIFY COLUMN numero_Capitulo DECIMAL(5,2) NOT NULL;
+
 create table Paginas_Capitulo (
     id int auto_increment primary key,
     id_Capitulo int not null,

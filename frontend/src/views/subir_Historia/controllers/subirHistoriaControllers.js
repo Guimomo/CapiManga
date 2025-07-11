@@ -1,4 +1,5 @@
 import Swal from 'sweetalert2';
+import Cropper from 'cropperjs';
 import { getData } from '../../../helpers/auth';
 
 export const subirHistoriaController = async () => {
@@ -7,7 +8,38 @@ export const subirHistoriaController = async () => {
     const subgenero_Id = document.getElementById('subgenero_Id');
     const tipo_Serie = document.getElementById('tipo_Serie');
     const edad_Recomendada = document.getElementById('edad_Recomendada');
-    const tipo_Historia = document.getElementById('tipo_Historia');
+    const icono_Historia = document.getElementById('icono_Historia');
+    const previewIcono = document.getElementById('preview_icono');
+    let cropperIcono = null;
+
+    icono_Historia.addEventListener('change', (e) => {
+
+        const file = e.target.files[0];
+        if (!file) {
+            return;
+        };
+
+        const readerFile = new FileReader();
+
+        readerFile.onload = (e) => {
+
+            previewIcono.innerHTML = `<img id="img_crop_icono" src="${e.target.result}" style="max-width:120px;">`;
+            const img = document.getElementById('img_crop_icono');
+
+            if (cropperIcono) {
+                cropperIcono.destroy();
+            };
+
+            cropperIcono = new Cropper(img, {
+                aspectRatio: 1,
+                viewMode: 3,
+                autoCropArea: 1,
+                cropBoxResizable: false
+            });
+        };
+
+        readerFile.readAsDataURL(file);
+    });
 
     // Obtener token (como en login, perfil, etc)
     const { accessToken } = getData();

@@ -5,6 +5,7 @@ import { inicioController } from "../views/inicio/controllers/inicioController.j
 import { loginController } from "../views/login/controllers/loginController.js";
 import { miPerfilController } from "../views/mi_perfil/controllers/miPerfilControllers.js";
 import { registroCotroller } from "../views/registro/controllers/registroController.js";
+import { subirCapituloController } from "../views/subir_Capitulo/controllers/subirCapituloControllers.js";
 import { subirHistoriaController } from "../views/subir_Historia/controllers/subirHistoriaControllers.js";
 
 const routes = {
@@ -43,7 +44,13 @@ const routes = {
         "template": "subir_Historia/index.html",
         controlador: subirHistoriaController,
         private: true,
-      },
+    },
+
+    "subir_capitulo/:historiaId": { // historiaId es un parametro dinamico
+        "template": "subir_Capitulo/index.html",
+        controlador: subirCapituloController,
+        private: true,
+    },
 }
 
 export const router = async (app) => {

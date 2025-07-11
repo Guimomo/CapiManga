@@ -146,6 +146,32 @@ class HistoriaService {
       };
     }
   }
+
+  static async getHistoriasByAutor(autorId) {
+    try {
+      const historiaInstance = new Historia();
+      const historias = await historiaInstance.getHistoriaByAutor(autorId);
+      if (!historias || historias.length === 0) {
+        return {
+          error: true,
+          code: 404,
+          message: "No hay historias para este autor",
+        };
+      }
+      return {
+        error: false,
+        code: 200,
+        message: "Historias del autor obtenidas correctamente",
+        data: historias,
+      };
+    } catch (error) {
+      return {
+        error: true,
+        code: 500,
+        message: "Error al obtener las historias del autor",
+      };
+    }
+  }
 }
 
 export default HistoriaService;

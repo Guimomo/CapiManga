@@ -30,25 +30,7 @@ export const registroCotroller = async () => {
     //Checkboxes para visualizar contraseñas
     const visualizarContrasena = document.getElementById('password');
     const visualizarConfirmarContrasena = document.getElementById('confirmar_password');
-
-    //checkbox de terminos y condiciones
-    const terminos = document.getElementById('terminos');
-
-    //Se llama a los codigos telefonicos
-
-    const responseCodigos = await fetch("http://localhost:3000/api/codigos-telefonicos");
-
-    const { data: codigosTelefonicos } = await responseCodigos.json();
-
-    codigosTelefonicos.forEach(codigo => {
-        
-        const opcion = document.createElement('option');
-        const bandera = isoToFlagEmoji(codigo.iso);
-        opcion.value = codigo.codigo;
-        opcion.textContent = `${bandera}  ${codigo.codigo}`;
-        codigo_pais.appendChild(opcion);
-    });
-
+    
     //Evento para visualizar contraseñas
 
     visualizarContrasena.addEventListener('change', () => {
@@ -71,16 +53,8 @@ export const registroCotroller = async () => {
         }
     });
 
-    // Validación en tiempo real para solo letras y solo números
-    nombre.addEventListener('keydown', son_letras);
-    telefono.addEventListener('keydown', es_numero);
-    email.addEventListener('blur', es_correo);
-
-    contrasena.addEventListener('blur', es_contrasena);
-    confirmar_contrasena.addEventListener('blur', (e) => {
-        // es_contrasena(e, confirmar_contrasena);
-        es_confirmarContrasena(e, confirmar_contrasena, contrasena);
-    });
+    //checkbox de terminos y condiciones
+    const terminos = document.getElementById('terminos');
 
     user_Name.addEventListener('blur', es_userName);
     fecha_Nacimiento.addEventListener('blur', es_fechaNacimiento)
@@ -94,6 +68,34 @@ export const registroCotroller = async () => {
             btnRegistro.setAttribute('disabled', true);
         }
     });
+    
+    //Se llama a los codigos telefonicos
+
+    const responseCodigos = await fetch("http://localhost:3000/api/codigos-telefonicos");
+
+    const { data: codigosTelefonicos } = await responseCodigos.json();
+
+    codigosTelefonicos.forEach(codigo => {
+        
+        const opcion = document.createElement('option');
+        const bandera = isoToFlagEmoji(codigo.iso);
+        opcion.value = codigo.codigo;
+        opcion.textContent = `${bandera}  ${codigo.codigo}`;
+        codigo_pais.appendChild(opcion);
+    });
+
+
+    // Validación en tiempo real para solo letras y solo números
+    nombre.addEventListener('keydown', son_letras);
+    telefono.addEventListener('keydown', es_numero);
+    email.addEventListener('blur', es_correo);
+
+    contrasena.addEventListener('blur', es_contrasena);
+    confirmar_contrasena.addEventListener('blur', (e) => {
+        // es_contrasena(e, confirmar_contrasena);
+        es_confirmarContrasena(e, confirmar_contrasena, contrasena);
+    });
+
 
     // Evento para enviar el formulario
 

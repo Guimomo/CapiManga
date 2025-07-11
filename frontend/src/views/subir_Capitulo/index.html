@@ -1,0 +1,70 @@
+<div class="body_subir">
+
+    <div class="form_cont_subir">
+
+        <h1><i class="ri-file-upload-line"></i> Subir nuevo capitulo de</h1>
+        
+        <!-- <form id="formCrearHistoria" enctype="multipart/form-data"> -->
+        <form id="formCrearCapitulo">
+    
+            <div class="nombreCapitulo_formato form_item">
+
+                <div class="numeroCapitulo_cont">
+
+                    <label for="numero_Capitulo">Número del capitulo</label>
+                    <input type="text" id="numero_Capitulo" name="numero_Capitulo" required maxlength="50">
+                </div>
+
+                <div class="nombreCapitulo_cont">
+
+                    <label for="titulo_Historia">Título del capitulo </label>
+                    <input type="text" id="titulo_Historia" name="titulo_Historia" required maxlength="255">    
+                    
+                </div>
+            </div>
+
+            <div class="iconoArgumento_Capitulo form_item">
+
+                <div class="iconoCapitulo iconoArgumento_item ">
+
+                    <label for="portada_Capitulo" class="titulo_iconoArgumento">Icono Capitulo</label>
+
+                    <label for="portada_Capitulo" class="btnArchivo">
+                        <i class="ri-upload-line"></i>
+                    </label>
+
+                    <input type="file" id="portada_Capitulo" name="portada_Capitulo" accept="image/*" required>
+                    <div class="preview_iconoCapitulo"></div>
+                </div>
+
+                <div class="argumentoCapitulo iconoArgumento_item">
+
+                    <label for="argumento_Capitulo">Argumento</label>
+                    <textarea id="argumento_Capitulo" name="argumento_Capitulo" rows="4" maxlength="500" required></textarea>
+                </div>
+
+            </div>
+    
+            <div class="argumentoDatos_cont form_item">
+
+                <!-- en esta seccion iran las paginas del capitulo que se crearan con js -->
+            </div>
+    
+
+
+            <button type="submit" class="btnSubir">Subir capitulo</button>
+
+        </form>
+    </div>
+
+    <div class="cont_chigui_animation">
+
+        <div class="chigui_animation">
+            
+            <img src="/src/assets/img/page_elements/subir_elements/capiLeyendo.png" alt="Chigui Animation">
+
+        </div>
+
+    </div>
+
+</div>

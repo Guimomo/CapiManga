@@ -86,6 +86,21 @@ class HistoriaController {
       ResponseProvider.error(res, "Error interno en el servidor", 500);
     }
   };
+
+  // Obtener historias por autor
+  static getHistoriasByAutor = async (req, res) => {
+    const { id } = req.params;
+    try {
+      const response = await HistoriaService.getHistoriasByAutor(id);
+      if (response.error) {
+        return ResponseProvider.error(res, response.message, response.code);
+      } else {
+        return ResponseProvider.success(res, response.data, response.message, response.code);
+      }
+    } catch (error) {
+      ResponseProvider.error(res, "Error interno en el servidor", 500);
+    }
+  };
 }
 
 export default HistoriaController;

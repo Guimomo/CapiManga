@@ -1,0 +1,135 @@
+@import url('formularioHistoria.css');
+@import url('overlayCapitulos.css');
+
+.body_subir {
+
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    display: flex;
+    /* flex-direction: column; */
+    /* justify-content: center; */
+    align-items: center;
+    background-color: var(--main_color);
+    gap: 40px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left: 110px;
+    padding-right: 130px;
+    position: relative;
+    z-index: 1;
+}
+
+.body_subir::before {
+
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100%;
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+    z-index: 2;
+    left: 0;
+    background-color: var(--third_color);
+}
+
+.body_subir::after {
+
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100%;
+    clip-path: polygon(100% 0, 100% 100%, 0 100%);
+    z-index: 2;
+    right: 0;
+    background-color: var(--third_color);
+}
+
+.cont_chigui_animation {
+    
+    height: 100%;
+    max-height: 1500px;
+    width: 30%;
+    overflow: hidden;
+    position: relative;
+    background-color: var(--second_color);
+    background-image: url("/src/assets/img/page_elements/subir_elements/tramadoComic.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 40px;
+
+    animation: backgroundSubir 7s infinite;
+}
+
+@keyframes backgroundSubir {
+
+    0% {
+        background-position-x: center;
+    }
+
+    50% {
+        background-position-x: right;
+    }
+
+    100% {
+        background-position-x: center;
+    }
+}
+
+.cont_chigui_animation .chigui_animation {
+    
+    /* width: 400px; */
+    height: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: -170px;
+    /* left: 0; */
+    right: -20px;
+    animation: chiguiLeyendo 5s infinite;
+}
+
+.cont_chigui_animation .chigui_animation img {
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@keyframes chiguiLeyendo {
+
+    0% {
+        transform: translateY(-10px);
+    }
+
+    50% {
+        transform: translateY(70px);
+    }
+
+    100% {
+        transform: translateY(-10px);
+    }
+    
+}
+
+
+.form_cont_subir {
+
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form_cont_subir h1{
+
+    color: var(--second_color);
+    margin-bottom: 15px;
+}
+
+.form_cont_subir h1 i {
+
+    font-weight: normal;
+}

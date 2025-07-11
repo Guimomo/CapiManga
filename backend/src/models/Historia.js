@@ -22,6 +22,16 @@ class Historia {
     }
   }
 
+  async getHistoriaByAutor (autorId) {
+
+    try {
+      const [rows] = await connection.query("SELECT * FROM Historia WHERE autor_Historia = ?", [autorId]);
+      return rows;
+    } catch (error) {
+      throw new Error("Error al obtener las historias del autor");
+    }
+  }
+
   // Crear una nueva historia
   async create(data) {
     try {

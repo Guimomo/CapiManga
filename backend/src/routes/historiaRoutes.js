@@ -12,6 +12,9 @@ router.get("/", verifyToken, HistoriaController.getAllHistorias);
 // Obtener una historia por ID
 router.get("/:id", verifyToken, HistoriaController.getHistoriaById);
 
+// Obtener historias por autor
+router.get("/autor/:id", verifyToken, HistoriaController.getHistoriasByAutor);
+
 // Crear una nueva historia
 router.post(
   "/",
