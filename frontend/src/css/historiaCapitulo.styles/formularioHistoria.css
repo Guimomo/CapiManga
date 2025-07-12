@@ -163,18 +163,6 @@
     scale: 1.07;
 }
 
-#formCrearHistoria input[type="file"] {
-
-    color: var(--second_color);
-    padding: 2px 10px;
-    z-index: 2;
-}
-
-#formCrearHistoria input[type="file"]::file-selector-button {
-    
-    display: none;
-}
-
 #formCrearHistoria .argumentoDatos_cont {
 
     width: 100%;

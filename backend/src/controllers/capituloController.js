@@ -44,7 +44,12 @@ class CapituloController {
 
   // Crear un nuevo capítulo
   static createCapitulo = async (req, res) => {
-    const data = req.body;
+    // Guardar ruta de imagen subida en el body (icono_Capitulo)
+    if (req.files && req.files.icono_Capitulo) {
+      req.body.icono_Capitulo = '/' + req.files.icono_Capitulo[0].path.replace(/\\/g, '/');
+    }
+    // Asignar el autor desde el usuario autenticado si aplica (opcional)
+    const data = { ...req.body };
     try {
       const response = await CapituloService.createCapitulo(data);
       if (response.error) {

@@ -11,9 +11,14 @@ export function camposCapitulo(req, res, next) {
       errors.push({ campo: name, message: `El campo ${name} es obligatorio y no puede estar vacío.` });
       continue;
     }
-    if (type === "number" && value !== undefined && typeof value !== "number") {
-      errors.push({ campo: name, message: `El campo ${name} debe ser un número.` });
-      continue;
+    // Si el campo es tipo número, intenta convertirlo antes de validar (acepta decimales)
+    if (type === "number" && value !== undefined) {
+      const numValue = typeof value === "number" ? value : parseFloat(value);
+      if (isNaN(numValue)) {
+        errors.push({ campo: name, message: `El campo ${name} debe ser un número válido.` });
+        continue;
+      }
+      req.body[name] = numValue;
     }
     if (minLength && value && value.length < minLength) {
       errors.push({ campo: name, message: `El campo ${name} debe tener al menos ${minLength} caracteres.` });

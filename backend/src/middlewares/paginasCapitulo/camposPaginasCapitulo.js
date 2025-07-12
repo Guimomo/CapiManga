@@ -10,10 +10,16 @@ export function camposPaginasCapitulo(req, res, next) {
       errors.push({ campo: name, message: `El campo ${name} es obligatorio y no puede estar vacío.` });
       continue;
     }
-    if (type === "number" && value !== undefined && typeof value !== "number") {
-      errors.push({ campo: name, message: `El campo ${name} debe ser un número.` });
-      continue;
+    if (type === "number" && value !== undefined) {
+      const numValue = typeof value === "number" ? value : parseFloat(value);
+      if (isNaN(numValue)) {
+        errors.push({ campo: name, message: `El campo ${name} debe ser un número válido.` });
+        continue;
+      }
+      req.body[name] = numValue;
     }
+    // Si el campo es pagina_img y es archivo, omitir minLength/maxLength
+    if (name === "pagina_img" && req.file) continue;
     if (minLength && value && value.length < minLength) {
       errors.push({ campo: name, message: `El campo ${name} debe tener al menos ${minLength} caracteres.` });
       continue;

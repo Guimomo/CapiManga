@@ -2,7 +2,7 @@
 
     <div class="form_cont_subir">
 
-        <h1><i class="ri-file-upload-line"></i> Subir nuevo capitulo de</h1>
+        <h1><i class="ri-file-upload-line"></i> Subir nuevo capitulo de <span class="tituloHistoria_Capitulo"></span></h1>
         
         <!-- <form id="formCrearHistoria" enctype="multipart/form-data"> -->
         <form id="formCrearCapitulo">
@@ -27,7 +27,7 @@
 
                 <div class="iconoCapitulo iconoArgumento_item ">
 
-                    <label for="portada_Capitulo" class="titulo_iconoArgumento">Icono Capitulo</label>
+                    <label for="portada_Capitulo" class="titulo_iconoCapitulo">Icono Capitulo</label>
 
                     <label for="portada_Capitulo" class="btnArchivo">
                         <i class="ri-upload-line"></i>
@@ -44,15 +44,17 @@
                 </div>
 
             </div>
+
+            <label class="titulo_CrearPaginas"> <i class="ri-file-add-line"></i> Ingresar paginas del capitulo </label>
     
-            <div class="argumentoDatos_cont form_item">
+            <div class="subir_paginas_capitulo form_item">
 
                 <!-- en esta seccion iran las paginas del capitulo que se crearan con js -->
             </div>
     
 
 
-            <button type="submit" class="btnSubir">Subir capitulo</button>
+            <button type="submit" class="btnSubirCapitulo">Subir capitulo</button>
 
         </form>
     </div>

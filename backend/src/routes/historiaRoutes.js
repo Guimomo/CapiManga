@@ -7,13 +7,13 @@ import { uploadHistoria } from "../middlewares/historia/uploadHistoria.js";
 const router = express.Router();
 
 // Obtener todas las historias
-router.get("/", verifyToken, HistoriaController.getAllHistorias);
+router.get("/", HistoriaController.getAllHistorias);
 
 // Obtener una historia por ID
-router.get("/:id", verifyToken, HistoriaController.getHistoriaById);
+router.get("/:id", HistoriaController.getHistoriaById);
 
 // Obtener historias por autor
-router.get("/autor/:id", verifyToken, HistoriaController.getHistoriasByAutor);
+router.get("/autor/:id", HistoriaController.getHistoriasByAutor);
 
 // Crear una nueva historia
 router.post(

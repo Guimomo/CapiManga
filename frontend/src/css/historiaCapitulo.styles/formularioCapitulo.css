@@ -1,0 +1,229 @@
+#formCrearCapitulo {
+
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 700px;
+}
+
+#formCrearCapitulo .form_item {
+
+    width: 100%;
+}
+
+#formCrearCapitulo input[type="text"] {
+
+    height: 30px;
+    width: 100%;
+    border-radius: 10px;
+    border: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: var(--third_color);
+    color: var(--second_color);
+}
+
+.nombreCapitulo_formato {
+
+    display: flex;
+    gap: 20px;
+}
+
+.nombreCapitulo_formato div {
+
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#formCrearCapitulo .iconoArgumento_Capitulo {
+ 
+    display: flex;
+    gap: 25px;
+}
+
+#formCrearCapitulo .iconoArgumento_item {
+
+    display: flex;
+    flex-direction: column;
+}
+
+.iconoArgumento_Capitulo .iconoCapitulo {
+
+    width: 300px;
+    overflow: hidden;
+    padding: 5px;
+    position: relative;
+
+    justify-content: flex-end;
+}
+
+.iconoArgumento_Capitulo .iconoCapitulo .preview_iconoCapitulo {
+
+    position: absolute;
+    background-color: var(--third_color);
+    aspect-ratio: 1 / 1;
+    width: 70%;
+    border-radius: 10px;
+    z-index: 1;
+    overflow: hidden;
+
+    top: 0; right: 10px;
+}
+
+.iconoArgumento_Capitulo .titulo_iconoCapitulo {
+
+    background-color: var(--second_color);
+    padding: 2px 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    width: fit-content;
+    z-index: 2;
+}
+
+.iconoArgumento_Capitulo .btnArchivo {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+
+    z-index: 2;
+
+    background-color: var(--third_color);
+    color: var(--main_color);
+    cursor: pointer;
+
+    margin-left: 5px;
+
+    transition: ease 0.3s;
+}
+
+.iconoArgumento_Capitulo .btnArchivo:hover {
+
+    scale: 1.07;
+}
+
+#formCrearCapitulo .argumentoCapitulo {
+
+    flex: 1;
+    gap: 10px;
+}
+
+#formCrearCapitulo textarea {
+
+    outline: none;
+    width: 100%;
+    height: 250px;
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+
+    resize: none;
+}
+
+#formCrearCapitulo .btnSubirCapitulo {
+
+    width: 200px;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 30px;
+    border: none;
+    background-color: var(--second_color);
+    color: var(--main_color);
+    cursor: pointer;
+
+    transition: ease 0.3s;
+}
+
+#formCrearCapitulo button:hover {
+
+    scale: 1.07;
+}
+
+/* paginas de capitulos */
+
+#formCrearCapitulo .titulo_CrearPaginas {
+
+    font-size: 1.1rem;
+}
+
+#formCrearCapitulo .subir_paginas_capitulo {
+
+    width: 100%;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    gap: 20px;
+    flex-wrap: wrap;
+    transition: ease 0.3s;
+}
+
+#formCrearCapitulo .subir_paginas_capitulo .pagina_item {
+
+    width: 200px;
+    height: 280px;
+    background-color: var(--second_color);
+    border-radius: 20px;
+    gap: 10px;
+    overflow: hidden;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#formCrearCapitulo .subir_paginas_capitulo .pagina_item .preview_pagina {
+
+    width: 90%;
+    height: 80%;
+    /* border-radius: 0px; */
+    object-fit: contain;
+}
+
+#formCrearCapitulo .subir_paginas_capitulo .pagina_item .btn_delete_pagina {
+
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--third_color);
+    color: var(--main_color);
+    font-size: 1.2rem;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: ease 0.3s;
+}
+
+#formCrearCapitulo .subir_paginas_capitulo .btn_add_pagina {
+
+    height: 60px;
+    background-color: var(--third_color);
+    color: var(--main_color);
+    padding: 5px 20px;
+    border-radius: 30px;
+    border: none;
+    /* font-size: 1.2rem; */
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: ease 0.3s;
+}

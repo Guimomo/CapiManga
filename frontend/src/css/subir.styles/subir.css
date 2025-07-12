@@ -34,14 +34,30 @@
     scale: 1.1;
 }
 
+.subir_crear .subir_capitulo {
+
+    display: none;
+    background-color: rgba(0, 0, 0, 0);
+    color: var(--third_color);
+    /* padding: 5px 10px; */
+    /* border-radius: 30px; */
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+
+    transition: ease 0.3s;
+}
+
 .subir_crear a {
 
     color: var(--third_color);
+    font-size: 1.1rem;
     transition: ease 0.3s;
     display: none;
 }
 
-.subir_crear a:hover {
+.subir_crear a:hover,
+.subir_crear .subir_capitulo:hover {
 
     color: var(--main_color);
     font-weight: bold;
@@ -53,7 +69,8 @@
     color: var(--main_color);
 }
 
-.subir_crear:has(.subirCheck:checked) a{
+.subir_crear:has(.subirCheck:checked) a,
+.subir_crear:has(.subirCheck:checked) .subir_capitulo {
 
     display: inline-block;
 }
