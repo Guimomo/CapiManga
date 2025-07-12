@@ -19,23 +19,41 @@
     <div class="config_item_cont">
 
         <div class="editar_perfil config_item">
-    
-            
+
             <form id="formDatosPerfil">
 
-                <label id="user_name_config">Nombre de usuario
-                    <input type="text" name="user_Name" id="user_Name" required minlength="4" maxlength="100">
-                </label>
+                <div class="cambiarUserName_section DatosPerfil_item">
 
-                <label for="foto_perfil">ingresar foto de perfil</label>
-                <input type="file" name="foto_perfil" id="foto_perfil" accept="image/*">
+                    <label id="user_name_config">Nombre de usuario</label>
+                    <input type="text" name="user_Name" id="user_Name" required minlength="4" maxlength="100">
+                </div>
+
+                <div class="ingresarFoto_section DatosPerfil_item">
+
+                    <label for="foto_perfil">ingresar foto de perfil</label>
+                    <label for="foto_perfil" class="btnArchivo">
+                        <i class="ri-upload-line"></i>
+                    </label>
+                    <input type="file" name="foto_perfil" id="foto_perfil" accept="image/*">
+                    <div class="fotoPerfil_preview"></div>
+                </div>
         
-                <label for="foto_banner">ingresar foto de banner</label>
-                <input type="file" name="foto_banner" id="foto_banner" accept="image/*">
-        
-                <label for="biografia_perfil">Biografía</label>
-                <textarea name="biografia_perfil" id="biografia_perfil" rows="4" maxlength="500"></textarea>
-    
+                <div class="ingresarBanner_section DatosPerfil_item">
+
+                    <label for="foto_banner">ingresar foto de banner</label>
+                    <label for="foto_banner" class="btnArchivo">
+                        <i class="ri-upload-line"></i>
+                    </label>
+                    <input type="file" name="foto_banner" id="foto_banner" accept="image/*">
+                    <div class="fotoBanner_preview"></div>
+                </div>
+
+                <div class="cambiarBio_section DatosPerfil_item">
+
+                    <label for="biografia_perfil">Biografía</label>
+                    <textarea name="biografia_perfil" id="biografia_perfil" rows="4" maxlength="500"></textarea>
+                </div>
+
                 <button type="submit" class="btnGuardarCambios">
                     Guardar cambios
                 </button>

@@ -1,5 +1,5 @@
 import { getData } from "../../../helpers/auth";
-import { paginasController } from "./paginasController.js";
+import { limpiarPaginas, paginasController } from "./paginasController.js";
 import Swal from 'sweetalert2';
 
 
@@ -78,9 +78,19 @@ export const subirCapituloController = async (params) => {
                 const paginasArchivos = paginas.getPaginas();
                 for (let i = 0; i < paginasArchivos.length; i++) {
                     const paginaForm = new FormData();
+                    // Primero los campos de texto
                     paginaForm.append('id_Capitulo', idCapitulo);
-                    paginaForm.append('pagina_img', paginasArchivos[i]);
                     paginaForm.append('pagina_numero', i + 1);
+                    paginaForm.append('titulo_Historia', historiaSeleccionada.titulo_Historia);
+                    paginaForm.append('numero_Capitulo', Number(numeroCapitulo.value));
+                    // Después el archivo
+                    paginaForm.append('pagina_img', paginasArchivos[i]);
+
+                    console.log('Subiendo página:', {
+                        titulo_Historia: historiaSeleccionada.titulo_Historia,
+                        numero_Capitulo: numeroCapitulo.value
+                    });
+                    
                     await fetch('http://localhost:3000/api/paginas-capitulo', {
                         method: 'POST',
                         headers: { 'Authorization': `Bearer ${accessToken}` },
@@ -94,11 +104,12 @@ export const subirCapituloController = async (params) => {
                     confirmButtonText: 'Ok'
                 });
                 form.reset();
-                paginas.limpiarPaginas();
+                // paginas.limpiarPaginas();
             } else {
                 Swal.fire('Error', responseCapitulo.message || 'No se pudo crear el capítulo', 'error');
             }
         } catch (error) {
+            console.error(error); 
             Swal.fire('Error', 'No se pudo conectar con el servidor', 'error');
         }
     }

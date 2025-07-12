@@ -33,7 +33,20 @@ class PaginasCapituloController {
 
   // Crear una nueva página
   static createPagina = async (req, res) => {
+    // Asignar la ruta del archivo subido a pagina_img
+    if (req.file) {
+      req.body.pagina_img = '/' + req.file.path.replace(/\\/g, '/');
+    }
+    // Convertir a número los campos que lo requieren
+    if (req.body.pagina_numero) req.body.pagina_numero = Number(req.body.pagina_numero);
+    if (req.body.id_Capitulo) req.body.id_Capitulo = Number(req.body.id_Capitulo);
     try {
+      // Log para depuración
+      console.log('Datos recibidos para crear página:', req.body);
+      // Validar campos obligatorios
+      if (!req.body.id_Capitulo || !req.body.pagina_img || !req.body.pagina_numero) {
+        return ResponseProvider.error(res, 'Faltan datos obligatorios para crear la página', 400);
+      }
       const response = await PaginasCapituloService.createPagina(req.body);
       if (response.error) {
         return ResponseProvider.error(res, response.message, response.code);

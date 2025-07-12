@@ -67,3 +67,7 @@ export const paginasController = (contenedor) => {
         getPaginas: () => paginas
     };
 };
+
+export const limpiarPaginas = () => {
+    paginas = [];
+}

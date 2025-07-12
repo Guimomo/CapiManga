@@ -2,10 +2,16 @@ import { ResponseProvider } from "../../providers/ResponseProvider.js";
 import { campos } from "./campos.js";
 
 export function camposPaginasCapitulo(req, res, next) {
+  // Log de depuración para ver qué llega realmente
+  console.log('BODY recibido en middleware:', req.body);
+  console.log('FILE recibido en middleware:', req.file);
   const errors = [];
   for (const campo of campos) {
     const { name, required, minLength, maxLength, type } = campo;
     const value = req.body[name];
+    // Si el campo es pagina_img y el archivo existe, omitir la validación de vacío
+    if (name === "pagina_img" && req.file) continue; // ajusta la validación para que acepte el archivo si está en req.file y no en req.body.pagina_img Esto ya existe, pero asegúrate que la validación no rechace la petición si el archivo está en req.file.
+    
     if (required && (value === undefined || value === null || value === "")) {
       errors.push({ campo: name, message: `El campo ${name} es obligatorio y no puede estar vacío.` });
       continue;
