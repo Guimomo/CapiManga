@@ -48,4 +48,8 @@ export const miPerfilController = async () => {
     imgBanner.src = perfilData.banner_Perfil ? `${backendUrl}${perfilData.banner_Perfil}` : bannerDefault;
     miBanner.appendChild(imgBanner);
 
+    // MIS HISTORIAS
+
+    
+
 }

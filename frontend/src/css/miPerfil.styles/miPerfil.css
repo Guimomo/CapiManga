@@ -141,6 +141,13 @@
 .misHistoriasCont {
 
     grid-area: mis_historias;
+    padding-left: 50px;
+}
+
+.misHistoriasCont h1 {
+
+    color: var(--main_color);
+    cursor: default;
 }
 
 .misPublicacionesCont {

@@ -3,6 +3,7 @@ import { loadView } from "../helpers/loadView";
 import { configuracionController } from "../views/configuracion/controllers/configuracionController.js";
 import { inicioController } from "../views/inicio/controllers/inicioController.js";
 import { loginController } from "../views/login/controllers/loginController.js";
+import { miHistoriaController } from "../views/mi_Historia/controllers/miHistoriaController.js";
 import { miPerfilController } from "../views/mi_perfil/controllers/miPerfilControllers.js";
 import { registroCotroller } from "../views/registro/controllers/registroController.js";
 import { subirCapituloController } from "../views/subir_Capitulo/controllers/subirCapituloControllers.js";
@@ -51,6 +52,12 @@ const routes = {
         controlador: subirCapituloController,
         private: true,
     },
+
+    "mi_historia/:historiaId": {
+        "template": "mi_Historia/index.html",
+        controlador: miHistoriaController,
+        private: true,
+    }
 }
 
 export const router = async (app) => {

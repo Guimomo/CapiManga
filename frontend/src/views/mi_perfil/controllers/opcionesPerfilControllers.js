@@ -2,6 +2,8 @@ export const opcionesPerfilController = () => {
 
     const opcionesPerfil = document.querySelector(".opcionesMiPerfil");
 
+    const misHistorias = document.querySelector(".misHistoriasCont")
+
     //Secrean opciones del menú de perfil
     const verNotificaciones = document.createElement("a");
     verNotificaciones.setAttribute("href", "#notificaciones");

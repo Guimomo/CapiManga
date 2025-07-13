@@ -1,8 +1,11 @@
 import Swal from 'sweetalert2';
 import { getData } from '../../../helpers/auth';
 import { isoToFlagEmoji } from '../helpers/isoFlagEmogi';
+import { configSeleccion } from './configSeleccion';
 
 export const configuracionController = async (datos) => {
+
+    configSeleccion();
     
     // Obtener token
     const { accessToken } = getData();
