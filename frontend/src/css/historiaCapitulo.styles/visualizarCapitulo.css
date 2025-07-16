@@ -1,0 +1,42 @@
+.body_Capitulo {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
+    gap: 40px;
+
+    padding: 0 20px;
+}
+
+.header_Capitulo {
+
+    width: 100%;
+}
+
+.paginas_Capitulo {
+
+    display: flex;
+    width: 100%;
+    padding: 0 30px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    overflow: hidden;
+}
+
+.pagina_Capitulo {
+
+    width: 100%;
+}
+
+.pagina_Capitulo img {
+
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+

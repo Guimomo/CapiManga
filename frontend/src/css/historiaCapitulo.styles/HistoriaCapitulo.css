@@ -4,6 +4,7 @@
 /*mis historias para perfil*/@import url('misHistoriasPerfil.css');
 @import url('misHistorias.css');
 /*lista de capitulos*/ @import url('listaCapitulos.css');
+/*visualizador de capitulo*/ @import url('visualizarCapitulo.css');
 
 .body_subir {
 

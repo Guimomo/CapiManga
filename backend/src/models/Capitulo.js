@@ -22,6 +22,21 @@ class Capitulo {
     }
   }
 
+  // Obtener capítulos por historiaid y capituloId
+
+  async getByHistoriaAndCapitulo(historiaId, capituloId) {
+    try {
+      const [rows] = await connection.query(
+        "SELECT * FROM Capitulo WHERE id_Historia = ? AND id = ?",
+        [historiaId, capituloId]
+      );
+      if (rows.length === 0) return [];
+      return rows[0];
+    } catch (error) {
+      throw new Error("Error al obtener el capítulo por historia y capítulo");
+    }
+  }
+
   // Obtener capítulos por historia
   async getByHistoria(id_Historia) {
     try {

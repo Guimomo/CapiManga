@@ -28,6 +28,19 @@ class PaginasCapituloService {
     }
   }
 
+  static async getPaginasByCapituloId(id_Capitulo) {
+    try {
+      const instance = new PaginasCapitulo();
+      const paginas = await instance.getByCapituloId(id_Capitulo);
+      if (!paginas || paginas.length === 0) {
+        return { error: true, code: 404, message: "No hay páginas para este capítulo" };
+      }
+      return { error: false, code: 200, message: "Páginas del capítulo obtenidas correctamente", data: paginas };
+    } catch (error) {
+      return { error: true, code: 500, message: "Error al obtener las páginas del capítulo" };
+    }
+  }
+
   static async createPagina(data) {
     try {
       const instance = new PaginasCapitulo();

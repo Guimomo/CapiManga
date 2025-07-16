@@ -10,6 +10,8 @@ router.get("/", PaginasCapituloController.getAllPaginas);
 
 router.get("/:id", PaginasCapituloController.getPaginaById);
 
+router.get("/capitulo/:id_Capitulo", PaginasCapituloController.getPaginasByCapituloId);
+
 router.post(
   "/",
   verifyToken,

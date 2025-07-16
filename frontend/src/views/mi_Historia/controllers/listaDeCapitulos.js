@@ -56,14 +56,8 @@ export const listaDeCapitulos = async (capitulos, historiaId, localhost, contene
         const btnMeGusta = document.createElement('button');
         btnMeGusta.innerHTML = '<i class="ri-shining-line"></i>';
         btnMeGusta.classList.add('btn_me_gusta_capitulo');
-
-        // Opcional: Cambia el color si ya dio me gusta (usa el array meGusta si lo tienes)
-        // if (meGusta && meGusta.includes(capitulo.id)) {
-        //     btnMeGusta.classList.add('ya_me_gusta');
-        //     btnMeGusta.innerHTML = '<i class="ri-shining-fill"></i>';
-        // }
-
-            // Consulta si el usuario ya dio "me gusta"
+        
+        // Consulta si el usuario ya dio "me gusta"
         let yaMeGusta = false;
 
         const res = await fetch(

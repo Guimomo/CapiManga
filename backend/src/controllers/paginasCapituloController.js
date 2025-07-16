@@ -31,6 +31,21 @@ class PaginasCapituloController {
     }
   };
 
+  // Obtener páginas por capítulo
+  static getPaginasByCapituloId = async (req, res) => {
+    const { id_Capitulo } = req.params;
+    try {
+      const response = await PaginasCapituloService.getPaginasByCapituloId(id_Capitulo);
+      if (response.error) {
+        return ResponseProvider.error(res, response.message, response.code);
+      } else {
+        return ResponseProvider.success(res, response.data, response.message, response.code);
+      }
+    } catch (error) {
+      ResponseProvider.error(res, "Error interno en el servidor", 500);
+    }
+  };
+
   // Crear una nueva página
   static createPagina = async (req, res) => {
     // Asignar la ruta del archivo subido a pagina_img

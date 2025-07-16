@@ -53,6 +53,32 @@ class CapituloService {
     }
   }
 
+  static async getCapituloByHistoriaAndCapitulo(historiaId, capituloId) {
+    try {
+      const capituloInstance = new Capitulo();
+      const capitulo = await capituloInstance.getByHistoriaAndCapitulo(historiaId, capituloId);
+      if (capitulo.length === 0) {
+        return {
+          error: true,
+          code: 404,
+          message: "Capítulo no encontrado para la historia y capítulo especificados",
+        };
+      }
+      return {
+        error: false,
+        code: 200,
+        message: "Capítulo obtenido correctamente",
+        data: capitulo,
+      };
+    } catch (error) {
+      return {
+        error: true,
+        code: 500,
+        message: "Error al obtener el capítulo por historia y capítulo",
+      };
+    }
+  }
+
   static async getCapitulosByHistoria(id_Historia) {
     try {
       const capituloInstance = new Capitulo();

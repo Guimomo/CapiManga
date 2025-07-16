@@ -42,6 +42,20 @@ class CapituloController {
     }
   };
 
+  // Obtener un capítulo por historia y capítulo
+  static getCapituloByHistoriaAndCapitulo = async (req, res) => {
+    const { historiaId, capituloId } = req.params;
+    try {
+      const response = await CapituloService.getCapituloByHistoriaAndCapitulo(historiaId, capituloId);
+      if (response.error) {
+        return ResponseProvider.error(res, response.message, response.code);
+      }
+      return ResponseProvider.success(res, response.data, response.message, response.code);
+    } catch (error) {
+      ResponseProvider.error(res, "Error interno en el servidor", 500);
+    }
+  }
+
   // Crear un nuevo capítulo
   static createCapitulo = async (req, res) => {
     // Guardar ruta de imagen subida en el body (icono_Capitulo)

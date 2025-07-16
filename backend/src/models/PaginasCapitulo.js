@@ -14,6 +14,13 @@ class PaginasCapitulo {
     return rows[0];
   }
 
+  // Obtener por capítulo
+  async getByCapituloId(id_Capitulo) {
+    const [rows] = await connection.query("SELECT * FROM Paginas_Capitulo WHERE id_Capitulo = ?", [id_Capitulo]);
+    if (rows.length === 0) return [];
+    return rows;
+  }
+
   // Crear una nueva página
   async create({ id_Capitulo, pagina_img, pagina_numero }) {
     const [result] = await connection.query(

@@ -15,6 +15,9 @@ router.get("/:id", CapituloController.getCapituloById);
 // Obtener capítulos por historia
 router.get("/historia/:id_Historia", CapituloController.getCapitulosByHistoria);
 
+// Obtener capítulos por Historia y Capítulo
+router.get("/:historiaId/:capituloId", CapituloController.getCapituloByHistoriaAndCapitulo);
+
 // Crear un nuevo capítulo
 router.post(
   "/",
