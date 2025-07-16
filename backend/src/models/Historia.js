@@ -36,7 +36,7 @@ class Historia {
   async create(data) {
     try {
       const campos = [
-        "autor_Historia", "titulo_Historia", "formato_Publicacion", "portada_Historia", "icono_Historia", "logo_Historia", "banner_Historia", "personaje_Png", "genero_Id", "subgenero_Id", "argumento_Historia", "tipo_Serie", "edad_Recomendada", "visibilidad_Historia", "tipo_Historia", "verificación_Historia"
+        "autor_Historia", "titulo_Historia", "formato_Publicacion", "portada_Historia", "icono_Historia", "logo_Historia", "banner_Historia", "personaje_Png", "genero_Id", "subgenero_Id", "argumento_Historia", "tipo_Serie", "edad_Recomendada", "visibilidad_Historia", "tipo_Historia", "verificacion_Historia"
       ];
       const values = campos.map(c => data[c]);
       const [result] = await connection.query(

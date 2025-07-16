@@ -1,0 +1,76 @@
+.misHistoriasCont .misHistorias {
+
+    display: flex;
+    gap: 20px;
+}
+
+.misHistoriasCont .misHistorias .mi_historia_item {
+
+    width: 300px;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 20px;
+    background-color: var(--second_color);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    /* justify-content: center; */
+    padding: 20px;
+
+    transition: ease 0.3s;
+}
+
+.misHistoriasCont .misHistorias .mi_historia_item:hover {
+
+    transform: scale(1.05) rotateZ(-5deg);
+    box-shadow: 0 0 10px black;
+    background-color: var(--main_color);
+
+}
+
+.misHistorias .mi_historia_item .mi_historia_icon {
+
+    width: 270px;
+    height: 270px;
+    overflow: hidden;
+    border-radius: 20px;
+    position: relative;
+}
+
+.misHistorias .mi_historia_icon .mi_historia_img_cont {
+
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    z-index: 1;
+}
+
+.misHistorias .mi_historia_icon .mi_historia_logo {
+
+    width: 250px;
+    height: 100px;
+    object-fit: contain;
+    position: absolute;
+    z-index: 2;
+
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 10px;
+}
+
+.misHistoriasCont .misHistorias span {
+
+    color: var(--main_color);
+    font-size: 1.5rem;
+
+    transition: ease 0.3s;
+}
+
+.misHistoriasCont .misHistorias .mi_historia_item:hover span {
+
+
+    color: var(--second_color);
+    font-weight: bold;
+}

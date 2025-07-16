@@ -1,4 +1,5 @@
 import { getData } from "../../../helpers/auth";
+import { misHistorias } from "./misHistorias";
 import { opcionesPerfilController } from "./opcionesPerfilControllers"
 
 export const miPerfilController = async () => {
@@ -22,6 +23,7 @@ export const miPerfilController = async () => {
     const miNombre = document.querySelector('.nombre_perfil');
     const miUserName = document.querySelector('.user_Name');
     const miBiografia = document.querySelector('.biografia_texto');
+    const contenedorHistorias = document.querySelector('.misHistorias');
 
     miNombre.textContent = perfilData.nombre;
     miUserName.textContent = "@"+perfilData.user_Name;
@@ -50,6 +52,14 @@ export const miPerfilController = async () => {
 
     // MIS HISTORIAS
 
-    
+    const responseHistorias = await fetch(`http://localhost:3000/api/historias/autor/${perfilData.id}`, {
+        headers: {
+            'Authorization': `Bearer ${accessToken}`
+        }
+    });
+
+    const { data: historias } = await responseHistorias.json();
+
+    misHistorias( historias, backendUrl, contenedorHistorias);
 
 }

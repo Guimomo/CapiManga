@@ -45,6 +45,8 @@ class CapituloController {
   // Crear un nuevo capítulo
   static createCapitulo = async (req, res) => {
     // Guardar ruta de imagen subida en el body (icono_Capitulo)
+    //console.log('MULTER BODY:', req.body);
+    //console.log('MULTER FILES:', req.files);
     if (req.files && req.files.icono_Capitulo) {
       req.body.icono_Capitulo = '/' + req.files.icono_Capitulo[0].path.replace(/\\/g, '/');
     }

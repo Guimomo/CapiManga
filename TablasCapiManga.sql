@@ -73,7 +73,7 @@ create table Historia (
     visibilidad_Historia enum ('publica', 'privada'),
     tipo_Historia int not null,
     fecha_Publicacion_Historia datetime default current_timestamp,
-    verificación_Historia enum ('original', 'capiBoard'),
+    verificacion_Historia enum ('Original', 'CapiBoard') default 'CapiBoard',
     
     -- llaves foraneas
     foreign key (autor_Historia) references Usuario(id) on delete cascade,

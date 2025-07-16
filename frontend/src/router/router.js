@@ -8,6 +8,7 @@ import { miPerfilController } from "../views/mi_perfil/controllers/miPerfilContr
 import { registroCotroller } from "../views/registro/controllers/registroController.js";
 import { subirCapituloController } from "../views/subir_Capitulo/controllers/subirCapituloControllers.js";
 import { subirHistoriaController } from "../views/subir_Historia/controllers/subirHistoriaControllers.js";
+import { visualizarCapituloController } from "../views/visualizar_capitulo/controllers/visualizarCapituloController.js";
 
 const routes = {
 
@@ -57,7 +58,13 @@ const routes = {
         "template": "mi_Historia/index.html",
         controlador: miHistoriaController,
         private: true,
-    }
+    },
+
+    "capitulo/:historiaId/:capituloId": {
+        "template": "visualizar_capitulo/index.html",
+        controlador: visualizarCapituloController,
+        private: false,
+    },
 }
 
 export const router = async (app) => {

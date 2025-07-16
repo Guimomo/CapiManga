@@ -44,7 +44,8 @@ class MeGustaCapituloController {
   };
 
   static deleteMeGusta = async (req, res) => {
-    const { id_Capitulo, id_Usuario } = req.body;
+    // const { id_Capitulo, id_Usuario } = req.body;
+    const { id_Capitulo, id_Usuario } = req.params; //el req es params porque el id_Capitulo y id_Usuario se pasan como parámetros en la URL
     try {
       const response = await MeGustaCapituloService.deleteMeGusta(id_Capitulo, id_Usuario);
       if (response.error) {

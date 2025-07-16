@@ -1,0 +1,167 @@
+.lista_de_capitulos_MiHistoria {
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.capitulo_MiHistoria {
+
+    display: flex;
+    padding-right: 20px;
+    align-items: center;
+    gap: 20px;
+    height: 200px;
+    overflow: hidden;
+    background-color: var(--second_color);
+    border-radius: 50px;
+    position: relative;
+    padding-right: 30px;
+}
+
+.capitulo_MiHistoria::before {
+
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 100%;
+    background-color: var(--main_color);
+    border-radius: 50px;
+    z-index: 0;
+
+    transition: ease 0.3s;
+}
+
+.capitulo_link_MiHistoria {
+
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    flex: 2;
+}
+
+.capitulo_MiHistoria:hover::before {
+
+    width: 150%;
+}
+
+.icono_Capitulo_MiHistoria {
+
+    /* aspect-ratio: 1 / 1; */
+    height: 200px;
+    width: 200px;
+    background-color: var(--main-color);
+    /* border-radius: 10px; */
+    padding: 10px;
+    overflow: hidden;
+    /* z-index: 2; */
+}
+
+.icono_Capitulo_MiHistoria img {
+
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.titulo_argumento_Capitulo_MiHistoria {
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /* z-index: 2; */
+    flex: 1;
+}
+
+.titulo_argumento_Capitulo_MiHistoria .titulo_Capitulo_MiHistoria {
+
+    font-size: 1.5rem;
+    font-weight: 600;
+    /* z-index: 2; */
+    color: var(--main_color);
+}
+
+.capitulo_numero_MiHistoria {
+
+
+    width: 150px;
+    height: 100%;
+    background-color: var(--main_color);
+    border-radius: 0 100px 100px 0;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    /* z-index: 2; */
+    font-size: 1.2rem;
+}
+
+.argumento_Capitulo_MiHistoria {
+
+    color: var(--third_color);
+}
+
+.capitulo_MiHistoria:hover .capitulo_numero_MiHistoria {
+
+    background-color: var(--second_color);
+}
+
+.capitulo_MiHistoria:hover .capitulo_numero_MiHistoria p{
+
+    color: var(--main_color);
+}
+
+.capitulo_MiHistoria:hover .titulo_Capitulo_MiHistoria {
+
+    color: var(--second_color);
+}
+
+.btn_me_gusta_capitulo {
+
+    height: 70px;
+    width: 70px;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    z-index: 2;
+}
+
+.btn_me_gusta_capitulo i {
+
+    font-size: 2rem;
+    /* color: var(--main_color); */
+    transition: color 0.3s ease;
+}
+
+/* Animación para el botón me gusta */
+.btn_me_gusta_capitulo {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 2rem;
+    transition: transform 0.2s;
+    outline: none;
+    /* color: var(--main_color); */
+    position: relative;
+}
+
+.btn_me_gusta_capitulo:active {
+    transform: scale(1.2);
+}
+
+.btn_me_gusta_capitulo.ya_me_gusta i {
+    animation: popMeGusta 0.3s;
+    color: #ffb700; /* dorado o amarillo */
+    text-shadow: 0 0 8px #ffe066;
+}
+
+@keyframes popMeGusta {
+    0% { transform: scale(1); }
+    60% { transform: scale(1.5) rotate(-10deg); }
+    80% { transform: scale(1.2) rotate(10deg); }
+    100% { transform: scale(1); }
+}
