@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
     min-height: 100vh;
     width: 100%;
     gap: 40px;
@@ -13,7 +13,23 @@
 
 .header_Capitulo {
 
+    display: flex;
     width: 100%;
+    height: 350px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.header_Capitulo {
+
+    width: 100%;
+    padding: 20px;
+
+    background-color: var(--second_color);
+
+    border-radius: 0 0 40px 40px;
 }
 
 .paginas_Capitulo {
@@ -21,6 +37,7 @@
     display: flex;
     width: 100%;
     padding: 0 30px;
+    max-width: 1200px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -40,3 +57,69 @@
     border-radius: 10px;
 }
 
+.datos_Capitulo {
+
+    display: flex;
+    gap: 20px;
+}
+
+.icono_Capitulo {
+
+    width: 250px;
+    height: 250px;
+    border-radius: 30px;
+    background-color: var(--third_color);
+    overflow: hidden;
+}
+
+.icono_Capitulo img {
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.titulosArgumento_Capitulo {
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.titulosArgumento_Capitulo .argumento_Capitulo {
+
+    color: var(--third_color);
+}
+
+.titulosArgumento_Capitulo .volver_menu_Historia {
+
+    color: var(--main_color);
+}
+
+.lista_Capitulos select {
+
+    /* width: 100%; */
+    width: 300px;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--third_color);
+    color: var(--main_color);
+    font-size: 16px;
+}
+
+.comentarios_Capitulo {
+
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /* align-items: center; */
+}
+
+.comentarios_Capitulo .seccion_comentar {
+
+    /* width: 100%; */
+    width: 600px;
+}

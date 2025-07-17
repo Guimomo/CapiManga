@@ -39,11 +39,11 @@ class Comentario {
     }
   }
 
-  async update(id, id_Usuario, contenido) {
+  async update(id, contenido) {
     try {
       const [result] = await connection.query(
-        "UPDATE Comentario SET contenido = ? WHERE id = ? AND id_Usuario = ?",
-        [contenido, id, id_Usuario]
+        "UPDATE Comentario SET contenido = ? WHERE id = ?",
+        [contenido, id]
       );
       return result.affectedRows > 0 ? { id, contenido } : null;
     } catch (error) {
@@ -69,6 +69,27 @@ class Comentario {
       };
     } catch (error) {
       throw new Error("Error al eliminar el comentario");
+    }
+  }
+
+  async deleteById(id) {
+    try {
+      const [result] = await connection.query(
+        "DELETE FROM Comentario WHERE id = ?",
+        [id]
+      );
+      if (result.affectedRows === 0) {
+        return {
+          error: true,
+          mensaje: "No se pudo eliminar el comentario, ocurrió un error inesperado.",
+        };
+      }
+      return {
+        error: false,
+        mensaje: "Comentario eliminado exitosamente.",
+      };
+    } catch (error) {
+      throw new Error("Error al eliminar el comentario por ID");
     }
   }
 }

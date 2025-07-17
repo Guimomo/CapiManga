@@ -79,7 +79,7 @@ class ComentarioService {
     }
   }
 
-  static async updateComentario(id, id_Usuario, contenido) {
+  static async updateComentario(id, contenido) {
     try {
       const comentarioInstance = new Comentario();
       const comentarioExistente = await comentarioInstance.getById(id);
@@ -90,7 +90,7 @@ class ComentarioService {
           message: "Comentario no encontrado",
         };
       }
-      const comentario = await comentarioInstance.update(id, id_Usuario, contenido);
+      const comentario = await comentarioInstance.update(id, contenido);
       if (comentario === null) {
         return {
           error: true,
@@ -143,6 +143,31 @@ class ComentarioService {
         error: true,
         code: 500,
         message: "Error interno al eliminar el comentario",
+      };
+    }
+  }
+
+  static async deleteComentarioById(id) {
+    try {
+      const comentarioInstance = new Comentario();
+      const resultado = await comentarioInstance.deleteById(id);
+      if (resultado.error) {
+        return {
+          error: true,
+          code: 400,
+          message: resultado.mensaje,
+        };
+      }
+      return {
+        error: false,
+        code: 200,
+        message: "Comentario eliminado correctamente",
+      };
+    } catch (error) {
+      return {
+        error: true,
+        code: 500,
+        message: "Error interno al eliminar el comentario por ID",
       };
     }
   }

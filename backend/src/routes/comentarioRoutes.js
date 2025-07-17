@@ -9,10 +9,12 @@ router.get("/:tipo_objetivo/:id_objetivo", verifyToken, ComentarioController.get
 
 router.get("/:id", verifyToken, ComentarioController.getComentarioById);
 
-router.post("/", camposComentario, verifyToken, ComentarioController.createComentario);
+router.post("/:id", camposComentario, verifyToken, ComentarioController.createComentario);
 
-router.put("/", camposComentario, verifyToken, ComentarioController.updateComentario);
+router.put("/:id", parcialesComentario, verifyToken, ComentarioController.updateComentario);
 
 router.delete("/", verifyToken, ComentarioController.deleteComentario);
+
+router.delete("/:id", verifyToken, ComentarioController.deleteComentarioById);
 
 export default router;

@@ -18,13 +18,13 @@ class CalificacionHistoria {
   }
 
   // Crear una nueva calificación
-  async create({ id_Historia, calificada_por, calificacion, reseña_Historia }) {
+  async create({ id_Historia, calificada_por, calificacion, resena_Historia }) {
     const [result] = await connection.query(
-      "INSERT INTO calificacion_Historia (id_Historia, calificada_por, calificacion, reseña_Historia) VALUES (?, ?, ?, ?)",
-      [id_Historia, calificada_por, calificacion, reseña_Historia || null]
+      "INSERT INTO calificacion_Historia (id_Historia, calificada_por, calificacion, resena_Historia) VALUES (?, ?, ?, ?)",
+      [id_Historia, calificada_por, calificacion, resena_Historia || null]
     );
     if (result.affectedRows === 0) return null;
-    return { id_Historia, calificada_por, calificacion, reseña_Historia };
+    return { id_Historia, calificada_por, calificacion, resena_Historia };
   }
 
   // Actualizar una calificación
