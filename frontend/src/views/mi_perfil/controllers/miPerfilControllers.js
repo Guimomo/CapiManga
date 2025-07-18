@@ -8,14 +8,16 @@ export const miPerfilController = async () => {
 
     opcionesPerfilController();
 
-    //Cargar datos de perfil
+    //Cargar datos de perfil y obtener el id del usuario logueado
     const ResponsePerfil = await fetch('http://localhost:3000/api/usuarios/perfil', {
         headers: {
             'Authorization': `Bearer ${accessToken}`
         }
     });
-
     const { data: perfilData } = await ResponsePerfil.json();
+    const idUsuarioLogueado = perfilData.id; // Aquí tienes el id del usuario logueado
+    // Puedes usar idUsuarioLogueado donde lo necesites, por ejemplo:
+    // enviarReacciones('comentario', comentario.id, reaccionesContenedor, idUsuarioLogueado);
 
     // DATOS DEL PERFIL
     const fotoMiPerfil = document.querySelector('.fotoMiPerfil');

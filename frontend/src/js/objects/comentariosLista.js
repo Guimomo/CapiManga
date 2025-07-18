@@ -1,9 +1,16 @@
 import Swal from "sweetalert2";
 import { getData } from "../../helpers/auth";
+import { enviarReacciones } from "./reacciones";
 
 export const comentariosLista = async (tipo_objetivo, objetivo, contenedor, autorId) => {
 
     const { accessToken } = getData();
+    // Obtener el id del usuario logueado desde el perfil
+    const ResponsePerfil = await fetch('http://localhost:3000/api/usuarios/perfil', {
+        headers: { 'Authorization': `Bearer ${accessToken}` }
+    });
+    const { data: perfilUsuarioLogueado } = await ResponsePerfil.json();
+    const idUsuarioLogueado = perfilUsuarioLogueado.id;
 
     const comentariosContenedor = document.createElement('div');
     comentariosContenedor.classList.add('comentarios_lista');
@@ -212,7 +219,34 @@ export const comentariosLista = async (tipo_objetivo, objetivo, contenedor, auto
                 comentarioOpciones = comentarioContenido;
             }
 
-            comentarioDiv.append(comentarioHeader, comentarioOpciones);
+            
+            // Integrar reacciones debajo de cada comentario
+            const reaccionesContenedor = document.createElement('div');
+            reaccionesContenedor.classList.add('reacciones_comentario');
+            // Obtener reacciones del comentario si existen
+            const reacciones = comentario.reacciones || [];
+            // Agrupar reacciones por tipo
+            const reaccionesPorTipo = {};
+            reacciones.forEach(r => {
+                if (!reaccionesPorTipo[r.tipo_Reaccion]) reaccionesPorTipo[r.tipo_Reaccion] = [];
+                reaccionesPorTipo[r.tipo_Reaccion].push(r);
+            });
+            // Mostrar conteo por tipo de reacción
+            Object.entries(reaccionesPorTipo).forEach(([tipo, arr]) => {
+                const tipoSpan = document.createElement('span');
+                tipoSpan.classList.add('conteo_reaccion_tipo');
+                tipoSpan.textContent = `${tipo.replace(/_/g, ' ')}: ${arr.length}`;
+                // Tooltip con usuarios que reaccionaron
+                tipoSpan.title = arr.map(r => {
+                    const user = perfil.find(u => u.id === r.id_Usuario);
+                    return user ? user.user_Name : r.id_Usuario;
+                }).join(', ');
+                reaccionesContenedor.appendChild(tipoSpan);
+            });
+            // Llama a enviarReacciones pasando el id del usuario actual
+            enviarReacciones('comentario', comentario.id, reaccionesContenedor, idUsuarioLogueado);
+
+            comentarioDiv.append(comentarioHeader, comentarioOpciones, reaccionesContenedor);
             comentariosContenedor.appendChild(comentarioDiv);
         });
 

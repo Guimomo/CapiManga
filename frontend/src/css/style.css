@@ -14,3 +14,5 @@
 /* Creacion de historia (serie/oneShot) y capitulos de series */ @import url('historiaCapitulo.styles/HistoriaCapitulo.css');
 
 /*estilo para comentarios*/ @import url('comentarios.styles/comentarios.css');
+
+/*reacciones*/ @import url('reacciones.styles/reacciones.css');
