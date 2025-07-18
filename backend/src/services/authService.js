@@ -220,6 +220,8 @@ class AuthService {
     }
     return edad;
   }
+
+  
 }
 
 export default AuthService;

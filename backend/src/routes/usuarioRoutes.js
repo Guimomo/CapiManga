@@ -1,5 +1,5 @@
 import express from "express";
-import { getAllUsuarios, getPerfil, updatePerfil, updateDatosPersonales, updatePrivacidad } from "../controllers/usuarioController.js";
+import { getAllUsuarios, getPerfil, updatePerfil, updateDatosPersonales, updatePrivacidad, getUsuarioById } from "../controllers/usuarioController.js";
 import { verifyToken } from "../middlewares/auth/tokenMiddleware.js";
 import { uploadUsuario } from "../middlewares/usuario/uploadUsuario.js";
 
@@ -10,6 +10,9 @@ router.get("/", getAllUsuarios);
 
 // Nueva ruta para perfil autenticado
 router.get("/perfil", verifyToken, getPerfil);
+
+// buscar usuario por ID
+router.get("/:id", getUsuarioById);
 
 // PATCH para actualizar perfil con imágenes
 router.patch("/perfil", verifyToken, uploadUsuario.fields([

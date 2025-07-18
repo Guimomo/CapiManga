@@ -16,3 +16,7 @@
 /*estilo para comentarios*/ @import url('comentarios.styles/comentarios.css');
 
 /*reacciones*/ @import url('reacciones.styles/reacciones.css');
+
+/*publicaciones*/ @import url('publicacion.styles/index.css');
+
+/*buscador*/ @import url('buscador.styles/buscador.css');

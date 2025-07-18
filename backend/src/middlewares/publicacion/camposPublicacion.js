@@ -3,6 +3,11 @@ import { campos } from "./campos.js";
 
 export function camposPublicacion(req, res, next) {
   const errors = [];
+  // Parsear publicado_por a número si existe
+  if (req.body.publicado_por !== undefined) {
+    const num = Number(req.body.publicado_por);
+    if (!isNaN(num)) req.body.publicado_por = num;
+  }
   for (const campo of campos) {
     const { name, required, type, minLength, maxLength } = campo;
     const value = req.body[name];

@@ -1,0 +1,102 @@
+/* .contenedor-buscador {
+    background: var(--second_color, #fff);
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+    padding: 24px 20px 16px 20px;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+} */
+
+/* Sección superior: input y botón */
+.buscador_seccion {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    width: 100%;
+}
+
+.buscador_input {
+    flex: 1;
+    padding: 10px 14px;
+    border-radius: 50px;
+    height: 40px;
+    border: none;
+    font-size: 1rem;
+    background: var(--third_color);
+    color: var(--second_color);
+    outline: none;
+    transition: border 0.2s;
+}
+
+.buscador_input:focus {
+    border: 3px solid var(--main_color);
+}
+
+.buscador_icon {
+    background: var(--main_color, #222);
+    color: var(--second_color, #fff);
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.buscador_icon:hover {
+    scale: 1.1;
+}
+
+/* Resultados */
+.buscador_resultados {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+    gap: 10px;
+    width: 100%;
+    padding: 0 10px;
+}
+
+.buscador_resultados_historias,
+.buscador_resultados_usuarios {
+    margin-bottom: 8px;
+}
+
+.buscador_resultados_titulo {
+    font-weight: bold;
+    font-size: 1.05rem;
+    color: var(--main_color, #222);
+    margin-bottom: 4px;
+}
+
+.buscador_resultado_item {
+    padding: 8px 20px;
+    border-radius: 40px;
+    background: var(--main_color, #222);
+    color: var(--second_color, #fff);
+    margin-bottom: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    transition: 0.18s, color 0.18s;
+}
+
+.buscador_resultado_item:hover {
+    scale: 1.05;
+}
+
+.buscador_resultado_vacio {
+    color: #aaa;
+    font-size: 0.97rem;
+    padding: 7px 0 2px 0;
+    text-align: left;
+}

@@ -308,6 +308,13 @@ header .perfil_menu_log .menu-item {
     align-items: center;
 }
 
+header .menuHeader button {
+
+    background: transparent;
+    border: none;
+    /* align-items: center; */
+}
+
 header .perfil_menu_log .menu-item:hover {
 
     font-weight: bold;
@@ -337,6 +344,39 @@ header .perfil_menu_log .cerrar-sesion-option:hover {
 header:has(.perfil-checkbox:checked) .perfil_menu_log {
 
     left: 0;
+}
+
+.contenedor-buscador {
+
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    top: 200px;
+    left: 200px;
+    background-color: var(--second_color);
+    border-radius: 20px;
+    padding: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+
+    z-index: 1000;
+    box-shadow: 5px 5px 0 var(--main_color);
+
+    animation: buscadorFade 0.3s ease-in-out forwards;
+}
+
+@keyframes buscadorFade {
+    from { 
+        opacity: 0; 
+        transform: scale(0.8); 
+    }
+    to { 
+        opacity: 1; 
+        transform: scale(1); 
+    }
 }
 
 

@@ -1,6 +1,7 @@
 import { Autenticado, getData } from "./src/helpers/auth.js";
 import Header from "./src/js/dom/header.js";
 import { historiasUsuario } from "./src/js/dom/historiasUsuario.js";
+import { publicacion } from "./src/js/objects/publicacion.js";
 import { router } from "./src/router/router.js";
 
 const { accessToken, id } = getData();
@@ -11,6 +12,7 @@ Header();
 
 const subir_crear = document.querySelector('.subir_crear');
 const subir_capitulo = document.querySelector('.subir_capitulo');
+const subir_publicacion = document.querySelector('.subir_publicacion');
 
 if (!Autenticado()) {
 
@@ -41,6 +43,12 @@ subir_capitulo.addEventListener('click', async (e) => {
     const { data: historias } = await responseHistoriasUsuario.json();
     const backendUrl = 'http://localhost:3000';
     historiasUsuario(backendUrl, historias);
+});
+
+subir_publicacion.addEventListener('click', async (e) => {
+    e.preventDefault();
+
+    publicacion(perfilData.id);
 });
 
 window.addEventListener('hashchange', () => {

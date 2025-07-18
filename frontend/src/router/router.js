@@ -1,10 +1,13 @@
 import { Autenticado } from "../helpers/auth.js";
 import { loadView } from "../helpers/loadView";
 import { configuracionController } from "../views/configuracion/controllers/configuracionController.js";
+import { historiaController } from "../views/historia/controllers/historiaController.js";
 import { inicioController } from "../views/inicio/controllers/inicioController.js";
 import { loginController } from "../views/login/controllers/loginController.js";
 import { miHistoriaController } from "../views/mi_Historia/controllers/miHistoriaController.js";
 import { miPerfilController } from "../views/mi_perfil/controllers/miPerfilControllers.js";
+import { perfilController } from "../views/perfil/controllers/perfilController.js";
+import { publicacionController } from "../views/publicacion/controllers/publicacionController.js";
 import { registroCotroller } from "../views/registro/controllers/registroController.js";
 import { subirCapituloController } from "../views/subir_Capitulo/controllers/subirCapituloControllers.js";
 import { subirHistoriaController } from "../views/subir_Historia/controllers/subirHistoriaControllers.js";
@@ -27,6 +30,12 @@ const routes = {
     register: {
         "template": "registro/registro.html",
         controlador: registroCotroller,
+        private: false,
+    },
+
+    "perfil/:usuarioId": {
+        "template": "perfil/index.html",
+        controlador: perfilController,
         private: false,
     },
 
@@ -54,6 +63,12 @@ const routes = {
         private: true,
     },
 
+    "historia/:historiaId": {
+        "template": "historia/index.html",
+        controlador: historiaController,
+        private: false,
+    },
+
     "mi_historia/:historiaId": {
         "template": "mi_Historia/index.html",
         controlador: miHistoriaController,
@@ -63,6 +78,12 @@ const routes = {
     "capitulo/:historiaId/:capituloId": {
         "template": "visualizar_capitulo/index.html",
         controlador: visualizarCapituloController,
+        private: false,
+    },
+
+    "publicacion/:usuarioId": {
+        "template": "publicacion/index.html",
+        controlador: publicacionController,
         private: false,
     },
 }

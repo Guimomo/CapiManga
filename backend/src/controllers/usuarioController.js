@@ -99,4 +99,32 @@ export const updatePrivacidad = async (req, res) => {
   } catch (error) {
     ResponseProvider.error(res, "Error al actualizar privacidad", 500);
   }
+
 };
+
+export const getUsuarioById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const usuario = await Usuario.findById(id);
+    if (!usuario) {
+      return ResponseProvider.error(res, "Usuario no encontrado", 404);
+    }
+    ResponseProvider.success(res, {
+      id: usuario.id,
+      user_Name: usuario.user_Name,
+      foto_Perfil: usuario.foto_Perfil,
+      banner_Perfil: usuario.banner_Perfil,
+      rol_Usuario: usuario.rol_Usuario,
+      fecha_Nacimiento: usuario.fecha_Nacimiento,
+      email_Usuario: usuario.email_Usuario,
+      telefono: usuario.telefono,
+      nombre: usuario.nombre,
+      genero_Usuario: usuario.genero_Usuario,
+      biografia_Usuario: usuario.biografia_Usuario,
+      visibilidad_Usuario: usuario.visibilidad_Usuario,
+      fecha_Usuario: usuario.fecha_Usuario
+    }, "Usuario obtenido correctamente", 200);
+  } catch (error) {
+    ResponseProvider.error(res, "Error al obtener usuario", 500);
+  }
+}

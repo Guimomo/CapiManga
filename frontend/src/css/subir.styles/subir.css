@@ -34,7 +34,7 @@
     scale: 1.1;
 }
 
-.subir_crear .subir_capitulo {
+.subir_crear button {
 
     display: none;
     background-color: rgba(0, 0, 0, 0);
@@ -57,7 +57,7 @@
 }
 
 .subir_crear a:hover,
-.subir_crear .subir_capitulo:hover {
+.subir_crear button:hover {
 
     color: var(--main_color);
     font-weight: bold;
@@ -70,7 +70,7 @@
 }
 
 .subir_crear:has(.subirCheck:checked) a,
-.subir_crear:has(.subirCheck:checked) .subir_capitulo {
+.subir_crear:has(.subirCheck:checked) button {
 
     display: inline-block;
 }

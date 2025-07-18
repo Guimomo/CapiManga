@@ -1,6 +1,7 @@
 import Swal from "sweetalert2";
 import { Autenticado, getData } from "../../helpers/auth";
 import { router } from "../../router/router";
+import { Buscador } from "../objects/buscador";
 
 const Header =()=> {
 
@@ -78,7 +79,7 @@ const Header =()=> {
 
     biblio_Option.append(biblioIcon, biblioText);
 
-    const buscador_Option = document.createElement("div");
+    const buscador_Option = document.createElement("button");
     buscador_Option.classList.add("buscador-option", "menu-item");
 
     const buscadorIcon = document.createElement("i");
@@ -89,6 +90,19 @@ const Header =()=> {
     buscadorText.classList.add("buscador-text");
 
     buscador_Option.append(buscadorIcon, buscadorText);
+
+    buscador_Option.onclick = () => {
+
+        let contenedor_Buscador = document.querySelector('.contenedor-buscador');
+        if (contenedor_Buscador) {
+            contenedor_Buscador.remove();
+        } else {
+            contenedor_Buscador = document.createElement("div");
+            contenedor_Buscador.classList.add("contenedor-buscador");
+            Buscador(contenedor_Buscador);
+            document.body.appendChild(contenedor_Buscador);
+        }
+    }
 
     const Originals_Option = document.createElement("a");
     Originals_Option.setAttribute("href", "#");
