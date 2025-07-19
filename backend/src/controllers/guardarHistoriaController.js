@@ -2,6 +2,20 @@ import { ResponseProvider } from "../providers/ResponseProvider.js";
 import GuardarHistoriaService from "../services/GuardarHistoriaService.js";
 
 class GuardarHistoriaController {
+  // Obtener todos los guardados de una historia por su id
+  static getGuardadosByHistoriaId = async (req, res) => {
+    const { id_Historia } = req.params;
+    try {
+      const response = await GuardarHistoriaService.getGuardadosByHistoriaId(id_Historia);
+      if (response.error) {
+        return ResponseProvider.error(res, response.message, response.code);
+      } else {
+        return ResponseProvider.success(res, response.data, response.message, response.code);
+      }
+    } catch (error) {
+      ResponseProvider.error(res, "Error interno en el servidor", 500);
+    }
+  };
   // Obtener todos los guardados
   static getAllGuardados = async (req, res) => {
     try {

@@ -102,7 +102,10 @@ export const visualizarCapituloController = async () => {
     
     comentario('capitulo', capituloId, seccionComentarios, perfilData.id);
 
-    comentariosLista('capitulo', capituloId, seccionComentarios, perfilData.id);
+    const resHistorias = await fetch(`${backendUrl}/api/historias/${historiaId}`);
+    const { data: historias } = await resHistorias.json();
+
+    comentariosLista('capitulo', capituloId, seccionComentarios, historias.autor_Historia);
 
     // comentariosLista('capitulo', capituloId, seccionComentarios);
 

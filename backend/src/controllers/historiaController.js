@@ -43,6 +43,12 @@ class HistoriaController {
     if (req.files && req.files.logo_Historia) {
       req.body.logo_Historia = '/' + req.files.logo_Historia[0].path.replace(/\\/g, '/');
     }
+    if (req.files && req.files.banner_Historia) {
+      req.body.banner_Historia = '/' + req.files.banner_Historia[0].path.replace(/\\/g, '/');
+    }
+    if (req.files && req.files.personaje_Png) {
+      req.body.personaje_Png = '/' + req.files.personaje_Png[0].path.replace(/\\/g, '/');
+    }
     // Asignar el autor desde el usuario autenticado
     const data = { ...req.body, autor_Historia: req.user.id };
     try {

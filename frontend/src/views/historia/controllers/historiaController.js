@@ -1,12 +1,13 @@
 import { getData } from "../../../helpers/auth";
 import { listaDeCapitulos } from "./listaDeCapitulos";
+import { resena } from "../../../js/objects/resena";
 
 export const historiaController = async () => {
 
     const { accessToken } = getData();
 
     const backendUrl = 'http://localhost:3000';
-    const iconoDefault = '../../assets/user.svg';
+    const iconoDefault = '/src/assets/icon/user.svg';
     // Obtener el id de la historia desde el hash
     const hash = window.location.hash;
     const historiaId = hash.split('/')[1];
@@ -19,6 +20,7 @@ export const historiaController = async () => {
     const autorCont = document.querySelector('.historia_autor');
     const tipoVerificacion = document.querySelector('.historia_tipoVerificado');
     const argumento = document.querySelector('.historia_argumento');
+    const argumentoElements = document.querySelector('.historia_argumento_elements')
 
     // Obtener datos de la historia
     const responceHistoria = await fetch(`${backendUrl}/api/historias/${historiaId}`);
@@ -41,13 +43,26 @@ export const historiaController = async () => {
         iconoVerificacion.src = 'src/assets/img/page_elements/logo/CapiBoard_Icon.png';
         iconoVerificacion.alt = 'CapiBoard';
         estadoVerificacion.classList.add('verificacion_capiBoard');
-    } else if (historia.verificacion_Historia === 'original') {
+    } else if (historia.verificacion_Historia === 'Original') {
         iconoVerificacion.src = 'src/assets/img/page_elements/logo/Originals_Icon.png';
         iconoVerificacion.alt = 'Original';
         estadoVerificacion.classList.add('verificacion_original');
     }
     estadoVerificacion.append(iconoVerificacion, textoVerificacion);
     tipoVerificacion.append(tipoYFormato, estadoVerificacion);
+
+    // Si es original, poner el banner como fondo
+    if (historia.verificacion_Historia === "Original" ) {
+        const bannerImg = document.createElement('img');
+        bannerImg.src = backendUrl + historia.banner_Historia;
+        bannerImg.classList.add('banner_Historia');
+        infoCont.appendChild(bannerImg);
+
+        const personajeImg = document.createElement('img');
+        personajeImg.src = backendUrl + historia.personaje_Png;
+        personajeImg.classList.add('personaje_Historia_Elements');
+        argumentoElements.append(personajeImg);
+    }
 
     // Cargar portada de la historia
     const portadaImg = document.createElement('img');
@@ -134,7 +149,7 @@ export const historiaController = async () => {
     autorFoto.classList.add('historia_autor_foto');
 
     const fotoImg = document.createElement('img');
-    fotoImg.src =  backendUrl + perfilData.foto_Perfil ? `${backendUrl}${perfilData.foto_Perfil}` : iconoDefault;
+    fotoImg.src = perfilData.foto_Perfil ? `${backendUrl}${perfilData.foto_Perfil}` : iconoDefault;
     autorFoto.appendChild(fotoImg);
 
     const autorLink = document.createElement('a');
@@ -147,9 +162,137 @@ export const historiaController = async () => {
     // Cargar argumento de la historia
     argumento.textContent = historia.argumento_Historia;
 
+
+    // --- GUARDADOS ---
+    const guardadosCont = document.querySelector('.historia_guardados');
+    // Botón guardar historia
+    const guardarBtn = document.createElement('button');
+    guardarBtn.classList.add('btn_guardar_historia');
+    guardarBtn.innerHTML = '<i class="ri-bookmark-line"></i> Guardar';
+
+    // Contador de guardados
+    const guardadosCount = document.createElement('span');
+    guardadosCount.classList.add('contador_guardados');
+
+    // Obtener cantidad de guardados y si el usuario actual ya guardó la historia
+    let guardados = 0;
+    let yaGuardada = false;
+    try {
+        const resGuardados = await fetch(`${backendUrl}/api/guardar-historia/historia/${historiaId}`, {
+            headers: {
+                'Authorization': `Bearer ${accessToken}`
+            }
+        });
+        const { data: guardadosData } = await resGuardados.json();
+        guardados = Array.isArray(guardadosData) ? guardadosData.length : 0;
+        // Verificar si el usuario actual ya guardó la historia
+        yaGuardada = guardadosData.some(g => g.guardada_por === perfilDataAuth.id);
+    } catch {}
+    guardadosCount.textContent = guardados;
+
+    // Cambiar estado visual si ya está guardada
+    if (yaGuardada) {
+        guardarBtn.classList.add('guardada');
+        guardarBtn.innerHTML = '<i class="ri-bookmark-fill"></i> Guardada';
+    }
+
+    // Toggle guardar/desguardar (estilo botón seguir)
+    guardarBtn.onclick = async () => {
+        if (!perfilDataAuth.id) return;
+        guardarBtn.disabled = true;
+        if (!yaGuardada) {
+            // Guardar historia
+            const data = {
+                id_Historia: Number(historiaId),
+                guardada_por: Number(perfilDataAuth.id)
+            };
+            try {
+                const res = await fetch(`${backendUrl}/api/guardar-historia`, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${accessToken}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+                const { data: guardarData, message } = await res.json();
+                if (!res.ok) {
+                    alert(message || 'No se pudo guardar la historia.');
+                } else {
+                    guardados++;
+                    yaGuardada = true;
+                    guardarBtn.classList.add('guardada');
+                    guardarBtn.innerHTML = '<i class="ri-bookmark-fill"></i> Guardada';
+                }
+            } catch (error) {
+                alert('Error al guardar la historia.');
+            }
+        } else {
+            // Desguardar historia
+            try {
+                const res = await fetch(`${backendUrl}/api/guardar-historia/${historiaId}/${perfilDataAuth.id}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Authorization': `Bearer ${accessToken}`
+                    }
+                });
+                const { data: guardarData, message } = await res.json();
+                if (!res.ok) {
+                    alert(message || 'No se pudo quitar el guardado.');
+                } else {
+                    guardados = Math.max(guardados - 1, 0);
+                    yaGuardada = false;
+                    guardarBtn.classList.remove('guardada');
+                    guardarBtn.innerHTML = '<i class="ri-bookmark-line"></i> Guardar';
+                }
+            } catch (error) {
+                alert('Error al quitar el guardado.');
+            }
+        }
+        guardadosCount.textContent = guardados;
+        guardarBtn.disabled = false;
+    };
+
+    guardadosCont.append(guardarBtn, guardadosCount);
+
+    // --- RESEÑA ---
+    const calificacionCont = document.querySelector('.historia_calificacion');
+    const resenaBtn = document.createElement('button');
+    resenaBtn.classList.add('btn_crear_resena');
+    resenaBtn.innerHTML = '<i class="ri-chat-new-line"></i> Crear reseña';
+    calificacionCont.appendChild(resenaBtn);
+    resenaBtn.onclick = () => {
+        resena(historiaId, perfilDataAuth.id);
+    };
+
+    // --- DATOS DE HISTORIA ---
+    const datosCont = document.querySelector('.historia_datosDeHistoria');
+    const datos = document.createElement('div');
+    datos.classList.add('datos_historia');
+    // Fecha de publicación
+    const fecha = document.createElement('p');
+    let fechaFormateada = '';
+    if (historia.fecha_Publicacion_Historia) {
+        const fechaObj = new Date(historia.fecha_Publicacion_Historia);
+        fechaFormateada = fechaObj.toLocaleDateString('es-ES', {
+            day: '2-digit', month: '2-digit', year: 'numeric'
+        });
+    } else {
+        fechaFormateada = 'Desconocida';
+    }
+    fecha.innerHTML = `<b>Fecha de publicación:</b> ${fechaFormateada}`;
+    // Estado de serie
+    const estado = document.createElement('p');
+    estado.innerHTML = `<b>Estado de serie:</b> ${historia.tipo_Serie}`;
+    // Edad recomendada
+    const edad = document.createElement('p');
+    edad.innerHTML = `<b>Edad recomendada:</b> ${historia.edad_Recomendada}`;
+    datos.append(fecha, estado, edad);
+    datosCont.appendChild(datos);
+
     const capitulosCont = document.querySelector('.historia_capitulos');
 
-    const ResponseCapitulos = await fetch(`http://localhost:3000/api/capitulos/historia/${historiaId}`);
+    const ResponseCapitulos = await fetch(`${backendUrl}/api/capitulos/historia/${historiaId}`);
     const { data: capitulos } = await ResponseCapitulos.json();
 
     listaDeCapitulos(capitulos, historiaId, backendUrl, capitulosCont, accessToken, perfilDataAuth);

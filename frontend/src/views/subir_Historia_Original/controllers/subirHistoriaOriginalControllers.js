@@ -2,7 +2,7 @@ import Swal from 'sweetalert2';
 import Cropper from 'cropperjs';
 import { getData } from '../../../helpers/auth';
 
-export const subirHistoriaController = async () => {
+export const subirHistoriaOriginalController = async () => {
     const form = document.getElementById('formCrearHistoria');
     const genero_Id = document.getElementById('genero_Id');
     const subgenero_Id = document.getElementById('subgenero_Id');
@@ -25,34 +25,10 @@ export const subirHistoriaController = async () => {
 
     //         previewIcono.innerHTML = `<img id="img_crop_icono" src="${e.target.result}" style="max-width:120px;">`;
     //         const img = document.getElementById('img_crop_icono');
-
-    //         if (cropperIcono) {
-    //             cropperIcono.destroy();
-    //         };
-
-    //         cropperIcono = new Cropper(img, {
-    //             aspectRatio: 1,
-    //             viewMode: 3,
-    //             autoCropArea: 1,
-    //             cropBoxResizable: false
-    //         });
     //     };
 
     //     readerFile.readAsDataURL(file);
     // });
-
-    // Logo
-    const logo_Historia = document.getElementById('logo_Historia');
-    const previewLogo = document.getElementById('preview_logo');
-    logo_Historia.addEventListener('change', (e) => {
-        const file = e.target.files[0];
-        if (!file) return;
-        const readerFile = new FileReader();
-        readerFile.onload = (e) => {
-            previewLogo.innerHTML = `<img src="${e.target.result}" style="max-width:120px;">`;
-        };
-        readerFile.readAsDataURL(file);
-    });
 
     // Obtener token (como en login, perfil, etc)
     const { accessToken } = getData();
@@ -100,7 +76,7 @@ export const subirHistoriaController = async () => {
         edad_Recomendada.appendChild(option);
     });
 
-    // Cargar tipos de historia
+    //Cargar tipos de historia
     const responseTipos = await fetch('http://localhost:3000/api/tipo-historia');
     const { data: tipos } = await responseTipos.json();
     tipo_Historia.innerHTML = '';
@@ -111,11 +87,13 @@ export const subirHistoriaController = async () => {
         tipo_Historia.appendChild(option);
     });
 
+
     // Evento para enviar el formulario
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
         const formData = new FormData(form);
-        formData.set('verificacion_Historia', 'CapiBoard'); // Forzar verificación a 'CapiBoard'
+        // Forzar el campo verificacion_Historia a 'Original'
+        formData.set('verificacion_Historia', 'Original');
         try {
             const res = await fetch('http://localhost:3000/api/historias', {
                 method: 'POST',

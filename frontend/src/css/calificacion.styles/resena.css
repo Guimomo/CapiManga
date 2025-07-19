@@ -1,0 +1,133 @@
+.overlay_resena {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contenedor_resena_overlay {
+  background: #181818;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  padding: 2.5rem 2rem 2rem 2rem;
+  min-width: 320px;
+  max-width: 95vw;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: relative;
+  color: #fff;
+}
+
+.btn_cerrar_resena_overlay {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: none;
+  border: none;
+  font-size: 1.7rem;
+  color: #ff5e5e;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.btn_cerrar_resena_overlay:hover {
+  color: #ff2e2e;
+}
+
+.titulo_resena_overlay {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.calificacion_radio_overlay {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.calificacion_radio_overlay input[type="radio"] {
+  display: none;
+}
+
+.calificacion_radio_overlay label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.1rem;
+  background: #232323;
+  border-radius: 12px;
+  padding: 0.6rem 1.2rem;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: ease 0.2s;
+}
+
+.calificacion_radio_overlay input[type="radio"]:checked + label {
+  background: #ff9800;
+  color: #181818;
+  border: 2px solid #ff9800;
+}
+
+.calificacion_radio_overlay label i {
+  font-size: 1.3rem;
+}
+
+.resena_textarea_overlay {
+  width: 100%;
+  min-height: 90px;
+  max-height: 180px;
+  resize: vertical;
+  border-radius: 10px;
+  border: 1.5px solid #444;
+  background: #232323;
+  color: #fff;
+  font-size: 1rem;
+  padding: 0.8rem 1rem;
+  margin-bottom: 0.5rem;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.resena_textarea_overlay:focus {
+  border: 1.5px solid #ff9800;
+}
+
+.btn_enviar_resena_overlay {
+  background: #ff9800;
+  color: #181818;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 0.7rem 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  transition:  ease 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  justify-content: center;
+}
+
+.btn_enviar_resena_overlay:hover {
+  background: #ffa726;
+  color: #181818;
+}
+
+@media (max-width: 500px) {
+  .contenedor_resena_overlay {
+    width: 95vw;
+    min-width: unset;
+    padding: 1.2rem 0.5rem 1.5rem 0.5rem;
+  }
+  .titulo_resena_overlay {
+    font-size: 1.1rem;
+  }
+}

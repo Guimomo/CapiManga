@@ -1,6 +1,14 @@
 import connection from "../utils/db.js";
 
 class GuardarHistoria {
+  // Obtener todos los guardados de una historia por su id
+  async getByHistoriaId(id_Historia) {
+    const [rows] = await connection.query(
+      "SELECT * FROM guardar_Historia WHERE id_Historia = ?",
+      [id_Historia]
+    );
+    return rows;
+  }
   // Obtener todos los guardados
   async getAll() {
     const [rows] = await connection.query("SELECT * FROM guardar_Historia");

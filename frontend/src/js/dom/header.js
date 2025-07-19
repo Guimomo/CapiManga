@@ -187,7 +187,7 @@ const Header =()=> {
 
     menuHome.append(homeIcon);
 
-    menu.append( biblio_Option, buscador_Option, menuHome, Originals_Option, Capiboard_Option, comics_Option, Webcomics_Option, novelas_Option);
+    menu.append( biblio_Option, buscador_Option, menuHome, comics_Option, Webcomics_Option, novelas_Option);
 
     headerContent.appendChild(menu);
 

@@ -53,89 +53,111 @@ export const listaDeCapitulos = async (capitulos, historiaId, localhost, contene
         argumentoCapitulo.textContent = capitulo.argumento_Capitulo;
         argumentoCapitulo.classList.add('argumento_Capitulo_MiHistoria');
 
+        const MeGustaCont = document.createElement('div');
+        MeGustaCont.classList.add('me_gusta_Capitulo_Historia');
+
         const btnMeGusta = document.createElement('button');
         btnMeGusta.innerHTML = '<i class="ri-shining-line"></i>';
         btnMeGusta.classList.add('btn_me_gusta_capitulo');
+
+        const contadorMeGusta = document.createElement('span');
+        contadorMeGusta.classList.add('contador_me_gusta');
+
+        MeGustaCont.append(btnMeGusta, contadorMeGusta);
         
         // Consulta si el usuario ya dio "me gusta"
         let yaMeGusta = false;
+        let cantidadMeGusta = 0;
 
-        const res = await fetch(
-            `http://localhost:3000/api/me-gusta-capitulo/${capitulo.id}/${perfilData.id}`,
-            { headers: { 'Authorization': `Bearer ${accessToken}` } }
-        );
-        const { data } = await res.json();
-        yaMeGusta = !!data;
-
-        // Pinta el botón según el estado
-        if (yaMeGusta) {
-            btnMeGusta.classList.add('ya_me_gusta');
-            btnMeGusta.innerHTML = '<i class="ri-shining-fill"></i>';
-            // btnMeGusta.disabled = true; // Si quieres desactivar el botón
-        } else {
-            btnMeGusta.innerHTML = '<i class="ri-shining-line"></i>';
+        // Consulta el contador de "me gusta" (sin autenticación)
+        try {
+            const contadorRes = await fetch(`http://localhost:3000/api/me-gusta-capitulo/${capitulo.id}`);
+            // const { data: contadorData } = await contadorRes.json();
+            // cantidadMeGusta = contadorData ? contadorData.length : 0;
+            const contadorData = await contadorRes.json();
+            cantidadMeGusta = contadorData.data.length;
+        } catch (error) {
+            cantidadMeGusta = 0;
         }
+        contadorMeGusta.textContent = cantidadMeGusta;
 
-        btnMeGusta.onclick = async () => {
-
-            if (!yaMeGusta) {
-
-                try {
-                    const data = {
-                        id_Capitulo: capitulo.id,
-                        id_Usuario: perfilData.id
-                    };
-        
-                    const response = await fetch(`http://localhost:3000/api/me-gusta-capitulo`, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Authorization': `Bearer ${accessToken}`
-                        },
-                        body: JSON.stringify(data)
-                    });
-    
-                    
-                if (response.ok) {
-                    btnMeGusta.classList.add('ya_me_gusta');
-                    btnMeGusta.innerHTML = '<i class="ri-shining-fill"></i>';
-                    return;
-                }
-                    
-                } catch (error) {
-    
-                    console.error('Error al dar me gusta al capítulo:', error);
-                    
-                }
-            }
-
+        // Consulta si el usuario ya dio "me gusta" solo si está logueado
+        if (perfilData && perfilData.id && accessToken) {
             try {
-                
-                const response = await fetch(`http://localhost:3000/api/me-gusta-capitulo/${capitulo.id}/${perfilData.id}`, {
-                    method: 'DELETE',
-                    headers: {
-                        'Authorization': `Bearer ${accessToken}`
-                    }
-                });
-
-                if (response.ok) {
-                    btnMeGusta.classList.remove('ya_me_gusta');
-                    btnMeGusta.innerHTML = '<i class="ri-shining-line"></i>';
-                    yaMeGusta = false;
-                }
-
+                const res = await fetch(
+                    `http://localhost:3000/api/me-gusta-capitulo/${capitulo.id}/${perfilData.id}`,
+                    { headers: { 'Authorization': `Bearer ${accessToken}` } }
+                );
+                const { data } = await res.json();
+                yaMeGusta = !!data;
             } catch (error) {
-                console.error('Error al dar me gusta al capítulo:', error);
-                
+                yaMeGusta = false;
             }
-
+            // Pinta el botón según el estado
+            if (yaMeGusta) {
+                btnMeGusta.classList.add('ya_me_gusta');
+                btnMeGusta.innerHTML = '<i class="ri-shining-fill"></i>';
+            } else {
+                btnMeGusta.innerHTML = '<i class="ri-shining-line"></i>';
+            }
+            // Habilita el botón solo si hay sesión
+            btnMeGusta.onclick = async () => {
+                if (!yaMeGusta) {
+                    try {
+                        const data = {
+                            id_Capitulo: capitulo.id,
+                            id_Usuario: perfilData.id
+                        };
+                        const response = await fetch(`http://localhost:3000/api/me-gusta-capitulo`, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Authorization': `Bearer ${accessToken}`
+                            },
+                            body: JSON.stringify(data)
+                        });
+                        if (response.ok) {
+                            btnMeGusta.classList.add('ya_me_gusta');
+                            btnMeGusta.innerHTML = '<i class="ri-shining-fill"></i>';
+                            // Actualiza el contador
+                            cantidadMeGusta++;
+                            contadorMeGusta.textContent = cantidadMeGusta;
+                            return;
+                        }
+                    } catch (error) {
+                        console.error('Error al dar me gusta al capítulo:', error);
+                    }
+                }
+                try {
+                    const response = await fetch(`http://localhost:3000/api/me-gusta-capitulo/${capitulo.id}/${perfilData.id}`, {
+                        method: 'DELETE',
+                        headers: {
+                            'Authorization': `Bearer ${accessToken}`
+                        }
+                    });
+                    if (response.ok) {
+                        btnMeGusta.classList.remove('ya_me_gusta');
+                        btnMeGusta.innerHTML = '<i class="ri-shining-line"></i>';
+                        yaMeGusta = false;
+                        // Actualiza el contador
+                        cantidadMeGusta = Math.max(0, cantidadMeGusta - 1);
+                        contadorMeGusta.textContent = cantidadMeGusta;
+                    }
+                } catch (error) {
+                    console.error('Error al quitar me gusta al capítulo:', error);
+                }
+            };
+        } else {
+            // Si no hay sesión, desactiva el botón
+            btnMeGusta.disabled = true;
+            btnMeGusta.title = "Inicia sesión para dar me gusta";
         }
 
         tituloArgumentoCont.append(tituloCapitulo, argumentoCapitulo);
 
         capituloLink.append(capituloNumeroCont, iconoCont, tituloArgumentoCont);
 
-        capituloCont.append(capituloLink, btnMeGusta);
+        capituloCont.append(capituloLink, MeGustaCont);
 
         listaDeCapitulos.appendChild(capituloCont);
 

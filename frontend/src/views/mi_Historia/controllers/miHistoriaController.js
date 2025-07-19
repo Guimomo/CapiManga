@@ -6,7 +6,7 @@ export const miHistoriaController = async () => {
 
     const { accessToken } = getData();
     const backendUrl = 'http://localhost:3000';
-    const iconoDefault = '../../assets/user.svg'; // Ajusta la ruta si es necesario
+    const iconoDefault = '/src/assets/icon/user.svg'; // Ajusta la ruta si es necesario
 
     // Obtener el id de la historia desde el hash
     const hash = window.location.hash;
@@ -78,7 +78,7 @@ export const miHistoriaController = async () => {
         iconoVerificacion.alt = 'CapiBoard';
         estadoVerificacion.classList.add('verificacion_capiBoard');
 
-    } else if (historia.verificación_Historia === 'original') {
+    } else if (historia.verificacion_Historia === 'Original') {
 
         iconoVerificacion.src = 'src/assets/img/page_elements/logo/Originals_Icon.png';
         iconoVerificacion.alt = 'Original';
@@ -87,6 +87,14 @@ export const miHistoriaController = async () => {
 
     estadoVerificacion.append(iconoVerificacion, textoVerificacion);
     tipoVerificacion.append(tipoYFormatoMiHistoria, estadoVerificacion);
+
+    // Si es original, poner el banner como fondo
+    if (historia.verificacion_Historia === "Original") {
+        const bannerImg = document.createElement('img');
+        bannerImg.src = backendUrl + historia.banner_Historia;
+        bannerImg.classList.add('banner_Historia');
+        infoCont.appendChild(bannerImg);
+    }
 
     // Cargar portada de la historia
     const portadaImg = document.createElement('img');
@@ -162,7 +170,7 @@ export const miHistoriaController = async () => {
     autorFoto.classList.add('miHistoria_autor_foto');
 
     const fotoImg = document.createElement('img');
-    fotoImg.src = backendUrl + perfilData.foto_Perfil ? `${backendUrl}${perfilData.foto_Perfil}` : iconoDefault;
+    fotoImg.src = perfilData.foto_Perfil ? `${backendUrl}${perfilData.foto_Perfil}` : iconoDefault;
     // fotoImg.alt = 'foto de perfil';
     autorFoto.appendChild(fotoImg);
 

@@ -59,6 +59,25 @@ class SeguirUsuario {
       mensaje: "Seguimiento eliminado exitosamente.",
     };
   }
+
+  // buscar por siguiendo_a
+  // Obtener los usuarios que sigue este usuario (seguidos)
+  async findSeguidosPorUsuario(idUsuario) {
+    const [rows] = await connection.query(
+      "SELECT * FROM seguir_Usuario WHERE seguido_por = ?",
+      [idUsuario]
+    );
+    return rows;
+  }
+
+  // Obtener los seguidores de este usuario
+  async findSeguidoresDeUsuario(idUsuario) {
+    const [rows] = await connection.query(
+      "SELECT * FROM seguir_Usuario WHERE siguiendo_a = ?",
+      [idUsuario]
+    );
+    return rows;
+  }
 }
 
 export default SeguirUsuario;

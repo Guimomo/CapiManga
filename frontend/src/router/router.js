@@ -11,6 +11,7 @@ import { publicacionController } from "../views/publicacion/controllers/publicac
 import { registroCotroller } from "../views/registro/controllers/registroController.js";
 import { subirCapituloController } from "../views/subir_Capitulo/controllers/subirCapituloControllers.js";
 import { subirHistoriaController } from "../views/subir_Historia/controllers/subirHistoriaControllers.js";
+import { subirHistoriaOriginalController } from "../views/subir_Historia_Original/controllers/subirHistoriaOriginalControllers.js";
 import { visualizarCapituloController } from "../views/visualizar_capitulo/controllers/visualizarCapituloController.js";
 
 const routes = {
@@ -54,6 +55,12 @@ const routes = {
     crear_historia: {
         "template": "subir_Historia/index.html",
         controlador: subirHistoriaController,
+        private: true,
+    },
+
+    crear_historia_original: {
+        "template": "subir_Historia_Original/index.html",
+        controlador: subirHistoriaOriginalController,
         private: true,
     },
 

@@ -1,3 +1,4 @@
+
 .body_MiHistoria,
 .body_Historia {
 
@@ -37,6 +38,8 @@
     background-repeat: no-repeat;
     background-position: right;
     background-size: contain;
+    position: relative;
+    overflow: hidden;
 }
 
 .miHistoria_infoCont .miHistoria_cover,
@@ -48,6 +51,7 @@
     background-color: var(--third_color);
     border-radius: 20px;
     overflow: hidden;
+    z-index: 2;
 }
 
 .miHistoria_infoCont .miHistoria_cover img,
@@ -56,6 +60,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    z-index: 2;
 }
 
 .miHistoria_infoCont .miHistoria_info, 
@@ -68,6 +73,7 @@
     flex-direction: column;
     justify-content: center;
     gap: 20px;
+    z-index: 2;
 }
 
 
@@ -140,7 +146,7 @@
     height: 50px;
     border-radius: 50%;
     overflow: hidden;
-    background-color: var(--third_color);
+    background-color: var(--main_color);
 }
 
 .miHistoria_info .autor_link_miHistoria,
@@ -212,7 +218,6 @@
 .miHistoria_tipoVerificado .miHistoria_estadoVerificacion,
 .historia_tipoVerificado .historia_estadoVerificacion {
 
-    background-color: var(--capiBoard_color);
     font-weight: bold;
     height: 40px;
     padding: 7px 20px;
@@ -223,6 +228,16 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
+}
+
+.verificacion_original {
+
+    background-color: var(--original_color);
+}
+
+.verificacion_capiBoard {
+
+    background-color: var(--capiBoard_color);
 }
 
 .miHistoria_tipoVerificado .miHistoria_estadoVerificacion img,
@@ -255,6 +270,8 @@
     border-radius: 30px;
 
     color: var(--third_color);
+    position: relative;
+    overflow: hidden;
 }
 
 .miHistoria_argumento_elements .miHistoria_argumento,
@@ -270,4 +287,137 @@
     color: var(--second_color);
 
     text-wrap: wrap;
+}
+
+.banner_Historia {
+
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    object-fit: cover;
+    z-index: 1;
+    opacity: 0.5;
+    animation: animationBanner 10s ease-in-out infinite;
+}
+
+.personaje_Historia_Elements {
+
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    object-fit: contain;
+    bottom: 0;
+    right: -50px;
+}
+
+@keyframes animationBanner {
+   0% {
+       transform: scale(1.4);
+    }
+    50% {
+       transform: scale(1);
+    }
+    100% {
+       transform: scale(1.4);
+    }
+}
+
+.historia_elements {
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.datos_historia {
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.capiLeyendo_historia {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    top: 20px;
+    right: 20px;
+    z-index: 1;
+}
+
+/* --- GUARDAR HISTORIA --- */
+.historia_guardados {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.btn_guardar_historia {
+    background: var(--main_color);
+    color: var(--third_color);
+    border: none;
+    border-radius: 20px;
+    padding: 8px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.2s;
+}
+.btn_guardar_historia:hover {
+    background: var(--third_color);
+    color: var(--main_color);
+}
+.contador_guardados {
+    background: var(--third_color);
+    color: var(--main_color);
+    border-radius: 50px;
+    padding: 4px 12px;
+    font-weight: bold;
+    font-size: 1rem;
+    min-width: 32px;
+    text-align: center;
+}
+
+/* --- CREAR RESEÑA --- */
+.historia_calificacion {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.btn_crear_resena {
+    background: var(--main_color);
+    color: var(--third_color);
+    border: none;
+    border-radius: 20px;
+    padding: 8px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.2s;
+}
+.btn_crear_resena:hover {
+    background: var(--third_color);
+    color: var(--main_color);
+}
+
+/* --- DATOS DE HISTORIA --- */
+.historia_datosDeHistoria {
+    margin-top: 10px;
+    background: var(--third_color);
+    border-radius: 20px;
+    padding: 16px 24px;
+    color: var(--second_color);
+    font-size: 1rem;
+}
+.datos_historia p {
+    margin: 6px 0;
+    font-size: 1rem;
+}
+.datos_historia b {
+    color: var(--main_color);
+    font-weight: bold;
 }

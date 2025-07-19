@@ -15,7 +15,7 @@
     --third_color: #0D0D0D;
     --fourth_color: #ff6a00;
     --capiBoard_color: #00ac4a;
-    --original_color: #caa51e;
+    --original_color: #ffa200;
 }
 
 body {
@@ -41,6 +41,8 @@ body {
     grid-template-areas: 
     'header app'
     'footer footer';
+    
+    position: relative;
 }
 
 #app {
@@ -87,7 +89,7 @@ li{
 
 
 /* Colores para generos y subgeneros ----------------------------------------> */
-.accion {
+.Accion {
 
     background-color: rgb(255, 59, 59);
 }
@@ -97,31 +99,25 @@ li{
     background-color: rgb(255, 123, 167);
 }
 
-.fantasia {
+.Fantasia {
 
     background-color: rgb(0, 74, 117);
 }
 
-.aventura {
+.Aventura {
     background-color: rgb(34, 139, 34); /* Verde bosque */
 }
 
-.superheroes {
+.Superheroes {
     background-color: rgb(255, 45, 85); /* Rojo brillante */
 }
 
-
-.accion {
-
-    background-color: rgb(255, 59, 59);
-}
-
-.deportes {
+.Deportes {
 
     background-color: rgb(255, 140, 0);
 }
 
-.sliceOfLife {
+.SliceOfLife {
 
     background-color: rgb(209, 59, 109);
 }
@@ -129,6 +125,11 @@ li{
 .Horror {
 
     background-color: rgb(119, 0, 0);
+}
+
+.Misterio {
+
+    background-color: rgb(231, 231, 231);
 }
 
 /* ------------------------------------------------------------------------ */
@@ -179,6 +180,12 @@ li{
 
     /* border: solid 3px rgb(55, 0, 0); */
     color: rgb(119, 0, 0);
+}
+
+.subMisterio {
+
+    /* border: solid 3px rgb(231, 231, 231); */
+    color: rgb(231, 231, 231);
 }
 
 @media (max-width: 800px) {

@@ -27,6 +27,34 @@ class SeguirUsuarioService {
     }
   }
 
+  // Obtener los usuarios que sigue este usuario (seguidos)
+  static async getSeguimientoBySeguidoPor(seguido_por) {
+    try {
+      const instance = new SeguirUsuario();
+      const seguimientos = await instance.findSeguidosPorUsuario(seguido_por);
+      if (!seguimientos || seguimientos.length === 0) {
+        return { error: true, code: 404, message: "No hay seguidos para el usuario" };
+      }
+      return { error: false, code: 200, message: "Seguidos obtenidos correctamente", data: seguimientos };
+    } catch (error) {
+      return { error: true, code: 500, message: "Error al obtener los seguidos por usuario" };
+    }
+  }
+
+  // Obtener los seguidores de este usuario
+  static async getSeguimientoBySiguiendoA(siguiendo_a) {
+    try {
+      const instance = new SeguirUsuario();
+      const seguidores = await instance.findSeguidoresDeUsuario(siguiendo_a);
+      if (!seguidores || seguidores.length === 0) {
+        return { error: true, code: 404, message: "No hay seguidores para el usuario" };
+      }
+      return { error: false, code: 200, message: "Seguidores obtenidos correctamente", data: seguidores };
+    } catch (error) {
+      return { error: true, code: 500, message: "Error al obtener los seguidores por usuario" };
+    }
+  }
+
   static async createSeguimiento(data) {
     try {
       const instance = new SeguirUsuario();

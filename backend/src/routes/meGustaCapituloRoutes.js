@@ -5,8 +5,8 @@ import { verifyToken } from "../middlewares/auth/tokenMiddleware.js";
 
 const router = express.Router();
 
-router.get("/:id_Capitulo", verifyToken, MeGustaCapituloController.getMeGustas);
-router.get("/:id_Capitulo/:id_Usuario", verifyToken, MeGustaCapituloController.getMeGustaById);
+router.get("/:id_Capitulo", MeGustaCapituloController.getMeGustas);
+router.get("/:id_Capitulo/:id_Usuario", MeGustaCapituloController.getMeGustaById);
 router.post("/", verifyToken, camposMeGustaCapitulo, MeGustaCapituloController.createMeGusta);
 router.delete("/:id_Capitulo/:id_Usuario", verifyToken, MeGustaCapituloController.deleteMeGusta);
 

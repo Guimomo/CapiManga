@@ -31,6 +31,36 @@ class SeguirUsuarioController {
     }
   };
 
+  // Obtener los seguidores de este usuario
+  static getSeguimientoBySiguiendo = async (req, res) => {
+    const { siguiendo_a } = req.params;
+    try {
+      const response = await SeguirUsuarioService.getSeguimientoBySiguiendoA(siguiendo_a);
+      if (response.error) {
+        return ResponseProvider.error(res, response.message, response.code);
+      } else {
+        return ResponseProvider.success(res, response.data, response.message, response.code);
+      }
+    } catch (error) {
+      ResponseProvider.error(res, "Error interno en el servidor", 500);
+    }
+  };
+
+  // Obtener los usuarios que sigue este usuario (seguidos)
+  static getSeguimientoBySeguido = async (req, res) => {
+    const { seguido_por } = req.params;
+    try {
+      const response = await SeguirUsuarioService.getSeguimientoBySeguidoPor(seguido_por);
+      if (response.error) {
+        return ResponseProvider.error(res, response.message, response.code);
+      } else {
+        return ResponseProvider.success(res, response.data, response.message, response.code);
+      }
+    } catch (error) {
+      ResponseProvider.error(res, "Error interno en el servidor", 500);
+    }
+  };
+
   // Crear un nuevo seguimiento
   static createSeguimiento = async (req, res) => {
     try {

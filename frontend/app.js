@@ -1,6 +1,7 @@
 import { Autenticado, getData } from "./src/helpers/auth.js";
 import Header from "./src/js/dom/header.js";
 import { historiasUsuario } from "./src/js/dom/historiasUsuario.js";
+import { crearHistoriaOverlay } from "./src/js/objects/crearHistoria.js";
 import { publicacion } from "./src/js/objects/publicacion.js";
 import { router } from "./src/router/router.js";
 
@@ -11,8 +12,9 @@ const app = document.querySelector('#app');
 Header();
 
 const subir_crear = document.querySelector('.subir_crear');
+const crearHistoria = document.querySelector('.crear_historia');
 const subir_capitulo = document.querySelector('.subir_capitulo');
-const subir_publicacion = document.querySelector('.subir_publicacion');
+// const subir_publicacion = document.querySelector('.subir_publicacion');
 
 if (!Autenticado()) {
 
@@ -29,6 +31,11 @@ const responsePerfil = await fetch(`http://localhost:3000/api/usuarios/perfil`, 
 
 const { data: perfilData } = await responsePerfil.json();
 
+// Mostrar overlay al hacer clic en el botón de crear historia
+crearHistoria.addEventListener('click', (e) => {
+    e.preventDefault();
+    crearHistoriaOverlay();
+});
 
 subir_capitulo.addEventListener('click', async (e) => {
 
@@ -45,11 +52,11 @@ subir_capitulo.addEventListener('click', async (e) => {
     historiasUsuario(backendUrl, historias);
 });
 
-subir_publicacion.addEventListener('click', async (e) => {
-    e.preventDefault();
+// subir_publicacion.addEventListener('click', async (e) => {
+//     e.preventDefault();
 
-    publicacion(perfilData.id);
-});
+//     publicacion(perfilData.id);
+// });
 
 window.addEventListener('hashchange', () => {
 

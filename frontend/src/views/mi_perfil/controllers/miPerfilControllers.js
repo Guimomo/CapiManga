@@ -32,8 +32,8 @@ export const miPerfilController = async () => {
     miBiografia.textContent = perfilData.biografia_Usuario;
 
     // Ruta del icono por defecto
-    const iconoDefault = '../../assets/user.svg'; // Ajusta la ruta si es necesario
-    const bannerDefault = '../../assets/banner_default.svg'; // Cambia si tienes un banner por defecto
+    const iconoDefault = '/src/assets/icon/user.svg';
+    // const bannerDefault = '../../assets/banner_default.svg'; // Cambia si tienes un banner por defecto
     const backendUrl = 'http://localhost:3000';
 
     // Foto de perfil
@@ -49,7 +49,7 @@ export const miPerfilController = async () => {
     const imgBanner = document.createElement('img');
     imgBanner.alt = 'Banner de perfil';
     imgBanner.classList.add('imgBanner');
-    imgBanner.src = perfilData.banner_Perfil ? `${backendUrl}${perfilData.banner_Perfil}` : bannerDefault;
+    imgBanner.src = perfilData.banner_Perfil ? `${backendUrl}${perfilData.banner_Perfil}` : null
     miBanner.appendChild(imgBanner);
 
     // MIS HISTORIAS

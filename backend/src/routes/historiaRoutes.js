@@ -22,7 +22,9 @@ router.post(
   uploadHistoria.fields([
     { name: "portada_Historia", maxCount: 1 },
     { name: "icono_Historia", maxCount: 1 },
-    { name: "logo_Historia", maxCount: 1 }
+    { name: "logo_Historia", maxCount: 1 },
+    { name: "banner_Historia", maxCount: 1 },
+    { name: "personaje_Png", maxCount: 1 }
   ]),
   HistoriaController.createHistoria
 );

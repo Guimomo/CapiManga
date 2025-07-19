@@ -72,7 +72,7 @@
 }
 .BannerCont .seguirButton {
     position: absolute;
-    bottom: 30px;
+    bottom: 70px;
     right: 60px;
     background: var(--main_color);
     color: var(--second_color);
@@ -166,7 +166,7 @@
     margin-top: 10px;
 }
 
-@media (max-width: 900px) {
+/* @media (max-width: 900px) {
     .body_Perfil {
         padding: 10px 2vw;
     }
@@ -187,4 +187,4 @@
     .BiografiaCont, .HistoriasCont, .PublicacionesCont {
         padding: 0 10px;
     }
-}
+} */

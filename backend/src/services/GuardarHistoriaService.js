@@ -1,6 +1,15 @@
 import GuardarHistoria from "../models/GuardarHistoria.js";
 
 class GuardarHistoriaService {
+  static async getGuardadosByHistoriaId(id_Historia) {
+    try {
+      const instance = new GuardarHistoria();
+      const guardados = await instance.getByHistoriaId(id_Historia);
+      return { error: false, code: 200, message: "Guardados obtenidos correctamente", data: guardados };
+    } catch (error) {
+      return { error: true, code: 500, message: "Error al obtener los guardados por historia" };
+    }
+  }
   static async getGuardados() {
     try {
       const instance = new GuardarHistoria();

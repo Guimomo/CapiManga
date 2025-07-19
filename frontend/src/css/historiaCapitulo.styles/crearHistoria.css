@@ -1,0 +1,100 @@
+.overlay_crear_historia {
+
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 9999;
+    background-color: rgba(0, 0, 0, 0.547);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    animation: fadeInBackgroundOverlay 0.5s ease-in;
+}
+
+.contenedor_crear_historia {
+
+    width: 90%;
+    max-width: 800px;
+    height: 600px;
+    padding: 40px 20px;
+    background-color: var(--second_color);
+    border-radius: 40px;
+    overflow: hidden;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    animation: scaleInOverlayContainer 0.5s ease-in forwards;
+}
+
+.btn_cerrar_crear_historia {
+
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    background-color: transparent;
+    border: none;
+    font-size: 1.8rem;
+    color: var(--main_color);
+    cursor: pointer;
+}
+
+.crear_historia_mensaje {
+
+    color: var(--third_color);
+}
+
+.crear_historia_links_cont {
+
+    width: 100%;
+    height: 500px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+
+.crear_historia_link {
+
+    width: 350px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    /* color: var(--main_color); */
+    /* font-size: 1.2rem; */
+    gap: 10px;
+    border-radius: 40px;
+    padding: 20px;
+    transition: ease 0.3s;
+    text-align: center;
+
+}
+
+.crear_historia_link:hover {
+
+    scale: 1.05;
+}
+
+.CapiBoard_link {
+    background-color: var(--capiBoard_color);
+}
+
+.Original_link {
+    background-color: var(--original_color);
+}
+
+.crear_historia_link img {
+
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    /* border-radius: 10px; */
+}

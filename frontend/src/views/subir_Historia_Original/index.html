@@ -4,7 +4,7 @@
 
     <div class="form_cont_subir">
 
-        <h1><img src="/src/assets/img/page_elements/logo/CapiBoard_Icon.png" alt=""> Crear nueva historia en CapiBoard</h1>
+        <h1> <img src="/src/assets/img/page_elements/logo/Originals_Icon.png" alt=""> Crear nueva historia Original</h1>
         
         <!-- <form id="formCrearHistoria" enctype="multipart/form-data"> -->
         <form id="formCrearHistoria">
@@ -13,7 +13,7 @@
 
                 <div class="nombreHistoria_cont">
 
-                    <label for="titulo_Historia">Título de la historia </label>
+                    <label for="titulo_Historia">Título de la historia</label>
                     <input type="text" id="titulo_Historia" name="titulo_Historia" required maxlength="255">    
                     
                 </div>
@@ -71,6 +71,28 @@
 
                     <input type="file" id="icono_Historia" name="icono_Historia" accept="image/*" required>
                     <div class="preview_icono assets_preview"></div>
+                </div>
+
+                <div class="assetBanner assetsHistoria_item">
+                    <label for="banner_Historia" class="tituloAssets">Banner</label>
+
+                    <label for="banner_Historia" class="btnArchivo">
+                        <i class="ri-upload-line"></i>
+                    </label>
+
+                    <input type="file" id="banner_Historia" name="banner_Historia" accept="image/*" required>
+                    <div class="preview_banner assets_preview"></div>
+                </div>
+
+                <div class="assetPersonaje assetsHistoria_item">
+                    <label for="personaje_Png" class="tituloAssets">Personaje img</label>
+
+                    <label for="personaje_Png" class="btnArchivo">
+                        <i class="ri-upload-line"></i>
+                    </label>
+
+                    <input type="file" id="personaje_Png" name="personaje_Png" accept="image/*" required>
+                    <div class="preview_personaje assets_preview"></div>
                 </div>
 
             </div>

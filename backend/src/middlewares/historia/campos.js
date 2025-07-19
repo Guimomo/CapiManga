@@ -12,5 +12,5 @@ export const campos = [
   { name: "edad_Recomendada", required: true, type: "number" },
   { name: "visibilidad_Historia", required: true, enum: ["publica", "privada"] },
   { name: "tipo_Historia", required: true, type: "number" },
-  { name: "verificación_Historia", required: true, enum: ["original", "capiBoard"] }
+  { name: "verificación_Historia", required: true, enum: ["Original", "CapiBoard"] }
 ];

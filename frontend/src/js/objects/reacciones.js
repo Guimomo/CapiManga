@@ -55,15 +55,7 @@ export const enviarReacciones = async (tipo_objetivo, id_objetivo, contenedorDes
         buttonReaccion.append(iconoImg, reaccionNombre, countSpan);
 
         buttonReaccion.onclick = async () => {
-
-            // Log temporal para depuración
-            // console.log('Intentando guardar reacción:', {
-            //     tipo,
-            //     idUsuarioActual,
-            //     tipo_objetivo,
-            //     id_objetivo,
-            //     reaccionId
-            // });
+            
             // Validación de datos antes de enviar
 
             if (!tipo || !idUsuarioActual || !tipo_objetivo || !id_objetivo) {

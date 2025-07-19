@@ -53,9 +53,17 @@ export const listaDeCapitulos = async (capitulos, historiaId, localhost, contene
         argumentoCapitulo.textContent = capitulo.argumento_Capitulo;
         argumentoCapitulo.classList.add('argumento_Capitulo_MiHistoria');
 
+        const MeGustaCont = document.createElement('div');
+        MeGustaCont.classList.add('me_gusta_Capitulo_MiHistoria');
+
         const btnMeGusta = document.createElement('button');
         btnMeGusta.innerHTML = '<i class="ri-shining-line"></i>';
         btnMeGusta.classList.add('btn_me_gusta_capitulo');
+
+        const contadorMeGusta = document.createElement('span');
+        contadorMeGusta.classList.add('contador_me_gusta');
+
+        MeGustaCont.append(btnMeGusta, contadorMeGusta);
         
         // Consulta si el usuario ya dio "me gusta"
         let yaMeGusta = false;
@@ -75,6 +83,10 @@ export const listaDeCapitulos = async (capitulos, historiaId, localhost, contene
         } else {
             btnMeGusta.innerHTML = '<i class="ri-shining-line"></i>';
         }
+
+        const contadorRes = await fetch(`http://localhost:3000/api/me-gusta-capitulo/${capitulo.id}`);
+        const contadorData = await contadorRes.json();
+        contadorMeGusta.textContent = contadorData.data.length;
 
         btnMeGusta.onclick = async () => {
 
@@ -131,11 +143,15 @@ export const listaDeCapitulos = async (capitulos, historiaId, localhost, contene
 
         }
 
+        const configButton = document.createElement('button');
+        configButton.classList.add('config_button_capitulo');
+        configButton.innerHTML = '<i class="ri-settings-2-line"></i>';
+
         tituloArgumentoCont.append(tituloCapitulo, argumentoCapitulo);
 
         capituloLink.append(capituloNumeroCont, iconoCont, tituloArgumentoCont);
 
-        capituloCont.append(capituloLink, btnMeGusta);
+        capituloCont.append(capituloLink, MeGustaCont, configButton);
 
         listaDeCapitulos.appendChild(capituloCont);
 

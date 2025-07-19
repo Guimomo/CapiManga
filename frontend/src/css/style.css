@@ -20,3 +20,5 @@
 /*publicaciones*/ @import url('publicacion.styles/index.css');
 
 /*buscador*/ @import url('buscador.styles/buscador.css');
+
+/*reseña y calificacion*/ @import url('calificacion.styles/index.css'); 

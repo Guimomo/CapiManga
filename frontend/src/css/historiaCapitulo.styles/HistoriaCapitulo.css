@@ -5,6 +5,7 @@
 @import url('misHistorias.css');
 /*lista de capitulos*/ @import url('listaCapitulos.css');
 /*visualizador de capitulo*/ @import url('visualizarCapitulo.css');
+@import url('crearHistoria.css');
 
 .body_subir {
 

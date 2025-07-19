@@ -24,7 +24,7 @@ create table Usuario (
 
 select * from Capitulo;
 delete from Historia where id = 3;
-delete from Capitulo where id = 30;
+delete from Capitulo where id = 2;
 select * from Paginas_Capitulo;
 
 
@@ -154,6 +154,16 @@ create table calificacion_Historia (
     foreign key (id_Historia) references Historia(id) on delete cascade,
     foreign key (calificada_por) references Usuario(id)  on delete cascade
 );
+
+select * from Comentario;
+-- Cambiar contenido de Comentario a TEXT
+ALTER TABLE Comentario MODIFY COLUMN contenido TEXT NOT NULL;
+
+-- Cambiar publicacion_Text de publicacion a TEXT
+ALTER TABLE publicacion MODIFY COLUMN publicacion_Text TEXT NOT NULL;
+
+-- Cambiar reseña_Historia a resena_Historia y tipo TEXT
+ALTER TABLE calificacion_Historia CHANGE COLUMN reseña_Historia resena_Historia TEXT DEFAULT NULL;
 -- ___________________________________ Seccion social
 
 create table seguir_Usuario (
@@ -203,6 +213,8 @@ create table Comentario (
     foreign key (id_Usuario) references Usuario(id) on delete cascade
 );
 
+ALTER TABLE Comentario MODIFY COLUMN contenido TEXT NOT NULL;
+
 create table Reaccion (
     id int auto_increment primary key,
     id_Usuario int not null, -- Quién reaccionó
@@ -218,6 +230,9 @@ create table Reaccion (
     foreign key (id_Usuario) references Usuario(id) on delete cascade
 );
 
+select * from Reaccion;
+select * from publicacion;
+delete from Reaccion where id = 10;
 create table MeGusta_Capitulo (
     id_Capitulo int not null,
     id_Usuario int not null,
@@ -228,3 +243,37 @@ create table MeGusta_Capitulo (
     foreign key (id_Capitulo) references Capitulo(id) on delete cascade,
     foreign key (id_Usuario) references Usuario(id) on delete cascade
 );
+
+insert into Reaccion (id_Usuario, tipo_objetivo, id_objetivo,tipo_Reaccion) values (5,'comentario', 2, 'me_gusta');
+
+select * from MeGusta_Capitulo;
+
+-- Usuario
+ALTER TABLE Usuario MODIFY COLUMN fecha_Usuario timestamp default current_timestamp;
+
+-- Historia
+ALTER TABLE Historia MODIFY COLUMN fecha_Publicacion_Historia timestamp default current_timestamp;
+
+-- Estado_Serie
+ALTER TABLE Estado_Serie MODIFY COLUMN fecha_Estado timestamp default current_timestamp;
+
+-- guardar_Historia
+ALTER TABLE guardar_Historia MODIFY COLUMN fecha_Guardado timestamp default current_timestamp;
+
+-- publicacion
+ALTER TABLE publicacion MODIFY COLUMN publicacion_Fecha timestamp default current_timestamp;
+
+-- notificaciones
+ALTER TABLE notificaciones MODIFY COLUMN fecha_Notificacion timestamp default current_timestamp;
+
+-- Comentario
+ALTER TABLE Comentario MODIFY COLUMN fecha_Comentario timestamp default current_timestamp;
+
+-- Reaccion
+ALTER TABLE Reaccion MODIFY COLUMN fecha_Reaccion timestamp default current_timestamp;
+
+-- MeGusta_Capitulo
+ALTER TABLE MeGusta_Capitulo MODIFY COLUMN fecha_MeGusta timestamp default current_timestamp;
+
+-- seguir_Usuario
+ALTER TABLE seguir_Usuario MODIFY COLUMN seguimiento_fecha timestamp default current_timestamp;
