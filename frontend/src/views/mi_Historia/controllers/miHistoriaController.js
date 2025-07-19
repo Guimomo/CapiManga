@@ -1,3 +1,4 @@
+import Swal from "sweetalert2";
 import { getData } from "../../../helpers/auth"
 import { listaDeCapitulos } from "./listaDeCapitulos";
 
@@ -11,6 +12,35 @@ export const miHistoriaController = async () => {
     const hash = window.location.hash;
     const historiaId = hash.split('/')[1];
 
+    //Cargar datos de perfil
+    const ResponsePerfil = await fetch('http://localhost:3000/api/usuarios/perfil', {
+        headers: {
+            'Authorization': `Bearer ${accessToken}`
+        }
+    });
+
+    const { data: perfilData } = await ResponsePerfil.json();
+
+    const responceHistoria = await fetch(`http://localhost:3000/api/historias/${historiaId}`, {
+        headers: { 
+            Authorization: `Bearer ${accessToken}` 
+        }
+    });
+
+    const { data:historia } = await responceHistoria.json();
+
+    if (historia.autor_Historia !== perfilData.id) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'No tienes permiso para configurar la historia de otro usuario.',
+            confirmButtonText: 'Aceptar',
+        });
+        
+        window.location.hash = ''; // Redirige a inicio
+        return;
+    }
+
     const infoCont = document.querySelector('.miHistoria_infoCont');
     const portaHistoria = document.querySelector('.miHistoria_cover');
     const logoTitulo = document.querySelector('.miHistoria_logoTitulo');
@@ -18,13 +48,6 @@ export const miHistoriaController = async () => {
     const autorCont = document.querySelector('.miHistoria_autor');
     const tipoVerificacion = document.querySelector('.miHistoria_tipoVerificado');
     const argumento = document.querySelector('.miHistoria_argumento')
-
-    const responceHistoria = await fetch(`http://localhost:3000/api/historias/${historiaId}`, {
-        headers: { 
-            Authorization: `Bearer ${accessToken}` 
-        }
-    });
-    const { data:historia } = await responceHistoria.json();
 
     
     //cargar el tipo de historia, formato y su estado de verificación
@@ -123,15 +146,6 @@ export const miHistoriaController = async () => {
     generosCont.append(genero_historia, subgenero_historia);
 
     // Cargar autor con foto de perfil
-
-    //Cargar datos de perfil
-    const ResponsePerfil = await fetch('http://localhost:3000/api/usuarios/perfil', {
-        headers: {
-            'Authorization': `Bearer ${accessToken}`
-        }
-    });
-
-    const { data: perfilData } = await ResponsePerfil.json();
 
     const autorNombre = document.createElement('p');
     autorNombre.textContent = perfilData.nombre;

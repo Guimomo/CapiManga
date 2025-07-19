@@ -1,11 +1,16 @@
+import { getData } from "../../../helpers/auth";
 import { listaDeCapitulos } from "./listaDeCapitulos";
 
 export const historiaController = async () => {
+
+    const { accessToken } = getData();
+
     const backendUrl = 'http://localhost:3000';
     const iconoDefault = '../../assets/user.svg';
     // Obtener el id de la historia desde el hash
     const hash = window.location.hash;
     const historiaId = hash.split('/')[1];
+    const capituloId = hash.split('/')[2];
 
     const infoCont = document.querySelector('.historia_infoCont');
     const portaHistoria = document.querySelector('.historia_cover');
@@ -22,6 +27,7 @@ export const historiaController = async () => {
     //cargar el tipo de historia, formato y su estado de verificación
     const responceFormato = await fetch(`${backendUrl}/api/tipo-historia/${historia.tipo_Historia}`);
     const { data: Formato } = await responceFormato.json();
+
     const tipoYFormato = document.createElement('p');
     tipoYFormato.textContent = `${historia.formato_Publicacion} • ${Formato.nombre_tipo}`;
     tipoYFormato.classList.add('historia_tipoYFormato');
@@ -100,12 +106,25 @@ export const historiaController = async () => {
     generosCont.append(genero_historia, subgenero_historia);
 
     // Cargar autor con foto de perfil (público)
+
+    const ResponsePerfilAuth = await fetch('http://localhost:3000/api/usuarios/perfil', {
+        headers: {
+            'Authorization': `Bearer ${accessToken}`
+        }
+    });
+
+    const { data: perfilDataAuth } = await ResponsePerfilAuth.json();
+
+    const ResponsePerfil = await fetch(`http://localhost:3000/api/usuarios/${historia.autor_Historia}`);
+
+    const { data: perfilData } = await ResponsePerfil.json();
+
     const autorNombre = document.createElement('p');
-    autorNombre.textContent = historia.autor_nombre || '';
+    autorNombre.textContent = perfilData.nombre;
     autorNombre.classList.add('autor_Historia');
 
     const autorUsername = document.createElement('p');
-    autorUsername.textContent = historia.autor_username ? '@' + historia.autor_username : '';
+    autorUsername.textContent =  '@' + perfilData.user_Name;
 
     const nombresAutor = document.createElement('div');
     nombresAutor.classList.add('historia_autor_nombres');
@@ -115,7 +134,7 @@ export const historiaController = async () => {
     autorFoto.classList.add('historia_autor_foto');
 
     const fotoImg = document.createElement('img');
-    fotoImg.src = historia.autor_foto ? backendUrl + historia.autor_foto : iconoDefault;
+    fotoImg.src =  backendUrl + perfilData.foto_Perfil ? `${backendUrl}${perfilData.foto_Perfil}` : iconoDefault;
     autorFoto.appendChild(fotoImg);
 
     const autorLink = document.createElement('a');
@@ -128,10 +147,10 @@ export const historiaController = async () => {
     // Cargar argumento de la historia
     argumento.textContent = historia.argumento_Historia;
 
-    // cargar lista de capitulos
     const capitulosCont = document.querySelector('.historia_capitulos');
-    const ResponseCapitulos = await fetch(`${backendUrl}/api/capitulos/historia/${historiaId}`);
+
+    const ResponseCapitulos = await fetch(`http://localhost:3000/api/capitulos/historia/${historiaId}`);
     const { data: capitulos } = await ResponseCapitulos.json();
 
-    listaDeCapitulos(capitulos, backendUrl, capitulosCont);
+    listaDeCapitulos(capitulos, historiaId, backendUrl, capitulosCont, accessToken, perfilDataAuth);
 }

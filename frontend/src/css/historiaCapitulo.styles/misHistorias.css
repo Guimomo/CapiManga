@@ -1,4 +1,5 @@
-.body_MiHistoria {
+.body_MiHistoria,
+.body_Historia {
 
     display: grid;
     width: 100%;
@@ -18,7 +19,8 @@
     gap: 20px;
 }
 
-.body_MiHistoria .miHistoria_infoCont {
+.body_MiHistoria .miHistoria_infoCont,
+.body_Historia .historia_infoCont {
 
     grid-area: miHistoria_infoCont;
 
@@ -37,7 +39,8 @@
     background-size: contain;
 }
 
-.miHistoria_infoCont .miHistoria_cover {
+.miHistoria_infoCont .miHistoria_cover,
+.historia_infoCont .historia_cover {
 
     aspect-ratio: 1/1.5;
     height: 100%;
@@ -47,14 +50,16 @@
     overflow: hidden;
 }
 
-.miHistoria_infoCont .miHistoria_cover img {
+.miHistoria_infoCont .miHistoria_cover img,
+.historia_infoCont .historia_cover img {
 
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.miHistoria_infoCont .miHistoria_info {
+.miHistoria_infoCont .miHistoria_info, 
+.historia_infoCont .historia_info{
 
     flex: 1;
     height: 100%;
@@ -66,7 +71,8 @@
 }
 
 
-.miHistoria_info .miHistoria_logoTitulo {
+.miHistoria_info .miHistoria_logoTitulo,
+.historia_info .historia_logoTitulo {
 
     display: flex;
     flex-direction: column;
@@ -74,27 +80,31 @@
     gap: 10px;
 }
 
-.miHistoria_info .miHistoria_logo {
+.miHistoria_info .miHistoria_logo,
+.historia_info .historia_logo {
 
     width: 400px;
     height: 150px;
     overflow: hidden;
 }
 
-.miHistoria_info .miHistoria_titulo {
+.miHistoria_info .miHistoria_titulo,
+.historia_info .historia_titulo {
 
     padding-left: 10px;
     padding-bottom: 10px;
 }
 
-.miHistoria_info .miHistoria_logo img {
+.miHistoria_info .miHistoria_logo img,
+.historia_info .historia_logo img {
 
     width: 100%;
     height: 100%;
     object-fit: contain;
 }
 
-.miHistoria_info .miHistoria_generos {
+.miHistoria_info .miHistoria_generos,
+.historia_info .historia_generos  {
 
     display: flex;
     flex-wrap: wrap;
@@ -102,24 +112,29 @@
 }
 
 .miHistoria_info .miHistoria_generos .genero,
-.miHistoria_info .miHistoria_generos .subgenero {
+.miHistoria_info .miHistoria_generos .subgenero,
+.historia_info .historia_generos .genero,
+.historia_info .historia_generos .subgenero {
 
     /* background-color: var(--third_color); */
     padding: 5px 20px;
     border-radius: 20px;
 }
 
-.miHistoria_info .miHistoria_generos .subgenero {
+.miHistoria_info .miHistoria_generos .subgenero,
+.historia_info .historia_generos .subgenero {
 
     background-color: var(--third_color);
 }
 
-.miHistoria_info .miHistoria_generos p {
+.miHistoria_info .miHistoria_generos p,
+.historia_info .historia_generos p {
 
     text-wrap: nowrap;
 }
 
-.miHistoria_info .miHistoria_autor_foto {
+.miHistoria_info .miHistoria_autor_foto,
+.historia_info .historia_autor_foto {
 
     width: 50px;
     height: 50px;
@@ -128,7 +143,8 @@
     background-color: var(--third_color);
 }
 
-.miHistoria_info .autor_link_miHistoria {
+.miHistoria_info .autor_link_miHistoria,
+.historia_info .autor_link_historia {
 
     display: flex;
     align-items: center;
@@ -140,31 +156,36 @@
     text-decoration: none;
 }
 
-.miHistoria_info .autor_link_miHistoria p {
+.miHistoria_info .autor_link_miHistoria p,
+.historia_info .autor_link_historia p {
 
     color: var(--third_color);
 }
 
-.miHistoria_info .miHistoria_autor_foto img {
+.miHistoria_info .miHistoria_autor_foto img,
+.historia_info .historia_autor_foto img {
 
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.autor_link_miHistoria .miHistoria_autor_nombres {
+.autor_link_miHistoria .miHistoria_autor_nombres,
+.autor_link_historia .historia_autor_nombres {
 
     display: flex;
     flex-direction: column;
 }
 
-.miHistoria_autor_nombres .autor_MiHistoria {
+.miHistoria_autor_nombres .autor_MiHistoria,
+.historia_autor_nombres .autor_historia {
 
     font-weight: bold;
     color: var(--main_color);
 }
 
-.miHistoria_info .miHistoria_tipoVerificado {
+.miHistoria_info .miHistoria_tipoVerificado,
+.historia_info .historia_tipoVerificado {
 
     /* height: 150px; */
     overflow: hidden;
@@ -173,7 +194,8 @@
     align-items: center;
 }
 
-.miHistoria_tipoVerificado .miHistoria_tipoYFormato {
+.miHistoria_tipoVerificado .miHistoria_tipoYFormato,
+.historia_tipoVerificado .historia_tipoYFormato {
 
     background-color: var(--main_color);
     text-wrap: nowrap;
@@ -187,7 +209,8 @@
     justify-content: center;
 }
 
-.miHistoria_tipoVerificado .miHistoria_estadoVerificacion {
+.miHistoria_tipoVerificado .miHistoria_estadoVerificacion,
+.historia_tipoVerificado .historia_estadoVerificacion {
 
     background-color: var(--capiBoard_color);
     font-weight: bold;
@@ -202,18 +225,21 @@
     gap: 10px;
 }
 
-.miHistoria_tipoVerificado .miHistoria_estadoVerificacion img {
+.miHistoria_tipoVerificado .miHistoria_estadoVerificacion img,
+.historia_tipoVerificado .historia_estadoVerificacion img {
 
     height: 100%;
 }
 
-.body_MiHistoria .miHistoria_capitulos{
+.body_MiHistoria .miHistoria_capitulos,
+.body_historia .historia_capitulos {
 
     grid-area: miHistoria_capitulos;
 
 }
 
-.body_MiHistoria .miHistoria_argumento_elements{
+.body_MiHistoria .miHistoria_argumento_elements,
+.body_Historia .historia_argumento_elements{
 
     grid-area: miHistoria_argumento_elements;
     display: flex;
@@ -231,7 +257,8 @@
     color: var(--third_color);
 }
 
-.miHistoria_argumento_elements .miHistoria_argumento {
+.miHistoria_argumento_elements .miHistoria_argumento,
+.historia_argumento_elements .historia_argumento {
 
     padding: 20px;
     height: 400px;

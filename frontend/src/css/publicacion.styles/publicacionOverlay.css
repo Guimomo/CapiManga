@@ -1,5 +1,5 @@
 .overlay_publicacion {
-    position: absolute;
+    position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
     z-index: 9999;
     background-color: rgba(0, 0, 0, 0.547);
@@ -10,8 +10,12 @@
 }
 
 @keyframes fadeInBackgroundOverlay {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from { 
+        opacity: 0; 
+    }
+    to { 
+        opacity: 1; 
+    }
 }
 
 .overlay_publicacion .contenedor_publicacion_overlay {

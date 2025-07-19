@@ -1,10 +1,12 @@
-.misHistoriasCont .misHistorias {
+.misHistoriasCont .misHistorias,
+.HistoriasCont .Historias_usuario {
 
     display: flex;
     gap: 20px;
 }
 
-.misHistoriasCont .misHistorias .mi_historia_item {
+.misHistoriasCont .misHistorias .mi_historia_item,
+.HistoriasCont .historias_usuario .historia_item {
 
     width: 300px;
     height: 400px;
@@ -22,7 +24,8 @@
     transition: ease 0.3s;
 }
 
-.misHistoriasCont .misHistorias .mi_historia_item:hover {
+.misHistoriasCont .misHistorias .mi_historia_item:hover,
+.HistoriasCont .historias_usuario .historia_item:hover {
 
     transform: scale(1.05) rotateZ(-5deg);
     box-shadow: 0 0 10px black;
@@ -30,7 +33,8 @@
 
 }
 
-.misHistorias .mi_historia_item .mi_historia_icon {
+.misHistorias .mi_historia_item .mi_historia_icon,
+.HistoriasCont .historias_usuario .historia_icon {
 
     width: 270px;
     height: 270px;
@@ -39,7 +43,8 @@
     position: relative;
 }
 
-.misHistorias .mi_historia_icon .mi_historia_img_cont {
+.misHistorias .mi_historia_icon .mi_historia_img_cont,
+.HistoriasCont .historias_usuario .historia_img_cont {
 
     width: 100%;
     height: 100%;
@@ -47,7 +52,8 @@
     z-index: 1;
 }
 
-.misHistorias .mi_historia_icon .mi_historia_logo {
+.misHistorias .mi_historia_icon .mi_historia_logo,
+.historias_usuario .historia_icon .historia_logo {
 
     width: 250px;
     height: 100px;
@@ -60,7 +66,8 @@
     bottom: 10px;
 }
 
-.misHistoriasCont .misHistorias span {
+.misHistoriasCont .misHistorias span,
+.historias_usuario .historia_item span {
 
     color: var(--main_color);
     font-size: 1.5rem;
@@ -68,7 +75,8 @@
     transition: ease 0.3s;
 }
 
-.misHistoriasCont .misHistorias .mi_historia_item:hover span {
+.misHistoriasCont .misHistorias .mi_historia_item:hover span,
+.HistoriasCont .historias_usuario .historia_item:hover span {
 
 
     color: var(--second_color);

@@ -1,3 +1,5 @@
+import { historiasUsuario } from "./historias";
+
 export const perfilController = async () => {
     // Obtener id del usuario desde el hash
     const hash = window.location.hash;
@@ -12,12 +14,20 @@ export const perfilController = async () => {
     const { data: perfilData } = await resPerfil.json();
 
     // DATOS DEL PERFIL
-    document.querySelector('.nombre_perfil').textContent = perfilData.nombre;
-    document.querySelector('.user_Name').textContent = "@" + perfilData.user_Name;
-    document.querySelector('.biografia_texto').textContent = perfilData.biografia_Usuario;
+    
+    const fotoPerfil = document.querySelector('.fotoPerfil');
+    const banner = document.querySelector('.Banner');
+    const Nombre = document.querySelector('.nombre_perfil');
+    const UserName = document.querySelector('.user_Name');
+    const Biografia = document.querySelector('.biografia_texto');
+    const contenedorHistorias = document.querySelector('.historias_usuario');
+    
+    Nombre.textContent = perfilData.nombre;
+    UserName.textContent = "@" + perfilData.user_Name;
+    Biografia.textContent = perfilData.biografia_Usuario;
+    
 
     // Foto de perfil
-    const fotoPerfil = document.querySelector('.fotoPerfil');
     const imgPerfil = document.createElement('img');
     imgPerfil.alt = 'Foto de perfil';
     imgPerfil.classList.add('imgPerfil');
@@ -26,7 +36,6 @@ export const perfilController = async () => {
     fotoPerfil.appendChild(imgPerfil);
 
     // Banner
-    const banner = document.querySelector('.Banner');
     banner.innerHTML = '';
     const imgBanner = document.createElement('img');
     imgBanner.alt = 'Banner de perfil';
@@ -37,13 +46,6 @@ export const perfilController = async () => {
     // Cargar historias del usuario
     const resHistorias = await fetch(`${backendUrl}/api/historias/autor/${idUsuario}`);
     const { data: historias } = await resHistorias.json();
-    const contenedorHistorias = document.querySelector('.Historias');
-    contenedorHistorias.innerHTML = '';
-    historias.forEach(historia => {
-        const historiaItem = document.createElement("a");
-        historiaItem.classList.add("mi_historia_item");
-        historiaItem.textContent = historia.titulo_Historia;
-        historiaItem.href = `/#historia/${historia.id}`;
-        contenedorHistorias.appendChild(historiaItem);
-    });
+
+    historiasUsuario(historias, backendUrl, contenedorHistorias);
 };
