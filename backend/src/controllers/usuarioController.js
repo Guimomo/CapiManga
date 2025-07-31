@@ -27,6 +27,7 @@ export const getPerfil = async (req, res) => {
       rol_Usuario: usuario.rol_Usuario,
       fecha_Nacimiento: usuario.fecha_Nacimiento,
       email_Usuario: usuario.email_Usuario,
+      codigo_telefonico: usuario.codigo_telefonico,
       telefono: usuario.telefono,
       nombre: usuario.nombre,
       genero_Usuario: usuario.genero_Usuario,

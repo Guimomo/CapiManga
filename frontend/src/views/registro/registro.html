@@ -2,103 +2,124 @@
 
 <div class="body_content">
 
-  
-  <div class="formCont">
+  <a href="/" class="logo_link">
+    <div class="logo_content--img">
+      <img src="/src/assets/img/page_elements/logo/logo.png" alt="Logo Capi Manga" class="logo">
+    </div>
+    <span>
+      Volver al inicio
+    </span>
+  </a>
 
-    <h1>Registro</h1>
+  <div class="globoTexto_cont_reg">
+
+    <div class="globoTexto_rabillo_reg">
+
+      <img src="/src/assets/img/page_elements/log_elements/rabillo_T.png" alt="">
+
+    </div>
     
-    <form id="formRegistro">
+    <div class="formCont">
   
-      <label>Nombre
-        <input type="text" name="nombre" id="nombre" required minlength="2" maxlength="255">
-      </label>
-  
-      <label>Nombre de usuario
-        <input type="text" name="user_Name" id="user_Name" required minlength="4" maxlength="100">
-      </label>
-  
-      <label class="form_genero">Género:
-  
-        <select name="genero_Usuario" id="genero_Usuario" required>
-          <option value="" disabled selected> Selecciona...</option>
-          <option value="femenino">Femenino</option>
-          <option value="masculino">Masculino</option>
-          <option value="ninguno">Ninguno</option>
-          <option value="otro">Otro</option>
-        </select>
-  
-      </label>
-  
-      <label>Email
-        <input type="email" name="email_Usuario" id="email" required maxlength="200">
-      </label>
-  
-      <label>Teléfono (opcional)
-        
-        <div class="telefono_cont">
-
-          <select name="codigo_pais" id="codigo_pais">
-            <option value="" selected> País </option>
-          </select>
-          
-          <input type="tel" name="telefono" id="telefono" maxlength="100">
-        </div>
-
-      </label>
-  
-      <label>Fecha de nacimiento
-        <input type="date" name="fecha_Nacimiento" id="fecha_Nacimiento" required>
-      </label>
-  
-      <label>Contraseña
-  
-        <div class="password_cont">
-          <input type="password" name="contrasena" id="contrasena" required minlength="6" maxlength="255">
-          <label for="password" class="visualizar_contrasena">
-            <i class="ri-eye-fill visualizar"></i>
-            <i class="ri-eye-close-fill no_visualizar"></i>
-            <input type="checkbox" id="password" class="check_contrasena" >
-          </label>
-          
-        </div>
-      </label>
-        
-  
-      <label>Confirmar contraseña
-  
-        <div class="password_confirm_cont">
-          <input type="password" name="confirmar_contrasena" id="confirmar_contrasena" required minlength="6" maxlength="255">
-          <label for="confirmar_password" class="visualizar_contrasena">
-            <i class="ri-eye-fill visualizar"></i>
-            <i class="ri-eye-close-fill no_visualizar"></i>
-            <input type="checkbox" id="confirmar_password" class="check_contrasena">
-          </label>
-        </div>
-  
-      </label>
-
-      <label class="terminos">
-
-        <input type="checkbox" name="terminos" id="terminos" required>
-
-        <p>Acepto los <a href="">términos y condiciones</a> y 
-        la <a href="">política de privacidad</a>.</p>
-
-      </label>
-  
-      <button type="submit" class="btnRegistro" disabled>Registrarse</button>
+      <h1>Registro</h1>
       
-    </form>
-
-    <div class="form_links">
-
-      <p>¿Ya tienes cuenta? <a href="/#login">Inicia sesión</a></p>
-
-    <p><a href="/#">Volver al inicio</a></p>
+      <form id="formRegistro">
     
+        <label>Nombre
+          <input type="text" name="nombre" id="nombre" required minlength="2" maxlength="255">
+        </label>
+    
+        <label>Nombre de usuario
+          <input type="text" name="user_Name" id="user_Name" required minlength="4" maxlength="100">
+        </label>
+    
+        <label class="form_genero">Género:
+    
+          <select name="genero_Usuario" id="genero_Usuario" required>
+            <option value="" disabled selected> Selecciona...</option>
+            <option value="femenino">Femenino</option>
+            <option value="masculino">Masculino</option>
+            <option value="ninguno">Ninguno</option>
+            <option value="otro">Otro</option>
+          </select>
+    
+        </label>
+    
+        <label>Email
+          <input type="email" name="email_Usuario" id="email" required maxlength="200">
+        </label>
+    
+        <label>Teléfono (opcional)
+          
+          <div class="telefono_cont">
+  
+            <select name="codigo_pais" id="codigo_pais">
+              <option value="" selected> País </option>
+            </select>
+            
+            <input type="tel" name="telefono" id="telefono" maxlength="100">
+          </div>
+  
+        </label>
+    
+        <label>Fecha de nacimiento
+          <input type="date" name="fecha_Nacimiento" id="fecha_Nacimiento" required>
+        </label>
+    
+        <label>Contraseña
+    
+          <div class="password_cont">
+            <input type="password" name="contrasena" id="contrasena" required minlength="6" maxlength="255">
+            <label for="password" class="visualizar_contrasena">
+              <i class="ri-eye-fill visualizar"></i>
+              <i class="ri-eye-close-fill no_visualizar"></i>
+              <input type="checkbox" id="password" class="check_contrasena" >
+            </label>
+            
+          </div>
+        </label>
+          
+    
+        <label>Confirmar contraseña
+    
+          <div class="password_confirm_cont">
+            <input type="password" name="confirmar_contrasena" id="confirmar_contrasena" required minlength="6" maxlength="255">
+            <label for="confirmar_password" class="visualizar_contrasena">
+              <i class="ri-eye-fill visualizar"></i>
+              <i class="ri-eye-close-fill no_visualizar"></i>
+              <input type="checkbox" id="confirmar_password" class="check_contrasena">
+            </label>
+          </div>
+    
+        </label>
+  
+        <label class="terminos">
+  
+          <input type="checkbox" name="terminos" id="terminos" required>
+  
+          <p>Acepto los <a href="">términos y condiciones</a> y 
+          la <a href="">política de privacidad</a>.</p>
+  
+        </label>
+    
+        <button type="submit" class="btnRegistro" disabled>Registrarse</button>
+        
+      </form>
+  
+      <div class="form_links">
+  
+        <p>¿Ya tienes cuenta? <a href="/#login">Inicia sesión</a></p>
+  
+      <p><a href="/#">Volver al inicio</a></p>
+      
+      </div>
+  
     </div>
 
+    
   </div>
+  
+  <div class="degradado_derecho_log"></div>
 
 
 </div>

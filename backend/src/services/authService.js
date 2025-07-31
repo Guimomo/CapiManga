@@ -17,10 +17,11 @@ class AuthService {
    * @param {*} email_Usuario
    * @param {*} contrasena
    * @param {*} user_Name
+   * @param {*} codigo_telefonico
    * @param {*} telefono
    * @returns
    */
-  static async register(nombre, email_Usuario, contrasena, user_Name, telefono, fecha_Nacimiento, genero_Usuario) {
+  static async register(nombre, email_Usuario, contrasena, user_Name, codigo_telefonico, telefono, fecha_Nacimiento, genero_Usuario) {
     try {
       // Verificar si el usuario ya existe por email
       const userExists = await Usuario.findByEmail(email_Usuario);
@@ -37,6 +38,7 @@ class AuthService {
         nombre,
         user_Name,
         email_Usuario,
+        codigo_telefonico,
         telefono,
         contrasena: hashedPassword,
         fecha_Nacimiento,

@@ -123,10 +123,10 @@ export const registroCotroller = async () => {
             return;
         }
 
-        let telefonoCompleto = "";
-        if (telefono.value) {
-            telefonoCompleto = `${codigo_pais.value}${telefono.value}`;
-        }
+        // let telefonoCompleto = "";
+        // if (telefono.value) {
+        //     telefonoCompleto = `${codigo_pais.value}${telefono.value}`;
+        // }
 
         const data = {
 
@@ -134,7 +134,8 @@ export const registroCotroller = async () => {
             user_Name: user_Name.value,
             genero_Usuario: genero_Usuario.value,
             email_Usuario: email.value,
-            telefono: telefono.value ? telefonoCompleto : null,
+            codigo_telefonico: codigo_pais.value ? codigo_pais.value : null,
+            telefono: telefono.value ? telefono.value : null,
             fecha_Nacimiento: fecha_Nacimiento.value,
             contrasena: contrasena.value,
         }
@@ -161,22 +162,22 @@ export const registroCotroller = async () => {
                 icon: 'success',
                 confirmButtonText: 'Continuar'
             }).then(() => {
-                location.reload(); // Recargar la página
+                // location.reload(); // Recargar la página
+                window.location.href = "/#login";
             });
-
-            // setData(respuestaRegister.data); // No es necesario, línea comentada
         } else {
-            // Si hay errores detallados del backend, muéstralos
-            // let mensaje = respuestaRegister.message || 'Credenciales incorrectas';
-            // if (Array.isArray(respuestaRegister.errors) && respuestaRegister.errors.length > 0) {
-            //     mensaje += '\n\n' + respuestaRegister.errors.map(e => `- ${e.message || JSON.stringify(e)}`).join('\n');
-            // }
+            // Mostrar mensaje de error del backend si existe, si no mostrar el genérico
+            let mensaje = respuestaRegister.message || 'Error al crear el usuario';
+            if (Array.isArray(respuestaRegister.errors) && respuestaRegister.errors.length > 0) {
+                mensaje += '\n\n' + respuestaRegister.errors.map(e => `- ${e.message || JSON.stringify(e)}`).join('\n');
+            }
             Swal.fire({
                 title: 'Error',
-                text: mensaje || 'Credenciales incorrectas',
+                text: mensaje,
                 icon: 'error',
                 confirmButtonText: 'Intentar de nuevo'
             });
+            
         }
     
         form.reset(); // Limpiar el formulario

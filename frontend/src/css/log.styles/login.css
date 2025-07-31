@@ -1,7 +1,30 @@
-.formContLogin {
+.globoTexto_cont_login {
 
     width: 80%;
     max-width: 700px;
+    z-index: 4;
+    margin-top: 160px;
+    margin-bottom: 70px;
+    filter: drop-shadow(10px 10px 0 var(--main_color));
+    
+    animation: aparison 0.5s ease-in forwards;
+}
+
+.globoTexto_rabillo_login {
+    width: 100px;
+    height: 100px;
+    margin-left: 50px;
+}
+
+.globoTexto_rabillo_login img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.formContLogin {
+
+    width: 100%;
 
     /* height: auto; */
 
@@ -15,16 +38,11 @@
 
     align-items: center;
     justify-content: center;
-    z-index: 4;
 
     /* padding-top: 50px; */
 
-    margin-top: 70px;
-
     border-radius: 50px;
     overflow: hidden;
-
-    animation: aparison 0.5s ease-in forwards;
 }
 
 #formLogin {

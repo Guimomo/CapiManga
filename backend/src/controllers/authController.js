@@ -4,9 +4,9 @@ import fs from 'fs';
 import path from 'path';
 
 export const register = async (req, res) => {
-  const { nombre, email_Usuario, contrasena, user_Name, telefono, fecha_Nacimiento, genero_Usuario } = req.body;
+  const { nombre, email_Usuario, contrasena, user_Name, codigo_telefonico, telefono, fecha_Nacimiento, genero_Usuario } = req.body;
   try {
-    const response = await AuthService.register(nombre, email_Usuario, contrasena, user_Name, telefono, fecha_Nacimiento, genero_Usuario);
+    const response = await AuthService.register(nombre, email_Usuario, contrasena, user_Name, codigo_telefonico, telefono, fecha_Nacimiento, genero_Usuario);
     if (response.error) {
       ResponseProvider.error(
         res, 

@@ -1,14 +1,17 @@
 import { Autenticado, getData } from "./src/helpers/auth.js";
 import Header from "./src/js/dom/header.js";
 import { historiasUsuario } from "./src/js/dom/historiasUsuario.js";
-import { crearHistoriaOverlay } from "./src/js/objects/crearHistoria.js";
-import { publicacion } from "./src/js/objects/publicacion.js";
+import { gestionarHeader } from "./src/js/dom/sinHeader.js";
+import { crearHistoriaOverlay } from "./src/js/componentes/crearHistoria.js";
+// import { publicacion } from "./src/js/objects/publicacion.js";
 import { router } from "./src/router/router.js";
 
 const { accessToken, id } = getData();
 
 const app = document.querySelector('#app');
 
+// Ejecutar gestión del header antes de mostrarlo
+gestionarHeader();
 Header();
 
 const subir_crear = document.querySelector('.subir_crear');
@@ -59,12 +62,12 @@ subir_capitulo.addEventListener('click', async (e) => {
 // });
 
 window.addEventListener('hashchange', () => {
-
+    gestionarHeader();
     router(app);
     
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-    
+    gestionarHeader();
     router(app);
 });

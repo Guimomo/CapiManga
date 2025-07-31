@@ -1,6 +1,6 @@
 import { getData } from "../../../helpers/auth";
 import { listaDeCapitulos } from "./listaDeCapitulos";
-import { resena } from "../../../js/objects/resena";
+import { resena } from "../../../js/componentes/resena";
 
 export const historiaController = async () => {
 

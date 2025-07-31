@@ -27,10 +27,10 @@ export class Usuario {
     return rows[0];
   }
 
-  static async create({ nombre, user_Name, email_Usuario, contrasena, telefono = null, fecha_Nacimiento, genero_Usuario }) {
+  static async create({ nombre, user_Name, email_Usuario, contrasena, codigo_telefonico = null, telefono = null, fecha_Nacimiento, genero_Usuario }) {
     const [result] = await db.query(
-      `INSERT INTO Usuario (nombre, user_Name, email_Usuario, contrasena, telefono, fecha_Nacimiento, genero_Usuario) VALUES (?, ?, ?, ?, ?, ?, ?)`,
-      [nombre, user_Name, email_Usuario, contrasena, telefono, fecha_Nacimiento, genero_Usuario]
+      `INSERT INTO Usuario (nombre, user_Name, email_Usuario, contrasena, codigo_telefonico, telefono, fecha_Nacimiento, genero_Usuario) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+      [nombre, user_Name, email_Usuario, contrasena, codigo_telefonico, telefono, fecha_Nacimiento, genero_Usuario]
     );
     return { id: result.insertId };
   }

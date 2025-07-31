@@ -1,6 +1,6 @@
 import { getData } from "../../../helpers/auth";
-import { comentario } from "../../../js/objects/comentario";
-import { comentariosLista } from "../../../js/objects/comentariosLista";
+import { comentario } from "../../../js/componentes/comentario";
+import { comentariosLista } from "../../../js/componentes/comentariosLista";
 
 export const visualizarCapituloController = async () => {
 

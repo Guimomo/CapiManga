@@ -24,7 +24,7 @@ body {
     /* min-height: 100vh; */
 
     min-width: 320px;
-    max-width: 2600px;
+    max-width: 3500px;
 
     min-height: 100vh;
 
@@ -45,11 +45,23 @@ body {
     position: relative;
 }
 
+body:has(.oculto-header) {
+
+    grid-template-columns: 1fr;
+
+    grid-template-areas:
+    'app'
+    'footer'
+    ;
+
+}
+
 #app {
     
     grid-area: app;
     width: 100%;
     min-width: 320px;
+    min-height: 700px;
     overflow-x: hidden;
     margin: 0 auto;
 }

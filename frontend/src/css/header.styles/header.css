@@ -9,6 +9,11 @@ header {
     overflow-x: hidden;
 }
 
+header.oculto-header {
+
+    display: none;
+}
+
 /* Quitar el scrollbar de todos los navegadores */
 header {
     /* ...existing code... */
@@ -396,9 +401,19 @@ header:has(.perfil-checkbox:checked) .perfil_menu_log {
         height: 100px;
         width: 100%;
         min-width: 320px;
-        background-color: var(--third_color);
+        /* background-color: var(--third_color); */
+        background: linear-gradient(0deg,rgba(13, 13, 13, 1) 0%, rgba(13, 13, 13, 0.53) 40%, rgba(237, 221, 83, 0) 100%);
         border-radius: 50px 50px 0 0;
-        box-shadow: 0 -10px var(--main_color);
+        /* box-shadow: 0 -10px var(--main_color); */
+    }
+
+    header::before {
+        content: '';
+        position: absolute;
+        background-color: var(--main_color);
+        width: 100%;
+        height: 5px;
+        bottom: 0;
     }
 
     header .header-content {

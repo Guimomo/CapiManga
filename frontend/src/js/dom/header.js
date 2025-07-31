@@ -1,7 +1,7 @@
 import Swal from "sweetalert2";
 import { Autenticado, getData } from "../../helpers/auth";
 import { router } from "../../router/router";
-import { Buscador } from "../objects/buscador";
+import { Buscador } from "../componentes/buscador";
 
 const Header =()=> {
 

@@ -1,2 +1,145 @@
 @import url(login.css);
 @import url(registro.css);
+
+.body_content {
+
+    position: relative;
+    /* height: 1200px; */
+    width: 100%;
+    min-width: 320px;
+
+    height: 100%;
+    min-height: 100vh;
+    
+    background-image:
+    /* linear-gradient(360deg,rgba(13, 13, 13, 1) 0%, rgba(13, 13, 13, 0.53) 50%, rgba(237, 221, 83, 0) 100%), */
+    url("/src/assets/img/page_elements/log_elements/tramadoComic.png");
+    background-size: cover;
+    background-position: center;
+    /* background-size: auto 120%; */
+    background-repeat: no-repeat;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* animation: backgroundAparition 3s ease-in-out infinite; */
+}
+
+@keyframes backgroundAparition {
+    0% {
+        /* background-position-x: -10px; */
+        /* background-position-y: 0; */
+        background-size: cover 200%;
+    }
+    50% {
+        background-size: cover 100%;
+        /* background-position-y: 50px; */
+    }
+    100% {
+        background-size: cover 120%;
+    }
+}
+
+@keyframes aparison {
+    from {
+        transform: translateY(-120%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.body_content::before {
+
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 300px;
+    left: 0;
+    background: linear-gradient(90deg,rgba(13, 13, 13, 1) 0%, rgba(13, 13, 13, 0.53) 50%, rgba(237, 221, 83, 0) 100%);
+}
+
+.body_content::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 300px;
+    bottom: 0;
+    background: linear-gradient(0deg,rgba(13, 13, 13, 1) 0%, rgba(13, 13, 13, 0.53) 50%, rgba(237, 221, 83, 0) 100%);
+    z-index: 2;
+    
+}
+
+.degradado_derecho_log {
+
+    position: absolute;
+    width: 300px;
+    height: 100%;
+    right: 0;
+    background: linear-gradient(-90deg,rgba(13, 13, 13, 1) 0%, rgba(13, 13, 13, 0.53) 50%, rgba(237, 221, 83, 0) 100%);
+}
+
+.logo_link {
+
+    position: absolute;
+    top: 0;
+    left: 10%;
+    /* height: 300px; */
+    gap: 20px;
+    display: flex;
+    align-items: center;
+    color: var(--second_color);
+    z-index: 10;
+
+    animation: logoLogAparison 0.5s ease-in forwards;
+}
+
+@keyframes logoLogAparison {
+    from {
+        transform: translateX(-120%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.logo_link span {
+
+    width: 0;
+    overflow: hidden;
+    text-wrap: nowrap;
+    font-size: 1.2rem;
+
+    transition: ease 0.2s;
+}
+
+.logo_link:hover span {
+
+    width: 140px;
+}
+
+.logo_content--img {
+
+    height: 150px;
+    width: 100px;
+    /* padding: 10px 10px 30px 10px; */
+    padding-top: 15px;
+    /* background-color: var(--second_color); */
+    /* border-radius: 0 0 100px 100px; */
+    transition: ease 0.2s;
+}
+
+.logo_link:hover .logo_content--img {
+
+    transform: scale(1.1) rotateZ(-10deg);
+}
+
+.logo_content--img img {
+
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}

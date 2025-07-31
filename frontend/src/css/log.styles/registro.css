@@ -1,73 +1,35 @@
-.body_content {
+.globoTexto_cont_reg {
 
-    position: relative;
-    /* height: 1200px; */
-    width: 100%;
-    min-width: 320px;
-
-    height: 100%;
-    min-height: 100vh;
-    
-    background-image: url("/src/assets/img/page_elements/log_elements/tramadoComic.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
+    width: 80%;
+    max-width: 700px;
+    margin-top: 120px;
+    margin-bottom: 70px;
     display: flex;
-    justify-content: center;
-    /* align-items: center; */
-
-    animation: backgroundAparition 3s ease-in-out infinite;
+    flex-direction: column;
+    align-items: flex-end;
+    animation: aparison 0.5s ease-in forwards;
+    z-index: 4;
+    filter: drop-shadow(10px 10px 0 var(--main_color));
 }
 
-@keyframes backgroundAparition {
-    0% {
-        background-position-x: 0;
-        /* background-position-y: 0; */
-    }
-    50% {
-        background-position-x: -100px;
-        /* background-position-y: 50px; */
-    }
-    100% {
-        background-position-x: 0;
-    }
-}
+.globoTexto_rabillo_reg {
 
-@keyframes aparison {
-    from {
-        transform: translateY(-120%);
-    }
-    to {
-        transform: translateY(0);
-    }
-}
-
-.body_content::before {
-
-    content: "";
-    position: absolute;
-    height: 100%;
-    width: 200px;
-    left: 0;
-    background: linear-gradient(90deg,rgba(13, 13, 13, 1) 0%, rgba(13, 13, 13, 0.53) 50%, rgba(237, 221, 83, 0) 100%);
-}
-
-.body_content::after {
-    content: "";
-    position: absolute;
-    width: 100%;
+    width: 100px;
     height: 100px;
-    bottom: 0;
-    background: linear-gradient(0deg,rgba(13, 13, 13, 1) 0%, rgba(13, 13, 13, 0.53) 50%, rgba(237, 221, 83, 0) 100%);
-    z-index: 2;
-    
+    margin-right: 50px;
+}
+
+.globoTexto_rabillo_reg img {
+
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .formCont {
 
-    width: 80%;
-    max-width: 700px;
+    width: 100%;
+    height: fit-content;
 
     background-color: var(--second_color);
 
@@ -77,17 +39,11 @@
 
     align-items: center;
     justify-content: center;
-    z-index: 4;
 
     padding-top: 50px;
 
-    margin-top: 50px;
-    margin-bottom: 70px;
-
     border-radius: 50px;
     overflow: hidden;
-
-    animation: aparison 0.5s ease-in forwards;
 }
 
 .formCont h1 {
