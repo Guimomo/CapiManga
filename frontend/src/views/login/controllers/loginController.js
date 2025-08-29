@@ -1,6 +1,6 @@
 import Swal from 'sweetalert2';
 import { setData } from '../../../helpers/auth';
-import { bienvenidaPerfil } from '../../../js/dom/bienvenidaPerfil';
+import { bienvenidaPerfil } from '../../../js/componentes/bienvenidaPerfil.js';
 
 export const loginController = () => {
     const form = document.getElementById('formLogin');

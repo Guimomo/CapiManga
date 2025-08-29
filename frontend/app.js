@@ -1,10 +1,10 @@
 import { Autenticado, getData } from "./src/helpers/auth.js";
-import Header from "./src/js/dom/header.js";
-import { historiasUsuario } from "./src/js/dom/historiasUsuario.js";
-import { gestionarHeader } from "./src/js/dom/sinHeader.js";
+import { historiasUsuario } from "./src/js/componentes/historiasUsuario.js";
+import { gestionarHeader } from "./src/js/componentes/sinHeader.js";
 import { crearHistoriaOverlay } from "./src/js/componentes/crearHistoria.js";
 // import { publicacion } from "./src/js/objects/publicacion.js";
 import { router } from "./src/router/router.js";
+import Header from "./src/js/componentes/header.js";
 
 const { accessToken, id } = getData();
 

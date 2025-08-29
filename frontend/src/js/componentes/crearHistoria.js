@@ -78,6 +78,15 @@ export const crearHistoriaOverlay = async () => {
         overlay.remove();
     });
 
+    CapiBoardLink.addEventListener("click", (e) => {
+        overlay.remove();
+    });
+
+    OriginalLink.addEventListener("click", (e) => {
+
+        overlay.remove();
+    });
+
     overlay.addEventListener("click", (e) => {
         if (e.target === overlay) {
             overlay.remove();

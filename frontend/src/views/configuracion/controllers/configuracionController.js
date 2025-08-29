@@ -44,13 +44,13 @@ export const configuracionController = async (datos) => {
 
     // DATOS DEL PERFIL
     const form = document.getElementById('formDatosPerfil');
+    const nombre = document.getElementById('nombre');
     const user_Name = document.getElementById('user_Name');
     const biografia = document.getElementById('biografia_perfil');
     const fotoPerfil = document.getElementById('foto_perfil');
     const fotoBanner = document.getElementById('foto_banner');
 
-
-
+    nombre.value = perfilData.nombre;
     user_Name.value = perfilData.user_Name;
     biografia.value = perfilData.biografia_Usuario || '';
     // Cargar foto de perfil y banner
@@ -64,6 +64,7 @@ export const configuracionController = async (datos) => {
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
         const formData = new FormData();
+        formData.append('nombre', nombre.value);
         formData.append('user_Name', user_Name.value);
         formData.append('biografia_Usuario', biografia.value);
         if (fotoPerfil.files[0]) formData.append('foto_Perfil', fotoPerfil.files[0]);
@@ -90,7 +91,6 @@ export const configuracionController = async (datos) => {
 
     // DATOS PERSONALES
     const formDatosUsuario = document.getElementById('formDatosUsuario');
-    const nombre = document.getElementById('nombre');
     const genero_Usuario = document.getElementById('genero_Usuario');
     const fecha_Nacimiento = document.getElementById('fecha_nacimiento');
     const email = document.getElementById('email_Usuario');
@@ -108,7 +108,6 @@ export const configuracionController = async (datos) => {
 
 
     //Cargar Datos personales
-    nombre.value = perfilData.nombre;
     genero_Usuario.value = perfilData.genero_Usuario;
     fecha_Nacimiento.value = perfilData.fecha_Nacimiento ? new Date(perfilData.fecha_Nacimiento).toISOString().split('T')[0] : '';
     email.value = perfilData.email_Usuario;

@@ -8,6 +8,8 @@ export const miPerfilController = async () => {
 
     opcionesPerfilController();
 
+    console.log("Token:", accessToken);
+
     //Cargar datos de perfil y obtener el id del usuario logueado
     const ResponsePerfil = await fetch('http://localhost:3000/api/usuarios/perfil', {
         headers: {

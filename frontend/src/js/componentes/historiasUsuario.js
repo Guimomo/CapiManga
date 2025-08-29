@@ -1,3 +1,5 @@
+import { crearHistoriaOverlay } from "./crearHistoria";
+
 export const historiasUsuario = (localhost, historias) => {
 
     const overlay = document.createElement("div");
@@ -30,7 +32,9 @@ export const historiasUsuario = (localhost, historias) => {
         btnCrear.classList.add("btn_crear_historia_overlay");
         btnCrear.textContent = "Crea una nueva Historia";
         btnCrear.onclick = () => {
-            window.location.hash = "crear_historia";
+            // window.location.hash = "crear_historia";
+            // overlay.remove();
+            crearHistoriaOverlay();
             overlay.remove();
         };
         mensaje.appendChild(btnCrear);

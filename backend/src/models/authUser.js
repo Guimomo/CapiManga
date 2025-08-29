@@ -42,16 +42,16 @@ export class Usuario {
     ]);
   }
 
-  static async updatePerfil(id, { user_Name, biografia_Usuario, foto_Perfil, banner_Perfil }) {
+  static async updatePerfil(id, { nombre, user_Name, biografia_Usuario, foto_Perfil, banner_Perfil, color_Usuario }) {
     await db.query(
-      `UPDATE Usuario SET user_Name = ?, biografia_Usuario = ?, foto_Perfil = ?, banner_Perfil = ? WHERE id = ?`,
-      [user_Name, biografia_Usuario, foto_Perfil, banner_Perfil, id]
+      `UPDATE Usuario SET nombre = ?, user_Name = ?, biografia_Usuario = ?, foto_Perfil = ?, banner_Perfil = ?, color_Usuario = ? WHERE id = ?`,
+      [nombre, user_Name, biografia_Usuario, foto_Perfil, banner_Perfil, color_Usuario, id]
     );
   }
 
-  static async updateDatosPersonales(id, { nombre, genero_Usuario, fecha_Nacimiento, email_Usuario, telefono, contrasena }) {
-    let query = `UPDATE Usuario SET nombre = ?, genero_Usuario = ?, fecha_Nacimiento = ?, email_Usuario = ?, telefono = ?`;
-    const params = [nombre, genero_Usuario, fecha_Nacimiento, email_Usuario, telefono];
+  static async updateDatosPersonales(id, {genero_Usuario, fecha_Nacimiento, email_Usuario, telefono, contrasena }) {
+    let query = `UPDATE Usuario SET genero_Usuario = ?, fecha_Nacimiento = ?, email_Usuario = ?, telefono = ?`;
+    const params = [genero_Usuario, fecha_Nacimiento, email_Usuario, telefono];
     if (contrasena) {
       query += `, contrasena = ?`;
       params.push(contrasena);
