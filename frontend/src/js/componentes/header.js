@@ -302,6 +302,8 @@ const Header =()=> {
 
             iconoPerfil.setAttribute("src", perfilData.foto_Perfil ? `http://localhost:3000${perfilData.foto_Perfil}` : "src/assets/icon/user.svg");
 
+            iconoPerfilCont.style.backgroundColor = perfilData.color_Usuario ? perfilData.color_Usuario : 'var(--main_color)';
+            
             cerrarSesion.addEventListener("click", () => {
                 // Aquí puedes agregar la lógica para cerrar sesión
                 localStorage.removeItem("accessToken");

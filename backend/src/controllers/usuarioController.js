@@ -46,7 +46,17 @@ class UsuarioController {
 
     static updatePerfil = async (req, res) => {
         const id = req.user.id;
-        const campos = req.body;
+        // Copiamos los campos del body
+        const campos = { ...req.body };
+        // Procesamos las imágenes subidas por multer
+        if (req.files) {
+            if (req.files.foto_Perfil && req.files.foto_Perfil[0]) {
+                campos.foto_Perfil = `/uploads/${id}/${req.files.foto_Perfil[0].filename}`;
+            }
+            if (req.files.banner_Perfil && req.files.banner_Perfil[0]) {
+                campos.banner_Perfil = `/uploads/${id}/${req.files.banner_Perfil[0].filename}`;
+            }
+        }
         try {
             const response = await UsuarioService.updateUsuario(id, campos);
             if (response.error) {

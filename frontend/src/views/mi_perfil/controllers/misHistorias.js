@@ -1,4 +1,18 @@
-export const misHistorias = (historias, localhost, listaHistorias) => {
+import { crearHistoriaOverlay } from "../../../js/componentes/crearHistoria";
+
+export const misHistorias = (historias, localhost, listaHistorias, colorUsuario) => {
+
+    if (!historias || historias.length === 0) {
+
+        const mensaje = document.createElement("p");
+        mensaje.textContent = "No tienes historias creadas.";
+        listaHistorias.appendChild(mensaje);
+
+        const botonCrear = document.createElement("button");
+        botonCrear.textContent = "Crear historia";
+        botonCrear.onclick = crearHistoriaOverlay;
+        listaHistorias.appendChild(botonCrear);
+    }
 
     historias.forEach(historia => {
 
@@ -7,6 +21,14 @@ export const misHistorias = (historias, localhost, listaHistorias) => {
 
         const historiaNombre = document.createElement("span");
         historiaNombre.textContent = historia.titulo_Historia;
+
+        historiaNombre.addEventListener("mouseenter", () => {
+            historiaNombre.style.color = colorUsuario ? colorUsuario : 'var(--main_color)';
+        });
+        
+        historiaNombre.addEventListener("mouseleave", () => {
+            historiaNombre.style.color = '';
+        });
 
         const historiaIcon = document.createElement("div");
         historiaIcon.classList.add("mi_historia_icon");

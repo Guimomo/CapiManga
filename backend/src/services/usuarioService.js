@@ -1,7 +1,7 @@
 import { Usuario } from "../models/authUser.js";
 
 class UsuarioService {
-    static async getUsuarios() {
+    static async getAllUsuarios() {
         try {
             const usuarios = await Usuario.findAll();
             

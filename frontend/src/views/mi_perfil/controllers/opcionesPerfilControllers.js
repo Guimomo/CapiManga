@@ -1,4 +1,4 @@
-export const opcionesPerfilController = () => {
+export const opcionesPerfilController = (colorUsuario = null) => {
 
     const opcionesPerfil = document.querySelector(".opcionesMiPerfil");
 
@@ -32,6 +32,19 @@ export const opcionesPerfilController = () => {
     const configIcon = document.createElement("i");
     configIcon.classList.add("ri-settings-3-line", "menu-icon");
     verConfiguracion.append(configIcon, " Configuración de cuenta");
+
+    const menuItems = [verNotificaciones, verHistoriasGuardadas, verActividad, verConfiguracion];
+
+    menuItems.forEach(item => {
+
+        item.addEventListener("mouseenter", () => {
+            item.style.color = colorUsuario ? colorUsuario : 'var(--main_color)';
+        });
+        item.addEventListener("mouseleave", () => {
+            item.style.color = '';
+        });
+    });
+
 
     // Agregar las opciones al menú de perfil
     opcionesPerfil.append(verNotificaciones, verHistoriasGuardadas, verActividad, verConfiguracion);

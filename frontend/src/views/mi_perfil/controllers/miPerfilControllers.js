@@ -6,10 +6,9 @@ export const miPerfilController = async () => {
 
     let { accessToken } = getData();
 
-    opcionesPerfilController();
-
+    
     console.log("Token:", accessToken);
-
+    
     //Cargar datos de perfil y obtener el id del usuario logueado
     const ResponsePerfil = await fetch('http://localhost:3000/api/usuarios/perfil', {
         headers: {
@@ -17,9 +16,12 @@ export const miPerfilController = async () => {
         }
     });
     const { data: perfilData } = await ResponsePerfil.json();
-    const idUsuarioLogueado = perfilData.id; // Aquí tienes el id del usuario logueado
+    // const idUsuarioLogueado = perfilData.id; // Aquí tienes el id del usuario logueado
     // Puedes usar idUsuarioLogueado donde lo necesites, por ejemplo:
     // enviarReacciones('comentario', comentario.id, reaccionesContenedor, idUsuarioLogueado);
+    
+    // Opciones del perfil
+    opcionesPerfilController(perfilData.color_Usuario);
 
     // DATOS DEL PERFIL
     const fotoMiPerfil = document.querySelector('.fotoMiPerfil');
@@ -35,7 +37,7 @@ export const miPerfilController = async () => {
 
     // Ruta del icono por defecto
     const iconoDefault = '/src/assets/icon/user.svg';
-    // const bannerDefault = '../../assets/banner_default.svg'; // Cambia si tienes un banner por defecto
+    const bannerDefault = '/src/assets/img/page_elements/perfil_elements/banner.png';
     const backendUrl = 'http://localhost:3000';
 
     // Foto de perfil
@@ -46,12 +48,29 @@ export const miPerfilController = async () => {
     fotoMiPerfil.innerHTML = '';
     fotoMiPerfil.appendChild(imgPerfil);
 
+    //contenedor foto de perfil
+    const imgPerfilCont = document.querySelector('.fotoMiPerfil');
+    imgPerfilCont.style.backgroundColor = perfilData.color_Usuario ? perfilData.color_Usuario : 'var(--main_color)';
+
+    //nombre y textos de perfil
+    const nombrePerfil = document.querySelector('.nombre_perfil');
+    nombrePerfil.style.color = perfilData.color_Usuario ? perfilData.color_Usuario : 'var(--text_color)';
+
+    const bio_Titulo = document.querySelector('.biografia_titulo');
+    bio_Titulo.style.color = perfilData.color_Usuario ? perfilData.color_Usuario : 'var(--text_color)';
+
+    const historias_Titulo = document.querySelector('.misHistorias_titulo');
+    historias_Titulo.style.color = perfilData.color_Usuario ? perfilData.color_Usuario : 'var(--text_color)';
+
+    const opcionesPerfil_Titulo = document.querySelector('.opcionesPerfil_titulo');
+    opcionesPerfil_Titulo.style.color = perfilData.color_Usuario ? perfilData.color_Usuario : 'var(--text_color)';
+
     // Banner
     miBanner.innerHTML = '';
     const imgBanner = document.createElement('img');
     imgBanner.alt = 'Banner de perfil';
     imgBanner.classList.add('imgBanner');
-    imgBanner.src = perfilData.banner_Perfil ? `${backendUrl}${perfilData.banner_Perfil}` : null
+    imgBanner.src = perfilData.banner_Perfil ? `${backendUrl}${perfilData.banner_Perfil}` : bannerDefault;
     miBanner.appendChild(imgBanner);
 
     // MIS HISTORIAS
@@ -64,6 +83,6 @@ export const miPerfilController = async () => {
 
     const { data: historias } = await responseHistorias.json();
 
-    misHistorias( historias, backendUrl, contenedorHistorias);
+    misHistorias( historias, backendUrl, contenedorHistorias, perfilData.color_Usuario);
 
 }

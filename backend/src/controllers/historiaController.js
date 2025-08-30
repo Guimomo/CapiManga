@@ -33,7 +33,7 @@ class HistoriaController {
 
   // Crear una nueva historia
   static createHistoria = async (req, res) => {
-    // Guardar rutas de imágenes subidas en el body
+    // Guardar rutas de imágenes subidas en el body (temporal)
     if (req.files && req.files.portada_Historia) {
       req.body.portada_Historia = '/' + req.files.portada_Historia[0].path.replace(/\\/g, '/');
     }
@@ -56,6 +56,23 @@ class HistoriaController {
       if (response.error) {
         return ResponseProvider.error(res, response.message, response.code);
       } else {
+        // Renombrar carpeta temporal a definitiva con el id de la historia
+        const fs = await import('fs/promises');
+        const path = await import('path');
+        const userId = req.user.id;
+        const historiaId = response.data.id;
+        const tempFolder = req.tempFolder;
+        if (tempFolder) {
+          const tempDir = path.join('uploads', String(userId), tempFolder);
+          const finalDir = path.join('uploads', String(userId), String(historiaId));
+          try {
+            await fs.rename(tempDir, finalDir);
+            // Actualizar rutas en la base de datos (opcional, si las guardas)
+            // Por ejemplo, puedes actualizar las rutas en response.data y hacer un update
+          } catch (err) {
+            console.error('Error al renombrar la carpeta:', err);
+          }
+        }
         return ResponseProvider.success(res, response.data, response.message, response.code);
       }
     } catch (error) {
